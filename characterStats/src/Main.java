@@ -73,7 +73,7 @@ public class Main
         }
         System.out.println("\n");
 
-        // this while loop checks if player2has enough xp to go to the next level by checking if their current xp
+        // this while loop checks if player2 has enough xp to go to the next level by checking if their current xp
         // if equal to or greater than 2 to the power of the player's current level, 2^currentLevel
         while(player2.xp >= Math.pow(2, player2.level))
         {

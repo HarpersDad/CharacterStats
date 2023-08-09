@@ -68,24 +68,26 @@ public class Player
         }
 
         // adds stats to the player based on the sex chosen
-        switch (sex){
-            case("male"):
-                this.hp+=3;
-                this.str+=2;
-                this.def+=2;
-                this.con+=2;
-                this.wis+=1;
-                this.spd+=1;
-                this.lck+=1;
+        switch (sex) {
+            case "male" -> {
+                this.hp += 3;
+                this.str += 2;
+                this.def += 2;
+                this.con += 2;
+                this.wis += 1;
+                this.spd += 1;
+                this.lck += 1;
+            }
 
-            case("female"):
-                this.hp+=2;
-                this.str+=1;
-                this.def+=1;
-                this.con+=1;
-                this.wis+=2;
-                this.spd+=2;
-                this.lck+=2;
+            case "female" -> {
+                this.hp += 2;
+                this.str += 1;
+                this.def += 1;
+                this.con += 1;
+                this.wis += 2;
+                this.spd += 2;
+                this.lck += 2;
+            }
         }
     }
 
@@ -102,45 +104,46 @@ public class Player
             this.level++;
 
             // increases stats based on job chosen
-            switch (this.job){
-                case("ranger"):
-                    this.hp+= (this.hp % this.level) + 3;
-                    this.str+=2;
-                    this.def+=2;
-                    this.con+=1;
-                    this.wis+=3;
-                    this.spd+=3;
-                    this.lck+=1;
-                    break;
+            switch (this.job) {
+                case "ranger" -> {
+                    this.hp += (this.hp % this.level) + 3;
+                    this.str += 2;
+                    this.def += 2;
+                    this.con += 1;
+                    this.wis += 3;
+                    this.spd += 3;
+                    this.lck += 1;
+                }
 
-                case("fighter"):
-                    this.hp+= (this.hp % this.level) + 4;
-                    this.str+=3;
-                    this.def+=3;
-                    this.con+=2;
-                    this.wis+=1;
-                    this.spd+=2;
-                    this.lck+=1;
-                    break;
+                case "fighter" -> {
+                    this.hp += (this.hp % this.level) + 4;
+                    this.str += 3;
+                    this.def += 3;
+                    this.con += 2;
+                    this.wis += 1;
+                    this.spd += 2;
+                    this.lck += 1;
+                }
 
-                case("mage"):
-                    this.hp+= (this.hp % this.level) + 1;
-                    this.str+=1;
-                    this.def+=2;
-                    this.con+=3;
-                    this.wis+=3;
-                    this.spd+=2;
-                    this.lck+=1;
-                    break;
+                case "mage" -> {
+                    this.hp += (this.hp % this.level) + 1;
+                    this.str += 1;
+                    this.def += 2;
+                    this.con += 3;
+                    this.wis += 3;
+                    this.spd += 2;
+                    this.lck += 1;
+                }
 
-                case("thief"):this.hp+= (this.hp % this.level) + 2;
-                    this.str+=1;
-                    this.def+=1;
-                    this.con+=3;
-                    this.wis+=2;
-                    this.spd+=3;
-                    this.lck+=2;
-                    break;
+                case "thief" -> {
+                    this.hp += (this.hp % this.level) + 2;
+                    this.str += 1;
+                    this.def += 1;
+                    this.con += 3;
+                    this.wis += 2;
+                    this.spd += 3;
+                    this.lck += 2;
+                }
             }
 
             // print message that tells the user that the player has leveled up and the player's current level
