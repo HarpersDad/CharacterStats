@@ -1,5 +1,7 @@
+// Enemy Class
 public class Enemy
 {
+    // Sets up the enemy stats by initializing the fields we want the enemies to have
     String name;
     String type;
     int hp;
@@ -10,10 +12,13 @@ public class Enemy
     int spd;
     int lck;
 
+    // Enemy constructor
     Enemy(String name, String type)
     {
+        // sets the enemies name bases on what is passed to the method
         this.name = name;
 
+        // sets stats based on what type is passed into the method
         switch (type) {
             case ("flyer") -> {
                 this.hp = 5;

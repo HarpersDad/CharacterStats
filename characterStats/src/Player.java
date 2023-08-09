@@ -1,8 +1,8 @@
-import java.sql.SQLOutput;
-import java.math.*;
-
+// Player Class
 public class Player
 {
+
+    // sets up the player stats by initializing each field that we want them to have
     String name;
     String job;
     String sex;
@@ -17,14 +17,17 @@ public class Player
     double xp;
     int xpToLevel = 2;
 
+    // Player constructor
     Player(String name, String job, String sex)
     {
+        // creates the player by using the passed information
         this.name = name;
         this.job = job;
         this.sex = sex;
         this.level = 1;
         this.xp = 0;
 
+        // adds stats to the player based on the job chosen
         switch (job) {
             case "ranger" -> {
                 this.hp = 10;
@@ -64,6 +67,7 @@ public class Player
             }
         }
 
+        // adds stats to the player based on the sex chosen
         switch (sex){
             case("male"):
                 this.hp+=3;
@@ -85,13 +89,19 @@ public class Player
         }
     }
 
+    // method that levels the player up
     void checkLevelUp()
     {
+        // if statement to check if the xp threshold has been reached for the next level
         if (this.xp >= Math.pow(xpToLevel, this.level))
         {
+            // sets the remaining xp as current xp
             this.xp = this.xp - Math.pow(xpToLevel, this.level);
+
+            // adds a level to the player level
             this.level++;
 
+            // increases stats based on job chosen
             switch (this.job){
                 case("ranger"):
                     this.hp+= (this.hp % this.level) + 3;
@@ -133,6 +143,7 @@ public class Player
                     break;
             }
 
+            // print message that tells the user that the player has leveled up and the player's current level
             System.out.println(this.name + " Leveled Up!");
             System.out.println(this.name + " is now level " + this.level);
         }
