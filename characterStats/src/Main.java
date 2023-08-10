@@ -5,20 +5,39 @@ public class Main
     // prints the player's inventory
     public static void printPlayerInventory(Player player)
     {
-        System.out.println("\n" + player.name + "'s Inventory");
+        System.out.print("\n" + player.name + "'s Inventory");
 
         for (int i = 0; i < 25; i++)
         {
-            if (player.items[i] != null)
+            if (player.inventory[i] != null)
             {
-                System.out.println("Slot " + (i+1) + ": " + player.items[i].name);
+                System.out.print("\nSlot " + (i+1) + ": " + player.inventory[i].name);
             }
             else
             {
-                System.out.printf("\nNo item in Slot %d", i + 1);
+                System.out.printf("\nNo item in Slot %d", (i + 1));
             }
         }
-        System.out.println("\n");
+        System.out.println();
+    }
+
+    public static void printPlayerEquipment(Player player)
+    {
+        System.out.print("\n" + player.name + "'s Equipment");
+
+        for (int i = 0; i < 10; i++)
+        {
+            System.out.println();
+            if (player.equipment[i] != null)
+            {
+                System.out.print(player.equipment[i].equipType + ": " + player.equipment[i].name);
+            }
+            else
+            {
+                System.out.printf("No item equipped in Slot %d", (i + 1));
+            }
+        }
+        System.out.println();
     }
 
     // prints the player stats
@@ -59,24 +78,41 @@ public class Main
         Player player1 = new Player("Dude", "fighter", "male");
         Player player2 = new Player("Ma'am", "thief", "female");
 
-        // create and add items to inventory
-        Items p1Item1 = new Items("signet ring", true, 25, "a worn signet ring", "ring");
-        Items p1Item2 = new Items("tonic", false, 5, "a healing tonic", "item");
-        Items p1Item3 = new Items("tent", false, 50, "a camping tent", "item");
-        Items p1Item4 = new Items("gloves", true, 15, "a fighter's gloves", "hands");
-        player1.items[0] = p1Item1;
-        player1.items[1] = p1Item2;
-        player1.items[2] = p1Item3;
-        player1.items[3] = p1Item4;
+        // create and add items to inventory and equipment arrays for player1
+        Items p1Item1 = new Items("signet ring", true, 25,"wis", 2,  "a worn signet ring", "ring");
+        Items p1Item2 = new Items("tonic", false, 5, "no buff", 0, "a healing tonic", "item");
+        Items p1Item3 = new Items("tent", false, 50, "no buff", 0, "a camping tent", "item");
+        Items p1Item4 = new Items("gloves", true, 15, "spd", 2, "a fighter's gloves", "hands");
 
-        Items p2Item1 = new Items("gold necklace", true, 30, "a gold necklace", "accessory");
-        Items p2Item2 = new Items("tonic", false, 5, "a healing tonic", "item");
-        Items p2Item3 = new Items("bronze dagger", true, 60, "a bronze dagger", "main weapon");
-        Items p2Item4 = new Items("tent", true, 50, "a camping tent", "item");
-        player2.items[0] = p2Item1;
-        player2.items[1] = p2Item2;
-        player2.items[2] = p2Item3;
-        player2.items[3] = p2Item4;
+        // add to inventory array
+        player1.inventory[0] = p1Item2;
+        player1.inventory[1] = p1Item3;
+
+        // add to equipment array
+        player1.equipment[6] = p1Item1;
+        player1.equipment[5] = p1Item4;
+
+        // add to equip slots
+        player1.ring = p1Item1;
+        player1.hands = p1Item4;
+
+        // create and add items to inventory and equipment arrays for player2
+        Items p2Item1 = new Items("gold necklace", true, 30, "lck", 2, "a gold necklace", "neck");
+        Items p2Item2 = new Items("tonic", false, 5, "no buff", 0 , "a healing tonic", "item");
+        Items p2Item3 = new Items("bronze dagger", true, 60, "str", 1, "a bronze dagger", "mainWeapon");
+        Items p2Item4 = new Items("tent", true, 50, "no buff", 0, "a camping tent", "item");
+
+        // add to inventory array
+        player2.inventory[0] = p2Item2;
+        player2.inventory[1] = p2Item4;
+
+        // add to equipment array
+        player2.equipment[0] = p2Item3;
+        player2.equipment[3] = p2Item1;
+
+        // add to equip slots
+        player2.mainWeapon = p2Item3;
+        player2.neck = p2Item1;
 
         // uses the Enemy class to create new enemies with the given name and type
         Enemy enemy1 = new Enemy("Bird", "flyer");
@@ -121,11 +157,26 @@ public class Main
 
         // reprinting the player stats to see how they have changed due to leveling up
         printPlayerStats(player1);
+        System.out.println("\n");
         printPlayerStats(player2);
 
         System.out.println("\n");
 
-        printPlayerInventory(player1);
-        printPlayerInventory(player2);
+        // prints inventory and equipment
+        //printPlayerInventory(player1);
+        //printPlayerInventory(player2);
+
+        //printPlayerEquipment(player1);
+        //printPlayerEquipment(player2);
+
+        // "Equips" gear and adds stat buffs
+        player1.itemEquipped();
+        player2.itemEquipped();
+
+        System.out.println("\n");
+
+        printPlayerStats(player1);
+        System.out.println("\n");
+        printPlayerStats(player2);
     }
 }
