@@ -82,7 +82,7 @@ public class Main
         Player player2 = new Player("Ma'am", "thief", "female");
 
         // create and add items to inventory and equipment arrays for player1
-        Items p1Item1 = new Items("signet ring", true, 25,"wis", 2,  "a worn signet ring", "ring");
+        Items p1Item1 = new Items("signet ring", true, 25, "wis", 2,  "a worn signet ring", "ring");
         Items p1Item2 = new Items("tonic", false, 5, "no buff", 0, "a healing tonic", "item");
         Items p1Item3 = new Items("tent", false, 50, "no buff", 0, "a camping tent", "item");
         Items p1Item4 = new Items("gloves", true, 15, "spd", 2, "a fighter's gloves", "hands");
