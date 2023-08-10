@@ -3,17 +3,11 @@ public class Items
 {
     // set item parameters
     String name;
-
     boolean canEquip;
-
     int cost;
-
     String buff;
-
     int buffAmount;
-
     String description;
-
     String equipType;
 
     // item constructor

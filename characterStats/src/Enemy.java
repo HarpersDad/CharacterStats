@@ -17,6 +17,7 @@ public class Enemy
     {
         // sets the enemies name bases on what is passed to the method
         this.name = name;
+        this.type = type;
 
         // sets stats based on what type is passed into the method
         switch (type) {
