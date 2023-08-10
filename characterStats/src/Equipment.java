@@ -10,8 +10,7 @@ public class Equipment
     int numberHeld;
     int maxItemCount;
 
-    Equipment(String name, boolean canEquip, int cost, String buff, int buffAmount, String description, String equipType, int numberHeld)
-    {
+    Equipment(String name, boolean canEquip, int cost, String buff, int buffAmount, String description, String equipType, int numberHeld) {
         this.name = name;
         this.canEquip = canEquip;
         this.cost = cost;
