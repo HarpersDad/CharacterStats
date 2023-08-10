@@ -9,3 +9,8 @@
 - added inventory.<br>
 - added equippable items.<br>
 - added stat buffs from equipment.<br>
+
+<h2>Adding Later</h2>
+- damage multipliers
+- status afflictions
+- more things
