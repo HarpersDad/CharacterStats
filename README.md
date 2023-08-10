@@ -8,4 +8,4 @@
 - added character and enemy stats.<br>
 - added inventory.<br>
 - added equippable items.<br>
-- added stats buffs from equipment.<br>
+- added stat buffs from equipment.<br>
