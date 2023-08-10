@@ -17,10 +17,6 @@ public class Main
             {
                 System.out.println("Slot " + (i+1) + ": " + player.inventory[i].name);
             }
-            //else
-            //{
-            //    System.out.printf("\nNo item in Slot %d", (i + 1));
-            //}
         }
     }
 
@@ -35,10 +31,6 @@ public class Main
             {
                 System.out.println(player.equipment[i].equipType + ": " + player.equipment[i].name);
             }
-            //else
-            //{
-            //    System.out.printf("No item equipped in Slot %d", (i + 1));
-            //}
         }
     }
 
