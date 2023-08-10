@@ -1,8 +1,7 @@
-// simple inventory class
-public class Items
+public class Equipment
 {
-    // set item parameters
     String name;
+    boolean canEquip;
     int cost;
     String buff;
     int buffAmount;
@@ -11,10 +10,10 @@ public class Items
     int numberHeld;
     int maxItemCount;
 
-    // item constructor
-    Items(String name, int cost, String buff, int buffAmount, String description, String equipType, int numberHeld)
+    Equipment(String name, boolean canEquip, int cost, String buff, int buffAmount, String description, String equipType, int numberHeld)
     {
         this.name = name;
+        this.canEquip = canEquip;
         this.cost = cost;
         this.buff = buff;
         this.buffAmount = buffAmount;

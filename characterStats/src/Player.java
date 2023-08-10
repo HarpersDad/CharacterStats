@@ -20,19 +20,19 @@ public class Player
     Items[] inventory = new Items[25];
 
     // equipped items array
-    Items[] equipment = new Items[10];
+    Equipment[] equipment = new Equipment[10];
 
     // equipment slots
-    Items mainWeapon; // 0
-    Items offHand; // 1
-    Items head; // 2
-    Items neck; // 3
-    Items chest; // 4
-    Items hands; // 5
-    Items ring; // 6
-    Items belt; // 7
-    Items legs; // 8
-    Items feet; // 9
+    Equipment mainWeapon; // 0
+    Equipment offHand; // 1
+    Equipment head; // 2
+    Equipment neck; // 3
+    Equipment chest; // 4
+    Equipment hands; // 5
+    Equipment ring; // 6
+    Equipment belt; // 7
+    Equipment legs; // 8
+    Equipment feet; // 9
 
     // Player constructor
     Player(String name, String job, String sex)
