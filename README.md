@@ -11,6 +11,6 @@
 - added stat buffs from equipment.<br>
 
 <h2>Adding Later</h2>
-- damage multipliers
-- status afflictions
-- more things
+- damage multipliers.<br>
+- status afflictions.<br>
+- more things.<br>
