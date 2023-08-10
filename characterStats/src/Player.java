@@ -17,6 +17,9 @@ public class Player
     double xp;
     int xpToLevel = 2;
 
+    // inventory array
+    Items[] items = new Items[25];
+
     // Player constructor
     Player(String name, String job, String sex)
     {

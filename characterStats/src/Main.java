@@ -2,6 +2,25 @@
 
 public class Main
 {
+    // prints the player's inventory
+    public static void printPlayerInventory(Player player)
+    {
+        System.out.println("\n" + player.name + "'s Inventory");
+
+        for (int i = 0; i < 25; i++)
+        {
+            if (player.items[i] != null)
+            {
+                System.out.println("Slot " + (i+1) + ": " + player.items[i].name);
+            }
+            else
+            {
+                System.out.printf("\nNo item in Slot %d", i + 1);
+            }
+        }
+        System.out.println("\n");
+    }
+
     // prints the player stats
     public static void printPlayerStats(Player player)
     {
@@ -39,6 +58,25 @@ public class Main
         // uses the Player class to create new characters with the given name, job, and sex
         Player player1 = new Player("Dude", "fighter", "male");
         Player player2 = new Player("Ma'am", "thief", "female");
+
+        // create and add items to inventory
+        Items p1Item1 = new Items("signet ring", true, 25, "a worn signet ring", "ring");
+        Items p1Item2 = new Items("tonic", false, 5, "a healing tonic", "item");
+        Items p1Item3 = new Items("tent", false, 50, "a camping tent", "item");
+        Items p1Item4 = new Items("gloves", true, 15, "a fighter's gloves", "hands");
+        player1.items[0] = p1Item1;
+        player1.items[1] = p1Item2;
+        player1.items[2] = p1Item3;
+        player1.items[3] = p1Item4;
+
+        Items p2Item1 = new Items("gold necklace", true, 30, "a gold necklace", "accessory");
+        Items p2Item2 = new Items("tonic", false, 5, "a healing tonic", "item");
+        Items p2Item3 = new Items("bronze dagger", true, 60, "a bronze dagger", "main weapon");
+        Items p2Item4 = new Items("tent", true, 50, "a camping tent", "item");
+        player2.items[0] = p2Item1;
+        player2.items[1] = p2Item2;
+        player2.items[2] = p2Item3;
+        player2.items[3] = p2Item4;
 
         // uses the Enemy class to create new enemies with the given name and type
         Enemy enemy1 = new Enemy("Bird", "flyer");
@@ -83,7 +121,11 @@ public class Main
 
         // reprinting the player stats to see how they have changed due to leveling up
         printPlayerStats(player1);
-        System.out.println("\n");
         printPlayerStats(player2);
+
+        System.out.println("\n");
+
+        printPlayerInventory(player1);
+        printPlayerInventory(player2);
     }
 }
