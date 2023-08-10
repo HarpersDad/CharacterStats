@@ -15,7 +15,7 @@ public class Enemy
     // Enemy constructor
     Enemy(String name, String type)
     {
-        // sets the enemies name bases on what is passed to the method
+        // sets the enemies name and type based on what is passed to the method
         this.name = name;
         this.type = type;
 
