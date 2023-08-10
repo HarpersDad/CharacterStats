@@ -16,6 +16,8 @@ public class Player
     double xp;
     int xpToLevel = 2;
 
+    String status;
+
     // inventory array
     Items[] inventory = new Items[25];
 
@@ -43,6 +45,7 @@ public class Player
         this.sex = sex;
         this.level = 1;
         this.xp = 0;
+        this.status = "Normal";
 
         // adds stats to the player based on the job chosen
         switch (job) {
