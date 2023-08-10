@@ -143,6 +143,10 @@ public class Main
         player1.itemEquipped();
         player2.itemEquipped();
 
+        // this block enchants an item/equipment and then re-equips it to the character with the new stats
+        //player1Equip1.enchantEquipment("wis", 30);
+        //player1.itemEquipped();
+
         // reprinting the player stats to see how they have changed due to leveling up and from buffs
         printPlayerStats(player1);
         printPlayerStats(player2);
