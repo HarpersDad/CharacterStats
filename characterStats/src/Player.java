@@ -102,7 +102,7 @@ public class Player
                 this.def += 1;
                 this.con += 1;
                 this.wis += 2;
-                this.spd += 2;
+                this.spd += 3;
                 this.lck += 2;
             }
         }
