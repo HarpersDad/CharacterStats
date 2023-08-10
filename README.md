@@ -9,8 +9,8 @@
 - added inventory.<br>
 - added equippable items.<br>
 - added stat buffs from equipment.<br>
+- status afflictions.<br>
 
 <h2>Needs to be implemented</h2>
 - damage multipliers.<br>
-- status afflictions.<br>
 - more things.<br>
