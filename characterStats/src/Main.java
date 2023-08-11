@@ -149,6 +149,9 @@ public class Main
 
         // reprinting the player stats to see how they have changed due to leveling up and from buffs
         printPlayerStats(player1);
-        printPlayerStats(player2);
+        //printPlayerStats(player2);
+
+        // calls damage method from Player class using the player1 object
+        System.out.println(player1.checkHit(player1));
     }
 }

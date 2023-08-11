@@ -26,13 +26,13 @@ public class Equipment
     void enchantEquipment(String buffType, int buffAmount)
     {
         switch(buffType){
-            // detrimental - buffAmount is turn count
-            case "poison" -> { this.buff = "poison"; this.buffAmount = 5; }
-            case "burn" -> { this.buff = "burn"; this.buffAmount = 5; }
-            case "blind" -> { this.buff = "blind"; this.buffAmount = 3; }
-            case "stun" -> { this.buff = "stun"; this.buffAmount = 3; }
-            case "berserk" -> { this.buff = "berserk"; this.buffAmount = 4; }
-            case "sleep" -> { this.buff = "sleep"; this.buffAmount = 4; }
+            // detrimental - buffAmount is turn/time count.
+            case "poison" -> { this.buff = "poison"; this.buffAmount = buffAmount; }
+            case "burn" -> { this.buff = "burn"; this.buffAmount = buffAmount; }
+            case "blind" -> { this.buff = "blind"; this.buffAmount = buffAmount; }
+            case "stun" -> { this.buff = "stun"; this.buffAmount = buffAmount; }
+            case "berserk" -> { this.buff = "berserk"; this.buffAmount = buffAmount; }
+            case "sleep" -> { this.buff = "sleep"; this.buffAmount = buffAmount; }
 
             // beneficial - buffAmount is amount to increase or decrease stats
             case "hp" -> { this.buff = "hp"; this.buffAmount = buffAmount; }

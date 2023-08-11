@@ -1,3 +1,5 @@
+import java.util.Random;
+
 // Player Class
 public class Player
 {
@@ -296,5 +298,56 @@ public class Player
                 case "lck" -> this.lck += this.feet.buffAmount;
             }
         }
+    }
+
+    // this method calculates if a player's attack hits an opponent
+    int checkHit(Player player)
+    {
+        String playerStatus = player.status;
+        int playerLuck = player.lck;
+
+        int hitOffset;
+        int hitStatus = 0;
+
+        int damageDealt;
+
+        Random randomNumber = new Random();
+
+        int randomHitCheck = randomNumber.nextInt(50) + 6;
+        int randomDamage = randomNumber.nextInt(player.lck, player.str) + 6;
+
+        // poison, burn, and normal status equal 1 in this setup
+        switch (playerStatus) {
+            case "stun" -> hitOffset = 3;
+            case "asleep" -> hitOffset = 5;
+            case "berserk" -> hitOffset = 2;
+            case "blind" -> hitOffset = 4;
+            default -> hitOffset = 1;
+        }
+
+        // gets calculated hit
+        int hitAttempt = (randomHitCheck / hitOffset) + playerLuck;
+
+        // checks hitAttempt value and sets damage multiplier
+        if (hitAttempt > 20 && hitAttempt <= 45)
+        {
+            System.out.println("\nHit!");
+            hitStatus = 1;
+        }
+        else if (hitAttempt > 45)
+        {
+            System.out.println("\nCritical Hit!");
+            hitStatus = 2;
+        }
+        else
+        {
+            System.out.println("\nMiss!");
+        }
+
+        damageDealt = (player.str + randomDamage) * hitStatus;
+        System.out.print("Damage: ");
+
+        // returns damage
+        return damageDealt;
     }
 }
