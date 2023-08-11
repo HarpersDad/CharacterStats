@@ -46,6 +46,7 @@ public class Main
                 "\nsex: " + player.sex +
                 "\njob: " + player.job +
                 "\nhealth: " + player.hp +
+                "\nstatus: " + player.status +
                 "\nstrength: " + player.str +
                 "\ndefense: " + player.def +
                 "\nconcentration: " + player.con +
@@ -76,68 +77,62 @@ public class Main
         // uses the Player class to create new characters with the given name, job, and sex
         // as seen with player 1, if selection is blank then the program will assign name as Vagabond, job as vagrant and sex as other
         Player player1 = new Player("defender", "defender", "male");
-        Player player2 = new Player("fighter", "fighter", "male");
 
         // uses the Enemy class to create new enemies with the given name and type
-        Enemy enemy1 = new Enemy("Bird", "flyer");
-        Enemy enemy2 = new Enemy("Goblin", "attacker");
-        Enemy enemy3 = new Enemy("Warlock", "magician");
-
-        // this block prints the player stats by calling the above method printPlayerStats()
-        //printPlayerStats(player1);
-        //printPlayerStats(player2);
-
-        // this block prints the enemy stats by calling the above method printEnemyStats()
-        //printEnemyStats(enemy1);
-        //printEnemyStats(enemy2);
-        //printEnemyStats(enemy3);
+        // Enemy enemy1 = new Enemy("Bird", "flyer");
 
         // this was used to test each player leveling up
         player1.xp = 1022;
-        player2.xp = 1022;
 
         // this while loop checks if the player has enough xp to go to the next level by checking if their current xp
         // if equal to or greater than 2 to the power of the player's current level, 2^currentLevel
         levelUp(player1);
-        levelUp(player2);
-
-        printPlayerStats(player1);
-        printPlayerStats(player2);
 
         // "Equips" gear and adds stat buffs
         player1.gearEquipped();
-        player2.gearEquipped();
 
         // print equipment
-        printPlayerEquipment(player1);
-        printPlayerEquipment(player2);
+        // printPlayerEquipment(player1);
 
         // this block enchants an item/equipment and then re-equips it to the character with the new stats
-        //player1Equip1.enchantEquipment("wis", 30);
-        //player1.itemEquipped();
+        // player1Equip1.enchantEquipment("wis", 30);
+        // player1.itemEquipped();
+
+        // simulate picking up a tonic
+        //player1.inventory[0].numberHeld++;
 
         // reprinting the player stats to see how they have changed due to leveling up and from buffs
         printPlayerStats(player1);
-        //printPlayerStats(player2);
+        printPlayerInventory(player1);
 
         // buff equipment
-        //player1.mainWeapon.enchantEquipment("str", 50);
-        //player1.itemEquipped();
+        // player1.mainWeapon.enchantEquipment("str", 50);
+        // player1.itemEquipped();
 
+        // simulate damage to the player
         player1.hp -= 25;
+        System.out.println("\n" + player1.name + " took 25 damage!");
 
         printPlayerStats(player1);
-        //printPlayerStats(player2);
 
         // heals player1 using a tonic and checks player1 inventory to update item count
         player1.useItem(player1, player1.tonic);
         player1.checkInventory(player1);
 
+        System.out.println("\n" + player1.name + " used a tonic and healed 20 hp!");
+
         printPlayerStats(player1);
+
+        player1.addItemToInventory(player1, "", 1);
+        player1.addItemToInventory(player1, "tent", 2);
 
         printPlayerInventory(player1);
 
+        player1.status = "blind";
+
+        printPlayerStats(player1);
+
         // calls damage method from Player class using the player1 object
-        //System.out.println(player1.checkHit(player1));
+        System.out.println(player1.checkHit(player1));
     }
 }

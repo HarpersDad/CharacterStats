@@ -1,3 +1,4 @@
+// equipment class
 public class Equipment
 {
     String name;
@@ -26,7 +27,8 @@ public class Equipment
     void enchantEquipment(String buffType, int buffAmount)
     {
         // switch statement that assigns buffs / debuffs based on passed data
-        switch(buffType){
+        switch(buffType)
+        {
             // detrimental - buffAmount is turn/time count.
             case "poison" -> { this.buff = "poison"; this.buffAmount = buffAmount; }
             case "burn" -> { this.buff = "burn"; this.buffAmount = buffAmount; }

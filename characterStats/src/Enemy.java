@@ -22,8 +22,10 @@ public class Enemy
         this.type = type;
 
         // sets stats based on what type is passed into the method
-        switch (type) {
-            case ("flyer") -> {
+        switch (type)
+        {
+            case ("flyer")
+                    -> {
                 this.hp = 5;
                 this.str = 3;
                 this.def = 2;
@@ -33,7 +35,8 @@ public class Enemy
                 this.lck = 3;
                 this.givenXP = 10;
             }
-            case ("attacker") -> {
+            case ("attacker")
+                    -> {
                 this.hp = 8;
                 this.str = 6;
                 this.def = 4;
@@ -43,7 +46,8 @@ public class Enemy
                 this.lck = 3;
                 this.givenXP = 10;
             }
-            case ("magician") -> {
+            case ("magician")
+                    -> {
                 this.hp = 4;
                 this.str = 2;
                 this.def = 2;

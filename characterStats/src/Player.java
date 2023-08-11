@@ -28,17 +28,7 @@ public class Player
     Equipment[] equipment = new Equipment[11];
 
     // equipment slots
-    Equipment mainWeapon; // 0
-    Equipment offHand; // 1
-    Equipment head; // 2
-    Equipment neck; // 3
-    Equipment chest; // 4
-    Equipment hands; // 5
-    Equipment ring; // 6
-    Equipment belt; // 7
-    Equipment legs; // 8
-    Equipment feet; // 9
-    Equipment back; // 10
+    Equipment mainWeapon, offHand, head, neck, chest, hands, ring, belt, legs, feet, back;
 
     // starting weapons
     Equipment shortSword = new Equipment("Short Sword", true, 1, "str", 1, "a short sword", "mainWeapon", 1);
@@ -70,6 +60,7 @@ public class Player
     Items tent = new Items("Tent", 1, "fullHeal", 1, "a camping tent", 1);
     Items panacea = new Items("Panacea", 1, "antidote", 1, "a status remedy", 1);
     Items revivePowder = new Items("Revival Powder", 1, "revive", 1, "a revival powder", 1);
+    Items gold = new Items("Gold", 1,"", 0, "gold coin", 0);
 
     // Player constructor
     Player(String name, String job, String sex)
@@ -91,8 +82,10 @@ public class Player
         this.status = "Normal";
 
         // adds stats to the player based on the job chosen
-        switch (job) {
-            case "defender" -> {
+        switch (job)
+        {
+            case "defender"
+                    -> {
                 // starting stats
                 this.hp = 20;
                 this.str = 2;
@@ -120,7 +113,8 @@ public class Player
                 this.inventory[3] = revivePowder;
 
             }
-            case "ranger" -> {
+            case "ranger"
+                    -> {
                 this.hp = 10;
                 this.str = 2;
                 this.def = 2;
@@ -144,7 +138,8 @@ public class Player
                 this.inventory[2] = panacea;
                 this.inventory[3] = revivePowder;
             }
-            case "fighter" -> {
+            case "fighter"
+                    -> {
                 this.hp = 13;
                 this.str = 3;
                 this.def = 2;
@@ -166,7 +161,8 @@ public class Player
                 this.inventory[2] = panacea;
                 this.inventory[3] = revivePowder;
             }
-            case "mage" -> {
+            case "mage"
+                    -> {
                 this.hp = 6;
                 this.str = 1;
                 this.def = 2;
@@ -191,7 +187,8 @@ public class Player
                 this.inventory[2] = panacea;
                 this.inventory[3] = revivePowder;
             }
-            case "thief" -> {
+            case "thief"
+                    -> {
                 this.hp = 8;
                 this.str = 1;
                 this.def = 1;
@@ -217,7 +214,8 @@ public class Player
                 this.inventory[2] = panacea;
                 this.inventory[3] = revivePowder;
             }
-            default -> {
+            default
+                    -> {
                 this.job = "vagrant";
                 this.hp = 10;
                 this.str = 2;
@@ -244,8 +242,10 @@ public class Player
         this.currentMaxHP = this.hp;
 
         // adds stats to the player based on the sex chosen
-        switch (sex) {
-            case "male" -> {
+        switch (sex)
+        {
+            case "male"
+                    -> {
                 this.hp += 3;
                 this.str += 2;
                 this.def += 2;
@@ -254,7 +254,8 @@ public class Player
                 this.spd += 1;
                 this.lck += 1;
             }
-            case "female" -> {
+            case "female"
+                    -> {
                 this.hp += 2;
                 this.str += 1;
                 this.def += 1;
@@ -263,7 +264,8 @@ public class Player
                 this.spd += 3;
                 this.lck += 2;
             }
-            default -> {
+            default
+                    -> {
                 this.sex = "other";
                 this.hp += 0;
                 this.str += 0;
@@ -277,11 +279,11 @@ public class Player
     }
 
     // method that levels the player up
-    void checkLevelUp() {
-
+    void checkLevelUp()
+    {
         // while loops that checks if the players current xp is enough to level up
-        while (this.xp >= Math.pow(xpToLevel, this.level)) {
-
+        while (this.xp >= Math.pow(xpToLevel, this.level))
+        {
             // sets the remaining xp as current xp
             this.xp = this.xp - Math.pow(xpToLevel, this.level);
 
@@ -289,8 +291,10 @@ public class Player
             this.level++;
 
             // increases stats based on job chosen
-            switch (this.job) {
-                case "defender" -> {
+            switch (this.job)
+            {
+                case "defender"
+                        -> {
                     this.hp += (this.hp % this.level) + 4;
                     this.str += (this.str % this.level) + 2;
                     this.def += (this.def % this.level) + 3;
@@ -299,7 +303,8 @@ public class Player
                     this.spd += (this.spd % this.level) + 1;
                     this.lck += (this.lck % this.level) + 1;
                 }
-                case "ranger" -> {
+                case "ranger"
+                        -> {
                     this.hp += (this.hp % this.level) + 2;
                     this.str += (this.str % this.level) + 2;
                     this.def += (this.def % this.level) + 1;
@@ -309,7 +314,8 @@ public class Player
                     this.lck += (this.lck % this.level) + 1;
                 }
 
-                case "fighter" -> {
+                case "fighter"
+                        -> {
                     this.hp += (this.hp % this.level) + 3;
                     this.str += (this.str % this.level) + 3;
                     this.def += (this.def % this.level) + 2;
@@ -319,7 +325,8 @@ public class Player
                     this.lck += (this.lck % this.level) + 1;
                 }
 
-                case "mage" -> {
+                case "mage"
+                        -> {
                     this.hp += (this.hp % this.level) + 1;
                     this.str += (this.str % this.level) + 1;
                     this.def += (this.def % this.level) + 2;
@@ -329,7 +336,8 @@ public class Player
                     this.lck += (this.lck % this.level) + 2;
                 }
 
-                case "thief" -> {
+                case "thief"
+                        -> {
                     this.hp += (this.hp % this.level) + 2;
                     this.str += (this.str % this.level) + 1;
                     this.def += (this.def % this.level) + 1;
@@ -339,7 +347,8 @@ public class Player
                     this.lck += (this.lck % this.level) + 2;
                 }
 
-                default -> {
+                default
+                        -> {
                     this.hp += (this.hp % this.level) + 2;
                     this.str += (this.str % this.level) + 2;
                     this.def += (this.def % this.level) + 2;
@@ -350,21 +359,23 @@ public class Player
                 }
             }
             this.currentMaxHP = this.hp;
-
-            // print message that tells the user that the player has leveled up and the player's current level
-            System.out.println("\n" + this.name + " Leveled Up!");
-            System.out.println(this.name + " is now level " + this.level);
         }
+
+        // print message that tells the user that the player has leveled up and the player's current level
+        System.out.println("\n" + this.name + " Leveled Up!");
+        System.out.println(this.name + " is now level " + this.level);
     }
 
     // method for checking if an item is equipped and adding the appropriate buff
     void gearEquipped()
     {
         // checks equipped main weapon
-        if (this.mainWeapon != null) {
+        if (this.mainWeapon != null)
+        {
             this.equipment[0] = this.mainWeapon;
 
-            switch (this.mainWeapon.buff) {
+            switch (this.mainWeapon.buff)
+            {
                 case "hp" -> this.hp += this.mainWeapon.buffAmount;
                 case "str" -> this.str += this.mainWeapon.buffAmount;
                 case "def" -> this.def += this.mainWeapon.buffAmount;
@@ -376,10 +387,12 @@ public class Player
         }
 
         // checks offhand weapon / armament
-        if (this.offHand != null) {
+        if (this.offHand != null)
+        {
             this.equipment[1] = this.offHand;
 
-            switch (this.offHand.buff) {
+            switch (this.offHand.buff)
+            {
                 case "hp" -> this.hp += this.offHand.buffAmount;
                 case "str" -> this.str += this.offHand.buffAmount;
                 case "def" -> this.def += this.offHand.buffAmount;
@@ -391,10 +404,12 @@ public class Player
         }
 
         // checks head gear
-        if (this.head != null) {
+        if (this.head != null)
+        {
             this.equipment[2] = this.head;
 
-            switch (this.head.buff) {
+            switch (this.head.buff)
+            {
                 case "hp" -> this.hp += this.head.buffAmount;
                 case "str" -> this.str += this.head.buffAmount;
                 case "def" -> this.def += this.head.buffAmount;
@@ -406,10 +421,12 @@ public class Player
         }
 
         // checks neck gear
-        if (this.neck != null) {
+        if (this.neck != null)
+        {
             this.equipment[3] = this.neck;
 
-            switch (this.neck.buff) {
+            switch (this.neck.buff)
+            {
                 case "hp" -> this.hp += this.neck.buffAmount;
                 case "str" -> this.str += this.neck.buffAmount;
                 case "def" -> this.def += this.neck.buffAmount;
@@ -421,10 +438,12 @@ public class Player
         }
 
         // checks chest gear
-        if (this.chest != null) {
+        if (this.chest != null)
+        {
             this.equipment[4] = this.chest;
 
-            switch (this.chest.buff) {
+            switch (this.chest.buff)
+            {
                 case "hp" -> this.hp += this.chest.buffAmount;
                 case "str" -> this.str += this.chest.buffAmount;
                 case "def" -> this.def += this.chest.buffAmount;
@@ -436,10 +455,12 @@ public class Player
         }
 
         // checks hand gear
-        if (this.hands != null) {
+        if (this.hands != null)
+        {
             this.equipment[5] = this.hands;
 
-            switch (this.hands.buff) {
+            switch (this.hands.buff)
+            {
                 case "hp" -> this.hp += this.hands.buffAmount;
                 case "str" -> this.str += this.hands.buffAmount;
                 case "def" -> this.def += this.hands.buffAmount;
@@ -451,10 +472,12 @@ public class Player
         }
 
         // checks ring gear
-        if (this.ring != null) {
+        if (this.ring != null)
+        {
             this.equipment[6] = this.ring;
 
-            switch (this.ring.buff) {
+            switch (this.ring.buff)
+            {
                 case "hp" -> this.hp += this.ring.buffAmount;
                 case "str" -> this.str += this.ring.buffAmount;
                 case "def" -> this.def += this.ring.buffAmount;
@@ -466,10 +489,12 @@ public class Player
         }
 
         // checks belt gear
-        if (this.belt != null) {
+        if (this.belt != null)
+        {
             this.equipment[7] = this.belt;
 
-            switch (this.belt.buff) {
+            switch (this.belt.buff)
+            {
                 case "hp" -> this.hp += this.belt.buffAmount;
                 case "str" -> this.str += this.belt.buffAmount;
                 case "def" -> this.def += this.belt.buffAmount;
@@ -481,10 +506,12 @@ public class Player
         }
 
         // checks leg gear
-        if (this.legs != null) {
+        if (this.legs != null)
+        {
             this.equipment[8] = this.legs;
 
-            switch (this.legs.buff) {
+            switch (this.legs.buff)
+            {
                 case "hp" -> this.hp += this.legs.buffAmount;
                 case "str" -> this.str += this.legs.buffAmount;
                 case "def" -> this.def += this.legs.buffAmount;
@@ -496,10 +523,12 @@ public class Player
         }
 
         // checks foot gear
-        if (this.feet != null) {
+        if (this.feet != null)
+        {
             this.equipment[9] = this.feet;
 
-            switch (this.feet.buff) {
+            switch (this.feet.buff)
+            {
                 case "hp" -> this.hp += this.feet.buffAmount;
                 case "str" -> this.str += this.feet.buffAmount;
                 case "def" -> this.def += this.feet.buffAmount;
@@ -511,10 +540,12 @@ public class Player
         }
 
         // checks back gear
-        if (this.back != null) {
+        if (this.back != null)
+        {
             this.equipment[10] = this.back;
 
-            switch (this.back.buff) {
+            switch (this.back.buff)
+            {
                 case "hp" -> this.hp += this.back.buffAmount;
                 case "str" -> this.str += this.back.buffAmount;
                 case "def" -> this.def += this.back.buffAmount;
@@ -522,25 +553,6 @@ public class Player
                 case "wis" -> this.wis += this.back.buffAmount;
                 case "spd" -> this.spd += this.back.buffAmount;
                 case "lck" -> this.lck += this.back.buffAmount;
-            }
-        }
-    }
-
-    // add items to player inventory
-    void addToInventory(Items item)
-    {
-        for (int i = 0; i < inventory.length; i++)
-        {
-            if (inventory[i] == item)
-            {
-                if (item.numberHeld < 99)
-                {
-                    inventory[i].numberHeld++;
-                }
-            }
-            else if (inventory[i] == null)
-            {
-                this.inventory[i] = item;
             }
         }
     }
@@ -587,12 +599,14 @@ public class Player
         int randomHitCheck = randomNumber.nextInt(50) + 6;
         int randomDamage = randomNumber.nextInt(lowerBound, upperBound) + 6;
 
-        // poison, burn, and normal status equal 1 in this setup
-        switch (playerStatus) {
-            case "stun" -> hitOffset = 3;
-            case "asleep" -> hitOffset = 5;
-            case "berserk" -> hitOffset = 2;
-            case "blind" -> hitOffset = 4;
+        // normal status equals 1 in this setup
+        switch (playerStatus)
+        {
+            case "stun" -> hitOffset = 4;
+            case "asleep" -> hitOffset = 10;
+            case "berserk" -> hitOffset = 3;
+            case "blind" -> hitOffset = 5;
+            case "poison", "burn" -> hitOffset = 2;
             default -> hitOffset = 1;
         }
 
@@ -625,8 +639,6 @@ public class Player
 
     void useItem(Player player, Items item)
     {
-        System.out.println(item.numberHeld);
-
         String status = player.status;
         int hp  = player.hp;
         int maxHP = player.currentMaxHP;
@@ -642,9 +654,7 @@ public class Player
                         inventory[i].numberHeld--;
                     }
                 }
-
             }
-
             player.status = "Normal";
         }
 
@@ -659,9 +669,7 @@ public class Player
                         inventory[i].numberHeld--;
                     }
                 }
-
             }
-
             player.hp = player.currentMaxHP;
         }
 
@@ -676,9 +684,7 @@ public class Player
                         inventory[i].numberHeld--;
                     }
                 }
-
             }
-
             player.hp = player.currentMaxHP;
         }
 
@@ -693,7 +699,6 @@ public class Player
                         inventory[i].numberHeld--;
                     }
                 }
-
             }
 
             if ( (maxHP - hp) < 20 )
@@ -702,7 +707,6 @@ public class Player
             }
             else
             {
-                System.out.println("Tonic Used!");
                 this.hp += 20;
             }
         }
@@ -725,6 +729,30 @@ public class Player
                 Items temp = player.inventory[i];
                 player.inventory[i] = player.inventory[i+1];
                 player.inventory[i+1] = temp;
+            }
+        }
+    }
+
+    void addItemToInventory(Player player, String items, int amount)
+    {
+        Items newItem;
+
+        switch (items)
+        {
+            case "tonic" -> newItem = tonic;
+            case "antidote" -> newItem = panacea;
+            case "revive" -> newItem = revivePowder;
+            case "tent" -> newItem = tent;
+            default -> newItem = gold;
+        }
+
+        for(int i = 0; i < inventory.length; i++)
+        {
+            if (inventory[i] == null || inventory[i] == newItem)
+            {
+                player.inventory[i] = newItem;
+                player.inventory[i].numberHeld += amount;
+                break;
             }
         }
     }

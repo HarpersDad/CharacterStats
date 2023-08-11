@@ -25,7 +25,8 @@ public class Items
     // enchants item with beneficial or detrimental effects
     void enchantItem(String buffType, int buffAmount)
     {
-        switch(buffType){
+        switch(buffType)
+        {
             // detrimental - buffAmount is turn/time count.
             case "poison" -> { this.buff = "poison"; this.buffAmount = buffAmount; }
             case "burn" -> { this.buff = "burn"; this.buffAmount = buffAmount; }
