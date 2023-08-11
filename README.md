@@ -13,5 +13,5 @@
 - added a damage multiplier system.<br>
 - if a player is created with no passed data, the character will have the following set: name - Vagabond, job - vagrant, sex - other.<br>
 - current job classes are: defender, ranger, fighter, mage, thief, vagrant.<br>
-<h2>Needs to be implemented</h2>
-- more things.<br>
+<h2>recent additions</h2>
+- starting equipment.<br>
