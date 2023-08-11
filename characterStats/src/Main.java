@@ -11,8 +11,10 @@ public class Main
     {
         System.out.print("\n" + player.name + "'s Inventory\n");
 
+        // for loop cycles through inventory array
         for (int i = 0; i < 25; i++)
         {
+            // prints item at array[i] and number held
             if (player.inventory[i] != null)
             {
                 System.out.println("Slot " + (i+1) + ": " + player.inventory[i].name + " x " + player.inventory[i].numberHeld);
@@ -25,8 +27,10 @@ public class Main
     {
         System.out.print("\n" + player.name + "'s Equipment\n");
 
+        // for loop that cycles through equipment array
         for (int i = 0; i < 10; i++)
         {
+            // prints equipment at array[i]
             if (player.equipment[i] != null)
             {
                 System.out.println(player.equipment[i].equipType + ": " + player.equipment[i].name);
@@ -70,8 +74,9 @@ public class Main
     public static void main(String[] args)
     {
         // uses the Player class to create new characters with the given name, job, and sex
-        Player player1 = new Player("Dude", "fighter", "male");
-        Player player2 = new Player("Ma'am", "thief", "female");
+        // as seen with player 1, if selection is blank then the program will assign name as Vagabond, job as vagrant and sex as other
+        Player player1 = new Player("defender", "defender", "male");
+        Player player2 = new Player("fighter", "fighter", "male");
 
         // create and add items to inventory and equipment arrays for player1
         Equipment player1Equip1 = new Equipment("signet ring", true, 25, "wis", 2,  "a worn signet ring", "ring", 1);
@@ -115,13 +120,13 @@ public class Main
         Enemy enemy3 = new Enemy("Warlock", "magician");
 
         // this block prints the player stats by calling the above method printPlayerStats()
-        printPlayerStats(player1);
-        printPlayerStats(player2);
+        //printPlayerStats(player1);
+        //printPlayerStats(player2);
 
         // this block prints the enemy stats by calling the above method printEnemyStats()
-        printEnemyStats(enemy1);
-        printEnemyStats(enemy2);
-        printEnemyStats(enemy3);
+        //printEnemyStats(enemy1);
+        //printEnemyStats(enemy2);
+        //printEnemyStats(enemy3);
 
         // this was used to test each player leveling up
         player1.xp = 1022;
@@ -132,10 +137,11 @@ public class Main
         levelUp(player1);
         levelUp(player2);
 
-        // prints inventory and equipment
+        // prints inventory
         printPlayerInventory(player1);
         printPlayerInventory(player2);
 
+        // print equipment
         printPlayerEquipment(player1);
         printPlayerEquipment(player2);
 
@@ -149,9 +155,9 @@ public class Main
 
         // reprinting the player stats to see how they have changed due to leveling up and from buffs
         printPlayerStats(player1);
-        //printPlayerStats(player2);
+        printPlayerStats(player2);
 
         // calls damage method from Player class using the player1 object
-        System.out.println(player1.checkHit(player1));
+        //System.out.println(player1.checkHit(player1));
     }
 }

@@ -24,7 +24,7 @@ public class Player
     Items[] inventory = new Items[25];
 
     // equipped items array
-    Equipment[] equipment = new Equipment[10];
+    Equipment[] equipment = new Equipment[11];
 
     // equipment slots
     Equipment mainWeapon; // 0
@@ -37,12 +37,21 @@ public class Player
     Equipment belt; // 7
     Equipment legs; // 8
     Equipment feet; // 9
+    Equipment back; // 10
 
     // Player constructor
     Player(String name, String job, String sex)
     {
         // creates the player by using the passed information
-        this.name = name;
+        if (name == null || name.isEmpty())
+        {
+            this.name = "Vagabond";
+        }
+        else
+        {
+            this.name = name;
+        }
+
         this.job = job;
         this.sex = sex;
         this.level = 1;
@@ -51,6 +60,15 @@ public class Player
 
         // adds stats to the player based on the job chosen
         switch (job) {
+            case "defender" -> {
+                this.hp = 20;
+                this.str = 2;
+                this.def = 3;
+                this.con = 3;
+                this.wis = 2;
+                this.spd = 1;
+                this.lck = 1;
+            }
             case "ranger" -> {
                 this.hp = 10;
                 this.str = 2;
@@ -87,6 +105,16 @@ public class Player
                 this.spd = 3;
                 this.lck = 2;
             }
+            default -> {
+                this.job = "vagrant";
+                this.hp = 10;
+                this.str = 2;
+                this.def = 2;
+                this.con = 2;
+                this.wis = 2;
+                this.spd = 2;
+                this.lck = 2;
+            }
         }
 
         // adds stats to the player based on the sex chosen
@@ -100,7 +128,6 @@ public class Player
                 this.spd += 1;
                 this.lck += 1;
             }
-
             case "female" -> {
                 this.hp += 2;
                 this.str += 1;
@@ -110,75 +137,103 @@ public class Player
                 this.spd += 3;
                 this.lck += 2;
             }
+            default -> {
+                this.sex = "other";
+                this.hp += 0;
+                this.str += 0;
+                this.def += 0;
+                this.con += 0;
+                this.wis += 0;
+                this.spd += 0;
+                this.lck += 0;
+            }
         }
     }
 
     // method that levels the player up
     void checkLevelUp() {
 
+        // while loops that checks if the players current xp is enough to level up
         while (this.xp >= Math.pow(xpToLevel, this.level)) {
 
-            // if statement to check if the xp threshold has been reached for the next level
-            if (this.xp >= Math.pow(xpToLevel, this.level)) {
-                // sets the remaining xp as current xp
-                this.xp = this.xp - Math.pow(xpToLevel, this.level);
+            // sets the remaining xp as current xp
+            this.xp = this.xp - Math.pow(xpToLevel, this.level);
 
-                // adds a level to the player level
-                this.level++;
+            // adds a level to the player level
+            this.level++;
 
-                // increases stats based on job chosen
-                switch (this.job) {
-                    case "ranger" -> {
-                        this.hp += (this.hp % this.level) + 3;
-                        this.str += 2;
-                        this.def += 2;
-                        this.con += 1;
-                        this.wis += 3;
-                        this.spd += 3;
-                        this.lck += 1;
-                    }
-
-                    case "fighter" -> {
-                        this.hp += (this.hp % this.level) + 4;
-                        this.str += 3;
-                        this.def += 3;
-                        this.con += 2;
-                        this.wis += 1;
-                        this.spd += 2;
-                        this.lck += 1;
-                    }
-
-                    case "mage" -> {
-                        this.hp += (this.hp % this.level) + 1;
-                        this.str += 1;
-                        this.def += 2;
-                        this.con += 3;
-                        this.wis += 3;
-                        this.spd += 2;
-                        this.lck += 1;
-                    }
-
-                    case "thief" -> {
-                        this.hp += (this.hp % this.level) + 2;
-                        this.str += 1;
-                        this.def += 1;
-                        this.con += 3;
-                        this.wis += 2;
-                        this.spd += 3;
-                        this.lck += 2;
-                    }
+            // increases stats based on job chosen
+            switch (this.job) {
+                case "defender" -> {
+                    this.hp += (this.hp % this.level) + 4;
+                    this.str += (this.str % this.level) + 2;
+                    this.def += (this.def % this.level) + 3;
+                    this.con += (this.con % this.level) + 1;
+                    this.wis += (this.wis % this.level) + 2;
+                    this.spd += (this.spd % this.level) + 1;
+                    this.lck += (this.lck % this.level) + 1;
+                }
+                case "ranger" -> {
+                    this.hp += (this.hp % this.level) + 2;
+                    this.str += (this.str % this.level) + 2;
+                    this.def += (this.def % this.level) + 1;
+                    this.con += (this.con % this.level) + 2;
+                    this.wis += (this.wis % this.level) + 3;
+                    this.spd += (this.spd % this.level) + 3;
+                    this.lck += (this.lck % this.level) + 1;
                 }
 
-                // print message that tells the user that the player has leveled up and the player's current level
-                System.out.println("\n" + this.name + " Leveled Up!");
-                System.out.println(this.name + " is now level " + this.level);
+                case "fighter" -> {
+                    this.hp += (this.hp % this.level) + 3;
+                    this.str += (this.str % this.level) + 3;
+                    this.def += (this.def % this.level) + 2;
+                    this.con += (this.con % this.level) + 2;
+                    this.wis += (this.wis % this.level) + 1;
+                    this.spd += (this.spd % this.level) + 2;
+                    this.lck += (this.lck % this.level) + 1;
+                }
+
+                case "mage" -> {
+                    this.hp += (this.hp % this.level) + 1;
+                    this.str += (this.str % this.level) + 1;
+                    this.def += (this.def % this.level) + 2;
+                    this.con += (this.con % this.level) + 3;
+                    this.wis += (this.wis % this.level) + 3;
+                    this.spd += (this.spd % this.level) + 2;
+                    this.lck += (this.lck % this.level) + 2;
+                }
+
+                case "thief" -> {
+                    this.hp += (this.hp % this.level) + 2;
+                    this.str += (this.str % this.level) + 1;
+                    this.def += (this.def % this.level) + 1;
+                    this.con += (this.con % this.level) + 3;
+                    this.wis += (this.wis % this.level) + 2;
+                    this.spd += (this.spd % this.level) + 3;
+                    this.lck += (this.lck % this.level) + 2;
+                }
+
+                default -> {
+                    this.hp += (this.hp % this.level) + 2;
+                    this.str += (this.str % this.level) + 2;
+                    this.def += (this.def % this.level) + 2;
+                    this.con += (this.con % this.level) + 2;
+                    this.wis += (this.wis % this.level) + 2;
+                    this.spd += (this.spd % this.level) + 2;
+                    this.lck += (this.lck % this.level) + 2;
+                }
             }
+
+            // print message that tells the user that the player has leveled up and the player's current level
+            System.out.println("\n" + this.name + " Leveled Up!");
+            System.out.println(this.name + " is now level " + this.level);
         }
     }
 
     // method for checking if an item is equipped and adding the appropriate buff
     void itemEquipped()
     {
+        // checks equipped main weapon
         if (this.mainWeapon != null) {
             switch (this.mainWeapon.buff) {
                 case "hp" -> this.hp += this.mainWeapon.buffAmount;
@@ -191,6 +246,7 @@ public class Player
             }
         }
 
+        // checks offhand weapon / armament
         if (this.offHand != null) {
             switch (this.offHand.buff) {
                 case "hp" -> this.hp += this.offHand.buffAmount;
@@ -203,6 +259,7 @@ public class Player
             }
         }
 
+        // checks head gear
         if (this.head != null) {
             switch (this.head.buff) {
                 case "hp" -> this.hp += this.head.buffAmount;
@@ -215,6 +272,7 @@ public class Player
             }
         }
 
+        // checks neck gear
         if (this.neck != null) {
             switch (this.neck.buff) {
                 case "hp" -> this.hp += this.neck.buffAmount;
@@ -227,6 +285,7 @@ public class Player
             }
         }
 
+        // checks chest gear
         if (this.chest != null) {
             switch (this.chest.buff) {
                 case "hp" -> this.hp += this.chest.buffAmount;
@@ -239,6 +298,7 @@ public class Player
             }
         }
 
+        // checks hand gear
         if (this.hands != null) {
             switch (this.hands.buff) {
                 case "hp" -> this.hp += this.hands.buffAmount;
@@ -251,6 +311,7 @@ public class Player
             }
         }
 
+        // checks ring gear
         if (this.ring != null) {
             switch (this.ring.buff) {
                 case "hp" -> this.hp += this.ring.buffAmount;
@@ -263,6 +324,7 @@ public class Player
             }
         }
 
+        // checks belt gear
         if (this.belt != null) {
             switch (this.belt.buff) {
                 case "hp" -> this.hp += this.belt.buffAmount;
@@ -275,6 +337,7 @@ public class Player
             }
         }
 
+        // checks leg gear
         if (this.legs != null) {
             switch (this.legs.buff) {
                 case "hp" -> this.hp += this.legs.buffAmount;
@@ -287,6 +350,7 @@ public class Player
             }
         }
 
+        // checks foot gear
         if (this.feet != null) {
             switch (this.feet.buff) {
                 case "hp" -> this.hp += this.feet.buffAmount;
@@ -303,18 +367,44 @@ public class Player
     // this method calculates if a player's attack hits an opponent
     int checkHit(Player player)
     {
+        // gets status and luck stat from passed player
         String playerStatus = player.status;
         int playerLuck = player.lck;
 
+        // initializes the offset and status parameters
         int hitOffset;
         int hitStatus = 0;
 
+        // initializes damage variable
         int damageDealt;
 
+        // creates random number jesus
         Random randomNumber = new Random();
 
+        // initializes lower and upper bounds for additional damage
+        int lowerBound;
+        int upperBound;
+
+        // if else statement that ensures lower and upper bounds are set properly
+        if (player.lck < player.str)
+        {
+            lowerBound = player.lck;
+            upperBound = player.str;
+        }
+        else if (player.lck > player.str)
+        {
+            lowerBound = player.str;
+            upperBound = player.lck;
+        }
+        else
+        {
+            lowerBound = 0;
+            upperBound = 15;
+        }
+
+        // uses rn jesus to get hit checks and random damage
         int randomHitCheck = randomNumber.nextInt(50) + 6;
-        int randomDamage = randomNumber.nextInt(player.lck, player.str) + 6;
+        int randomDamage = randomNumber.nextInt(lowerBound, upperBound) + 6;
 
         // poison, burn, and normal status equal 1 in this setup
         switch (playerStatus) {
@@ -344,6 +434,7 @@ public class Player
             System.out.println("\nMiss!");
         }
 
+        // calculates damage that is dealt and prints it to user
         damageDealt = (player.str + randomDamage) * hitStatus;
         System.out.print("Damage: ");
 

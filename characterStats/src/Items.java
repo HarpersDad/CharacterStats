@@ -44,6 +44,9 @@ public class Items
             case "wis" -> { this.buff = "wis"; this.buffAmount = buffAmount; }
             case "spd" -> { this.buff = "spd"; this.buffAmount = buffAmount; }
             case "lck" -> { this.buff = "lck"; this.buffAmount = buffAmount; }
+
+            // in case an incorrect buff is passed
+            default -> { this.buff = "no buff"; this.buffAmount = 0; }
         }
     }
 }

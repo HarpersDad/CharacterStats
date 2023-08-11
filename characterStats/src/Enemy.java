@@ -11,6 +11,8 @@ public class Enemy
     int wis;
     int spd;
     int lck;
+    int givenXP;
+    // we can later create a method that checks what players were in the battle, scale the xp to their levels and divide it amongst those players
 
     // Enemy constructor
     Enemy(String name, String type)
@@ -29,6 +31,7 @@ public class Enemy
                 this.wis = 2;
                 this.spd = 6;
                 this.lck = 3;
+                this.givenXP = 10;
             }
             case ("attacker") -> {
                 this.hp = 8;
@@ -38,6 +41,7 @@ public class Enemy
                 this.wis = 2;
                 this.spd = 3;
                 this.lck = 3;
+                this.givenXP = 10;
             }
             case ("magician") -> {
                 this.hp = 4;
@@ -47,6 +51,7 @@ public class Enemy
                 this.wis = 6;
                 this.spd = 3;
                 this.lck = 3;
+                this.givenXP = 10;
             }
         }
     }
