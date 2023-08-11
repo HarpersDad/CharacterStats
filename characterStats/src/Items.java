@@ -7,19 +7,17 @@ public class Items
     String buff;
     int buffAmount;
     String description;
-    String equipType;
     int numberHeld;
     int maxItemCount;
 
     // item constructor
-    Items(String name, int cost, String buff, int buffAmount, String description, String equipType, int numberHeld)
+    Items(String name, int cost, String buff, int buffAmount, String description, int numberHeld)
     {
         this.name = name;
         this.cost = cost;
         this.buff = buff;
         this.buffAmount = buffAmount;
         this.description = description;
-        this.equipType = equipType;
         this.numberHeld = numberHeld;
         this.maxItemCount = 99;
     }

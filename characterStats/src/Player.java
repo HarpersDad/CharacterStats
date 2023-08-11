@@ -1,4 +1,5 @@
-import java.util.Random;
+import java.sql.SQLOutput;
+import java.util.*;
 
 // Player Class
 public class Player
@@ -9,6 +10,7 @@ public class Player
     String sex;
     int level;
     int hp;
+    int currentMaxHP;
     int str;
     int def;
     int con;
@@ -64,6 +66,12 @@ public class Player
     Equipment brassRing = new Equipment("Brass Ring", true, 1, "lck", 1, "an old brass ring", "ring", 1);
     Equipment leatherCape = new Equipment("Leather Cape", true, 1, "con", 1, "an old leather cape", "back", 1);
 
+    // Starting items
+    Items tonic = new Items("Tonic", 1, "heal", 1, "a healing tonic", 1);
+    Items tent = new Items("Tent", 1, "fullHeal", 1, "a camping tent", 1);
+    Items panacea = new Items("Panacea", 1, "antidote", 1, "a status remedy", 1);
+    Items revivePowder = new Items("Revival Powder", 1, "revive", 1, "a revival powder", 1);
+
     // Player constructor
     Player(String name, String job, String sex)
     {
@@ -107,6 +115,11 @@ public class Player
                 this.feet = leatherBoots;
 
                 // starting items
+                this.inventory[0] = tonic;
+                this.inventory[1] = tent;
+                this.inventory[2] = panacea;
+                this.inventory[3] = revivePowder;
+
             }
             case "ranger" -> {
                 this.hp = 10;
@@ -127,6 +140,10 @@ public class Player
                 this.back = leatherCape;
 
                 // starting items
+                this.inventory[0] = tonic;
+                this.inventory[1] = tent;
+                this.inventory[2] = panacea;
+                this.inventory[3] = revivePowder;
             }
             case "fighter" -> {
                 this.hp = 13;
@@ -145,6 +162,10 @@ public class Player
                 this.feet = leatherBoots;
 
                 // starting items
+                this.inventory[0] = tonic;
+                this.inventory[1] = tent;
+                this.inventory[2] = panacea;
+                this.inventory[3] = revivePowder;
             }
             case "mage" -> {
                 this.hp = 6;
@@ -166,6 +187,10 @@ public class Player
                 this.feet = leatherBoots;
 
                 // starting items
+                this.inventory[0] = tonic;
+                this.inventory[1] = tent;
+                this.inventory[2] = panacea;
+                this.inventory[3] = revivePowder;
             }
             case "thief" -> {
                 this.hp = 8;
@@ -188,6 +213,10 @@ public class Player
                 this.back = leatherCape;
 
                 // starting items
+                this.inventory[0] = tonic;
+                this.inventory[1] = tent;
+                this.inventory[2] = panacea;
+                this.inventory[3] = revivePowder;
             }
             default -> {
                 this.job = "vagrant";
@@ -207,8 +236,13 @@ public class Player
                 this.back = leatherCape;
 
                 // starting items
+                this.inventory[0] = tonic;
+                this.inventory[1] = tent;
+                this.inventory[2] = panacea;
+                this.inventory[3] = revivePowder;
             }
         }
+        this.currentMaxHP = this.hp;
 
         // adds stats to the player based on the sex chosen
         switch (sex) {
@@ -316,6 +350,7 @@ public class Player
                     this.lck += (this.lck % this.level) + 2;
                 }
             }
+            this.currentMaxHP = this.hp;
 
             // print message that tells the user that the player has leveled up and the player's current level
             System.out.println("\n" + this.name + " Leveled Up!");
@@ -324,7 +359,7 @@ public class Player
     }
 
     // method for checking if an item is equipped and adding the appropriate buff
-    void itemEquipped()
+    void gearEquipped()
     {
         // checks equipped main weapon
         if (this.mainWeapon != null) {
@@ -492,6 +527,25 @@ public class Player
         }
     }
 
+    // add items to player inventory
+    void addToInventory(Items item)
+    {
+        for (int i = 0; i < inventory.length; i++)
+        {
+            if (inventory[i] == item)
+            {
+                if (item.numberHeld < 99)
+                {
+                    inventory[i].numberHeld++;
+                }
+            }
+            else if (inventory[i] == null)
+            {
+                this.inventory[i] = item;
+            }
+        }
+    }
+
     // this method calculates if a player's attack hits an opponent
     int checkHit(Player player)
     {
@@ -568,5 +622,111 @@ public class Player
 
         // returns damage
         return damageDealt;
+    }
+
+    void useItem(Player player, Items item)
+    {
+        System.out.println(item.numberHeld);
+
+        String status = player.status;
+        int hp  = player.hp;
+        int maxHP = player.currentMaxHP;
+
+        if ( !status.equals("Normal") && item.name.equals("Panacea") )
+        {
+            for (int i = 0; i < inventory.length; i++)
+            {
+                if (!(inventory[i]==null))
+                {
+                    if (inventory[i].name.equals("Panacea"))
+                    {
+                        inventory[i].numberHeld--;
+                    }
+                }
+
+            }
+
+            player.status = "Normal";
+        }
+
+        if (hp >= 0 && item.name.equals("Revive Powder"))
+        {
+            for (int i = 0; i < inventory.length; i++)
+            {
+                if (!(inventory[i]==null))
+                {
+                    if (inventory[i].name.equals("Revive Powder"))
+                    {
+                        inventory[i].numberHeld--;
+                    }
+                }
+
+            }
+
+            player.hp = player.currentMaxHP;
+        }
+
+        if (hp > maxHP && item.name.equals("Tent"))
+        {
+            for (int i = 0; i < inventory.length; i++)
+            {
+                if (!(inventory[i]==null))
+                {
+                    if (inventory[i].name.equals("Tent"))
+                    {
+                        inventory[i].numberHeld--;
+                    }
+                }
+
+            }
+
+            player.hp = player.currentMaxHP;
+        }
+
+        if (hp < maxHP && item.name.equals("Tonic"))
+        {
+            for (int i = 0; i < inventory.length; i++)
+            {
+                if (!(inventory[i]==null))
+                {
+                    if (inventory[i].name.equals("Tonic"))
+                    {
+                        inventory[i].numberHeld--;
+                    }
+                }
+
+            }
+
+            if ( (maxHP - hp) < 20 )
+            {
+                this.hp += (maxHP - hp);
+            }
+            else
+            {
+                System.out.println("Tonic Used!");
+                this.hp += 20;
+            }
+        }
+    }
+
+    void checkInventory(Player player)
+    {
+        for (int i = 0; i < inventory.length; i++)
+        {
+            if (!(player.inventory[i] == null))
+            {
+                if (player.inventory[i].numberHeld == 0)
+                {
+                    player.inventory[i] = null;
+                }
+            }
+
+            if (player.inventory[i] == null && i+1 < inventory.length)
+            {
+                Items temp = player.inventory[i];
+                player.inventory[i] = player.inventory[i+1];
+                player.inventory[i+1] = temp;
+            }
+        }
     }
 }

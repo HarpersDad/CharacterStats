@@ -105,8 +105,8 @@ public class Main
         printPlayerStats(player2);
 
         // "Equips" gear and adds stat buffs
-        player1.itemEquipped();
-        player2.itemEquipped();
+        player1.gearEquipped();
+        player2.gearEquipped();
 
         // print equipment
         printPlayerEquipment(player1);
@@ -118,7 +118,24 @@ public class Main
 
         // reprinting the player stats to see how they have changed due to leveling up and from buffs
         printPlayerStats(player1);
-        printPlayerStats(player2);
+        //printPlayerStats(player2);
+
+        // buff equipment
+        //player1.mainWeapon.enchantEquipment("str", 50);
+        //player1.itemEquipped();
+
+        player1.hp -= 25;
+
+        printPlayerStats(player1);
+        //printPlayerStats(player2);
+
+        // heals player1 using a tonic and checks player1 inventory to update item count
+        player1.useItem(player1, player1.tonic);
+        player1.checkInventory(player1);
+
+        printPlayerStats(player1);
+
+        printPlayerInventory(player1);
 
         // calls damage method from Player class using the player1 object
         //System.out.println(player1.checkHit(player1));
