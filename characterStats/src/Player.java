@@ -23,7 +23,7 @@ public class Player
     // inventory array
     Items[] inventory = new Items[25];
 
-    // equipped items array
+    // player equipped items array
     Equipment[] equipment = new Equipment[11];
 
     // equipment slots
@@ -38,6 +38,31 @@ public class Player
     Equipment legs; // 8
     Equipment feet; // 9
     Equipment back; // 10
+
+    // starting weapons
+    Equipment shortSword = new Equipment("Short Sword", true, 1, "str", 1, "a short sword", "mainWeapon", 1);
+    Equipment leatherBands = new Equipment("Leather Bands", true, 1, "str", 1, "leather hand wraps", "mainWeapon", 1);
+    Equipment shortBow = new Equipment("Short Bow", true, 1, "str", 1, "a short bow", "mainWeapon", 1);
+    Equipment walkingStaff = new Equipment("Walking Staff", true, 1, "str", 1, "an old walking stick", "mainWeapon", 1);
+    Equipment dagger = new Equipment("Dagger", true, 1, "str", 1, "a small dagger", "mainWeapon", 1);
+
+    // starting offhand
+    Equipment leatherBuckler = new Equipment("Leather Buckler", true, 1, "def", 2, "a small worn leather shield", "offHand", 1);
+    Equipment woodenKite = new Equipment("Wooden Kite-Shield", true, 1, "def", 4, "an old wooden kite-shield", "offHand", 1);
+
+    // starting armor
+    Equipment leatherHat = new Equipment("Leather Hat", true, 1, "def", 1, "a worn leather hat", "head", 1);
+    Equipment leatherChest = new Equipment("Leather Chest", true, 1, "def", 1, "worn leather chest armor", "chest", 1);
+    Equipment leatherGloves = new Equipment("Leather Gloves", true, 1, "def", 1, "worn leather gloves", "hands", 1);
+    Equipment leatherPants = new Equipment("Leather Pants", true, 1, "def", 1, "worn leather pants", "legs", 1);
+    Equipment leatherBoots = new Equipment("Leather Boots", true, 1, "def", 1, "worn leather boots", "feet", 1);
+
+    // starting accessories
+    Equipment leatherGaiter = new Equipment("Leather Gaiter", true, 1, "def", 1, "a worn leather neck warmer", "neck", 1);
+    Equipment brassNecklace = new Equipment("Brass Necklace", true, 1, "lck", 1, "an old brass necklace", "neck", 1);
+    Equipment leatherBelt = new Equipment("Leather Belt", true, 1, "spd", 1, "a worn leather belt", "belt", 1);
+    Equipment brassRing = new Equipment("Brass Ring", true, 1, "lck", 1, "an old brass ring", "ring", 1);
+    Equipment leatherCape = new Equipment("Leather Cape", true, 1, "con", 1, "an old leather cape", "back", 1);
 
     // Player constructor
     Player(String name, String job, String sex)
@@ -61,6 +86,7 @@ public class Player
         // adds stats to the player based on the job chosen
         switch (job) {
             case "defender" -> {
+                // starting stats
                 this.hp = 20;
                 this.str = 2;
                 this.def = 3;
@@ -68,6 +94,19 @@ public class Player
                 this.wis = 2;
                 this.spd = 1;
                 this.lck = 1;
+
+                // starting equipment
+                this.mainWeapon = shortSword;
+                this.offHand = woodenKite;
+                this.head = leatherHat;
+                this.neck = leatherGaiter;
+                this.chest = leatherChest;
+                this.hands = leatherGloves;
+                this.belt = leatherBelt;
+                this.legs = leatherPants;
+                this.feet = leatherBoots;
+
+                // starting items
             }
             case "ranger" -> {
                 this.hp = 10;
@@ -77,6 +116,17 @@ public class Player
                 this.wis = 3;
                 this.spd = 3;
                 this.lck = 1;
+
+                // starting equipment
+                this.mainWeapon = shortBow;
+                this.neck = leatherGaiter;
+                this.chest = leatherChest;
+                this.belt = leatherBelt;
+                this.legs = leatherPants;
+                this.feet = leatherBoots;
+                this.back = leatherCape;
+
+                // starting items
             }
             case "fighter" -> {
                 this.hp = 13;
@@ -86,6 +136,15 @@ public class Player
                 this.wis = 1;
                 this.spd = 3;
                 this.lck = 2;
+
+                // starting equipment
+                this.mainWeapon = leatherBands;
+                this.chest = leatherChest;
+                this.belt = leatherBelt;
+                this.legs = leatherPants;
+                this.feet = leatherBoots;
+
+                // starting items
             }
             case "mage" -> {
                 this.hp = 6;
@@ -95,6 +154,18 @@ public class Player
                 this.wis = 3;
                 this.spd = 2;
                 this.lck = 1;
+
+                // starting equipment
+                this.mainWeapon = walkingStaff;
+                this.offHand = leatherBuckler;
+                this.head = leatherHat;
+                this.chest = leatherChest;
+                this.hands = leatherGloves;
+                this.ring = brassRing;
+                this.legs = leatherPants;
+                this.feet = leatherBoots;
+
+                // starting items
             }
             case "thief" -> {
                 this.hp = 8;
@@ -104,6 +175,19 @@ public class Player
                 this.wis = 2;
                 this.spd = 3;
                 this.lck = 2;
+
+                // starting equipment
+                this.mainWeapon = dagger;
+                this.offHand = leatherBuckler;
+                this.head = leatherHat;
+                this.neck = brassNecklace;
+                this.chest = leatherChest;
+                this.belt = leatherBelt;
+                this.legs = leatherPants;
+                this.feet = leatherBoots;
+                this.back = leatherCape;
+
+                // starting items
             }
             default -> {
                 this.job = "vagrant";
@@ -114,6 +198,15 @@ public class Player
                 this.wis = 2;
                 this.spd = 2;
                 this.lck = 2;
+
+                // starting equipment
+                this.mainWeapon = dagger;
+                this.ring = brassRing;
+                this.legs = leatherPants;
+                this.feet = leatherBoots;
+                this.back = leatherCape;
+
+                // starting items
             }
         }
 
@@ -235,6 +328,8 @@ public class Player
     {
         // checks equipped main weapon
         if (this.mainWeapon != null) {
+            this.equipment[0] = this.mainWeapon;
+
             switch (this.mainWeapon.buff) {
                 case "hp" -> this.hp += this.mainWeapon.buffAmount;
                 case "str" -> this.str += this.mainWeapon.buffAmount;
@@ -248,6 +343,8 @@ public class Player
 
         // checks offhand weapon / armament
         if (this.offHand != null) {
+            this.equipment[1] = this.offHand;
+
             switch (this.offHand.buff) {
                 case "hp" -> this.hp += this.offHand.buffAmount;
                 case "str" -> this.str += this.offHand.buffAmount;
@@ -261,6 +358,8 @@ public class Player
 
         // checks head gear
         if (this.head != null) {
+            this.equipment[2] = this.head;
+
             switch (this.head.buff) {
                 case "hp" -> this.hp += this.head.buffAmount;
                 case "str" -> this.str += this.head.buffAmount;
@@ -274,6 +373,8 @@ public class Player
 
         // checks neck gear
         if (this.neck != null) {
+            this.equipment[3] = this.neck;
+
             switch (this.neck.buff) {
                 case "hp" -> this.hp += this.neck.buffAmount;
                 case "str" -> this.str += this.neck.buffAmount;
@@ -287,6 +388,8 @@ public class Player
 
         // checks chest gear
         if (this.chest != null) {
+            this.equipment[4] = this.chest;
+
             switch (this.chest.buff) {
                 case "hp" -> this.hp += this.chest.buffAmount;
                 case "str" -> this.str += this.chest.buffAmount;
@@ -300,6 +403,8 @@ public class Player
 
         // checks hand gear
         if (this.hands != null) {
+            this.equipment[5] = this.hands;
+
             switch (this.hands.buff) {
                 case "hp" -> this.hp += this.hands.buffAmount;
                 case "str" -> this.str += this.hands.buffAmount;
@@ -313,6 +418,8 @@ public class Player
 
         // checks ring gear
         if (this.ring != null) {
+            this.equipment[6] = this.ring;
+
             switch (this.ring.buff) {
                 case "hp" -> this.hp += this.ring.buffAmount;
                 case "str" -> this.str += this.ring.buffAmount;
@@ -326,6 +433,8 @@ public class Player
 
         // checks belt gear
         if (this.belt != null) {
+            this.equipment[7] = this.belt;
+
             switch (this.belt.buff) {
                 case "hp" -> this.hp += this.belt.buffAmount;
                 case "str" -> this.str += this.belt.buffAmount;
@@ -339,6 +448,8 @@ public class Player
 
         // checks leg gear
         if (this.legs != null) {
+            this.equipment[8] = this.legs;
+
             switch (this.legs.buff) {
                 case "hp" -> this.hp += this.legs.buffAmount;
                 case "str" -> this.str += this.legs.buffAmount;
@@ -352,6 +463,8 @@ public class Player
 
         // checks foot gear
         if (this.feet != null) {
+            this.equipment[9] = this.feet;
+
             switch (this.feet.buff) {
                 case "hp" -> this.hp += this.feet.buffAmount;
                 case "str" -> this.str += this.feet.buffAmount;
@@ -360,6 +473,21 @@ public class Player
                 case "wis" -> this.wis += this.feet.buffAmount;
                 case "spd" -> this.spd += this.feet.buffAmount;
                 case "lck" -> this.lck += this.feet.buffAmount;
+            }
+        }
+
+        // checks back gear
+        if (this.back != null) {
+            this.equipment[10] = this.back;
+
+            switch (this.back.buff) {
+                case "hp" -> this.hp += this.back.buffAmount;
+                case "str" -> this.str += this.back.buffAmount;
+                case "def" -> this.def += this.back.buffAmount;
+                case "con" -> this.con += this.back.buffAmount;
+                case "wis" -> this.wis += this.back.buffAmount;
+                case "spd" -> this.spd += this.back.buffAmount;
+                case "lck" -> this.lck += this.back.buffAmount;
             }
         }
     }
