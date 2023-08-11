@@ -11,7 +11,7 @@
 - added stat buffs for items and equipment.<br>
 - added status afflictions.<br>
 - added a damage multiplier system.<br>
-- if a player is created with no passed data, the character will have the following set: name - Vagabond, job - vagrant, sex - other.<br>
+- if a player is created with no data, the following will be set: name - Vagabond, job - vagrant, sex - other.<br>
 - current job classes are: defender, ranger, fighter, mage, thief, vagrant.<br>
 <h2>recent additions</h2>
 - starting equipment.<br>
