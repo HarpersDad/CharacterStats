@@ -15,3 +15,6 @@
 - current job classes are: defender, ranger, fighter, mage, thief, vagrant.<br>
 <h2>recent additions</h2>
 - starting equipment.<br>
+- starting items.<br>
+- item usage.<br>
+- inventory updated after using an item.<br>
