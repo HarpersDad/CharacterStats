@@ -8,9 +8,9 @@
 - added character and enemy stats.<br>
 - added inventory.<br>
 - added equippable items.<br>
-- added stat buffs from equipment.<br>
-- status afflictions.<br>
-- damage multipliers.<br>
+- added stat buffs for items and equipment.<br>
+- added status afflictions.<br>
+- added a damage multiplier system.<br>
 
 <h2>Needs to be implemented</h2>
 - more things.<br>
