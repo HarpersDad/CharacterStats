@@ -1,6 +1,7 @@
 // main class that creates the players and enemy units
 public class Main
 {
+    public static Player[] characters = {null, null, null};
     public static void levelUp(Player player)
     {
         player.checkLevelUp();
@@ -76,7 +77,13 @@ public class Main
     {
         // uses the Player class to create new characters with the given name, job, and sex
         // as seen with player 1, if selection is blank then the program will assign name as Vagabond, job as vagrant and sex as other
-        Player player1 = new Player("defender", "defender", "male");
+        Player player1 = new Player("Defender", "defender", "male");
+        Player player2 = new Player("Ranger", "ranger", "male");
+        Player player3 = new Player("Fighter", "fighter", "male");
+
+        characters[0] = player1;
+        characters[1] = player2;
+        characters[2] = player3;
 
         // uses the Enemy class to create new enemies with the given name and type
         // Enemy enemy1 = new Enemy("Bird", "flyer");
@@ -134,5 +141,20 @@ public class Main
 
         // calls damage method from Player class using the player1 object
         System.out.println(player1.checkHit(player1));
+
+        UI.newUI();
+        UI.name.setText(Main.characters[0].name);
+        UI.sex.setText(Main.characters[0].sex);
+        UI.job.setText(Main.characters[0].job);
+        UI.level.setText(String.valueOf(Main.characters[0].level));
+        UI.status.setText(Main.characters[0].status);
+        UI.hp.setText(String.valueOf(Main.characters[0].hp));
+        UI.str.setText(String.valueOf(Main.characters[0].str));
+        UI.def.setText(String.valueOf(Main.characters[0].def));
+        UI.con.setText(String.valueOf(Main.characters[0].con));
+        UI.wis.setText(String.valueOf(Main.characters[0].wis));
+        UI.spd.setText(String.valueOf(Main.characters[0].spd));
+        UI.lck.setText(String.valueOf(Main.characters[0].lck));
+        UI.xp.setText(String.valueOf(Main.characters[0].xp));
     }
 }
