@@ -18,5 +18,6 @@
 - starting items.<br>
 - item usage.<br>
 - inventory updated after using an item.<br>
+- began working on UI elements.<br>
 <h2>still needed</h2>
-- ui.<br>
+- working ui.<br>
