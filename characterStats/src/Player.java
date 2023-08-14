@@ -18,6 +18,7 @@ public class Player
     int lck;
     double xp;
     int xpToLevel = 2;
+    double xpToNextLevel;
 
     String status;
 
@@ -282,10 +283,10 @@ public class Player
     void checkLevelUp()
     {
         // while loops that checks if the players current xp is enough to level up
-        while (this.xp >= Math.pow(xpToLevel, this.level))
+        while ( this.xp >= Math.round((Math.pow(xpToLevel, this.level)) / (this.level+1)) )
         {
             // sets the remaining xp as current xp
-            this.xp = this.xp - Math.pow(xpToLevel, this.level);
+            this.xp = this.xp - Math.round((Math.pow(xpToLevel, this.level)) / (this.level+1));
 
             // adds a level to the player level
             this.level++;
@@ -359,11 +360,12 @@ public class Player
                 }
             }
             this.currentMaxHP = this.hp;
-        }
+            this.xpToNextLevel = Math.round((Math.pow(xpToLevel, this.level)) / (this.level+1));
 
-        // print message that tells the user that the player has leveled up and the player's current level
-        System.out.println("\n" + this.name + " Leveled Up!");
-        System.out.println(this.name + " is now level " + this.level);
+            // print message that tells the user that the player has leveled up and the player's current level
+            System.out.println("\n" + this.name + " Leveled Up!");
+            System.out.println(this.name + " is now level " + this.level);
+        }
     }
 
     // method for checking if an item is equipped and adding the appropriate buff

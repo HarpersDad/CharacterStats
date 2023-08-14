@@ -2,9 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class UI
 {
+    static final DecimalFormat df = new DecimalFormat("0");
     static JFrame frame = new JFrame("");
     static int x = 600;
     static int y = 400;
@@ -12,6 +14,7 @@ public class UI
     static int buttonW = x/2;
 
     static JComboBox characterBox;
+    static Button levelUpButton = new Button("Add XP");
 
     static JLabel name = new JLabel("");
     static JLabel sex = new JLabel("");
@@ -26,6 +29,7 @@ public class UI
     static JLabel spd = new JLabel("");
     static JLabel lck = new JLabel("");
     static JLabel xp = new JLabel("");
+    static JLabel xpToNextLevel = new JLabel("");
 
     static JLabel nameL = new JLabel("NAME:");
     static JLabel sexL = new JLabel("SEX:");
@@ -40,13 +44,36 @@ public class UI
     static JLabel spdL = new JLabel("SPD:");
     static JLabel lckL = new JLabel("LCK:");
     static JLabel xpL = new JLabel("XP:");
+    static JLabel xpToNextLevelL = new JLabel("LvlUp:");
 
     public static void newUI()
     {
         characterBox = new JComboBox();
-        characterBox.addItem("Defender");
-        characterBox.addItem("Ranger");
-        characterBox.addItem("Fighter");
+
+        if (Main.characters[0] != null)
+        {
+            characterBox.addItem(Main.characters[0].name);
+        }
+        if (Main.characters[1] != null)
+        {
+            characterBox.addItem(Main.characters[1].name);
+        }
+        if (Main.characters[2] != null)
+        {
+            characterBox.addItem(Main.characters[2].name);
+        }
+        if (Main.characters[3] != null)
+        {
+            characterBox.addItem(Main.characters[3].name);
+        }
+        if (Main.characters[4] != null)
+        {
+            characterBox.addItem(Main.characters[4].name);
+        }
+        if (Main.characters[5] != null)
+        {
+            characterBox.addItem(Main.characters[5].name);
+        }
 
         // creates program window
         frame.setTitle("RPG TEST");
@@ -54,7 +81,8 @@ public class UI
         frame.setSize(x, y);
         frame.setLocationRelativeTo(null);
 
-        characterBox.setBounds((x/4) - buttonW/3 - 25, (y/4) - (50), 100, 30);
+        characterBox.setBounds((x/4) - buttonW/3 - 25, (y/4) - (80), 100, 30);
+        levelUpButton.setBounds((x/4) - buttonW/3 - 25, (y/4) - (35), 80,25);
 
         // actual attributes
         name.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -96,6 +124,10 @@ public class UI
         xp.setFont(new Font("Arial", Font.PLAIN, 12));
         xp.setBounds((x/4) - buttonW/4, (y/4) + (160), buttonW, buttonH);
 
+        xpToNextLevel.setFont(new Font("Arial", Font.PLAIN, 12));
+        xpToNextLevel.setBounds((x/4) - buttonW/4, (y/4) + (175), buttonW, buttonH);
+
+        frame.getContentPane().add(levelUpButton);
         frame.getContentPane().add(characterBox);
         frame.getContentPane().add(name);
         frame.getContentPane().add(sex);
@@ -110,6 +142,7 @@ public class UI
         frame.getContentPane().add(spd);
         frame.getContentPane().add(lck);
         frame.getContentPane().add(xp);
+        frame.getContentPane().add(xpToNextLevel);
 
         // labels
         nameL.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -151,6 +184,9 @@ public class UI
         xpL.setFont(new Font("Arial", Font.PLAIN, 12));
         xpL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (160), buttonW, buttonH);
 
+        xpToNextLevelL.setFont(new Font("Arial", Font.PLAIN, 12));
+        xpToNextLevelL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (175), buttonW, buttonH);
+
         frame.getContentPane().add(nameL);
         frame.getContentPane().add(sexL);
         frame.getContentPane().add(jobL);
@@ -164,9 +200,35 @@ public class UI
         frame.getContentPane().add(spdL);
         frame.getContentPane().add(lckL);
         frame.getContentPane().add(xpL);
+        frame.getContentPane().add(xpToNextLevelL);
 
         frame.setLayout(null);
         frame.setVisible(true);
+
+        levelUpButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                Main.characters[characterBox.getSelectedIndex()].xp += 1;
+                Main.levelUp(Main.characters[characterBox.getSelectedIndex()]);
+
+                name.setText(Main.characters[characterBox.getSelectedIndex()].name);
+                sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
+                job.setText(Main.characters[characterBox.getSelectedIndex()].job);
+                level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
+                status.setText(Main.characters[characterBox.getSelectedIndex()].status);
+                hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
+                str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
+                def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
+                con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
+                wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
+                spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
+                lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
+                xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+                xpToNextLevel.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)));
+            }
+        });
 
         characterBox.addActionListener(new ActionListener()
         {
@@ -186,7 +248,8 @@ public class UI
                         wis.setText(String.valueOf(Main.characters[0].wis));
                         spd.setText(String.valueOf(Main.characters[0].spd));
                         lck.setText(String.valueOf(Main.characters[0].lck));
-                        xp.setText(String.valueOf(Main.characters[0].xp));
+                        xp.setText(String.valueOf(df.format(Main.characters[0].xp)));
+                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[0].xpToNextLevel)));
                     }
 
                     case 1 -> {
@@ -202,7 +265,8 @@ public class UI
                         wis.setText(String.valueOf(Main.characters[1].wis));
                         spd.setText(String.valueOf(Main.characters[1].spd));
                         lck.setText(String.valueOf(Main.characters[1].lck));
-                        xp.setText(String.valueOf(Main.characters[1].xp));
+                        xp.setText(String.valueOf(df.format(Main.characters[1].xp)));
+                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[1].xpToNextLevel)));
                     }
 
                     case 2 -> {
@@ -218,7 +282,59 @@ public class UI
                         wis.setText(String.valueOf(Main.characters[2].wis));
                         spd.setText(String.valueOf(Main.characters[2].spd));
                         lck.setText(String.valueOf(Main.characters[2].lck));
-                        xp.setText(String.valueOf(Main.characters[2].xp));
+                        xp.setText(String.valueOf(df.format(Main.characters[2].xp)));
+                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[2].xpToNextLevel)));
+                    }
+
+                    case 3 -> {
+                        name.setText(Main.characters[3].name);
+                        sex.setText(Main.characters[3].sex);
+                        job.setText(Main.characters[3].job);
+                        level.setText(String.valueOf(Main.characters[3].level));
+                        status.setText(Main.characters[3].status);
+                        hp.setText(String.valueOf(Main.characters[3].hp));
+                        str.setText(String.valueOf(Main.characters[3].str));
+                        def.setText(String.valueOf(Main.characters[3].def));
+                        con.setText(String.valueOf(Main.characters[3].con));
+                        wis.setText(String.valueOf(Main.characters[3].wis));
+                        spd.setText(String.valueOf(Main.characters[3].spd));
+                        lck.setText(String.valueOf(Main.characters[3].lck));
+                        xp.setText(String.valueOf(df.format(Main.characters[3].xp)));
+                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[3].xpToNextLevel)));
+                    }
+
+                    case 4 -> {
+                        name.setText(Main.characters[4].name);
+                        sex.setText(Main.characters[4].sex);
+                        job.setText(Main.characters[4].job);
+                        level.setText(String.valueOf(Main.characters[4].level));
+                        status.setText(Main.characters[4].status);
+                        hp.setText(String.valueOf(Main.characters[4].hp));
+                        str.setText(String.valueOf(Main.characters[4].str));
+                        def.setText(String.valueOf(Main.characters[4].def));
+                        con.setText(String.valueOf(Main.characters[4].con));
+                        wis.setText(String.valueOf(Main.characters[4].wis));
+                        spd.setText(String.valueOf(Main.characters[4].spd));
+                        lck.setText(String.valueOf(Main.characters[4].lck));
+                        xp.setText(String.valueOf(df.format(Main.characters[4].xp)));
+                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[4].xpToNextLevel)));
+                    }
+
+                    case 5 -> {
+                        name.setText(Main.characters[5].name);
+                        sex.setText(Main.characters[5].sex);
+                        job.setText(Main.characters[5].job);
+                        level.setText(String.valueOf(Main.characters[5].level));
+                        status.setText(Main.characters[5].status);
+                        hp.setText(String.valueOf(Main.characters[5].hp));
+                        str.setText(String.valueOf(Main.characters[5].str));
+                        def.setText(String.valueOf(Main.characters[5].def));
+                        con.setText(String.valueOf(Main.characters[5].con));
+                        wis.setText(String.valueOf(Main.characters[5].wis));
+                        spd.setText(String.valueOf(Main.characters[5].spd));
+                        lck.setText(String.valueOf(Main.characters[5].lck));
+                        xp.setText(String.valueOf(df.format(Main.characters[5].xp)));
+                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[5].xpToNextLevel)));
                     }
                 }
             }

@@ -1,7 +1,10 @@
+import java.text.DecimalFormat;
+
 // main class that creates the players and enemy units
 public class Main
 {
-    public static Player[] characters = {null, null, null};
+    static final DecimalFormat df = new DecimalFormat("0");
+    public static Player[] characters = {null, null, null, null, null, null};
     public static void levelUp(Player player)
     {
         player.checkLevelUp();
@@ -88,13 +91,6 @@ public class Main
         // uses the Enemy class to create new enemies with the given name and type
         // Enemy enemy1 = new Enemy("Bird", "flyer");
 
-        // this was used to test each player leveling up
-        player1.xp = 1022;
-
-        // this while loop checks if the player has enough xp to go to the next level by checking if their current xp
-        // if equal to or greater than 2 to the power of the player's current level, 2^currentLevel
-        levelUp(player1);
-
         // "Equips" gear and adds stat buffs
         player1.gearEquipped();
 
@@ -155,6 +151,6 @@ public class Main
         UI.wis.setText(String.valueOf(Main.characters[0].wis));
         UI.spd.setText(String.valueOf(Main.characters[0].spd));
         UI.lck.setText(String.valueOf(Main.characters[0].lck));
-        UI.xp.setText(String.valueOf(Main.characters[0].xp));
+        UI.xp.setText(String.valueOf(df.format(Main.characters[0].xp)));
     }
 }
