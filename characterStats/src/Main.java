@@ -139,5 +139,17 @@ public class Main
         UI.spd.setText(String.valueOf(Main.characters[0].spd));
         UI.lck.setText(String.valueOf(Main.characters[0].lck));
         UI.xp.setText(String.valueOf(df.format(Main.characters[0].xp)));
+
+        UI.mainWeapon.setText(Main.characters[0].mainWeapon.name);
+        UI.offHand.setText(Main.characters[0].offHand.name);
+        UI.head.setText(Main.characters[0].head.name);
+        UI.neck.setText(Main.characters[0].neck.name);
+        UI.chest.setText(Main.characters[0].chest.name);
+        UI.hands.setText(Main.characters[0].hands.name);
+        UI.ring.setText(Main.characters[0].ring.name);
+        UI.belt.setText(Main.characters[0].belt.name);
+        UI.legs.setText(Main.characters[0].legs.name);
+        UI.feet.setText(Main.characters[0].feet.name);
+        UI.back.setText(Main.characters[0].back.name);
     }
 }
