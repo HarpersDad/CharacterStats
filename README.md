@@ -19,5 +19,6 @@
 - item usage.<br>
 - inventory updated after using an item.<br>
 - simple UI that allows the user to choose a default character type and level them up.<br>
+- UI now shows character stats and equipment.<br>
 <h2>still needed</h2>
 - expanded ui.<br>
