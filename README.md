@@ -9,6 +9,7 @@
 - added inventory.<br>
 - added equippable items.<br>
 - added stat buffs for items and equipment.<br>
+- user can enchant own items.<br>
 - added status afflictions.<br>
 - added a damage multiplier system.<br>
 - if a player is created with no data, the following will be set: name - Vagabond, job - vagrant, sex - other.<br>
