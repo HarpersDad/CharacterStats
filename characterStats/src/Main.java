@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 public class Main
 {
     static final DecimalFormat df = new DecimalFormat("0");
-    public static Player[] characters = {null, null, null, null, null, null};
+    public static Player[] characters = {null, null, null, null, null, null, null, null, null, null, null, null};
     public static void levelUp(Player player)
     {
         player.checkLevelUp();
@@ -80,63 +80,50 @@ public class Main
     {
         // uses the Player class to create new characters with the given name, job, and sex
         // as seen with player 1, if selection is blank then the program will assign name as Vagabond, job as vagrant and sex as other
-        Player player1 = new Player("Defender", "defender", "male");
-        Player player2 = new Player("Ranger", "ranger", "male");
-        Player player3 = new Player("Fighter", "fighter", "male");
+        Player player0 = new Player("mDefender", "defender", "male");
+        Player player1 = new Player("mRanger", "ranger", "male");
+        Player player2 = new Player("mFighter", "fighter", "male");
+        Player player3 = new Player("mMage", "mage", "male");
+        Player player4 = new Player("mThief", "thief", "male");
+        Player player5 = new Player("mVagrant", "", "male");
 
-        characters[0] = player1;
-        characters[1] = player2;
-        characters[2] = player3;
+        Player player6 = new Player("fDefender", "defender", "female");
+        Player player7 = new Player("fRanger", "ranger", "female");
+        Player player8 = new Player("fFighter", "fighter", "female");
+        Player player9 = new Player("fMage", "mage", "female");
+        Player player10 = new Player("fThief", "thief", "female");
+        Player player11 = new Player("fVagrant", "", "female");
+
+        characters[0] = player0;
+        characters[1] = player1;
+        characters[2] = player2;
+        characters[3] = player3;
+        characters[4] = player4;
+        characters[5] = player5;
+        characters[6] = player6;
+        characters[7] = player7;
+        characters[8] = player8;
+        characters[9] = player9;
+        characters[10] = player10;
+        characters[11] = player11;
+
 
         // uses the Enemy class to create new enemies with the given name and type
         // Enemy enemy1 = new Enemy("Bird", "flyer");
 
         // "Equips" gear and adds stat buffs
+        player0.gearEquipped();
         player1.gearEquipped();
-
-        // print equipment
-        // printPlayerEquipment(player1);
-
-        // this block enchants an item/equipment and then re-equips it to the character with the new stats
-        // player1Equip1.enchantEquipment("wis", 30);
-        // player1.itemEquipped();
-
-        // simulate picking up a tonic
-        //player1.inventory[0].numberHeld++;
-
-        // reprinting the player stats to see how they have changed due to leveling up and from buffs
-        printPlayerStats(player1);
-        printPlayerInventory(player1);
-
-        // buff equipment
-        // player1.mainWeapon.enchantEquipment("str", 50);
-        // player1.itemEquipped();
-
-        // simulate damage to the player
-        player1.hp -= 25;
-        System.out.println("\n" + player1.name + " took 25 damage!");
-
-        printPlayerStats(player1);
-
-        // heals player1 using a tonic and checks player1 inventory to update item count
-        player1.useItem(player1, player1.tonic);
-        player1.checkInventory(player1);
-
-        System.out.println("\n" + player1.name + " used a tonic and healed 20 hp!");
-
-        printPlayerStats(player1);
-
-        player1.addItemToInventory(player1, "", 1);
-        player1.addItemToInventory(player1, "tent", 2);
-
-        printPlayerInventory(player1);
-
-        player1.status = "blind";
-
-        printPlayerStats(player1);
-
-        // calls damage method from Player class using the player1 object
-        System.out.println(player1.checkHit(player1));
+        player2.gearEquipped();
+        player3.gearEquipped();
+        player4.gearEquipped();
+        player5.gearEquipped();
+        player6.gearEquipped();
+        player7.gearEquipped();
+        player8.gearEquipped();
+        player9.gearEquipped();
+        player10.gearEquipped();
+        player11.gearEquipped();
 
         UI.newUI();
         UI.name.setText(Main.characters[0].name);

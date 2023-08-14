@@ -13,9 +13,11 @@ public class UI
     static int buttonH = y/4;
     static int buttonW = x/2;
 
+    // combo box and button(s)
     static JComboBox characterBox;
     static Button levelUpButton = new Button("Add XP");
 
+    // pulled stat
     static JLabel name = new JLabel("");
     static JLabel sex = new JLabel("");
     static JLabel job = new JLabel("");
@@ -31,6 +33,7 @@ public class UI
     static JLabel xp = new JLabel("");
     static JLabel xpToNextLevel = new JLabel("");
 
+    // stat label
     static JLabel nameL = new JLabel("NAME:");
     static JLabel sexL = new JLabel("SEX:");
     static JLabel jobL = new JLabel("JOB:");
@@ -45,6 +48,32 @@ public class UI
     static JLabel lckL = new JLabel("LCK:");
     static JLabel xpL = new JLabel("XP:");
     static JLabel xpToNextLevelL = new JLabel("LvlUp:");
+
+    // pulled armor
+    static JLabel mainWeapon = new JLabel("");
+    static JLabel offHand = new JLabel("");
+    static JLabel head = new JLabel("");
+    static JLabel neck = new JLabel("");
+    static JLabel chest = new JLabel("");
+    static JLabel hands = new JLabel("");
+    static JLabel ring = new JLabel("");
+    static JLabel belt = new JLabel("");
+    static JLabel legs = new JLabel("");
+    static JLabel feet = new JLabel("");
+    static JLabel back = new JLabel("");
+
+    // armor slot
+    static JLabel mainWeaponL = new JLabel("Main:");
+    static JLabel offHandL = new JLabel("Off Hand:");
+    static JLabel headL = new JLabel("Head:");
+    static JLabel neckL = new JLabel("Neck:");
+    static JLabel chestL = new JLabel("Chest:");
+    static JLabel handsL = new JLabel("Hands:");
+    static JLabel ringL = new JLabel("Ring:");
+    static JLabel beltL = new JLabel("Belt:");
+    static JLabel legsL = new JLabel("Legs:");
+    static JLabel feetL = new JLabel("Feet:");
+    static JLabel backL = new JLabel("Back:");
 
     public static void newUI()
     {
@@ -73,6 +102,30 @@ public class UI
         if (Main.characters[5] != null)
         {
             characterBox.addItem(Main.characters[5].name);
+        }
+        if (Main.characters[6] != null)
+        {
+            characterBox.addItem(Main.characters[6].name);
+        }
+        if (Main.characters[7] != null)
+        {
+            characterBox.addItem(Main.characters[7].name);
+        }
+        if (Main.characters[8] != null)
+        {
+            characterBox.addItem(Main.characters[8].name);
+        }
+        if (Main.characters[9] != null)
+        {
+            characterBox.addItem(Main.characters[9].name);
+        }
+        if (Main.characters[10] != null)
+        {
+            characterBox.addItem(Main.characters[10].name);
+        }
+        if (Main.characters[11] != null)
+        {
+            characterBox.addItem(Main.characters[11].name);
         }
 
         // creates program window
@@ -127,6 +180,40 @@ public class UI
         xpToNextLevel.setFont(new Font("Arial", Font.PLAIN, 12));
         xpToNextLevel.setBounds((x/4) - buttonW/4, (y/4) + (175), buttonW, buttonH);
 
+        // equipment
+        mainWeapon.setFont(new Font("Arial", Font.PLAIN, 12));
+        mainWeapon.setBounds((x/2) - buttonW/4, (y/4) + (25), buttonW, buttonH);
+
+        offHand.setFont(new Font("Arial", Font.PLAIN, 12));
+        offHand.setBounds((x/2) - buttonW/4, (y/4) + (40), buttonW, buttonH);
+
+        head.setFont(new Font("Arial", Font.PLAIN, 12));
+        head.setBounds((x/2) - buttonW/4, (y/4) + (55), buttonW, buttonH);
+
+        neck.setFont(new Font("Arial", Font.PLAIN, 12));
+        neck.setBounds((x/2) - buttonW/4, (y/4) + (70), buttonW, buttonH);
+
+        chest.setFont(new Font("Arial", Font.PLAIN, 12));
+        chest.setBounds((x/2) - buttonW/4, (y/4) + (85), buttonW, buttonH);
+
+        hands.setFont(new Font("Arial", Font.PLAIN, 12));
+        hands.setBounds((x/2) - buttonW/4, (y/4) + (100), buttonW, buttonH);
+
+        ring.setFont(new Font("Arial", Font.PLAIN, 12));
+        ring.setBounds((x/2) - buttonW/4, (y/4) + (115), buttonW, buttonH);
+
+        belt.setFont(new Font("Arial", Font.PLAIN, 12));
+        belt.setBounds((x/2) - buttonW/4, (y/4) + (130), buttonW, buttonH);
+
+        legs.setFont(new Font("Arial", Font.PLAIN, 12));
+        legs.setBounds((x/2) - buttonW/4, (y/4) + (145), buttonW, buttonH);
+
+        feet.setFont(new Font("Arial", Font.PLAIN, 12));
+        feet.setBounds((x/2) - buttonW/4, (y/4) + (160), buttonW, buttonH);
+
+        back.setFont(new Font("Arial", Font.PLAIN, 12));
+        back.setBounds((x/2) - buttonW/4, (y/4) + (175), buttonW, buttonH);
+
         frame.getContentPane().add(levelUpButton);
         frame.getContentPane().add(characterBox);
         frame.getContentPane().add(name);
@@ -143,6 +230,19 @@ public class UI
         frame.getContentPane().add(lck);
         frame.getContentPane().add(xp);
         frame.getContentPane().add(xpToNextLevel);
+
+        // equipment pulled
+        frame.getContentPane().add(mainWeapon);
+        frame.getContentPane().add(offHand);
+        frame.getContentPane().add(head);
+        frame.getContentPane().add(neck);
+        frame.getContentPane().add(chest);
+        frame.getContentPane().add(hands);
+        frame.getContentPane().add(ring);
+        frame.getContentPane().add(belt);
+        frame.getContentPane().add(legs);
+        frame.getContentPane().add(feet);
+        frame.getContentPane().add(back);
 
         // labels
         nameL.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -187,6 +287,40 @@ public class UI
         xpToNextLevelL.setFont(new Font("Arial", Font.PLAIN, 12));
         xpToNextLevelL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (175), buttonW, buttonH);
 
+        // equipment
+        mainWeaponL.setFont(new Font("Arial", Font.PLAIN, 12));
+        mainWeaponL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (25), buttonW, buttonH);
+
+        offHandL.setFont(new Font("Arial", Font.PLAIN, 12));
+        offHandL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (40), buttonW, buttonH);
+
+        headL.setFont(new Font("Arial", Font.PLAIN, 12));
+        headL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (55), buttonW, buttonH);
+
+        neckL.setFont(new Font("Arial", Font.PLAIN, 12));
+        neckL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (70), buttonW, buttonH);
+
+        chestL.setFont(new Font("Arial", Font.PLAIN, 12));
+        chestL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (85), buttonW, buttonH);
+
+        handsL.setFont(new Font("Arial", Font.PLAIN, 12));
+        handsL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (100), buttonW, buttonH);
+
+        ringL.setFont(new Font("Arial", Font.PLAIN, 12));
+        ringL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (115), buttonW, buttonH);
+
+        beltL.setFont(new Font("Arial", Font.PLAIN, 12));
+        beltL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (130), buttonW, buttonH);
+
+        legsL.setFont(new Font("Arial", Font.PLAIN, 12));
+        legsL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (145), buttonW, buttonH);
+
+        feetL.setFont(new Font("Arial", Font.PLAIN, 12));
+        feetL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (160), buttonW, buttonH);
+
+        backL.setFont(new Font("Arial", Font.PLAIN, 12));
+        backL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (175), buttonW, buttonH);
+
         frame.getContentPane().add(nameL);
         frame.getContentPane().add(sexL);
         frame.getContentPane().add(jobL);
@@ -201,6 +335,19 @@ public class UI
         frame.getContentPane().add(lckL);
         frame.getContentPane().add(xpL);
         frame.getContentPane().add(xpToNextLevelL);
+
+        // equipment label
+        frame.getContentPane().add(mainWeaponL);
+        frame.getContentPane().add(offHandL);
+        frame.getContentPane().add(headL);
+        frame.getContentPane().add(neckL);
+        frame.getContentPane().add(chestL);
+        frame.getContentPane().add(handsL);
+        frame.getContentPane().add(ringL);
+        frame.getContentPane().add(beltL);
+        frame.getContentPane().add(legsL);
+        frame.getContentPane().add(feetL);
+        frame.getContentPane().add(backL);
 
         frame.setLayout(null);
         frame.setVisible(true);
@@ -234,109 +381,33 @@ public class UI
         {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switch (characterBox.getSelectedIndex()) {
-                    case 0 -> {
-                        name.setText(Main.characters[0].name);
-                        sex.setText(Main.characters[0].sex);
-                        job.setText(Main.characters[0].job);
-                        level.setText(String.valueOf(Main.characters[0].level));
-                        status.setText(Main.characters[0].status);
-                        hp.setText(String.valueOf(Main.characters[0].hp));
-                        str.setText(String.valueOf(Main.characters[0].str));
-                        def.setText(String.valueOf(Main.characters[0].def));
-                        con.setText(String.valueOf(Main.characters[0].con));
-                        wis.setText(String.valueOf(Main.characters[0].wis));
-                        spd.setText(String.valueOf(Main.characters[0].spd));
-                        lck.setText(String.valueOf(Main.characters[0].lck));
-                        xp.setText(String.valueOf(df.format(Main.characters[0].xp)));
-                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[0].xpToNextLevel)));
-                    }
 
-                    case 1 -> {
-                        name.setText(Main.characters[1].name);
-                        sex.setText(Main.characters[1].sex);
-                        job.setText(Main.characters[1].job);
-                        level.setText(String.valueOf(Main.characters[1].level));
-                        status.setText(Main.characters[1].status);
-                        hp.setText(String.valueOf(Main.characters[1].hp));
-                        str.setText(String.valueOf(Main.characters[1].str));
-                        def.setText(String.valueOf(Main.characters[1].def));
-                        con.setText(String.valueOf(Main.characters[1].con));
-                        wis.setText(String.valueOf(Main.characters[1].wis));
-                        spd.setText(String.valueOf(Main.characters[1].spd));
-                        lck.setText(String.valueOf(Main.characters[1].lck));
-                        xp.setText(String.valueOf(df.format(Main.characters[1].xp)));
-                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[1].xpToNextLevel)));
-                    }
+                name.setText(Main.characters[characterBox.getSelectedIndex()].name);
+                sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
+                job.setText(Main.characters[characterBox.getSelectedIndex()].job);
+                level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
+                status.setText(Main.characters[characterBox.getSelectedIndex()].status);
+                hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
+                str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
+                def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
+                con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
+                wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
+                spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
+                lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
+                xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+                xpToNextLevel.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)));
 
-                    case 2 -> {
-                        name.setText(Main.characters[2].name);
-                        sex.setText(Main.characters[2].sex);
-                        job.setText(Main.characters[2].job);
-                        level.setText(String.valueOf(Main.characters[2].level));
-                        status.setText(Main.characters[2].status);
-                        hp.setText(String.valueOf(Main.characters[2].hp));
-                        str.setText(String.valueOf(Main.characters[2].str));
-                        def.setText(String.valueOf(Main.characters[2].def));
-                        con.setText(String.valueOf(Main.characters[2].con));
-                        wis.setText(String.valueOf(Main.characters[2].wis));
-                        spd.setText(String.valueOf(Main.characters[2].spd));
-                        lck.setText(String.valueOf(Main.characters[2].lck));
-                        xp.setText(String.valueOf(df.format(Main.characters[2].xp)));
-                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[2].xpToNextLevel)));
-                    }
-
-                    case 3 -> {
-                        name.setText(Main.characters[3].name);
-                        sex.setText(Main.characters[3].sex);
-                        job.setText(Main.characters[3].job);
-                        level.setText(String.valueOf(Main.characters[3].level));
-                        status.setText(Main.characters[3].status);
-                        hp.setText(String.valueOf(Main.characters[3].hp));
-                        str.setText(String.valueOf(Main.characters[3].str));
-                        def.setText(String.valueOf(Main.characters[3].def));
-                        con.setText(String.valueOf(Main.characters[3].con));
-                        wis.setText(String.valueOf(Main.characters[3].wis));
-                        spd.setText(String.valueOf(Main.characters[3].spd));
-                        lck.setText(String.valueOf(Main.characters[3].lck));
-                        xp.setText(String.valueOf(df.format(Main.characters[3].xp)));
-                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[3].xpToNextLevel)));
-                    }
-
-                    case 4 -> {
-                        name.setText(Main.characters[4].name);
-                        sex.setText(Main.characters[4].sex);
-                        job.setText(Main.characters[4].job);
-                        level.setText(String.valueOf(Main.characters[4].level));
-                        status.setText(Main.characters[4].status);
-                        hp.setText(String.valueOf(Main.characters[4].hp));
-                        str.setText(String.valueOf(Main.characters[4].str));
-                        def.setText(String.valueOf(Main.characters[4].def));
-                        con.setText(String.valueOf(Main.characters[4].con));
-                        wis.setText(String.valueOf(Main.characters[4].wis));
-                        spd.setText(String.valueOf(Main.characters[4].spd));
-                        lck.setText(String.valueOf(Main.characters[4].lck));
-                        xp.setText(String.valueOf(df.format(Main.characters[4].xp)));
-                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[4].xpToNextLevel)));
-                    }
-
-                    case 5 -> {
-                        name.setText(Main.characters[5].name);
-                        sex.setText(Main.characters[5].sex);
-                        job.setText(Main.characters[5].job);
-                        level.setText(String.valueOf(Main.characters[5].level));
-                        status.setText(Main.characters[5].status);
-                        hp.setText(String.valueOf(Main.characters[5].hp));
-                        str.setText(String.valueOf(Main.characters[5].str));
-                        def.setText(String.valueOf(Main.characters[5].def));
-                        con.setText(String.valueOf(Main.characters[5].con));
-                        wis.setText(String.valueOf(Main.characters[5].wis));
-                        spd.setText(String.valueOf(Main.characters[5].spd));
-                        lck.setText(String.valueOf(Main.characters[5].lck));
-                        xp.setText(String.valueOf(df.format(Main.characters[5].xp)));
-                        xpToNextLevel.setText(String.valueOf(df.format(Main.characters[5].xpToNextLevel)));
-                    }
-                }
+                mainWeapon.setText(Main.characters[characterBox.getSelectedIndex()].mainWeapon.name);
+                offHand.setText(Main.characters[characterBox.getSelectedIndex()].offHand.name);
+                head.setText(Main.characters[characterBox.getSelectedIndex()].head.name);
+                neck.setText(Main.characters[characterBox.getSelectedIndex()].neck.name);
+                chest.setText(Main.characters[characterBox.getSelectedIndex()].chest.name);
+                hands.setText(Main.characters[characterBox.getSelectedIndex()].hands.name);
+                ring.setText(Main.characters[characterBox.getSelectedIndex()].ring.name);
+                belt.setText(Main.characters[characterBox.getSelectedIndex()].belt.name);
+                legs.setText(Main.characters[characterBox.getSelectedIndex()].legs.name);
+                feet.setText(Main.characters[characterBox.getSelectedIndex()].feet.name);
+                back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
             }
         });
     }

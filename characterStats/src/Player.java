@@ -31,6 +31,9 @@ public class Player
     // equipment slots
     Equipment mainWeapon, offHand, head, neck, chest, hands, ring, belt, legs, feet, back;
 
+    // unequipped
+    Equipment unEquipped = new Equipment("", true, 0, "", 0, "", "mainWeapon", 1);
+
     // starting weapons
     Equipment shortSword = new Equipment("Short Sword", true, 1, "str", 1, "a short sword", "mainWeapon", 1);
     Equipment leatherBands = new Equipment("Leather Bands", true, 1, "str", 1, "leather hand wraps", "mainWeapon", 1);
@@ -103,9 +106,11 @@ public class Player
                 this.neck = leatherGaiter;
                 this.chest = leatherChest;
                 this.hands = leatherGloves;
+                this.ring = unEquipped;
                 this.belt = leatherBelt;
                 this.legs = leatherPants;
                 this.feet = leatherBoots;
+                this.back = unEquipped;
 
                 // starting items
                 this.inventory[0] = tonic;
@@ -126,8 +131,12 @@ public class Player
 
                 // starting equipment
                 this.mainWeapon = shortBow;
+                this.offHand = unEquipped;
+                this.head = unEquipped;
                 this.neck = leatherGaiter;
                 this.chest = leatherChest;
+                this.hands = unEquipped;
+                this.ring = unEquipped;
                 this.belt = leatherBelt;
                 this.legs = leatherPants;
                 this.feet = leatherBoots;
@@ -151,10 +160,16 @@ public class Player
 
                 // starting equipment
                 this.mainWeapon = leatherBands;
+                this.offHand = unEquipped;
+                this.head = unEquipped;
+                this.neck = unEquipped;
                 this.chest = leatherChest;
+                this.hands = unEquipped;
+                this.ring = unEquipped;
                 this.belt = leatherBelt;
                 this.legs = leatherPants;
                 this.feet = leatherBoots;
+                this.back = unEquipped;
 
                 // starting items
                 this.inventory[0] = tonic;
@@ -176,11 +191,14 @@ public class Player
                 this.mainWeapon = walkingStaff;
                 this.offHand = leatherBuckler;
                 this.head = leatherHat;
+                this.neck = unEquipped;
                 this.chest = leatherChest;
                 this.hands = leatherGloves;
                 this.ring = brassRing;
+                this.belt = unEquipped;
                 this.legs = leatherPants;
                 this.feet = leatherBoots;
+                this.back = unEquipped;
 
                 // starting items
                 this.inventory[0] = tonic;
@@ -204,6 +222,8 @@ public class Player
                 this.head = leatherHat;
                 this.neck = brassNecklace;
                 this.chest = leatherChest;
+                this.hands = unEquipped;
+                this.ring = unEquipped;
                 this.belt = leatherBelt;
                 this.legs = leatherPants;
                 this.feet = leatherBoots;
@@ -228,7 +248,13 @@ public class Player
 
                 // starting equipment
                 this.mainWeapon = dagger;
+                this.offHand = unEquipped;
+                this.head = unEquipped;
+                this.neck = unEquipped;
+                this.chest = unEquipped;
+                this.hands = unEquipped;
                 this.ring = brassRing;
+                this.belt = unEquipped;
                 this.legs = leatherPants;
                 this.feet = leatherBoots;
                 this.back = leatherCape;
