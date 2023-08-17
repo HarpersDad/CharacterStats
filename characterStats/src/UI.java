@@ -16,6 +16,7 @@ public class UI
     // combo box and button(s)
     static JComboBox characterBox;
     static Button levelUpButton = new Button("Add XP");
+    static Button saveData = new Button("Save");
 
     // pulled stat
     static JLabel name = new JLabel("");
@@ -134,24 +135,25 @@ public class UI
         frame.setSize(x, y);
         frame.setLocationRelativeTo(null);
 
-        characterBox.setBounds((x/4) - buttonW/3 - 25, (y/4) - (80), 100, 30);
+        characterBox.setBounds((x/4) + 200, (y/4) - (80), 100, 30);
         levelUpButton.setBounds((x/4) - buttonW/3 - 25, (y/4) - (35), 80,25);
+        saveData.setBounds((x/4) + 200, (y/4) - (35), 80,25);
 
         // actual attributes
         name.setFont(new Font("Arial", Font.PLAIN, 12));
-        name.setBounds((x/4) - buttonW/4, (y/4) - (20), buttonW, buttonH);
+        name.setBounds((x/4) - buttonW/4 - 10, (y/4) - (120), buttonW, buttonH);
 
         sex.setFont(new Font("Arial", Font.PLAIN, 12));
-        sex.setBounds((x/4) - buttonW/4, (y/4) - (5), buttonW, buttonH);
+        sex.setBounds((x/4) + 50, (y/4) - (100), buttonW, buttonH);
 
         job.setFont(new Font("Arial", Font.PLAIN, 12));
-        job.setBounds((x/4) - buttonW/4, (y/4) + (10), buttonW, buttonH);
+        job.setBounds((x/4) + 50, (y/4) - 120, buttonW, buttonH);
 
         level.setFont(new Font("Arial", Font.PLAIN, 12));
-        level.setBounds((x/4) - buttonW/4, (y/4) + (25), buttonW, buttonH);
+        level.setBounds((x/4) - buttonW/4, (y/4) - (100), buttonW, buttonH);
 
         status.setFont(new Font("Arial", Font.PLAIN, 12));
-        status.setBounds((x/4) - buttonW/4, (y/4) + (40), buttonW, buttonH);
+        status.setBounds((x/4) - buttonW/4, (y/4) + (25), buttonW, buttonH);
 
         hp.setFont(new Font("Arial", Font.PLAIN, 12));
         hp.setBounds((x/4) - buttonW/4, (y/4) + (55), buttonW, buttonH);
@@ -214,6 +216,7 @@ public class UI
         back.setFont(new Font("Arial", Font.PLAIN, 12));
         back.setBounds((x/2) - buttonW/4, (y/4) + (175), buttonW, buttonH);
 
+        frame.getContentPane().add(saveData);
         frame.getContentPane().add(levelUpButton);
         frame.getContentPane().add(characterBox);
         frame.getContentPane().add(name);
@@ -246,19 +249,19 @@ public class UI
 
         // labels
         nameL.setFont(new Font("Arial", Font.PLAIN, 12));
-        nameL.setBounds((x/4) - buttonW/3 - 25, (y/4) - (20), buttonW, buttonH);
+        nameL.setBounds((x/4) - buttonW/3 - 25, (y/4) - (120), buttonW, buttonH);
 
         sexL.setFont(new Font("Arial", Font.PLAIN, 12));
-        sexL.setBounds((x/4) - buttonW/3 - 25, (y/4) - (5), buttonW, buttonH);
+        sexL.setBounds((x/4) - buttonW/3 + 120, (y/4) - (100), buttonW, buttonH);
 
         jobL.setFont(new Font("Arial", Font.PLAIN, 12));
-        jobL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (10), buttonW, buttonH);
+        jobL.setBounds((x/4) - buttonW/3 + 120, (y/4) - (120), buttonW, buttonH);
 
         levelL.setFont(new Font("Arial", Font.PLAIN, 12));
-        levelL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (25), buttonW, buttonH);
+        levelL.setBounds((x/4) - buttonW/3 - 25, (y/4) - (100), buttonW, buttonH);
 
         statusL.setFont(new Font("Arial", Font.PLAIN, 12));
-        statusL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (40), buttonW, buttonH);
+        statusL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (25), buttonW, buttonH);
 
         hpL.setFont(new Font("Arial", Font.PLAIN, 12));
         hpL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (55), buttonW, buttonH);
@@ -287,7 +290,7 @@ public class UI
         xpToNextLevelL.setFont(new Font("Arial", Font.PLAIN, 12));
         xpToNextLevelL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (175), buttonW, buttonH);
 
-        // equipment
+        // equipment label
         mainWeaponL.setFont(new Font("Arial", Font.PLAIN, 12));
         mainWeaponL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (25), buttonW, buttonH);
 
@@ -336,7 +339,6 @@ public class UI
         frame.getContentPane().add(xpL);
         frame.getContentPane().add(xpToNextLevelL);
 
-        // equipment label
         frame.getContentPane().add(mainWeaponL);
         frame.getContentPane().add(offHandL);
         frame.getContentPane().add(headL);
@@ -351,6 +353,15 @@ public class UI
 
         frame.setLayout(null);
         frame.setVisible(true);
+
+        saveData.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                Save.saveStats(Main.characters[characterBox.getSelectedIndex()], characterBox.getSelectedIndex());
+            }
+        });
 
         levelUpButton.addActionListener(new ActionListener()
         {

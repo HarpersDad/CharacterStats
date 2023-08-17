@@ -1,0 +1,1 @@
+{"4":{"wis":6,"con":9,"def":11,"level":2,"spd":9,"sex":"male","hp":14,"xpToNextLevel":1.0,"str":5,"lck":6,"name":"mThief","xp":0.0,"job":"thief","status":"Normal"}}

@@ -1,3 +1,5 @@
+import java.util.Date;
+
 // simple inventory class
 public class Items
 {
@@ -48,4 +50,5 @@ public class Items
             default -> { this.buff = "no buff"; this.buffAmount = 0; }
         }
     }
+    Date date = new Date();
 }

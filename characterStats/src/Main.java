@@ -107,7 +107,6 @@ public class Main
         characters[10] = player10;
         characters[11] = player11;
 
-
         // uses the Enemy class to create new enemies with the given name and type
         // Enemy enemy1 = new Enemy("Bird", "flyer");
 

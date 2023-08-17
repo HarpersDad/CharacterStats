@@ -33,7 +33,7 @@ public class Enemy
                 this.wis = 2;
                 this.spd = 6;
                 this.lck = 3;
-                this.givenXP = 10;
+                this.givenXP = 1;
             }
             case ("attacker")
                     -> {
@@ -44,7 +44,7 @@ public class Enemy
                 this.wis = 2;
                 this.spd = 3;
                 this.lck = 3;
-                this.givenXP = 10;
+                this.givenXP = 3;
             }
             case ("magician")
                     -> {
@@ -55,7 +55,7 @@ public class Enemy
                 this.wis = 6;
                 this.spd = 3;
                 this.lck = 3;
-                this.givenXP = 10;
+                this.givenXP = 2;
             }
         }
     }
