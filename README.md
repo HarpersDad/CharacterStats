@@ -24,4 +24,4 @@
 - implementing a save feature that allows for a character's stats, items, and equipment to be saved and recalled.<br>
 <h2>still needed</h2>
 - expanded ui.<br>
-- clean up save feature.<br>
+- extend save feature to allow for multiple characters to be saved.<br>
