@@ -9,7 +9,7 @@ public class Player
     String sex;
     int level;
     int hp;
-    int currentMaxHP;
+    int MaxHP;
     int str;
     int def;
     int con;
@@ -266,7 +266,7 @@ public class Player
                 this.inventory[3] = revivePowder;
             }
         }
-        this.currentMaxHP = this.hp;
+        this.MaxHP = this.hp;
 
         // adds stats to the player based on the sex chosen
         switch (sex)
@@ -385,7 +385,7 @@ public class Player
                     this.lck += (this.lck % this.level) + 2;
                 }
             }
-            this.currentMaxHP = this.hp;
+            this.MaxHP = this.hp;
             this.xpToNextLevel = Math.round((Math.pow(xpToLevel, this.level)) / (this.level+1));
 
             // print message that tells the user that the player has leveled up and the player's current level
@@ -669,7 +669,7 @@ public class Player
     {
         String status = player.status;
         int hp  = player.hp;
-        int maxHP = player.currentMaxHP;
+        int maxHP = player.MaxHP;
 
         if ( !status.equals("Normal") && item.name.equals("Panacea") )
         {
@@ -698,7 +698,7 @@ public class Player
                     }
                 }
             }
-            player.hp = player.currentMaxHP;
+            player.hp = player.MaxHP;
         }
 
         if (hp > maxHP && item.name.equals("Tent"))
@@ -713,7 +713,7 @@ public class Player
                     }
                 }
             }
-            player.hp = player.currentMaxHP;
+            player.hp = player.MaxHP;
         }
 
         if (hp < maxHP && item.name.equals("Tonic"))
