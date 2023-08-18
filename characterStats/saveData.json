@@ -1,4 +1,1 @@
-{
-  "0":{"wis":26,"con":27,"def":183,"level":12,"MaxHP":94,"spd":60,"sex":"male","hp":94,"xpToNextLevel":315.0,"str":73,"lck":13,"name":"Dude","xp":0.0,"job":"defender","status":"Normal"},
-  "1":{"wis":26,"con":27,"def":183,"level":12,"MaxHP":94,"spd":60,"sex":"male","hp":94,"xpToNextLevel":315.0,"str":73,"lck":13,"name":"Dude2","xp":0.0,"job":"ranger","status":"Normal"}
-}
+{"0":{"wis":3,"con":5,"def":25,"level":1,"MaxHP":20,"spd":4,"sex":"male","hp":23,"xpToNextLevel":0.0,"str":6,"lck":2,"name":"b","xp":0.0,"job":"defender","status":"Normal"}}

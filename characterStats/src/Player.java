@@ -20,7 +20,10 @@ public class Player
     int xpToLevel = 2;
     double xpToNextLevel;
 
-    String status;
+    static String status;
+
+    static String[] jobs = {"defender", "fighter", "ranger", "mage", "thief", "vagrant"};
+    static String[] sexes = {"male", "female", "unknown"};
 
     // inventory array
     Items[] inventory = new Items[25];
