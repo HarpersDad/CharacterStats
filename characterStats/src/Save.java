@@ -5,7 +5,6 @@ import org.json.JSONString;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.io.*;
 
 public class Save
@@ -15,12 +14,18 @@ public class Save
     static JSONObject obj2;
     static BufferedWriter writer;
     Save(){}
+
+    // save stat method
     static void saveStats(Player player, int position)
     {
+        // save file named saveData.json
         File myFile = new File("saveData.json");
+
+        // json objects used to store save data
         obj = new JSONObject();
         obj2 = new JSONObject();
 
+        // try / catch that creates a writer for the save file
         try
         {
             writer = new BufferedWriter(new FileWriter(myFile));
@@ -75,8 +80,10 @@ public class Save
         // set player str
         obj.put("xpToNextLevel", player.xpToNextLevel);
 
+        // set player save data in a nested json with the key being the position for the drop down menu / character array
         obj2.put(position, obj);
 
+        // try / catch that writes the nested json to the save file
         try
         {
             writer.write(obj2.toJSONString());
@@ -86,6 +93,7 @@ public class Save
             throw new RuntimeException(e);
         }
 
+        // try catch that closes the file writer
         try
         {
             writer.close();
@@ -96,13 +104,16 @@ public class Save
         }
     }
 
+    // method that loads the character data into the program
     static void loadStats(int position)
     {
+        // sets the file as the save data json
         File myFile = new File("saveData.json");
 
+        // object used to parse the file
         Object ob;
-        Object ob2;
 
+        // try / catch that parses the json data
         try
         {
             ob = new JSONParser().parse(new FileReader(myFile));
@@ -112,18 +123,20 @@ public class Save
             throw new RuntimeException(e);
         }
 
+        // sets the main json and depending on the position the inner json being read
         JSONObject outerJO = (JSONObject) ob;
-        JSONObject json = (JSONObject) outerJO.get(Integer.toString(position));
+        JSONObject innerJO = (JSONObject) outerJO.get(Integer.toString(position));
 
+        // creates a parser for the inner json so that the data can be referenced
         JsonParser parser = new JsonParser();
-        JsonObject jo = (JsonObject) parser.parse(String.valueOf(json));
-        System.out.println(jo);
+        JsonObject jo = (JsonObject) parser.parse(String.valueOf(innerJO));
 
-        String name = (String) jo.get("name").toString();
-        String sex = (String) jo.get("sex").toString();
-        String status = (String) jo.get("status").toString();
-        String job = (String) jo.get("job").toString();
-        int level = Integer.parseInt(jo.get("level").toString());
+        // using the key values in the json, set the cooresponding variables for the character data
+        String name = (String) jo.get("name").getAsString();
+        String sex = (String) jo.get("sex").getAsString();
+        String status = (String) jo.get("status").getAsString();
+        String job = (String) jo.get("job").getAsString();
+        int level = Integer.parseInt(jo.get("level").getAsString());
         double xp = (double) jo.get("xp").getAsDouble();
         double xpUp = (double) jo.get("xpToNextLevel").getAsDouble();
         int hp = Integer.parseInt(jo.get("hp").toString());
@@ -135,8 +148,10 @@ public class Save
         int spd = Integer.parseInt(jo.get("spd").toString());
         int lck = Integer.parseInt(jo.get("lck").toString());
 
-        Player player = new Player(name,job, sex);
+        // re-create the player using the saved data
+        Player player = new Player(name, job, sex);
 
+        // set the player stats using the saved data
         player.MaxHP = MaxHP;
         player.xp = xp;
         player.status = status;
@@ -150,6 +165,7 @@ public class Save
         player.spd = spd;
         player.lck = lck;
 
+        // place the character in the character array using the position that was passed to the method
         Main.characters[position] = player;
     }
 }
