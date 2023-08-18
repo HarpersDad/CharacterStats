@@ -89,7 +89,8 @@ public class Player
         switch (job)
         {
             case "defender"
-                    -> {
+                    ->
+            {
                 // starting stats
                 this.hp = 20;
                 this.str = 2;
@@ -120,7 +121,8 @@ public class Player
 
             }
             case "ranger"
-                    -> {
+                    ->
+            {
                 this.hp = 10;
                 this.str = 2;
                 this.def = 2;
@@ -149,7 +151,8 @@ public class Player
                 this.inventory[3] = revivePowder;
             }
             case "fighter"
-                    -> {
+                    ->
+            {
                 this.hp = 13;
                 this.str = 3;
                 this.def = 2;
@@ -178,7 +181,8 @@ public class Player
                 this.inventory[3] = revivePowder;
             }
             case "mage"
-                    -> {
+                    ->
+            {
                 this.hp = 6;
                 this.str = 1;
                 this.def = 2;
@@ -207,7 +211,8 @@ public class Player
                 this.inventory[3] = revivePowder;
             }
             case "thief"
-                    -> {
+                    ->
+            {
                 this.hp = 8;
                 this.str = 1;
                 this.def = 1;
@@ -236,7 +241,8 @@ public class Player
                 this.inventory[3] = revivePowder;
             }
             default
-                    -> {
+                    ->
+            {
                 this.job = "vagrant";
                 this.hp = 10;
                 this.str = 2;
@@ -272,7 +278,8 @@ public class Player
         switch (sex)
         {
             case "male"
-                    -> {
+                    ->
+            {
                 this.hp += 3;
                 this.str += 2;
                 this.def += 2;
@@ -282,7 +289,8 @@ public class Player
                 this.lck += 1;
             }
             case "female"
-                    -> {
+                    ->
+            {
                 this.hp += 2;
                 this.str += 1;
                 this.def += 1;
@@ -292,7 +300,8 @@ public class Player
                 this.lck += 2;
             }
             default
-                    -> {
+                    ->
+            {
                 this.sex = "other";
                 this.hp += 0;
                 this.str += 0;
@@ -309,7 +318,7 @@ public class Player
     void checkLevelUp()
     {
         // while loops that checks if the players current xp is enough to level up
-        while ( this.xp >= Math.round((Math.pow(xpToLevel, this.level)) / (this.level+1)) )
+        while (this.xp >= Math.round((Math.pow(xpToLevel, this.level)) / (this.level+1)))
         {
             // sets the remaining xp as current xp
             this.xp = this.xp - Math.round((Math.pow(xpToLevel, this.level)) / (this.level+1));
@@ -321,7 +330,8 @@ public class Player
             switch (this.job)
             {
                 case "defender"
-                        -> {
+                        ->
+                {
                     this.hp += (this.hp % this.level) + 4;
                     this.str += (this.str % this.level) + 2;
                     this.def += (this.def % this.level) + 3;
@@ -331,7 +341,8 @@ public class Player
                     this.lck += (this.lck % this.level) + 1;
                 }
                 case "ranger"
-                        -> {
+                        ->
+                {
                     this.hp += (this.hp % this.level) + 2;
                     this.str += (this.str % this.level) + 2;
                     this.def += (this.def % this.level) + 1;

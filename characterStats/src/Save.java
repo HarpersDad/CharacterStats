@@ -1,3 +1,7 @@
+import com.google.gson.*;
+import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONString;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -6,13 +10,16 @@ import java.io.*;
 
 public class Save
 {
+    static Gson gson;
     static JSONObject obj;
+    static JSONObject obj2;
     static BufferedWriter writer;
     Save(){}
     static void saveStats(Player player, int position)
     {
         File myFile = new File("saveData.json");
         obj = new JSONObject();
+        obj2 = new JSONObject();
 
         try
         {
@@ -22,9 +29,6 @@ public class Save
         {
             throw new RuntimeException(e);
         }
-
-        // set player pos
-        obj.put("pos", position);
 
         // set player name
         obj.put("name", player.name);
@@ -71,42 +75,57 @@ public class Save
         // set player str
         obj.put("xpToNextLevel", player.xpToNextLevel);
 
-        try {
-            writer.write(obj.toJSONString());
-        } catch (IOException e) {
+        obj2.put(position, obj);
+
+        try
+        {
+            writer.write(obj2.toJSONString());
+        }
+        catch (IOException e)
+        {
             throw new RuntimeException(e);
         }
 
-        try {
+        try
+        {
             writer.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             throw new RuntimeException(e);
         }
     }
 
-    static void loadStats() {
+    static void loadStats(int position)
+    {
         File myFile = new File("saveData.json");
 
         Object ob;
+        Object ob2;
 
-        try {
+        try
+        {
             ob = new JSONParser().parse(new FileReader(myFile));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
+        }
+        catch (IOException | ParseException e)
+        {
             throw new RuntimeException(e);
         }
 
-        JSONObject jo = (JSONObject) ob;
+        JSONObject outerJO = (JSONObject) ob;
+        JSONObject json = (JSONObject) outerJO.get(Integer.toString(position));
 
-        int pos = Integer.parseInt(jo.get("pos").toString());
-        String name = (String) jo.get("name");
-        String sex = (String) jo.get("sex");
-        String status = (String) jo.get("status");
-        String job = (String) jo.get("job");
+        JsonParser parser = new JsonParser();
+        JsonObject jo = (JsonObject) parser.parse(String.valueOf(json));
+        System.out.println(jo);
+
+        String name = (String) jo.get("name").toString();
+        String sex = (String) jo.get("sex").toString();
+        String status = (String) jo.get("status").toString();
+        String job = (String) jo.get("job").toString();
         int level = Integer.parseInt(jo.get("level").toString());
-        double xp = (double) jo.get("xp");
-        double xpUp = (double) jo.get("xpToNextLevel");
+        double xp = (double) jo.get("xp").getAsDouble();
+        double xpUp = (double) jo.get("xpToNextLevel").getAsDouble();
         int hp = Integer.parseInt(jo.get("hp").toString());
         int MaxHP = Integer.parseInt(jo.get("MaxHP").toString());
         int str = Integer.parseInt(jo.get("str").toString());
@@ -131,6 +150,6 @@ public class Save
         player.spd = spd;
         player.lck = lck;
 
-        Main.characters[pos] = player;
+        Main.characters[position] = player;
     }
 }

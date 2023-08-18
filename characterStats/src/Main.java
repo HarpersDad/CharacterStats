@@ -78,13 +78,15 @@ public class Main
     // main function
     public static void main(String[] args)
     {
-        Save.loadStats();
+        Save.loadStats(0);
+        Save.loadStats(1);
 
         // uses the Enemy class to create new enemies with the given name and type
-        // Enemy enemy1 = new Enemy("Bird", "flyer");
+        Enemy enemy1 = new Enemy("Bird", "flyer");
 
         // "Equips" gear and adds stat buffs
         characters[0].gearEquipped();
+        characters[1].gearEquipped();
 
         UI.newUI();
         UI.name.setText(Main.characters[0].name);
