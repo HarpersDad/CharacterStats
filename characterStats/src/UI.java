@@ -17,6 +17,7 @@ public class UI
     static JComboBox characterBox;
     static Button levelUpButton = new Button("Add XP");
     static Button saveData = new Button("Save");
+    static Button loadData = new Button("Load");
 
     // pulled stat
     static JLabel name = new JLabel("");
@@ -80,55 +81,6 @@ public class UI
     {
         characterBox = new JComboBox();
 
-        if (Main.characters[0] != null)
-        {
-            characterBox.addItem(Main.characters[0].name);
-        }
-        if (Main.characters[1] != null)
-        {
-            characterBox.addItem(Main.characters[1].name);
-        }
-        if (Main.characters[2] != null)
-        {
-            characterBox.addItem(Main.characters[2].name);
-        }
-        if (Main.characters[3] != null)
-        {
-            characterBox.addItem(Main.characters[3].name);
-        }
-        if (Main.characters[4] != null)
-        {
-            characterBox.addItem(Main.characters[4].name);
-        }
-        if (Main.characters[5] != null)
-        {
-            characterBox.addItem(Main.characters[5].name);
-        }
-        if (Main.characters[6] != null)
-        {
-            characterBox.addItem(Main.characters[6].name);
-        }
-        if (Main.characters[7] != null)
-        {
-            characterBox.addItem(Main.characters[7].name);
-        }
-        if (Main.characters[8] != null)
-        {
-            characterBox.addItem(Main.characters[8].name);
-        }
-        if (Main.characters[9] != null)
-        {
-            characterBox.addItem(Main.characters[9].name);
-        }
-        if (Main.characters[10] != null)
-        {
-            characterBox.addItem(Main.characters[10].name);
-        }
-        if (Main.characters[11] != null)
-        {
-            characterBox.addItem(Main.characters[11].name);
-        }
-
         // creates program window
         frame.setTitle("RPG TEST");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -138,6 +90,7 @@ public class UI
         characterBox.setBounds((x/4) + 200, (y/4) - (80), 100, 30);
         levelUpButton.setBounds((x/4) - buttonW/3 - 25, (y/4) - (35), 80,25);
         saveData.setBounds((x/4) + 200, (y/4) - (35), 80,25);
+        loadData.setBounds((x/4) + 200, (y/4) - (5), 80,25);
 
         // actual attributes
         name.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -216,6 +169,7 @@ public class UI
         back.setFont(new Font("Arial", Font.PLAIN, 12));
         back.setBounds((x/2) - buttonW/4, (y/4) + (175), buttonW, buttonH);
 
+        frame.getContentPane().add(loadData);
         frame.getContentPane().add(saveData);
         frame.getContentPane().add(levelUpButton);
         frame.getContentPane().add(characterBox);
@@ -354,6 +308,29 @@ public class UI
         frame.setLayout(null);
         frame.setVisible(true);
 
+        saveData.setEnabled(false);
+
+        loadData.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                System.out.println("loading data");
+                for (int i = 0; i < Main.characters.length; i++)
+                {
+                    Save.loadStats(i);
+
+                    if (Main.characters[i] != null)
+                    {
+                        Main.characters[i].gearEquipped();
+                    }
+                }
+                fillComboBox();
+                fillUI();
+                saveData.setEnabled(true);
+            }
+        });
+
         saveData.addActionListener(new ActionListener()
         {
             @Override
@@ -421,5 +398,86 @@ public class UI
                 back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
             }
         });
+    }
+
+    static void fillComboBox()
+    {
+        if (Main.characters[0] != null)
+        {
+            characterBox.addItem(Main.characters[0].name);
+        }
+        if (Main.characters[1] != null)
+        {
+            characterBox.addItem(Main.characters[1].name);
+        }
+        if (Main.characters[2] != null)
+        {
+            characterBox.addItem(Main.characters[2].name);
+        }
+        if (Main.characters[3] != null)
+        {
+            characterBox.addItem(Main.characters[3].name);
+        }
+        if (Main.characters[4] != null)
+        {
+            characterBox.addItem(Main.characters[4].name);
+        }
+        if (Main.characters[5] != null)
+        {
+            characterBox.addItem(Main.characters[5].name);
+        }
+        if (Main.characters[6] != null)
+        {
+            characterBox.addItem(Main.characters[6].name);
+        }
+        if (Main.characters[7] != null)
+        {
+            characterBox.addItem(Main.characters[7].name);
+        }
+        if (Main.characters[8] != null)
+        {
+            characterBox.addItem(Main.characters[8].name);
+        }
+        if (Main.characters[9] != null)
+        {
+            characterBox.addItem(Main.characters[9].name);
+        }
+        if (Main.characters[10] != null)
+        {
+            characterBox.addItem(Main.characters[10].name);
+        }
+        if (Main.characters[11] != null)
+        {
+            characterBox.addItem(Main.characters[11].name);
+        }
+    }
+
+    static void fillUI()
+    {
+        name.setText(Main.characters[0].name);
+        sex.setText(Main.characters[0].sex);
+        job.setText(Main.characters[0].job);
+        level.setText(String.valueOf(Main.characters[0].level));
+        status.setText(Main.characters[0].status);
+        hp.setText(String.valueOf(Main.characters[0].hp));
+        str.setText(String.valueOf(Main.characters[0].str));
+        def.setText(String.valueOf(Main.characters[0].def));
+        con.setText(String.valueOf(Main.characters[0].con));
+        wis.setText(String.valueOf(Main.characters[0].wis));
+        spd.setText(String.valueOf(Main.characters[0].spd));
+        lck.setText(String.valueOf(Main.characters[0].lck));
+        xp.setText(String.valueOf(df.format(Main.characters[0].xp)));
+
+        mainWeapon.setText(Main.characters[0].mainWeapon.name);
+        offHand.setText(Main.characters[0].offHand.name);
+        head.setText(Main.characters[0].head.name);
+        neck.setText(Main.characters[0].neck.name);
+        chest.setText(Main.characters[0].chest.name);
+        hands.setText(Main.characters[0].hands.name);
+        ring.setText(Main.characters[0].ring.name);
+        belt.setText(Main.characters[0].belt.name);
+        legs.setText(Main.characters[0].legs.name);
+        feet.setText(Main.characters[0].feet.name);
+        back.setText(Main.characters[0].back.name);
     }
 }

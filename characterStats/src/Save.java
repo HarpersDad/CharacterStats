@@ -125,47 +125,52 @@ public class Save
 
         // sets the main json and depending on the position the inner json being read
         JSONObject outerJO = (JSONObject) ob;
-        JSONObject innerJO = (JSONObject) outerJO.get(Integer.toString(position));
 
-        // creates a parser for the inner json so that the data can be referenced
-        JsonParser parser = new JsonParser();
-        JsonObject jo = (JsonObject) parser.parse(String.valueOf(innerJO));
+        if ((JSONObject) outerJO.get(Integer.toString(position)) != null)
+        {
+            JSONObject innerJO = (JSONObject) outerJO.get(Integer.toString(position));
 
-        // using the key values in the json, set the cooresponding variables for the character data
-        String name = (String) jo.get("name").getAsString();
-        String sex = (String) jo.get("sex").getAsString();
-        String status = (String) jo.get("status").getAsString();
-        String job = (String) jo.get("job").getAsString();
-        int level = Integer.parseInt(jo.get("level").getAsString());
-        double xp = (double) jo.get("xp").getAsDouble();
-        double xpUp = (double) jo.get("xpToNextLevel").getAsDouble();
-        int hp = Integer.parseInt(jo.get("hp").toString());
-        int MaxHP = Integer.parseInt(jo.get("MaxHP").toString());
-        int str = Integer.parseInt(jo.get("str").toString());
-        int def = Integer.parseInt(jo.get("def").toString());
-        int con = Integer.parseInt(jo.get("con").toString());
-        int wis = Integer.parseInt(jo.get("wis").toString());
-        int spd = Integer.parseInt(jo.get("spd").toString());
-        int lck = Integer.parseInt(jo.get("lck").toString());
+            // creates a parser for the inner json so that the data can be referenced
+            JsonParser parser = new JsonParser();
 
-        // re-create the player using the saved data
-        Player player = new Player(name, job, sex);
+            JsonObject jo = (JsonObject) parser.parse(String.valueOf(innerJO));
 
-        // set the player stats using the saved data
-        player.MaxHP = MaxHP;
-        player.xp = xp;
-        player.status = status;
-        player.level = level;
-        player.xpToNextLevel = xpUp;
-        player.hp = hp;
-        player.str = str;
-        player.def = def;
-        player.con = con;
-        player.wis = wis;
-        player.spd = spd;
-        player.lck = lck;
+            // using the key values in the json, set the cooresponding variables for the character data
+            String name = (String) jo.get("name").getAsString();
+            String sex = (String) jo.get("sex").getAsString();
+            String status = (String) jo.get("status").getAsString();
+            String job = (String) jo.get("job").getAsString();
+            int level = Integer.parseInt(jo.get("level").getAsString());
+            double xp = (double) jo.get("xp").getAsDouble();
+            double xpUp = (double) jo.get("xpToNextLevel").getAsDouble();
+            int hp = Integer.parseInt(jo.get("hp").toString());
+            int MaxHP = Integer.parseInt(jo.get("MaxHP").toString());
+            int str = Integer.parseInt(jo.get("str").toString());
+            int def = Integer.parseInt(jo.get("def").toString());
+            int con = Integer.parseInt(jo.get("con").toString());
+            int wis = Integer.parseInt(jo.get("wis").toString());
+            int spd = Integer.parseInt(jo.get("spd").toString());
+            int lck = Integer.parseInt(jo.get("lck").toString());
 
-        // place the character in the character array using the position that was passed to the method
-        Main.characters[position] = player;
+            // re-create the player using the saved data
+            Player player = new Player(name, job, sex);
+
+            // set the player stats using the saved data
+            player.MaxHP = MaxHP;
+            player.xp = xp;
+            player.status = status;
+            player.level = level;
+            player.xpToNextLevel = xpUp;
+            player.hp = hp;
+            player.str = str;
+            player.def = def;
+            player.con = con;
+            player.wis = wis;
+            player.spd = spd;
+            player.lck = lck;
+
+            // place the character in the character array using the position that was passed to the method
+            Main.characters[position] = player;
+        }
     }
 }

@@ -78,41 +78,9 @@ public class Main
     // main function
     public static void main(String[] args)
     {
-        Save.loadStats(0);
-        Save.loadStats(1);
-
         // uses the Enemy class to create new enemies with the given name and type
-        Enemy enemy1 = new Enemy("Bird", "flyer");
-
-        // "Equips" gear and adds stat buffs
-        characters[0].gearEquipped();
-        characters[1].gearEquipped();
+        //Enemy enemy1 = new Enemy("Bird", "flyer");
 
         UI.newUI();
-        UI.name.setText(Main.characters[0].name);
-        UI.sex.setText(Main.characters[0].sex);
-        UI.job.setText(Main.characters[0].job);
-        UI.level.setText(String.valueOf(Main.characters[0].level));
-        UI.status.setText(Main.characters[0].status);
-        UI.hp.setText(String.valueOf(Main.characters[0].hp));
-        UI.str.setText(String.valueOf(Main.characters[0].str));
-        UI.def.setText(String.valueOf(Main.characters[0].def));
-        UI.con.setText(String.valueOf(Main.characters[0].con));
-        UI.wis.setText(String.valueOf(Main.characters[0].wis));
-        UI.spd.setText(String.valueOf(Main.characters[0].spd));
-        UI.lck.setText(String.valueOf(Main.characters[0].lck));
-        UI.xp.setText(String.valueOf(df.format(Main.characters[0].xp)));
-
-        UI.mainWeapon.setText(Main.characters[0].mainWeapon.name);
-        UI.offHand.setText(Main.characters[0].offHand.name);
-        UI.head.setText(Main.characters[0].head.name);
-        UI.neck.setText(Main.characters[0].neck.name);
-        UI.chest.setText(Main.characters[0].chest.name);
-        UI.hands.setText(Main.characters[0].hands.name);
-        UI.ring.setText(Main.characters[0].ring.name);
-        UI.belt.setText(Main.characters[0].belt.name);
-        UI.legs.setText(Main.characters[0].legs.name);
-        UI.feet.setText(Main.characters[0].feet.name);
-        UI.back.setText(Main.characters[0].back.name);
     }
 }
