@@ -1,6 +1,6 @@
 # Character Stats
 <h2>SAVE FUNCTION NEEDS TO BE REWORKED</h2>
-- the save function does not currently save all characters, it will only save the last one in the list.<br>
+- the save function does not currently save all characters, it will only save the last character in the list.<br>
 - I am working on fixing this.<br>
 <h2>About</h2>
 - A character and enemy stats program I created just to see how this type of system works.<br>
