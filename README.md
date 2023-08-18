@@ -16,7 +16,6 @@
 - added a damage multiplier system.<br>
 - if a player is created with no data, the following will be set: name - Vagabond, job - vagrant, sex - other.<br>
 - current job classes are: defender, ranger, fighter, mage, thief, vagrant.<br>
-<h2>recent additions</h2>
 - starting equipment.<br>
 - starting items.<br>
 - item usage.<br>
@@ -24,6 +23,6 @@
 - simple UI that allows the user to choose a character and level them up.<br>
 - UI now shows character stats and equipment.<br>
 - save feature that allows for a character's stats and equipment to be saved and recalled.<br>
+- character creation menu.<br>
 <h2>still needed</h2>
 - expanded ui.<br>
-- character creation menu.<br>
