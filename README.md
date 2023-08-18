@@ -21,7 +21,7 @@
 - inventory updated after using an item.<br>
 - simple UI that allows the user to choose a character and level them up.<br>
 - UI now shows character stats and equipment.<br>
-- save feature that allows for a character's stats, items, and equipment to be saved and recalled.<br>
+- save feature that allows for a character's stats and equipment to be saved and recalled.<br>
 <h2>still needed</h2>
 - expanded ui.<br>
 - character creation menu.<br>
