@@ -6,7 +6,6 @@ Pressing load<br>
 Creating an new character<br>
 ![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/918a3146-134d-41b1-9dbe-2b3dcf217a70)<br>
 <h2>About</h2>
-- The character load button will error out if there are no saved characters in the json file.<br>
 - A character and enemy stats program I created just to see how this type of system works.<br>
 - If someone needs to use this, feel free to do so.<br>
 <h2>Features</h2>
@@ -25,6 +24,5 @@ Creating an new character<br>
 - save feature that allows for multiple character stats and equipment to be saved and recalled.<br>
 - character creation menu.<br>
 <h2>still needed</h2>
-- add a check to the load button so that it does not throw an error if the json is missing or empty.<br>
 - clean up ui.<br>
 - drug money.<br>
