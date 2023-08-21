@@ -361,6 +361,7 @@ public class StatUI
                         //Save.saveStats(Main.characters[characterBox.getSelectedIndex()], characterBox.getSelectedIndex());
                         Save.saveStats(Main.characters[i], i);
                     }
+                    Save.saveAsJson();
                 }
             }
         });

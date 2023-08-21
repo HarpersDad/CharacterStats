@@ -13,17 +13,17 @@ public class Save
     static JSONObject obj;
     static JSONObject obj2;
     static BufferedWriter writer;
+    static File myFile = new File("saveData.json");
+
+    static JSONObject[] jsonArray = new JSONObject[12];
+
     Save(){}
 
     // save stat method
     static void saveStats(Player player, int position)
     {
-        // save file named saveData.json
-        File myFile = new File("saveData.json");
-
         // json objects used to store save data
         obj = new JSONObject();
-        obj2 = new JSONObject();
 
         // try / catch that creates a writer for the save file
         try
@@ -81,35 +81,13 @@ public class Save
         obj.put("xpToNextLevel", player.xpToNextLevel);
 
         // set player save data in a nested json with the key being the position for the drop down menu / character array
-        obj2.put(position, obj);
-
-        // try / catch that writes the nested json to the save file
-        try
-        {
-            writer.write(obj2.toJSONString());
-        }
-        catch (IOException e)
-        {
-            throw new RuntimeException(e);
-        }
-
-        // try catch that closes the file writer
-        try
-        {
-            writer.close();
-        }
-        catch (IOException e)
-        {
-            throw new RuntimeException(e);
-        }
+        //obj2.put(position, obj);
+        jsonArray[position] = obj;
     }
 
     // method that loads the character data into the program
     static void loadStats(int position)
     {
-        // sets the file as the save data json
-        File myFile = new File("saveData.json");
-
         // object used to parse the file
         Object ob;
 
@@ -171,6 +149,45 @@ public class Save
 
             // place the character in the character array using the position that was passed to the method
             Main.characters[position] = player;
+        }
+    }
+
+    static void saveAsJson()
+    {
+        obj2 = new JSONObject();
+
+        for (int i = 0; i < jsonArray.length; i++)
+        {
+            obj2.put(i, jsonArray[i]);
+        }
+
+        try
+        {
+            writer = new BufferedWriter(new FileWriter(myFile));
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException(e);
+        }
+
+        // try / catch that writes the nested json to the save file
+        try
+        {
+            writer.write(obj2.toJSONString());
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException(e);
+        }
+
+        // try catch that closes the file writer
+        try
+        {
+            writer.close();
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException(e);
         }
     }
 }
