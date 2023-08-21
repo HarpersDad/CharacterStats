@@ -24,16 +24,6 @@ public class Save
         // json objects used to store save data
         obj = new JSONObject();
 
-        // try / catch that creates a writer for the save file
-        try
-        {
-            writer = new BufferedWriter(new FileWriter(myFile));
-        }
-        catch (IOException e)
-        {
-            throw new RuntimeException(e);
-        }
-
         // set player name
         obj.put("name", player.name);
 
@@ -79,8 +69,7 @@ public class Save
         // set player str
         obj.put("xpToNextLevel", player.xpToNextLevel);
 
-        // set player save data in a nested json with the key being the position for the drop down menu / character array
-        //obj2.put(position, obj);
+        // add save data to array at the pre-defined position
         jsonArray[position] = obj;
     }
 
@@ -153,6 +142,7 @@ public class Save
     // writes character's data to json file
     static void saveAsJson()
     {
+        // initialize obj2
         obj2 = new JSONObject();
 
         // for loop that takes the data from the array and adds it to the json object
