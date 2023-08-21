@@ -25,5 +25,5 @@ Creating an new character<br>
 - character creation menu.<br>
 <h2>still needed</h2>
 - clean up ui.<br>
-- add cancel button to the character creation window.<br>
+- add cancel button to the character creation window and disable the x button.<br>
 - drug money.<br>
