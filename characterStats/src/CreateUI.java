@@ -21,7 +21,7 @@ public class CreateUI
     static JLabel jobL = new JLabel("Job:");
     static JLabel sexL = new JLabel("Sex:");
 
-    // stupid boolean check
+    // stupid boolean check - so that the create character button does fire multiple times
     static boolean notAdded = true;
 
     // create player UI
@@ -51,6 +51,7 @@ public class CreateUI
 
         create.setBounds((x/2) - 68, (y/2) + 20, 100, 30);
 
+        // add data and labels to the frame
         createFrame.getContentPane().add(name);
         createFrame.getContentPane().add(nameL);
         createFrame.getContentPane().add(characterJob);
@@ -59,8 +60,10 @@ public class CreateUI
         createFrame.getContentPane().add(sexL);
         createFrame.getContentPane().add(create);
 
+        // adds data to combo box
         fillBox();
 
+        // create character button
         create.addActionListener(new ActionListener()
         {
             @Override
@@ -78,6 +81,7 @@ public class CreateUI
         });
     }
 
+    // adds data to combo box
     public static void fillBox()
     {
         // populate job box
@@ -93,6 +97,7 @@ public class CreateUI
         }
     }
 
+    // creates a new character with the defined attributes
     public static void createPlayer(String name, String job, String sex)
     {
         Player player = new Player(name, job, sex);

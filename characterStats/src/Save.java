@@ -9,7 +9,6 @@ import java.io.*;
 
 public class Save
 {
-    static Gson gson;
     static JSONObject obj;
     static JSONObject obj2;
     static BufferedWriter writer;
@@ -19,7 +18,7 @@ public class Save
 
     Save(){}
 
-    // save stat method
+    // saves character data to array
     static void saveStats(Player player, int position)
     {
         // json objects used to store save data
@@ -110,7 +109,6 @@ public class Save
 
             // creates a parser for the inner json so that the data can be referenced
             JsonParser parser = new JsonParser();
-
             JsonObject jo = (JsonObject) parser.parse(String.valueOf(innerJO));
 
             // using the key values in the json, set the cooresponding variables for the character data
@@ -152,15 +150,18 @@ public class Save
         }
     }
 
+    // writes character's data to json file
     static void saveAsJson()
     {
         obj2 = new JSONObject();
 
+        // for loop that takes the data from the array and adds it to the json object
         for (int i = 0; i < jsonArray.length; i++)
         {
             obj2.put(i, jsonArray[i]);
         }
 
+        // creates the writer that uses the json file
         try
         {
             writer = new BufferedWriter(new FileWriter(myFile));

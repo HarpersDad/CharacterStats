@@ -80,6 +80,7 @@ public class StatUI
 
     public static void newUI()
     {
+        // initialize combo box
         characterBox = new JComboBox();
 
         // creates program window
@@ -88,6 +89,7 @@ public class StatUI
         frame.setSize(x, y);
         frame.setLocationRelativeTo(null);
 
+        // sets bound for buttons and combo boxes
         characterBox.setBounds((x/4) + 200, (y/4) - (80), 100, 30);
         levelUpButton.setBounds((x/4) - buttonW/3 - 25, (y/4) - (35), 80,25);
         saveData.setBounds((x/4) + 200, (y/4) - (35), 80,25);
@@ -171,6 +173,7 @@ public class StatUI
         back.setFont(new Font("Arial", Font.PLAIN, 12));
         back.setBounds((x/2) - buttonW/4, (y/4) + (175), buttonW, buttonH);
 
+        // add data to frame
         frame.getContentPane().add(createNewCharacter);
         frame.getContentPane().add(loadData);
         frame.getContentPane().add(saveData);
@@ -281,6 +284,7 @@ public class StatUI
         backL.setFont(new Font("Arial", Font.PLAIN, 12));
         backL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (175), buttonW, buttonH);
 
+        // add data labels to frame
         frame.getContentPane().add(nameL);
         frame.getContentPane().add(sexL);
         frame.getContentPane().add(jobL);
