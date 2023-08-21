@@ -1,5 +1,7 @@
 # Character Stats
 ![onLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/7300b843-2e78-43a9-bce8-4835ec404055)
+![pressLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/10d36244-78b0-4d22-b7ec-101c32405e19)
+![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/918a3146-134d-41b1-9dbe-2b3dcf217a70)
 <h2>About</h2>
 - The character load button will error out if there are no saved characters in the json file.<br>
 - A character and enemy stats program I created just to see how this type of system works.<br>
@@ -21,6 +23,3 @@
 - character creation menu.<br>
 <h2>still needed</h2>
 - drug money.<br>
-
-<h2>Images</h2>
-![On Start Up](https://github.com/HarpersDad/pictures/blob/main/rpgtest/onLoad.PNG)
