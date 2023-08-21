@@ -25,4 +25,5 @@ Creating an new character<br>
 - save feature that allows for multiple character stats and equipment to be saved and recalled.<br>
 - character creation menu.<br>
 <h2>still needed</h2>
+- clean up ui.<br>
 - drug money.<br>
