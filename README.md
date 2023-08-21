@@ -1,5 +1,6 @@
 # Character Stats
 <h2>About</h2>
+- The character load button will error out if there are no saved characters in the json file.<br>
 - A character and enemy stats program I created just to see how this type of system works.<br>
 - This is slowly becoming a larger project than I originally planned.<br>
 - If someone needs to use this, feel free to do so.<br>
