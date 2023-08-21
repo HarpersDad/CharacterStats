@@ -22,4 +22,4 @@
 - drug money.<br>
 
 <h2>Images</h2>
-![On Start Up](https://github.com/HarpersDad/pictures/blob/main/rpgtest/onLoad.PNG "On Start")
+![On Start Up](https://github.com/HarpersDad/pictures/blob/main/rpgtest/onLoad.PNG?raw=true "On Start")
