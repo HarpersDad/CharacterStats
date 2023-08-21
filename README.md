@@ -20,3 +20,6 @@
 - character creation menu.<br>
 <h2>still needed</h2>
 - drug money.<br>
+
+<h2>Images</h2>
+![On Load]([URL](https://github.com/HarpersDad/pictures/blob/main/rpgtest/onLoad.PNG)https://github.com/HarpersDad/pictures/blob/main/rpgtest/onLoad.PNG "On Start")
