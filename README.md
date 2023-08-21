@@ -25,5 +25,6 @@ Creating an new character<br>
 - save feature that allows for multiple character stats and equipment to be saved and recalled.<br>
 - character creation menu.<br>
 <h2>still needed</h2>
+- add a check to the load button so that it does not throw an error if the json is missing or empty.<br>
 - clean up ui.<br>
 - drug money.<br>
