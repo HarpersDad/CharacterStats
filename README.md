@@ -1,6 +1,9 @@
 # Character Stats
+On startup<br>
 ![onLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/7300b843-2e78-43a9-bce8-4835ec404055)
+Pressed load<br>
 ![pressLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/10d36244-78b0-4d22-b7ec-101c32405e19)
+Creating an new character<br>
 ![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/918a3146-134d-41b1-9dbe-2b3dcf217a70)
 <h2>About</h2>
 - The character load button will error out if there are no saved characters in the json file.<br>
