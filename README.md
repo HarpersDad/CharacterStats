@@ -1,4 +1,5 @@
 # Character Stats
+![onLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/7300b843-2e78-43a9-bce8-4835ec404055)
 <h2>About</h2>
 - The character load button will error out if there are no saved characters in the json file.<br>
 - A character and enemy stats program I created just to see how this type of system works.<br>
@@ -23,4 +24,3 @@
 
 <h2>Images</h2>
 ![On Start Up](https://github.com/HarpersDad/pictures/blob/main/rpgtest/onLoad.PNG)
-![onLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/7300b843-2e78-43a9-bce8-4835ec404055)
