@@ -23,6 +23,7 @@ Creating an new character<br>
 - UI shows character stats and equipment.<br>
 - save feature that allows for multiple character stats and equipment to be saved and recalled.<br>
 - character creation menu.<br>
+- disabled close and maximize on character creation window.<br>
 <h2>still needed</h2>
 - clean up ui.<br>
 - add cancel button to the character creation window and disable the x button.<br>
