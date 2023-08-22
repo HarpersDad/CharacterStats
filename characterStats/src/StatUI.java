@@ -323,10 +323,17 @@ public class StatUI
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                CreateUI.notAdded = true;
-                CreateUI.createPlayerUI();
-                saveData.setEnabled(true);
-                CreateUI.create.setEnabled(true);
+                if (Main.characters[Main.characters.length - 1] == null)
+                {
+                    CreateUI.notAdded = true;
+                    CreateUI.createPlayerUI();
+                    saveData.setEnabled(true);
+                    CreateUI.create.setEnabled(true);
+                }
+                else
+                {
+                    createNewCharacter.setEnabled(false);
+                }
             }
         });
 

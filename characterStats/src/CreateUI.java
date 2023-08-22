@@ -14,6 +14,7 @@ public class CreateUI
     static JComboBox characterJob;
     static JComboBox characterSex;
     static Button create = new Button("Create Player");
+    static Button cancelCreate = new Button("Cancel");
 
     static JTextField name = new JTextField();
 
@@ -49,7 +50,9 @@ public class CreateUI
         characterSex.setBounds(x/2 - 45, y/2 - 20, 100, 30);
         sexL.setBounds((x/2) - 90, y/2 - 20, 100, 30);
 
-        create.setBounds((x/2) - 68, (y/2) + 20, 100, 30);
+        create.setBounds((x/2) - 110, (y/2) + 20, 100, 30);
+
+        cancelCreate.setBounds((x/2), (y/2) + 20, 100, 30);
 
         // add data and labels to the frame
         createFrame.getContentPane().add(name);
@@ -59,9 +62,17 @@ public class CreateUI
         createFrame.getContentPane().add(characterSex);
         createFrame.getContentPane().add(sexL);
         createFrame.getContentPane().add(create);
+        createFrame.getContentPane().add(cancelCreate);
 
         // adds data to combo box
         fillBox();
+
+        // stops user from closing creation window
+        // if a user would close the creation window it would close the entire program
+        createFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+
+        // stops user from maximizing window
+        createFrame.setResizable(false);
 
         // create character button
         create.addActionListener(new ActionListener()
@@ -76,7 +87,15 @@ public class CreateUI
                     createFrame.dispose();
                     create.setEnabled(false);
                 }
+            }
+        });
 
+        cancelCreate.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                createFrame.dispose();
             }
         });
     }

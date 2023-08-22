@@ -7,6 +7,7 @@ public class Player
     String name;
     String job;
     String sex;
+    int gold;
     int level;
     int hp;
     int MaxHP;
@@ -67,7 +68,7 @@ public class Player
     Items tent = new Items("Tent", 1, "fullHeal", 1, "a camping tent", 1);
     Items panacea = new Items("Panacea", 1, "antidote", 1, "a status remedy", 1);
     Items revivePowder = new Items("Revival Powder", 1, "revive", 1, "a revival powder", 1);
-    Items gold = new Items("Gold", 1,"", 0, "gold coin", 0);
+    Items rock = new Items("Rock", 0, "", 0,"a small stone", 1);
 
     // Player constructor
     Player(String name, String job, String sex)
@@ -87,6 +88,7 @@ public class Player
         this.level = 1;
         this.xp = 0;
         this.status = "Normal";
+        this.gold = 0;
 
         // adds stats to the player based on the job chosen
         switch (job)
@@ -102,6 +104,7 @@ public class Player
                 this.wis = 2;
                 this.spd = 1;
                 this.lck = 1;
+                this.gold = 10;
 
                 // starting equipment
                 this.mainWeapon = shortSword;
@@ -133,6 +136,7 @@ public class Player
                 this.wis = 3;
                 this.spd = 3;
                 this.lck = 1;
+                this.gold = 10;
 
                 // starting equipment
                 this.mainWeapon = shortBow;
@@ -163,6 +167,7 @@ public class Player
                 this.wis = 1;
                 this.spd = 3;
                 this.lck = 2;
+                this.gold = 10;
 
                 // starting equipment
                 this.mainWeapon = leatherBands;
@@ -193,6 +198,7 @@ public class Player
                 this.wis = 3;
                 this.spd = 2;
                 this.lck = 1;
+                this.gold = 10;
 
                 // starting equipment
                 this.mainWeapon = walkingStaff;
@@ -223,6 +229,7 @@ public class Player
                 this.wis = 2;
                 this.spd = 3;
                 this.lck = 2;
+                this.gold = 10;
 
                 // starting equipment
                 this.mainWeapon = dagger;
@@ -254,6 +261,7 @@ public class Player
                 this.wis = 2;
                 this.spd = 2;
                 this.lck = 2;
+                this.gold = 0;
 
                 // starting equipment
                 this.mainWeapon = dagger;
@@ -785,7 +793,7 @@ public class Player
             case "antidote" -> newItem = panacea;
             case "revive" -> newItem = revivePowder;
             case "tent" -> newItem = tent;
-            default -> newItem = gold;
+            default -> newItem = rock;
         }
 
         for(int i = 0; i < inventory.length; i++)

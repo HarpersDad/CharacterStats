@@ -77,12 +77,15 @@ public class Save
     static void loadStats(int position)
     {
         // object used to parse the file
-        Object ob;
+        Object ob = null;
 
         // try / catch that parses the json data
         try
         {
-            ob = new JSONParser().parse(new FileReader(myFile));
+            if (myFile.exists())
+            {
+                ob = new JSONParser().parse(new FileReader(myFile));
+            }
         }
         catch (IOException | ParseException e)
         {
