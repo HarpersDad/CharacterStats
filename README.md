@@ -28,4 +28,3 @@ Creating an new character<br>
 - disabled close and maximize on character creation window.<br>
 <h2>still needed</h2>
 - clean up ui.<br>
-- drug money.<br>
