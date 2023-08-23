@@ -405,8 +405,8 @@ public class StatUI
         characterBox.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e) {
-
+            public void actionPerformed(ActionEvent e)
+            {
                 name.setText(Main.characters[characterBox.getSelectedIndex()].name);
                 sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
                 job.setText(Main.characters[characterBox.getSelectedIndex()].job);

@@ -10,6 +10,13 @@ public class Items
     int numberHeld;
     int maxItemCount;
 
+    // Starting items
+    static Items tonic = new Items("Tonic", 1, "heal", 1, "a healing tonic", 1);
+    static Items tent = new Items("Tent", 1, "fullHeal", 1, "a camping tent", 1);
+    static Items panacea = new Items("Panacea", 1, "antidote", 1, "a status remedy", 1);
+    static Items revivePowder = new Items("Revival Powder", 1, "revive", 1, "a revival powder", 1);
+    static Items rock = new Items("Rock", 0, "", 0,"a small stone", 1);
+
     // item constructor
     Items(String name, int cost, String buff, int buffAmount, String description, int numberHeld)
     {

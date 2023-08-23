@@ -33,6 +33,10 @@ public class Save
         // set player job
         obj.put("job", player.job);
 
+        // set player gear
+        // will need to list out each slot for gear and inventory
+        obj.put("gear", player.equipment[0].type);
+
         // set player status
         obj.put("status", player.status);
 
@@ -108,6 +112,7 @@ public class Save
             String sex = (String) jo.get("sex").getAsString();
             String status = (String) jo.get("status").getAsString();
             String job = (String) jo.get("job").getAsString();
+            String equip = (String) jo.get("gear").getAsString();
             int level = Integer.parseInt(jo.get("level").getAsString());
             double xp = (double) jo.get("xp").getAsDouble();
             double xpUp = (double) jo.get("xpToNextLevel").getAsDouble();
@@ -121,7 +126,7 @@ public class Save
             int lck = Integer.parseInt(jo.get("lck").toString());
 
             // re-create the player using the saved data
-            Player player = new Player(name, job, sex);
+            Player player = new Player(name, job, sex, equip);
 
             // set the player stats using the saved data
             player.MaxHP = MaxHP;
@@ -139,6 +144,8 @@ public class Save
 
             // place the character in the character array using the position that was passed to the method
             Main.characters[position] = player;
+            Main.characters[position].gearEquipped();
+            StatUI.characterBox.setEnabled(true);
         }
     }
 

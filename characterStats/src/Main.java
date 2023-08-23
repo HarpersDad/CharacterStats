@@ -81,6 +81,9 @@ public class Main
         // uses the Enemy class to create new enemies with the given name and type
         //Enemy enemy1 = new Enemy("Bird", "flyer");
 
+        // creates equipment
+        Equipment.createEquipment();
+
         // runs the main ui
         StatUI.newUI();
     }

@@ -25,53 +25,19 @@ public class Player
 
     static String[] jobs = {"defender", "fighter", "ranger", "mage", "thief", "vagrant"};
     static String[] sexes = {"male", "female", "unknown"};
+    static String[] equipSets = {"Leather", "Iron", "Steel", "Silver", "Platinum", "Diamond"};
 
     // inventory array
     Items[] inventory = new Items[25];
 
-    // player equipped items array
+    // equipment array
     Equipment[] equipment = new Equipment[11];
 
     // equipment slots
     Equipment mainWeapon, offHand, head, neck, chest, hands, ring, belt, legs, feet, back;
 
-    // unequipped
-    Equipment unEquipped = new Equipment("", true, 0, "", 0, "", "mainWeapon", 1);
-
-    // starting weapons
-    Equipment shortSword = new Equipment("Short Sword", true, 1, "str", 1, "a short sword", "mainWeapon", 1);
-    Equipment leatherBands = new Equipment("Leather Bands", true, 1, "str", 1, "leather hand wraps", "mainWeapon", 1);
-    Equipment shortBow = new Equipment("Short Bow", true, 1, "str", 1, "a short bow", "mainWeapon", 1);
-    Equipment walkingStaff = new Equipment("Walking Staff", true, 1, "str", 1, "an old walking stick", "mainWeapon", 1);
-    Equipment dagger = new Equipment("Dagger", true, 1, "str", 1, "a small dagger", "mainWeapon", 1);
-
-    // starting offhand
-    Equipment leatherBuckler = new Equipment("Leather Buckler", true, 1, "def", 2, "a small worn leather shield", "offHand", 1);
-    Equipment woodenKite = new Equipment("Wooden Kite-Shield", true, 1, "def", 4, "an old wooden kite-shield", "offHand", 1);
-
-    // starting armor
-    Equipment leatherHat = new Equipment("Leather Hat", true, 1, "def", 1, "a worn leather hat", "head", 1);
-    Equipment leatherChest = new Equipment("Leather Chest", true, 1, "def", 1, "worn leather chest armor", "chest", 1);
-    Equipment leatherGloves = new Equipment("Leather Gloves", true, 1, "def", 1, "worn leather gloves", "hands", 1);
-    Equipment leatherPants = new Equipment("Leather Pants", true, 1, "def", 1, "worn leather pants", "legs", 1);
-    Equipment leatherBoots = new Equipment("Leather Boots", true, 1, "def", 1, "worn leather boots", "feet", 1);
-
-    // starting accessories
-    Equipment leatherGaiter = new Equipment("Leather Gaiter", true, 1, "def", 1, "a worn leather neck warmer", "neck", 1);
-    Equipment brassNecklace = new Equipment("Brass Necklace", true, 1, "lck", 1, "an old brass necklace", "neck", 1);
-    Equipment leatherBelt = new Equipment("Leather Belt", true, 1, "spd", 1, "a worn leather belt", "belt", 1);
-    Equipment brassRing = new Equipment("Brass Ring", true, 1, "lck", 1, "an old brass ring", "ring", 1);
-    Equipment leatherCape = new Equipment("Leather Cape", true, 1, "con", 1, "an old leather cape", "back", 1);
-
-    // Starting items
-    Items tonic = new Items("Tonic", 1, "heal", 1, "a healing tonic", 1);
-    Items tent = new Items("Tent", 1, "fullHeal", 1, "a camping tent", 1);
-    Items panacea = new Items("Panacea", 1, "antidote", 1, "a status remedy", 1);
-    Items revivePowder = new Items("Revival Powder", 1, "revive", 1, "a revival powder", 1);
-    Items rock = new Items("Rock", 0, "", 0,"a small stone", 1);
-
     // Player constructor
-    Player(String name, String job, String sex)
+    Player(String name, String job, String sex, String equip)
     {
         // creates the player by using the passed information
         if (name == null || name.isEmpty())
@@ -90,6 +56,99 @@ public class Player
         this.status = "Normal";
         this.gold = 0;
 
+        switch (equip)
+        {
+            case "Leather"
+                    ->
+            {
+                // starting equipment
+                this.head = Equipment.leatherHat;
+                this.neck = Equipment.leatherGaiter;
+                this.chest = Equipment.leatherChest;
+                this.hands = Equipment.leatherGloves;
+                this.ring = Equipment.brassRing;
+                this.belt = Equipment.leatherBelt;
+                this.legs = Equipment.leatherPants;
+                this.feet = Equipment.leatherBoots;
+                this.back = Equipment.leatherCape;
+            }
+
+            case "Iron"
+                    ->
+            {
+                // starting equipment
+                this.head = Equipment.ironHat;
+                this.neck = Equipment.ironGaiter;
+                this.chest = Equipment.ironChest;
+                this.hands = Equipment.ironGloves;
+                this.ring = Equipment.ironRing;
+                this.belt = Equipment.ironBelt;
+                this.legs = Equipment.ironPants;
+                this.feet = Equipment.ironBoots;
+                this.back = Equipment.ironCape;
+            }
+
+            case "Steel"
+                    ->
+            {
+                // starting equipment
+                this.head = Equipment.steelHat;
+                this.neck = Equipment.steelGaiter;
+                this.chest = Equipment.steelChest;
+                this.hands = Equipment.steelGloves;
+                this.ring = Equipment.steelRing;
+                this.belt = Equipment.steelBelt;
+                this.legs = Equipment.steelPants;
+                this.feet = Equipment.steelBoots;
+                this.back = Equipment.steelCape;
+            }
+
+            case "Silver"
+                    ->
+            {
+                // starting equipment
+                this.head = Equipment.silverHat;
+                this.neck = Equipment.silverGaiter;
+                this.chest = Equipment.silverChest;
+                this.hands = Equipment.silverGloves;
+                this.ring = Equipment.silverRing;
+                this.belt = Equipment.silverBelt;
+                this.legs = Equipment.silverPants;
+                this.feet = Equipment.silverBoots;
+                this.back = Equipment.silverCape;
+            }
+
+            case "Platinum"
+                    ->
+            {
+                // starting equipment
+                this.head = Equipment.platinumHat;
+                this.neck = Equipment.platinumGaiter;
+                this.chest = Equipment.platinumChest;
+                this.hands = Equipment.platinumGloves;
+                this.ring = Equipment.platinumRing;
+                this.belt = Equipment.platinumBelt;
+                this.legs = Equipment.platinumPants;
+                this.feet = Equipment.platinumBoots;
+                this.back = Equipment.platinumCape;
+            }
+
+            case "Diamond"
+                    ->
+            {
+                // starting equipment
+                this.head = Equipment.diamondHat;
+                this.neck = Equipment.diamondGaiter;
+                this.chest = Equipment.diamondChest;
+                this.hands = Equipment.diamondGloves;
+                this.ring = Equipment.diamondRing;
+                this.belt = Equipment.diamondBelt;
+                this.legs = Equipment.diamondPants;
+                this.feet = Equipment.diamondBoots;
+                this.back = Equipment.diamondCape;
+            }
+        }
+
         // adds stats to the player based on the job chosen
         switch (job)
         {
@@ -106,24 +165,53 @@ public class Player
                 this.lck = 1;
                 this.gold = 10;
 
-                // starting equipment
-                this.mainWeapon = shortSword;
-                this.offHand = woodenKite;
-                this.head = leatherHat;
-                this.neck = leatherGaiter;
-                this.chest = leatherChest;
-                this.hands = leatherGloves;
-                this.ring = unEquipped;
-                this.belt = leatherBelt;
-                this.legs = leatherPants;
-                this.feet = leatherBoots;
-                this.back = unEquipped;
-
                 // starting items
-                this.inventory[0] = tonic;
-                this.inventory[1] = tent;
-                this.inventory[2] = panacea;
-                this.inventory[3] = revivePowder;
+                this.inventory[0] = Items.tonic;
+                this.inventory[1] = Items.tent;
+                this.inventory[2] = Items.panacea;
+                this.inventory[3] = Items.revivePowder;
+
+                if (equip.equals("Leather"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.shortSword;
+                    this.offHand = Equipment.woodenKite;
+                }
+
+                if (equip.equals("Iron"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.ironSword;
+                    this.offHand = Equipment.ironKite;
+                }
+
+                if (equip.equals("Steel"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.steelSword;
+                    this.offHand = Equipment.steelKite;
+                }
+
+                if (equip.equals("Silver"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.silverSword;
+                    this.offHand = Equipment.silverKite;
+                }
+
+                if (equip.equals("Platinum"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.platinumSword;
+                    this.offHand = Equipment.platinumKite;
+                }
+
+                if (equip.equals("Diamond"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.diamondSword;
+                    this.offHand = Equipment.diamondKite;
+                }
 
             }
             case "ranger"
@@ -138,24 +226,53 @@ public class Player
                 this.lck = 1;
                 this.gold = 10;
 
-                // starting equipment
-                this.mainWeapon = shortBow;
-                this.offHand = unEquipped;
-                this.head = unEquipped;
-                this.neck = leatherGaiter;
-                this.chest = leatherChest;
-                this.hands = unEquipped;
-                this.ring = unEquipped;
-                this.belt = leatherBelt;
-                this.legs = leatherPants;
-                this.feet = leatherBoots;
-                this.back = leatherCape;
-
                 // starting items
-                this.inventory[0] = tonic;
-                this.inventory[1] = tent;
-                this.inventory[2] = panacea;
-                this.inventory[3] = revivePowder;
+                this.inventory[0] = Items.tonic;
+                this.inventory[1] = Items.tent;
+                this.inventory[2] = Items.panacea;
+                this.inventory[3] = Items.revivePowder;
+
+                if (equip.equals("Leather"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.shortBow;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Iron"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.ironBow;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Steel"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.steelBow;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Silver"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.silverBow;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Platinum"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.platinumBow;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Diamond"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.diamondBow;
+                    this.offHand = Equipment.unEquipped;
+                }
             }
             case "fighter"
                     ->
@@ -169,24 +286,54 @@ public class Player
                 this.lck = 2;
                 this.gold = 10;
 
-                // starting equipment
-                this.mainWeapon = leatherBands;
-                this.offHand = unEquipped;
-                this.head = unEquipped;
-                this.neck = unEquipped;
-                this.chest = leatherChest;
-                this.hands = unEquipped;
-                this.ring = unEquipped;
-                this.belt = leatherBelt;
-                this.legs = leatherPants;
-                this.feet = leatherBoots;
-                this.back = unEquipped;
-
                 // starting items
-                this.inventory[0] = tonic;
-                this.inventory[1] = tent;
-                this.inventory[2] = panacea;
-                this.inventory[3] = revivePowder;
+                this.inventory[0] = Items.tonic;
+                this.inventory[1] = Items.tent;
+                this.inventory[2] = Items.panacea;
+                this.inventory[3] = Items.revivePowder;
+
+                // weapons
+                if (equip.equals("Leather"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.leatherBands;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Iron"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.ironBands;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Steel"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.steelBands;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Silver"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.silverBands;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Platinum"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.platinumBands;
+                    this.offHand = Equipment.unEquipped;
+                }
+
+                if (equip.equals("Diamond"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.diamondBands;
+                    this.offHand = Equipment.unEquipped;
+                }
             }
             case "mage"
                     ->
@@ -200,24 +347,54 @@ public class Player
                 this.lck = 1;
                 this.gold = 10;
 
-                // starting equipment
-                this.mainWeapon = walkingStaff;
-                this.offHand = leatherBuckler;
-                this.head = leatherHat;
-                this.neck = unEquipped;
-                this.chest = leatherChest;
-                this.hands = leatherGloves;
-                this.ring = brassRing;
-                this.belt = unEquipped;
-                this.legs = leatherPants;
-                this.feet = leatherBoots;
-                this.back = unEquipped;
-
                 // starting items
-                this.inventory[0] = tonic;
-                this.inventory[1] = tent;
-                this.inventory[2] = panacea;
-                this.inventory[3] = revivePowder;
+                this.inventory[0] = Items.tonic;
+                this.inventory[1] = Items.tent;
+                this.inventory[2] = Items.panacea;
+                this.inventory[3] = Items.revivePowder;
+
+                // weapons
+                if (equip.equals("Leather"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.walkingStaff;
+                    this.offHand = Equipment.leatherBuckler;
+                }
+
+                if (equip.equals("Iron"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.ironStaff;
+                    this.offHand = Equipment.ironBuckler;
+                }
+
+                if (equip.equals("Steel"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.steelStaff;
+                    this.offHand = Equipment.steelBuckler;
+                }
+
+                if (equip.equals("Silver"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.silverStaff;
+                    this.offHand = Equipment.silverBuckler;
+                }
+
+                if (equip.equals("Platinum"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.platinumStaff;
+                    this.offHand = Equipment.platinumBuckler;
+                }
+
+                if (equip.equals("Diamond"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.diamondStaff;
+                    this.offHand = Equipment.diamondBuckler;
+                }
             }
             case "thief"
                     ->
@@ -231,24 +408,54 @@ public class Player
                 this.lck = 2;
                 this.gold = 10;
 
-                // starting equipment
-                this.mainWeapon = dagger;
-                this.offHand = leatherBuckler;
-                this.head = leatherHat;
-                this.neck = brassNecklace;
-                this.chest = leatherChest;
-                this.hands = unEquipped;
-                this.ring = unEquipped;
-                this.belt = leatherBelt;
-                this.legs = leatherPants;
-                this.feet = leatherBoots;
-                this.back = leatherCape;
-
                 // starting items
-                this.inventory[0] = tonic;
-                this.inventory[1] = tent;
-                this.inventory[2] = panacea;
-                this.inventory[3] = revivePowder;
+                this.inventory[0] = Items.tonic;
+                this.inventory[1] = Items.tent;
+                this.inventory[2] = Items.panacea;
+                this.inventory[3] = Items.revivePowder;
+
+                // weapons
+                if (equip.equals("Leather"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.dagger;
+                    this.offHand = Equipment.leatherBuckler;
+                }
+
+                if (equip.equals("Iron"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.ironDagger;
+                    this.offHand = Equipment.ironBuckler;
+                }
+
+                if (equip.equals("Steel"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.steelDagger;
+                    this.offHand = Equipment.steelBuckler;
+                }
+
+                if (equip.equals("Silver"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.silverDagger;
+                    this.offHand = Equipment.silverBuckler;
+                }
+
+                if (equip.equals("Platinum"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.platinumDagger;
+                    this.offHand = Equipment.platinumBuckler;
+                }
+
+                if (equip.equals("Diamond"))
+                {
+                    // starting weapons
+                    this.mainWeapon = Equipment.diamondDagger;
+                    this.offHand = Equipment.diamondBuckler;
+                }
             }
             default
                     ->
@@ -264,23 +471,23 @@ public class Player
                 this.gold = 0;
 
                 // starting equipment
-                this.mainWeapon = dagger;
-                this.offHand = unEquipped;
-                this.head = unEquipped;
-                this.neck = unEquipped;
-                this.chest = unEquipped;
-                this.hands = unEquipped;
-                this.ring = brassRing;
-                this.belt = unEquipped;
-                this.legs = leatherPants;
-                this.feet = leatherBoots;
-                this.back = leatherCape;
+                this.mainWeapon = Equipment.dagger;
+                this.offHand = Equipment.unEquipped;
+                this.head = Equipment.unEquipped;
+                this.neck = Equipment.unEquipped;
+                this.chest = Equipment.unEquipped;
+                this.hands = Equipment.unEquipped;
+                this.ring = Equipment.brassRing;
+                this.belt = Equipment.unEquipped;
+                this.legs = Equipment.leatherPants;
+                this.feet = Equipment.leatherBoots;
+                this.back = Equipment.leatherCape;
 
                 // starting items
-                this.inventory[0] = tonic;
-                this.inventory[1] = tent;
-                this.inventory[2] = panacea;
-                this.inventory[3] = revivePowder;
+                this.inventory[0] = Items.tonic;
+                this.inventory[1] = Items.tent;
+                this.inventory[2] = Items.panacea;
+                this.inventory[3] = Items.revivePowder;
             }
         }
         this.MaxHP = this.hp;
@@ -789,11 +996,11 @@ public class Player
 
         switch (items)
         {
-            case "tonic" -> newItem = tonic;
-            case "antidote" -> newItem = panacea;
-            case "revive" -> newItem = revivePowder;
-            case "tent" -> newItem = tent;
-            default -> newItem = rock;
+            case "tonic" -> newItem = Items.tonic;
+            case "antidote" -> newItem = Items.panacea;
+            case "revive" -> newItem = Items.revivePowder;
+            case "tent" -> newItem = Items.tent;
+            default -> newItem = Items.rock;
         }
 
         for(int i = 0; i < inventory.length; i++)
