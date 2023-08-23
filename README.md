@@ -24,7 +24,7 @@ Creating an new character<br>
 - save feature that allows for multiple character stats and equipment to be saved and recalled.<br>
 - character creation menu.<br>
 <h2>Recently Added</h2>
-- added a cancel button to the character creation menu.<br>
-- disabled close and maximize on character creation window.<br>
+- added more armor set option when creating a character.<br>
+- reorganized the code so that it is easier/harder to follow.<br>
 <h2>still needed</h2>
 - clean up ui.<br>
