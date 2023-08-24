@@ -28,6 +28,6 @@ Equipment Description<br>
 <h2>Recently Added</h2>
 - added more armor set option when creating a character.<br>
 - reorganized the code so that it is easier/harder to follow.<br>
+- added equipment info when a user hovers over an item's name.<br>
 <h2>still needed</h2>
 - clean up ui.<br>
-![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/bc86f6d8-a95f-4843-917f-aa371079b8c8)
