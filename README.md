@@ -33,6 +33,9 @@ Equipment Description<br>
 - reorganized the code so that it is easier/harder to follow.<br>
 - added equipment info when a user hovers over an item's name.<br>
 - fixed an equipment issue that added gear buffs more than once.<br>
-<h2>still needed</h2>
+- made UI smaller.<br>
 
-- clean up ui.<br>
+<h2>Issues</h2>
+
+- if you press load multiple times in a row it will load in the save data multiple times, filling blank character slots.<br>
+
