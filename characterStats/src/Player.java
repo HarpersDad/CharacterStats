@@ -20,9 +20,10 @@ public class Player
     double xp;
     int xpToLevel = 2;
     double xpToNextLevel;
-
     static String status;
+    boolean equipped = false;
 
+    // creation arrays
     static String[] jobs = {"defender", "fighter", "ranger", "mage", "thief", "vagrant"};
     static String[] sexes = {"male", "female", "unknown"};
     static String[] equipSets = {"Leather", "Iron", "Steel", "Silver", "Platinum", "Diamond"};
@@ -626,191 +627,195 @@ public class Player
     // method for checking if an item is equipped and adding the appropriate buff
     void gearEquipped()
     {
-        // checks equipped main weapon
-        if (this.mainWeapon != null)
+        if (this.equipped == false)
         {
-            this.equipment[0] = this.mainWeapon;
-
-            switch (this.mainWeapon.buff)
+            // checks equipped main weapon
+            if (this.mainWeapon != null)
             {
-                case "hp" -> this.hp += this.mainWeapon.buffAmount;
-                case "str" -> this.str += this.mainWeapon.buffAmount;
-                case "def" -> this.def += this.mainWeapon.buffAmount;
-                case "con" -> this.con += this.mainWeapon.buffAmount;
-                case "wis" -> this.wis += this.mainWeapon.buffAmount;
-                case "spd" -> this.spd += this.mainWeapon.buffAmount;
-                case "lck" -> this.lck += this.mainWeapon.buffAmount;
+                this.equipment[0] = this.mainWeapon;
+
+                switch (this.mainWeapon.buff)
+                {
+                    case "hp" -> this.hp = this.mainWeapon.buffAmount + this.hp;
+                    case "str" -> this.str = this.mainWeapon.buffAmount + this.str;
+                    case "def" -> this.def = this.mainWeapon.buffAmount + this.def;
+                    case "con" -> this.con = this.mainWeapon.buffAmount + this.con;
+                    case "wis" -> this.wis = this.mainWeapon.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.mainWeapon.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.mainWeapon.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks offhand weapon / armament
-        if (this.offHand != null)
-        {
-            this.equipment[1] = this.offHand;
-
-            switch (this.offHand.buff)
+            // checks offhand
+            if (this.offHand != null)
             {
-                case "hp" -> this.hp += this.offHand.buffAmount;
-                case "str" -> this.str += this.offHand.buffAmount;
-                case "def" -> this.def += this.offHand.buffAmount;
-                case "con" -> this.con += this.offHand.buffAmount;
-                case "wis" -> this.wis += this.offHand.buffAmount;
-                case "spd" -> this.spd += this.offHand.buffAmount;
-                case "lck" -> this.lck += this.offHand.buffAmount;
+                this.equipment[1] = this.offHand;
+
+                switch (this.offHand.buff)
+                {
+                    case "hp" -> this.hp = this.offHand.buffAmount + this.hp;
+                    case "str" -> this.str = this.offHand.buffAmount + this.str;
+                    case "def" -> this.def = this.offHand.buffAmount + this.def;
+                    case "con" -> this.con = this.offHand.buffAmount + this.con;
+                    case "wis" -> this.wis = this.offHand.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.offHand.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.offHand.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks head gear
-        if (this.head != null)
-        {
-            this.equipment[2] = this.head;
-
-            switch (this.head.buff)
+            // checks head gear
+            if (this.head != null)
             {
-                case "hp" -> this.hp += this.head.buffAmount;
-                case "str" -> this.str += this.head.buffAmount;
-                case "def" -> this.def += this.head.buffAmount;
-                case "con" -> this.con += this.head.buffAmount;
-                case "wis" -> this.wis += this.head.buffAmount;
-                case "spd" -> this.spd += this.head.buffAmount;
-                case "lck" -> this.lck += this.head.buffAmount;
+                this.equipment[2] = this.head;
+
+                switch (this.head.buff)
+                {
+                    case "hp" -> this.hp = this.head.buffAmount + this.hp;
+                    case "str" -> this.str = this.head.buffAmount + this.str;
+                    case "def" -> this.def = this.head.buffAmount + this.def;
+                    case "con" -> this.con = this.head.buffAmount + this.con;
+                    case "wis" -> this.wis = this.head.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.head.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.head.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks neck gear
-        if (this.neck != null)
-        {
-            this.equipment[3] = this.neck;
-
-            switch (this.neck.buff)
+            // checks neck gear
+            if (this.neck != null)
             {
-                case "hp" -> this.hp += this.neck.buffAmount;
-                case "str" -> this.str += this.neck.buffAmount;
-                case "def" -> this.def += this.neck.buffAmount;
-                case "con" -> this.con += this.neck.buffAmount;
-                case "wis" -> this.wis += this.neck.buffAmount;
-                case "spd" -> this.spd += this.neck.buffAmount;
-                case "lck" -> this.lck += this.neck.buffAmount;
+                this.equipment[3] = this.neck;
+
+                switch (this.neck.buff)
+                {
+                    case "hp" -> this.hp = this.neck.buffAmount + this.hp;
+                    case "str" -> this.str = this.neck.buffAmount + this.str;
+                    case "def" -> this.def = this.neck.buffAmount + this.def;
+                    case "con" -> this.con = this.neck.buffAmount + this.con;
+                    case "wis" -> this.wis = this.neck.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.neck.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.neck.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks chest gear
-        if (this.chest != null)
-        {
-            this.equipment[4] = this.chest;
-
-            switch (this.chest.buff)
+            // checks chest gear
+            if (this.chest != null)
             {
-                case "hp" -> this.hp += this.chest.buffAmount;
-                case "str" -> this.str += this.chest.buffAmount;
-                case "def" -> this.def += this.chest.buffAmount;
-                case "con" -> this.con += this.chest.buffAmount;
-                case "wis" -> this.wis += this.chest.buffAmount;
-                case "spd" -> this.spd += this.chest.buffAmount;
-                case "lck" -> this.lck += this.chest.buffAmount;
+                this.equipment[4] = this.chest;
+
+                switch (this.chest.buff)
+                {
+                    case "hp" -> this.hp = this.chest.buffAmount + this.hp;
+                    case "str" -> this.str = this.chest.buffAmount + this.str;
+                    case "def" -> this.def = this.chest.buffAmount + this.def;
+                    case "con" -> this.con = this.chest.buffAmount + this.con;
+                    case "wis" -> this.wis = this.chest.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.chest.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.chest.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks hand gear
-        if (this.hands != null)
-        {
-            this.equipment[5] = this.hands;
-
-            switch (this.hands.buff)
+            // checks hand gear
+            if (this.hands != null)
             {
-                case "hp" -> this.hp += this.hands.buffAmount;
-                case "str" -> this.str += this.hands.buffAmount;
-                case "def" -> this.def += this.hands.buffAmount;
-                case "con" -> this.con += this.hands.buffAmount;
-                case "wis" -> this.wis += this.hands.buffAmount;
-                case "spd" -> this.spd += this.hands.buffAmount;
-                case "lck" -> this.lck += this.hands.buffAmount;
+                this.equipment[5] = this.hands;
+
+                switch (this.hands.buff)
+                {
+                    case "hp" -> this.hp = this.hands.buffAmount + this.hp;
+                    case "str" -> this.str = this.hands.buffAmount + this.str;
+                    case "def" -> this.def = this.hands.buffAmount + this.def;
+                    case "con" -> this.con = this.hands.buffAmount + this.con;
+                    case "wis" -> this.wis = this.hands.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.hands.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.hands.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks ring gear
-        if (this.ring != null)
-        {
-            this.equipment[6] = this.ring;
-
-            switch (this.ring.buff)
+            // checks ring gear
+            if (this.ring != null)
             {
-                case "hp" -> this.hp += this.ring.buffAmount;
-                case "str" -> this.str += this.ring.buffAmount;
-                case "def" -> this.def += this.ring.buffAmount;
-                case "con" -> this.con += this.ring.buffAmount;
-                case "wis" -> this.wis += this.ring.buffAmount;
-                case "spd" -> this.spd += this.ring.buffAmount;
-                case "lck" -> this.lck += this.ring.buffAmount;
+                this.equipment[6] = this.ring;
+
+                switch (this.ring.buff)
+                {
+                    case "hp" -> this.hp = this.ring.buffAmount + this.hp;
+                    case "str" -> this.str = this.ring.buffAmount + this.str;
+                    case "def" -> this.def = this.ring.buffAmount + this.def;
+                    case "con" -> this.con = this.ring.buffAmount + this.con;
+                    case "wis" -> this.wis = this.ring.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.ring.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.ring.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks belt gear
-        if (this.belt != null)
-        {
-            this.equipment[7] = this.belt;
-
-            switch (this.belt.buff)
+            // checks belt gear
+            if (this.belt != null)
             {
-                case "hp" -> this.hp += this.belt.buffAmount;
-                case "str" -> this.str += this.belt.buffAmount;
-                case "def" -> this.def += this.belt.buffAmount;
-                case "con" -> this.con += this.belt.buffAmount;
-                case "wis" -> this.wis += this.belt.buffAmount;
-                case "spd" -> this.spd += this.belt.buffAmount;
-                case "lck" -> this.lck += this.belt.buffAmount;
+                this.equipment[7] = this.belt;
+
+                switch (this.belt.buff)
+                {
+                    case "hp" -> this.hp = this.belt.buffAmount + this.hp;
+                    case "str" -> this.str = this.belt.buffAmount + this.str;
+                    case "def" -> this.def = this.belt.buffAmount + this.def;
+                    case "con" -> this.con = this.belt.buffAmount + this.con;
+                    case "wis" -> this.wis = this.belt.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.belt.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.belt.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks leg gear
-        if (this.legs != null)
-        {
-            this.equipment[8] = this.legs;
-
-            switch (this.legs.buff)
+            // checks leg gear
+            if (this.legs != null)
             {
-                case "hp" -> this.hp += this.legs.buffAmount;
-                case "str" -> this.str += this.legs.buffAmount;
-                case "def" -> this.def += this.legs.buffAmount;
-                case "con" -> this.con += this.legs.buffAmount;
-                case "wis" -> this.wis += this.legs.buffAmount;
-                case "spd" -> this.spd += this.legs.buffAmount;
-                case "lck" -> this.lck += this.legs.buffAmount;
+                this.equipment[8] = this.legs;
+
+                switch (this.legs.buff)
+                {
+                    case "hp" -> this.hp = this.legs.buffAmount + this.hp;
+                    case "str" -> this.str = this.legs.buffAmount + this.str;
+                    case "def" -> this.def = this.legs.buffAmount + this.def;
+                    case "con" -> this.con = this.legs.buffAmount + this.con;
+                    case "wis" -> this.wis = this.legs.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.legs.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.legs.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks foot gear
-        if (this.feet != null)
-        {
-            this.equipment[9] = this.feet;
-
-            switch (this.feet.buff)
+            // checks foot gear
+            if (this.feet != null)
             {
-                case "hp" -> this.hp += this.feet.buffAmount;
-                case "str" -> this.str += this.feet.buffAmount;
-                case "def" -> this.def += this.feet.buffAmount;
-                case "con" -> this.con += this.feet.buffAmount;
-                case "wis" -> this.wis += this.feet.buffAmount;
-                case "spd" -> this.spd += this.feet.buffAmount;
-                case "lck" -> this.lck += this.feet.buffAmount;
+                this.equipment[9] = this.feet;
+
+                switch (this.feet.buff)
+                {
+                    case "hp" -> this.hp = this.feet.buffAmount + this.hp;
+                    case "str" -> this.str = this.feet.buffAmount + this.str;
+                    case "def" -> this.def = this.feet.buffAmount + this.def;
+                    case "con" -> this.con = this.feet.buffAmount + this.con;
+                    case "wis" -> this.wis = this.feet.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.feet.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.feet.buffAmount + this.lck;
+                }
             }
-        }
 
-        // checks back gear
-        if (this.back != null)
-        {
-            this.equipment[10] = this.back;
-
-            switch (this.back.buff)
+            // checks back gear
+            if (this.back != null)
             {
-                case "hp" -> this.hp += this.back.buffAmount;
-                case "str" -> this.str += this.back.buffAmount;
-                case "def" -> this.def += this.back.buffAmount;
-                case "con" -> this.con += this.back.buffAmount;
-                case "wis" -> this.wis += this.back.buffAmount;
-                case "spd" -> this.spd += this.back.buffAmount;
-                case "lck" -> this.lck += this.back.buffAmount;
+                this.equipment[10] = this.back;
+
+                switch (this.back.buff)
+                {
+                    case "hp" -> this.hp = this.back.buffAmount + this.hp;
+                    case "str" -> this.str = this.back.buffAmount + this.str;
+                    case "def" -> this.def = this.back.buffAmount + this.def;
+                    case "con" -> this.con = this.back.buffAmount + this.con;
+                    case "wis" -> this.wis = this.back.buffAmount + this.wis;
+                    case "spd" -> this.spd = this.back.buffAmount + this.spd;
+                    case "lck" -> this.lck = this.back.buffAmount + this.lck;
+                }
             }
+            this.equipped = true;
         }
     }
 

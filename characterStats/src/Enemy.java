@@ -12,7 +12,6 @@ public class Enemy
     int spd;
     int lck;
     int givenXP;
-    // we can later create a method that checks what players were in the battle, scale the xp to their levels and divide it amongst those players
 
     // Enemy constructor
     Enemy(String name, String type)

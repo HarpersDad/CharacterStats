@@ -112,7 +112,10 @@ public class Save
             String sex = (String) jo.get("sex").getAsString();
             String status = (String) jo.get("status").getAsString();
             String job = (String) jo.get("job").getAsString();
+
+            // will eventually break this into separate gear items as well as creating the same setup for items
             String equip = (String) jo.get("gear").getAsString();
+
             int level = Integer.parseInt(jo.get("level").getAsString());
             double xp = (double) jo.get("xp").getAsDouble();
             double xpUp = (double) jo.get("xpToNextLevel").getAsDouble();

@@ -10,8 +10,10 @@ public class StatUI
     static JFrame frame = new JFrame("");
     static int x = 600;
     static int y = 400;
-    static int buttonH = y/4;
-    static int buttonW = x/2;
+    static int buttonH = 100;
+    static int buttonW = 300;
+    static int jLabelW = 150;
+    static int jLabelH = 20;
 
     // combo box and button(s)
     static JComboBox characterBox;
@@ -51,6 +53,8 @@ public class StatUI
     static JLabel lckL = new JLabel("LCK:");
     static JLabel xpL = new JLabel("XP:");
     static JLabel xpToNextLevelL = new JLabel("LvlUp:");
+
+    static String[] equipmentInformation = new String[44];
 
     // pulled armor
     static JLabel mainWeapon = new JLabel("");
@@ -141,37 +145,37 @@ public class StatUI
 
         // equipment
         mainWeapon.setFont(new Font("Arial", Font.PLAIN, 12));
-        mainWeapon.setBounds((x/2) - buttonW/4, (y/4) + (25), buttonW, buttonH);
+        mainWeapon.setBounds((x/2) - buttonW/4, (y/4) + (65), jLabelW, jLabelH);
 
         offHand.setFont(new Font("Arial", Font.PLAIN, 12));
-        offHand.setBounds((x/2) - buttonW/4, (y/4) + (40), buttonW, buttonH);
+        offHand.setBounds((x/2) - buttonW/4, (y/4) + (80), jLabelW, jLabelH);
 
         head.setFont(new Font("Arial", Font.PLAIN, 12));
-        head.setBounds((x/2) - buttonW/4, (y/4) + (55), buttonW, buttonH);
+        head.setBounds((x/2) - buttonW/4, (y/4) + (95), jLabelW, jLabelH);
 
         neck.setFont(new Font("Arial", Font.PLAIN, 12));
-        neck.setBounds((x/2) - buttonW/4, (y/4) + (70), buttonW, buttonH);
+        neck.setBounds((x/2) - buttonW/4, (y/4) + (110), jLabelW, jLabelH);
 
         chest.setFont(new Font("Arial", Font.PLAIN, 12));
-        chest.setBounds((x/2) - buttonW/4, (y/4) + (85), buttonW, buttonH);
+        chest.setBounds((x/2) - buttonW/4, (y/4) + (125), jLabelW, jLabelH);
 
         hands.setFont(new Font("Arial", Font.PLAIN, 12));
-        hands.setBounds((x/2) - buttonW/4, (y/4) + (100), buttonW, buttonH);
+        hands.setBounds((x/2) - buttonW/4, (y/4) + (140), jLabelW, jLabelH);
 
         ring.setFont(new Font("Arial", Font.PLAIN, 12));
-        ring.setBounds((x/2) - buttonW/4, (y/4) + (115), buttonW, buttonH);
+        ring.setBounds((x/2) - buttonW/4, (y/4) + (155), jLabelW, jLabelH);
 
         belt.setFont(new Font("Arial", Font.PLAIN, 12));
-        belt.setBounds((x/2) - buttonW/4, (y/4) + (130), buttonW, buttonH);
+        belt.setBounds((x/2) - buttonW/4, (y/4) + (170), jLabelW, jLabelH);
 
         legs.setFont(new Font("Arial", Font.PLAIN, 12));
-        legs.setBounds((x/2) - buttonW/4, (y/4) + (145), buttonW, buttonH);
+        legs.setBounds((x/2) - buttonW/4, (y/4) + (185), jLabelW, jLabelH);
 
         feet.setFont(new Font("Arial", Font.PLAIN, 12));
-        feet.setBounds((x/2) - buttonW/4, (y/4) + (160), buttonW, buttonH);
+        feet.setBounds((x/2) - buttonW/4, (y/4) + (200), jLabelW, jLabelH);
 
         back.setFont(new Font("Arial", Font.PLAIN, 12));
-        back.setBounds((x/2) - buttonW/4, (y/4) + (175), buttonW, buttonH);
+        back.setBounds((x/2) - buttonW/4, (y/4) + (215), jLabelW, jLabelH);
 
         // add data to frame
         frame.getContentPane().add(createNewCharacter);
@@ -312,6 +316,8 @@ public class StatUI
         frame.getContentPane().add(feetL);
         frame.getContentPane().add(backL);
 
+        frame.setResizable(false);
+
         frame.setLayout(null);
         frame.setVisible(true);
 
@@ -353,8 +359,10 @@ public class StatUI
                         Main.characters[i].gearEquipped();
                     }
                 }
+
                 fillComboBox();
                 fillUI();
+                getEquipInfo();
                 saveData.setEnabled(true);
             }
         });
@@ -369,7 +377,6 @@ public class StatUI
                 {
                     if (Main.characters[i] != null)
                     {
-                        //Save.saveStats(Main.characters[characterBox.getSelectedIndex()], characterBox.getSelectedIndex());
                         Save.saveStats(Main.characters[i], i);
                     }
                     Save.saveAsJson();
@@ -398,7 +405,10 @@ public class StatUI
                 spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
                 lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
                 xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
-                xpToNextLevel.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)));
+
+                xpToNextLevel.setText(String.valueOf(
+                        df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
+                ));
             }
         });
 
@@ -420,7 +430,10 @@ public class StatUI
                 spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
                 lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
                 xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
-                xpToNextLevel.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)));
+
+                xpToNextLevel.setText(String.valueOf(
+                        df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
+                ));
 
                 mainWeapon.setText(Main.characters[characterBox.getSelectedIndex()].mainWeapon.name);
                 offHand.setText(Main.characters[characterBox.getSelectedIndex()].offHand.name);
@@ -433,6 +446,8 @@ public class StatUI
                 legs.setText(Main.characters[characterBox.getSelectedIndex()].legs.name);
                 feet.setText(Main.characters[characterBox.getSelectedIndex()].feet.name);
                 back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
+
+                getEquipInfo();
             }
         });
     }
@@ -491,30 +506,172 @@ public class StatUI
 
     static void fillUI()
     {
-        name.setText(Main.characters[0].name);
-        sex.setText(Main.characters[0].sex);
-        job.setText(Main.characters[0].job);
-        level.setText(String.valueOf(Main.characters[0].level));
-        status.setText(Main.characters[0].status);
-        hp.setText(String.valueOf(Main.characters[0].hp));
-        str.setText(String.valueOf(Main.characters[0].str));
-        def.setText(String.valueOf(Main.characters[0].def));
-        con.setText(String.valueOf(Main.characters[0].con));
-        wis.setText(String.valueOf(Main.characters[0].wis));
-        spd.setText(String.valueOf(Main.characters[0].spd));
-        lck.setText(String.valueOf(Main.characters[0].lck));
-        xp.setText(String.valueOf(df.format(Main.characters[0].xp)));
+        name.setText(Main.characters[characterBox.getSelectedIndex()].name);
+        sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
+        job.setText(Main.characters[characterBox.getSelectedIndex()].job);
+        level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
+        status.setText(Main.characters[characterBox.getSelectedIndex()].status);
+        hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
+        str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
+        def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
+        con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
+        wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
+        spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
+        lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
+        xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
 
-        mainWeapon.setText(Main.characters[0].mainWeapon.name);
-        offHand.setText(Main.characters[0].offHand.name);
-        head.setText(Main.characters[0].head.name);
-        neck.setText(Main.characters[0].neck.name);
-        chest.setText(Main.characters[0].chest.name);
-        hands.setText(Main.characters[0].hands.name);
-        ring.setText(Main.characters[0].ring.name);
-        belt.setText(Main.characters[0].belt.name);
-        legs.setText(Main.characters[0].legs.name);
-        feet.setText(Main.characters[0].feet.name);
-        back.setText(Main.characters[0].back.name);
+        mainWeapon.setText(Main.characters[characterBox.getSelectedIndex()].mainWeapon.name);
+        offHand.setText(Main.characters[characterBox.getSelectedIndex()].offHand.name);
+        head.setText(Main.characters[characterBox.getSelectedIndex()].head.name);
+        neck.setText(Main.characters[characterBox.getSelectedIndex()].neck.name);
+        chest.setText(Main.characters[characterBox.getSelectedIndex()].chest.name);
+        hands.setText(Main.characters[characterBox.getSelectedIndex()].hands.name);
+        ring.setText(Main.characters[characterBox.getSelectedIndex()].ring.name);
+        belt.setText(Main.characters[characterBox.getSelectedIndex()].belt.name);
+        legs.setText(Main.characters[characterBox.getSelectedIndex()].legs.name);
+        feet.setText(Main.characters[characterBox.getSelectedIndex()].feet.name);
+        back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
+    }
+
+    static void getEquipInfo()
+    {
+        // get info for equipment
+
+        // weapon
+        equipmentInformation[0] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].mainWeapon.cost);
+        equipmentInformation[1] = Main.characters[characterBox.getSelectedIndex()].mainWeapon.buff;
+        equipmentInformation[2] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].mainWeapon.buffAmount);
+        equipmentInformation[3] = Main.characters[characterBox.getSelectedIndex()].mainWeapon.description;
+
+        // offhand
+        equipmentInformation[4] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].offHand.cost);
+        equipmentInformation[5] = Main.characters[characterBox.getSelectedIndex()].offHand.buff;
+        equipmentInformation[6] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].offHand.buffAmount);
+        equipmentInformation[7] = Main.characters[characterBox.getSelectedIndex()].offHand.description;
+
+        // head
+        equipmentInformation[8] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].head.cost);
+        equipmentInformation[9] = Main.characters[characterBox.getSelectedIndex()].head.buff;
+        equipmentInformation[10] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].head.buffAmount);
+        equipmentInformation[11] = Main.characters[characterBox.getSelectedIndex()].head.description;
+
+        // neck
+        equipmentInformation[12] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].neck.cost);
+        equipmentInformation[13] = Main.characters[characterBox.getSelectedIndex()].neck.buff;
+        equipmentInformation[14] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].neck.buffAmount);
+        equipmentInformation[15] = Main.characters[characterBox.getSelectedIndex()].neck.description;
+
+        // chest
+        equipmentInformation[16] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].chest.cost);
+        equipmentInformation[17] = Main.characters[characterBox.getSelectedIndex()].chest.buff;
+        equipmentInformation[18] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].chest.buffAmount);
+        equipmentInformation[19] = Main.characters[characterBox.getSelectedIndex()].chest.description;
+
+        // hands
+        equipmentInformation[20] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].hands.cost);
+        equipmentInformation[21] = Main.characters[characterBox.getSelectedIndex()].hands.buff;
+        equipmentInformation[22] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].hands.buffAmount);
+        equipmentInformation[23] = Main.characters[characterBox.getSelectedIndex()].hands.description;
+
+        // ring
+        equipmentInformation[24] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].ring.cost);
+        equipmentInformation[25] = Main.characters[characterBox.getSelectedIndex()].ring.buff;
+        equipmentInformation[26] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].ring.buffAmount);
+        equipmentInformation[27] = Main.characters[characterBox.getSelectedIndex()].ring.description;
+
+        // belt
+        equipmentInformation[28] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].belt.cost);
+        equipmentInformation[29] = Main.characters[characterBox.getSelectedIndex()].belt.buff;
+        equipmentInformation[30] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].belt.buffAmount);
+        equipmentInformation[31] = Main.characters[characterBox.getSelectedIndex()].belt.description;
+
+        // legs
+        equipmentInformation[32] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].legs.cost);
+        equipmentInformation[33] = Main.characters[characterBox.getSelectedIndex()].legs.buff;
+        equipmentInformation[34] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].legs.buffAmount);
+        equipmentInformation[35] = Main.characters[characterBox.getSelectedIndex()].legs.description;
+
+        // feet
+        equipmentInformation[36] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].feet.cost);
+        equipmentInformation[37] = Main.characters[characterBox.getSelectedIndex()].feet.buff;
+        equipmentInformation[38] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].feet.buffAmount);
+        equipmentInformation[39] = Main.characters[characterBox.getSelectedIndex()].feet.description;
+
+        // back
+        equipmentInformation[40] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].back.cost);
+        equipmentInformation[41] = Main.characters[characterBox.getSelectedIndex()].back.buff;
+        equipmentInformation[42] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].back.buffAmount);
+        equipmentInformation[43] = Main.characters[characterBox.getSelectedIndex()].back.description;
+
+        setEquipInfo();
+    }
+
+    static void setEquipInfo()
+    {
+        // main weapon
+        mainWeapon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        mainWeapon.setToolTipText("<html>Price: " + equipmentInformation[0] +
+                "<br>\nBuff: " + equipmentInformation[1] + " + " + equipmentInformation[2] +
+                "<br>\n Description: " + equipmentInformation[3] + "</html>");
+
+        // offhand
+        offHand.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        offHand.setToolTipText("<html>Price: " + equipmentInformation[4] +
+                "<br>\nBuff: " + equipmentInformation[5] + " + " + equipmentInformation[6] +
+                "<br>\n Description: " + equipmentInformation[7] + "</html>");
+
+        // head
+        head.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        head.setToolTipText("<html>Price: " + equipmentInformation[8] +
+                "<br>\nBuff: " + equipmentInformation[9] + " + " + equipmentInformation[10] +
+                "<br>\n Description: " + equipmentInformation[11] + "</html>");
+
+        // neck
+        neck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        neck.setToolTipText("<html>Price: " + equipmentInformation[12] +
+                "<br>\nBuff: " + equipmentInformation[13] + " + " + equipmentInformation[14] +
+                "<br>\n Description: " + equipmentInformation[15] + "</html>");
+
+        // chest
+        chest.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        chest.setToolTipText("<html>Price: " + equipmentInformation[16] +
+                "<br>\nBuff: " + equipmentInformation[17] + " + " + equipmentInformation[18] +
+                "<br>\n Description: " + equipmentInformation[19] + "</html>");
+
+        // hands
+        hands.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        hands.setToolTipText("<html>Price: " + equipmentInformation[20] +
+                "<br>\nBuff: " + equipmentInformation[21] + " + " + equipmentInformation[22] +
+                "<br>\n Description: " + equipmentInformation[23] + "</html>");
+
+        // ring
+        ring.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        ring.setToolTipText("<html>Price: " + equipmentInformation[24] +
+                "<br>\nBuff: " + equipmentInformation[25] + " + " + equipmentInformation[26] +
+                "<br>\n Description: " + equipmentInformation[27] + "</html>");
+
+        // belt
+        belt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        belt.setToolTipText("<html>Price: " + equipmentInformation[28] +
+                "<br>\nBuff: " + equipmentInformation[29] + " + " + equipmentInformation[30] +
+                "<br>\n Description: " + equipmentInformation[31] + "</html>");
+
+        // legs
+        legs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        legs.setToolTipText("<html>Price: " + equipmentInformation[32] +
+                "<br>\nBuff: " + equipmentInformation[33] + " + " + equipmentInformation[34] +
+                "<br>\n Description: " + equipmentInformation[35] + "</html>");
+
+        // feet
+        feet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        feet.setToolTipText("<html>Price: " + equipmentInformation[36] +
+                "<br>\nBuff: " + equipmentInformation[37] + " + " + equipmentInformation[38] +
+                "<br>\n Description: " + equipmentInformation[39] + "</html>");
+
+        // back
+        back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        back.setToolTipText("<html>Price: " + equipmentInformation[40] +
+                "<br>\nBuff: " + equipmentInformation[41] + " + " + equipmentInformation[42] +
+                "<br>\n Description: " + equipmentInformation[43] + "</html>");
     }
 }

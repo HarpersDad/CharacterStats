@@ -104,7 +104,13 @@ public class CreateUI
                 if (notAdded)
                 {
                     notAdded = false;
-                    createPlayer(name.getText(), characterJob.getSelectedItem().toString(), characterSex.getSelectedItem().toString(), characterEquipment.getSelectedItem().toString());
+
+                    createPlayer(
+                            name.getText(),
+                            characterJob.getSelectedItem().toString(),
+                            characterSex.getSelectedItem().toString(),
+                            characterEquipment.getSelectedItem().toString());
+
                     createFrame.dispose();
                     create.setEnabled(false);
                 }

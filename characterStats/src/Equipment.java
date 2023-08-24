@@ -1,5 +1,6 @@
 // equipment class
-public class Equipment {
+public class Equipment
+{
     String type;
     String name;
     boolean canEquip;
@@ -12,7 +13,18 @@ public class Equipment {
     int numberHeld;
     int maxItemCount;
 
-    static Equipment unEquipped = new Equipment("", "", true, 0, false, "", 0, "", "mainWeapon", 1);
+    static Equipment unEquipped = new Equipment(
+            "",
+            "",
+            true,
+            0,
+            false,
+            "",
+            0,
+            "",
+            "mainWeapon",
+            1
+    );
 
     // basic equipment +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // main weapons
@@ -170,7 +182,9 @@ public class Equipment {
     static Equipment diamondRing;
     static Equipment diamondCape;
 
-    Equipment(String type, String name, boolean canEquip, int cost, boolean canBuff, String buff, int buffAmount, String description, String equipType, int numberHeld) {
+    Equipment(String type, String name, boolean canEquip, int cost, boolean canBuff,
+              String buff, int buffAmount, String description, String equipType, int numberHeld)
+    {
         this.type = type;
         this.name = name;
         this.canEquip = canEquip;
@@ -185,7 +199,8 @@ public class Equipment {
     }
 
     // enchants equipment with beneficial or detrimental effects
-    void enchantEquipment(Equipment equip, String buffType, int buffAmount) {
+    void enchantEquipment(Equipment equip, String buffType, int buffAmount)
+    {
         // switch statement that assigns buffs / debuffs based on passed data
         if (equip.canBuff == true) {
             switch (buffType) {
@@ -254,12 +269,13 @@ public class Equipment {
         }
     }
 
-    static void createEquipment() {
-
-        // unequipped ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    static void createEquipment()
+    {
+        // cannot be enchanted
+        // unequipped ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         unEquipped = new Equipment("", "", true, 0, false, "", 0, "", "mainWeapon", 1);
 
-        // basic equipment +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // basic equipment +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // main weapons
         shortSword = new Equipment("Leather", "Short Sword", true, 1, false, "str", 1, "a short sword", "mainWeapon", 1);
         leatherBands = new Equipment("Leather", "Leather Bands", true, 1, false, "str", 1, "leather hand wraps", "mainWeapon", 1);
@@ -282,10 +298,10 @@ public class Equipment {
         leatherGaiter = new Equipment("Leather", "Leather Gaiter", true, 1, false, "def", 1, "a worn leather neck warmer", "neck", 1);
         brassNecklace = new Equipment("Leather", "Brass Necklace", true, 1, false, "lck", 1, "an old brass necklace", "neck", 1);
         leatherBelt = new Equipment("Leather", "Leather Belt", true, 1, false, "spd", 1, "a worn leather belt", "belt", 1);
-        brassRing = new Equipment("Leather", "Brass Ring", true, 1, false, "lck", 1, "an old brass ring", "ring", 1);
+        brassRing = new Equipment("Leather", "Brass Ring", true, 1, false, "wis", 1, "an old brass ring", "ring", 1);
         leatherCape = new Equipment("Leather", "Leather Cape", true, 1, false, "con", 1, "an old leather cape", "back", 1);
 
-        // Iron equipment ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // Iron equipment ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // main weapons
         ironSword = new Equipment("Iron", "Iron Sword", true, 10, false, "str", 2, "an iron sword", "mainWeapon", 1);
         ironBands = new Equipment("Iron", "Iron Bands", true, 10, false, "str", 2, "iron studded hand wraps", "mainWeapon", 1);
@@ -308,10 +324,10 @@ public class Equipment {
         ironGaiter = new Equipment("Iron", "Iron Gaiter", true, 10, false, "def", 2, "an iron reinforced neck warmer", "neck", 1);
         ironNecklace = new Equipment("Iron", "Necklace", true, 10, false, "lck", 2, "a necklace", "neck", 1);
         ironBelt = new Equipment("Iron", "Iron Belt", true, 10, false, "spd", 2, "an iron studded belt", "belt", 1);
-        ironRing = new Equipment("Iron", "Ring", true, 10, false, "lck", 2, "a ring", "ring", 1);
+        ironRing = new Equipment("Iron", "Ring", true, 10, false, "wis", 2, "a ring", "ring", 1);
         ironCape = new Equipment("Iron", "Studded Cape", true, 10, false, "con", 2, "a leather studded cape", "back", 1);
 
-        // Steel equipment +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // Steel equipment +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // main weapons
         steelSword = new Equipment("Steel", "Steel Sword", true, 100, false, "str", 4, "a steel sword", "mainWeapon", 1);
         steelBands = new Equipment("Steel", "Steel Bands", true, 100, false, "str", 4, "steel hand wraps", "mainWeapon", 1);
@@ -334,10 +350,10 @@ public class Equipment {
         steelGaiter = new Equipment("Steel", "Steel Gaiter", true, 100, false, "def", 4, "a steel reinforced neck warmer", "neck", 1);
         steelNecklace = new Equipment("Steel", "Steel Necklace", true, 100, false, "lck", 4, "a steel necklace", "neck", 1);
         steelBelt = new Equipment("Steel", "Steel Belt", true, 100, false, "spd", 4, "a steel studded belt", "belt", 1);
-        steelRing = new Equipment("Steel", "Steel Ring", true, 100, false, "lck", 4, "a steel ring", "ring", 1);
+        steelRing = new Equipment("Steel", "Steel Ring", true, 100, false, "wis", 4, "a steel ring", "ring", 1);
         steelCape = new Equipment("Steel", "Ornate Cape", true, 100, false, "con", 4, "an ornate cape", "back", 1);
 
-        // Silver equipment ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // Silver equipment ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // weapons
         silverSword = new Equipment("Silver", "Silver Sword", true, 1000, false, "str", 8, "a silver sword", "mainWeapon", 1);
         silverBands = new Equipment("Silver", "Silver Bands", true, 1000, false, "str", 8, "silver hand wraps", "mainWeapon", 1);
@@ -360,10 +376,10 @@ public class Equipment {
         silverGaiter = new Equipment("Silver", "Silver Gaiter", true, 1000, false, "def", 8, "a silver reinforced neck warmer", "neck", 1);
         silverNecklace = new Equipment("Silver", "Silver Necklace", true, 1000, false, "lck", 8, "a silver necklace", "neck", 1);
         silverBelt = new Equipment("Silver", "Silver Belt", true, 1000, false, "spd", 8, "a silver studded belt", "belt", 1);
-        silverRing = new Equipment("Silver", "Silver Ring", true, 1000, false, "lck", 8, "a silver ring", "ring", 1);
+        silverRing = new Equipment("Silver", "Silver Ring", true, 1000, false, "wis", 8, "a silver ring", "ring", 1);
         silverCape = new Equipment("Silver", "Silver Embossed Cape", true, 1000, false, "con", 8, "an embossed cape", "back", 1);
 
-        // Platinum equipment ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // Platinum equipment ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // weapons
         platinumSword = new Equipment("Platinum", "Platinum Sword", true, 10000, false, "str", 16, "a platinum sword", "mainWeapon", 1);
         platinumBands = new Equipment("Platinum", "Platinum Bands", true, 10000, false, "str", 16, "platinum hand wraps", "mainWeapon", 1);
@@ -386,20 +402,20 @@ public class Equipment {
         platinumGaiter = new Equipment("Platinum", "Platinum Gaiter", true, 10000, false, "def", 16, "a platinum reinforced neck warmer", "neck", 1);
         platinumNecklace = new Equipment("Platinum", "Platinum Necklace", true, 10000, false, "lck", 16, "a platinum necklace", "neck", 1);
         platinumBelt = new Equipment("Platinum", "Platinum Belt", true, 10000, false, "spd", 16, "a platinum studded belt", "belt", 1);
-        platinumRing = new Equipment("Platinum", "Platinum Ring", true, 10000, false, "lck", 16, "a platinum ring", "ring", 1);
+        platinumRing = new Equipment("Platinum", "Platinum Ring", true, 10000, false, "wis", 16, "a platinum ring", "ring", 1);
         platinumCape = new Equipment("Platinum", "Platinum Embossed Cape", true, 10000, false, "con", 16, "a platinum embossed cape", "back", 1);
 
-        // Diamond equipment +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // Diamond equipment +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // weapons
-        diamondSword = new Equipment("Diamond", "Diamond Sword", true, 10000, false, "str", 16, "a platinum sword", "mainWeapon", 1);
-        diamondBands = new Equipment("Diamond", "Diamond Bands", true, 10000, false, "str", 16, "platinum hand wraps", "mainWeapon", 1);
-        diamondBow = new Equipment("Diamond", "Diamond Bow", true, 10000, false, "str", 16, "a platinum bow", "mainWeapon", 1);
-        diamondStaff = new Equipment("Diamond", "Diamond Staff", true, 10000, false, "str", 16, "a platinum stick", "mainWeapon", 1);
-        diamondDagger = new Equipment("Diamond", "Diamond Dagger", true, 10000, false, "str", 16, "a platinum dagger", "mainWeapon", 1);
+        diamondSword = new Equipment("Diamond", "Diamond Sword", true, 10000, false, "str", 16, "a diamond sword", "mainWeapon", 1);
+        diamondBands = new Equipment("Diamond", "Diamond Bands", true, 10000, false, "str", 16, "diamond hand wraps", "mainWeapon", 1);
+        diamondBow = new Equipment("Diamond", "Diamond Bow", true, 10000, false, "str", 16, "a diamond bow", "mainWeapon", 1);
+        diamondStaff = new Equipment("Diamond", "Diamond Staff", true, 10000, false, "str", 16, "a diamond stick", "mainWeapon", 1);
+        diamondDagger = new Equipment("Diamond", "Diamond Dagger", true, 10000, false, "str", 16, "a diamond dagger", "mainWeapon", 1);
 
         // offhand
-        diamondBuckler = new Equipment("Diamond", "Diamond Buckler", true, 10000, false, "def", 32, "a small platinum shield", "offHand", 1);
-        diamondKite = new Equipment("Diamond", "Diamond Kite-Shield", true, 10000, false, "def", 64, "a platinum kite-shield", "offHand", 1);
+        diamondBuckler = new Equipment("Diamond", "Diamond Buckler", true, 10000, false, "def", 32, "a small diamond shield", "offHand", 1);
+        diamondKite = new Equipment("Diamond", "Diamond Kite-Shield", true, 10000, false, "def", 64, "a diamond kite-shield", "offHand", 1);
 
         // armor
         diamondHat = new Equipment("Diamond", "Diamond Helm", true, 10000, false, "def", 16, "a diamond helm", "head", 1);
@@ -412,7 +428,7 @@ public class Equipment {
         diamondGaiter = new Equipment("Diamond", "Diamond Gaiter", true, 10000, false, "def", 16, "a diamond reinforced neck warmer", "neck", 1);
         diamondNecklace = new Equipment("Diamond", "Diamond Necklace", true, 10000, false, "lck", 16, "a diamond necklace", "neck", 1);
         diamondBelt = new Equipment("Diamond", "Diamond Belt", true, 10000, false, "spd", 16, "a diamond studded belt", "belt", 1);
-        diamondRing = new Equipment("Diamond", "Diamond Ring", true, 10000, false, "lck", 16, "a diamond ring", "ring", 1);
+        diamondRing = new Equipment("Diamond", "Diamond Ring", true, 10000, false, "wis", 16, "a diamond ring", "ring", 1);
         diamondCape = new Equipment("Diamond", "Diamond Embossed Cape", true, 10000, false, "con", 16, "a diamond embossed cape", "back", 1);
     }
 }

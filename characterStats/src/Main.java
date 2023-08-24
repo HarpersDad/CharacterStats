@@ -21,7 +21,8 @@ public class Main
             // prints item at array[i] and number held
             if (player.inventory[i] != null)
             {
-                System.out.println("Slot " + (i+1) + ": " + player.inventory[i].name + " x " + player.inventory[i].numberHeld);
+                System.out.println("Slot " + (i+1) + ": " + player.inventory[i].name
+                        + " x " + player.inventory[i].numberHeld);
             }
         }
     }
