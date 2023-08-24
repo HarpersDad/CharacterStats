@@ -37,6 +37,5 @@ Equipment Description<br>
 
 <h2>Issues</h2>
 
-- if you press load multiple times in a row it will load in the save data multiple times, filling blank character slots.<br>
-- if create a new player after performing the last issue, the program will not load any stats in for the new character.<br>
+- no known issues atm.<br>
 
