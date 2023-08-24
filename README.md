@@ -8,6 +8,7 @@ Creating a new character<br>
 Equipment Description<br>
 ![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/bc86f6d8-a95f-4843-917f-aa371079b8c8)<br>
 <h2>About</h2>
+
 - A character and enemy stats program I created just to see how this type of system works.<br>
 - If someone needs to use this, feel free to do so.<br>
 <h2>Features</h2>
