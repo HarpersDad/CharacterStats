@@ -29,5 +29,6 @@ Equipment Description<br>
 - added more armor set option when creating a character.<br>
 - reorganized the code so that it is easier/harder to follow.<br>
 - added equipment info when a user hovers over an item's name.<br>
+- fixed an equipment issue that added gear buffs more than once.<br>
 <h2>still needed</h2>
 - clean up ui.<br>
