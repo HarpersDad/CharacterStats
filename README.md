@@ -7,10 +7,12 @@ Creating a new character<br>
 ![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/03a47866-cb6e-49ef-bda1-4b92756232b6)<br>
 Equipment Description<br>
 ![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/7acac0a6-b7c8-4ad5-be4e-cf43097029dc)<br>
+
 <h2>About</h2>
 
 - A character and enemy stats program I created just to see how this type of system works.<br>
 - If someone needs to use this, feel free to do so.<br>
+
 <h2>Features</h2>
 
 - added stat buffs for items and equipment.<br>
@@ -20,6 +22,7 @@ Equipment Description<br>
 - simple UI that allows the user to choose a character and level them up.<br>
 - save feature that allows for multiple character stats and equipment to be saved and recalled.<br>
 - character creation menu.<br>
+
 <h2>In code but not useable</h2>
 
 - inventory.<br>
@@ -29,12 +32,14 @@ Equipment Description<br>
 - enchantment system.<br>
 - status afflictions.<br>
 - damage multiplier system.<br>
+
 <h2>Recently Added</h2>
 
 - added more armor set options when creating a character.<br>
 - reorganized the code so that it is easier/harder to follow.<br>
 - added equipment info when a user hovers over an item's name.<br>
 - fixed an equipment issue that added gear buffs more than once.<br>
+- ui now shows the amount of gold that the selected player is holding.<br>
 
 <h2>Issues</h2>
 
