@@ -44,5 +44,5 @@ Equipment Description<br>
 
 <h2>Issues</h2>
 
-- if you create a new character then load, there is an out of bounds error.<br>
+- if you create a new character and then press load, there is an out of bounds error.<br>
 
