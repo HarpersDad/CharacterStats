@@ -4,7 +4,7 @@ On startup<br>
 Pressing load<br>
 ![pressLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/10d36244-78b0-4d22-b7ec-101c32405e19)<br>
 Creating an new character<br>
-![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/918a3146-134d-41b1-9dbe-2b3dcf217a70)<br>
+![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/4483c8cd-673f-410b-b564-7ba64fd4710e)<br>
 Equipment Description<br>
 ![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/bc86f6d8-a95f-4843-917f-aa371079b8c8)<br>
 <h2>About</h2>
@@ -16,6 +16,7 @@ Equipment Description<br>
 - added equippable items.<br>
 - added stat buffs for items and equipment.<br>
 - enchantment system.<br>
+
 - added status afflictions.<br>
 - added a damage multiplier system.<br>
 - if a player is created with no data, the following will be set: name - Vagabond, job - vagrant, sex - other.<br>
