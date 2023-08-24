@@ -35,7 +35,7 @@ public class Save
 
         // set player gear
         // will need to list out each slot for gear and inventory
-        obj.put("gear", player.equipment[0].type);
+        obj.put("gear", player.mainWeapon.type);
 
         // set if the player has added the stats from their gear
         obj.put("eqp", player.equipped);

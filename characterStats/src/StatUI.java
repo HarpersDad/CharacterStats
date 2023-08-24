@@ -82,6 +82,8 @@ public class StatUI
     static JLabel feetL = new JLabel("Feet:");
     static JLabel backL = new JLabel("Back:");
 
+    static boolean resetBox = false;
+
     public static void newUI()
     {
         // initialize combo box
@@ -361,9 +363,17 @@ public class StatUI
                     }
                 }
 
-                fillComboBox();
-                fillUI();
-                getEquipInfo();
+                if (!resetBox)
+                {
+                    characterBox.removeAllItems();
+
+                    fillComboBox();
+                    fillUI();
+                    getEquipInfo();
+
+                    resetBox = true;
+                }
+
                 saveData.setEnabled(true);
             }
         });
@@ -455,6 +465,7 @@ public class StatUI
 
     static void fillComboBox()
     {
+        //if (characterBox.getSelectedItem() == Main.characters[0].name)
         if (Main.characters[0] != null)
         {
             characterBox.addItem(Main.characters[0].name);
