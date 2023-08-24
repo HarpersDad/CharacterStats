@@ -37,7 +37,9 @@ public class CreateUI
         createFrame.setLocationRelativeTo(null);
         createFrame.setLayout(null);
         createFrame.setVisible(true);
+        createFrame.getContentPane().setBackground(Color.getHSBColor(0.66f,.80f,.80f));
 
+        // positions labels and boxes
         name.setBounds(x/2 - 45, (y/2) - (110), 100, 30);
         nameL.setBounds((x/2) - 90, (y/2) - (110), 100, 30);
         characterJob.setBounds(x/2 - 45, (y/2) - (75), 100, 30);
@@ -48,6 +50,12 @@ public class CreateUI
         sexL.setBounds((x/2) - 90, y/2 - 5, 100, 30);
         create.setBounds((x/2) - 110, (y/2) + 30, 100, 30);
         cancelCreate.setBounds((x/2), (y/2) + 30, 100, 30);
+
+        // colors labels
+        nameL.setForeground(Color.white);
+        jobL.setForeground(Color.white);
+        gearL.setForeground(Color.white);
+        sexL.setForeground(Color.white);
 
         // add data and labels to the frame
         createFrame.getContentPane().add(name);
@@ -107,6 +115,8 @@ public class CreateUI
 
                     createFrame.dispose();
                     create.setEnabled(false);
+                    StatUI.saveData.setEnabled(true);
+                    StatUI.levelUpButton.setEnabled(true);
                 }
             }
         });
