@@ -5,6 +5,8 @@ Pressing load<br>
 ![pressLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/10d36244-78b0-4d22-b7ec-101c32405e19)<br>
 Creating an new character<br>
 ![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/918a3146-134d-41b1-9dbe-2b3dcf217a70)<br>
+Equipment Description<br>
+![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/bc86f6d8-a95f-4843-917f-aa371079b8c8)<br>
 <h2>About</h2>
 - A character and enemy stats program I created just to see how this type of system works.<br>
 - If someone needs to use this, feel free to do so.<br>
@@ -28,3 +30,4 @@ Creating an new character<br>
 - reorganized the code so that it is easier/harder to follow.<br>
 <h2>still needed</h2>
 - clean up ui.<br>
+![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/bc86f6d8-a95f-4843-917f-aa371079b8c8)
