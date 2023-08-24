@@ -90,15 +90,16 @@ public class StatUI
         // creates program window
         frame.setTitle("RPG TEST");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(x, y);
+        frame.setSize(350, y);
         frame.setLocationRelativeTo(null);
 
         // sets bound for buttons and combo boxes
-        characterBox.setBounds((x/4) + 200, (y/4) - (80), 100, 30);
-        levelUpButton.setBounds((x/4) - buttonW/3 - 25, (y/4) - (35), 80,25);
-        saveData.setBounds((x/4) + 200, (y/4) - (35), 80,25);
-        loadData.setBounds((x/4) + 200, (y/4) - (5), 80,25);
-        createNewCharacter.setBounds((x/4) + 200, (y/4) + 25, 80,25);
+        //characterBox.setBounds((x/4) + 200, (y/4) - (80), 100, 30);
+        characterBox.setBounds((x/4) - buttonW/4 - 10, (y/4) - (80), 80, 20);
+        levelUpButton.setBounds((x/4) - buttonW/3 - 5, (y/4) - (25), 80,25);
+        saveData.setBounds((x/4) - buttonW/3 - 5, (y/4) + 10, 80,25);
+        loadData.setBounds((x/4) - buttonW/3 + 80, (y/4) + 10, 80,25);
+        createNewCharacter.setBounds((x/4) - buttonW/3 + 80, (y/4) - (25), 80,25);
 
         // actual attributes
         name.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -183,7 +184,7 @@ public class StatUI
         frame.getContentPane().add(saveData);
         frame.getContentPane().add(levelUpButton);
         frame.getContentPane().add(characterBox);
-        frame.getContentPane().add(name);
+        //frame.getContentPane().add(name);
         frame.getContentPane().add(sex);
         frame.getContentPane().add(job);
         frame.getContentPane().add(level);

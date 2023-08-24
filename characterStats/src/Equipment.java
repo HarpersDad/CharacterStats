@@ -273,7 +273,7 @@ public class Equipment
     {
         // cannot be enchanted
         // unequipped ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        unEquipped = new Equipment("", "", true, 0, false, "", 0, "", "mainWeapon", 1);
+        unEquipped = new Equipment("", "", true, 0, false, "", 0, "nothing equipped", "mainWeapon", 1);
 
         // basic equipment +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // main weapons
@@ -285,7 +285,7 @@ public class Equipment
 
         // offhand
         leatherBuckler = new Equipment("Leather", "Leather Buckler", true, 1, false, "def", 2, "a small worn leather shield", "offHand", 1);
-        woodenKite = new Equipment("Leather", "Wooden Kite-Shield", true, 1, false, "def", 4, "an old wooden kite-shield", "offHand", 1);
+        woodenKite = new Equipment("Leather", "Wooden Shield", true, 1, false, "def", 4, "an old wooden kite-shield", "offHand", 1);
 
         // armor
         leatherHat = new Equipment("Leather", "Leather Hat", true, 1, false, "def", 1, "a worn leather hat", "head", 1);
@@ -311,7 +311,7 @@ public class Equipment
 
         // offhand
         ironBuckler = new Equipment("Iron", "Iron Buckler", true, 10, false, "def", 4, "a small iron shield", "offHand", 1);
-        ironKite = new Equipment("Iron", "Iron Kite-Shield", true, 10, false, "def", 8, "an iron kite-shield", "offHand", 1);
+        ironKite = new Equipment("Iron", "Iron Shield", true, 10, false, "def", 8, "an iron kite-shield", "offHand", 1);
 
         // armor
         ironHat = new Equipment("Iron", "Iron Helm", true, 10, false, "def", 2, "an iron helm", "head", 1);
@@ -337,7 +337,7 @@ public class Equipment
 
         // offhand
         steelBuckler = new Equipment("Steel", "Steel Buckler", true, 100, false, "def", 8, "a small steel shield", "offHand", 1);
-        steelKite = new Equipment("Steel", "Steel Kite-Shield", true, 100, false, "def", 16, "a steel kite-shield", "offHand", 1);
+        steelKite = new Equipment("Steel", "Steel Shield", true, 100, false, "def", 16, "a steel kite-shield", "offHand", 1);
 
         // armor
         steelHat = new Equipment("Steel", "Steel Helm", true, 100, false, "def", 4, "a steel helm", "head", 1);
@@ -363,7 +363,7 @@ public class Equipment
 
         // offhand
         silverBuckler = new Equipment("Silver", "Silver Buckler", true, 1000, false, "def", 16, "a small silver shield", "offHand", 1);
-        silverKite = new Equipment("Silver", "Silver Kite-Shield", true, 1000, false, "def", 32, "a silver kite-shield", "offHand", 1);
+        silverKite = new Equipment("Silver", "Silver Shield", true, 1000, false, "def", 32, "a silver kite-shield", "offHand", 1);
 
         // armor
         silverHat = new Equipment("Silver", "Silver Helm", true, 1000, false, "def", 8, "a silver helm", "head", 1);
@@ -377,7 +377,7 @@ public class Equipment
         silverNecklace = new Equipment("Silver", "Silver Necklace", true, 1000, false, "lck", 8, "a silver necklace", "neck", 1);
         silverBelt = new Equipment("Silver", "Silver Belt", true, 1000, false, "spd", 8, "a silver studded belt", "belt", 1);
         silverRing = new Equipment("Silver", "Silver Ring", true, 1000, false, "wis", 8, "a silver ring", "ring", 1);
-        silverCape = new Equipment("Silver", "Silver Embossed Cape", true, 1000, false, "con", 8, "an embossed cape", "back", 1);
+        silverCape = new Equipment("Silver", "Silver Cape", true, 1000, false, "con", 8, "an embossed cape", "back", 1);
 
         // Platinum equipment ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // weapons
@@ -389,7 +389,7 @@ public class Equipment
 
         // offhand
         platinumBuckler = new Equipment("Platinum", "Platinum Buckler", true, 10000, false, "def", 32, "a small platinum shield", "offHand", 1);
-        platinumKite = new Equipment("Platinum", "Platinum Kite-Shield", true, 10000, false, "def", 64, "a platinum kite-shield", "offHand", 1);
+        platinumKite = new Equipment("Platinum", "Platinum Shield", true, 10000, false, "def", 64, "a platinum kite-shield", "offHand", 1);
 
         // armor
         platinumHat = new Equipment("Platinum", "Platinum Helm", true, 10000, false, "def", 16, "a platinum helm", "head", 1);
@@ -403,7 +403,7 @@ public class Equipment
         platinumNecklace = new Equipment("Platinum", "Platinum Necklace", true, 10000, false, "lck", 16, "a platinum necklace", "neck", 1);
         platinumBelt = new Equipment("Platinum", "Platinum Belt", true, 10000, false, "spd", 16, "a platinum studded belt", "belt", 1);
         platinumRing = new Equipment("Platinum", "Platinum Ring", true, 10000, false, "wis", 16, "a platinum ring", "ring", 1);
-        platinumCape = new Equipment("Platinum", "Platinum Embossed Cape", true, 10000, false, "con", 16, "a platinum embossed cape", "back", 1);
+        platinumCape = new Equipment("Platinum", "Platinum Cape", true, 10000, false, "con", 16, "a platinum embossed cape", "back", 1);
 
         // Diamond equipment +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // weapons
@@ -415,7 +415,7 @@ public class Equipment
 
         // offhand
         diamondBuckler = new Equipment("Diamond", "Diamond Buckler", true, 10000, false, "def", 32, "a small diamond shield", "offHand", 1);
-        diamondKite = new Equipment("Diamond", "Diamond Kite-Shield", true, 10000, false, "def", 64, "a diamond kite-shield", "offHand", 1);
+        diamondKite = new Equipment("Diamond", "Diamond Shield", true, 10000, false, "def", 64, "a diamond kite-shield", "offHand", 1);
 
         // armor
         diamondHat = new Equipment("Diamond", "Diamond Helm", true, 10000, false, "def", 16, "a diamond helm", "head", 1);
@@ -429,6 +429,6 @@ public class Equipment
         diamondNecklace = new Equipment("Diamond", "Diamond Necklace", true, 10000, false, "lck", 16, "a diamond necklace", "neck", 1);
         diamondBelt = new Equipment("Diamond", "Diamond Belt", true, 10000, false, "spd", 16, "a diamond studded belt", "belt", 1);
         diamondRing = new Equipment("Diamond", "Diamond Ring", true, 10000, false, "wis", 16, "a diamond ring", "ring", 1);
-        diamondCape = new Equipment("Diamond", "Diamond Embossed Cape", true, 10000, false, "con", 16, "a diamond embossed cape", "back", 1);
+        diamondCape = new Equipment("Diamond", "Diamond Cape", true, 10000, false, "con", 16, "a diamond embossed cape", "back", 1);
     }
 }

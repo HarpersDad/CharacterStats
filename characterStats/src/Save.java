@@ -37,6 +37,9 @@ public class Save
         // will need to list out each slot for gear and inventory
         obj.put("gear", player.equipment[0].type);
 
+        // set if the player has added the stats from their gear
+        obj.put("eqp", player.equipped);
+
         // set player status
         obj.put("status", player.status);
 
@@ -127,6 +130,7 @@ public class Save
             int wis = Integer.parseInt(jo.get("wis").toString());
             int spd = Integer.parseInt(jo.get("spd").toString());
             int lck = Integer.parseInt(jo.get("lck").toString());
+            boolean eqp = jo.get("eqp").getAsBoolean();
 
             // re-create the player using the saved data
             Player player = new Player(name, job, sex, equip);
@@ -144,10 +148,16 @@ public class Save
             player.wis = wis;
             player.spd = spd;
             player.lck = lck;
+            player.equipped = eqp;
 
             // place the character in the character array using the position that was passed to the method
             Main.characters[position] = player;
-            Main.characters[position].gearEquipped();
+
+            if (eqp == false)
+            {
+                Main.characters[position].gearEquipped();
+            }
+
             StatUI.characterBox.setEnabled(true);
         }
     }
