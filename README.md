@@ -40,8 +40,9 @@ Equipment Description<br>
 - added equipment info when a user hovers over an item's name.<br>
 - fixed an equipment issue that added gear buffs more than once.<br>
 - ui now shows the amount of gold that the selected player is holding.<br>
+- changed ui background to be blue with white text.<br>
 
 <h2>Issues</h2>
 
-- no known issues atm.<br>
+- if you create a new character then load, there is an out of bounds error.<br>
 
