@@ -28,6 +28,7 @@ public class StatUI
     static JLabel sex = new JLabel("");
     static JLabel job = new JLabel("");
     static JLabel level = new JLabel("");
+    static JLabel gold = new JLabel("");
     static JLabel status = new JLabel("");
     static JLabel hp = new JLabel("");
     static JLabel str = new JLabel("");
@@ -44,6 +45,7 @@ public class StatUI
     static JLabel sexL = new JLabel("SEX:");
     static JLabel jobL = new JLabel("JOB:");
     static JLabel levelL = new JLabel("LEVEL:");
+    static JLabel goldL = new JLabel("GOLD:");
     static JLabel statusL = new JLabel("STATUS:");
     static JLabel hpL = new JLabel("HP:");
     static JLabel strL = new JLabel("STR:");
@@ -117,8 +119,11 @@ public class StatUI
         level.setFont(new Font("Arial", Font.PLAIN, 12));
         level.setBounds((x/4) - buttonW/4, (y/4) - (100), buttonW, buttonH);
 
+        gold.setFont(new Font("Arial", Font.PLAIN, 12));
+        gold.setBounds((x/4) - buttonW/4, (y/4) + (25), buttonW, buttonH);
+
         status.setFont(new Font("Arial", Font.PLAIN, 12));
-        status.setBounds((x/4) - buttonW/4 - 40, (y/4) + (40), buttonW, buttonH);
+        status.setBounds((x/4) - buttonW/4, (y/4) + (40), buttonW, buttonH);
 
         hp.setFont(new Font("Arial", Font.PLAIN, 12));
         hp.setBounds((x/4) - buttonW/4, (y/4) + (55), buttonW, buttonH);
@@ -194,8 +199,11 @@ public class StatUI
         levelL.setFont(new Font("Arial", Font.PLAIN, 12));
         levelL.setBounds((x/4) - buttonW/3 - 25, (y/4) - (100), buttonW, buttonH);
 
+        goldL.setFont(new Font("Arial", Font.PLAIN, 12));
+        goldL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (25), buttonW, buttonH);
+
         statusL.setFont(new Font("Arial", Font.PLAIN, 12));
-        statusL.setBounds((x/4) - buttonW/3 - 15, (y/4) + (25), buttonW, buttonH);
+        statusL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (40), buttonW, buttonH);
 
         hpL.setFont(new Font("Arial", Font.PLAIN, 12));
         hpL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (55), buttonW, buttonH);
@@ -271,6 +279,7 @@ public class StatUI
         frame.getContentPane().add(sex);
         frame.getContentPane().add(job);
         frame.getContentPane().add(level);
+        frame.getContentPane().add(gold);
         frame.getContentPane().add(status);
         frame.getContentPane().add(hp);
         frame.getContentPane().add(str);
@@ -300,6 +309,7 @@ public class StatUI
         frame.getContentPane().add(sexL);
         frame.getContentPane().add(jobL);
         frame.getContentPane().add(levelL);
+        frame.getContentPane().add(goldL);
         frame.getContentPane().add(statusL);
         frame.getContentPane().add(hpL);
         frame.getContentPane().add(strL);
@@ -423,6 +433,7 @@ public class StatUI
                 sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
                 job.setText(Main.characters[characterBox.getSelectedIndex()].job);
                 level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
+                gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
                 status.setText(Main.characters[characterBox.getSelectedIndex()].status);
                 hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
                 str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
@@ -450,6 +461,7 @@ public class StatUI
                 sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
                 job.setText(Main.characters[characterBox.getSelectedIndex()].job);
                 level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
+                gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
                 status.setText(Main.characters[characterBox.getSelectedIndex()].status);
                 hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
                 str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
@@ -543,6 +555,7 @@ public class StatUI
         sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
         job.setText(Main.characters[characterBox.getSelectedIndex()].job);
         level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
+        gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
         status.setText(Main.characters[characterBox.getSelectedIndex()].status);
         hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
         str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
