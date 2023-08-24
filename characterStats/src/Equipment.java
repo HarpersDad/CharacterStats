@@ -202,66 +202,83 @@ public class Equipment
     void enchantEquipment(Equipment equip, String buffType, int buffAmount)
     {
         // switch statement that assigns buffs / debuffs based on passed data
-        if (equip.canBuff == true) {
-            switch (buffType) {
+        if (equip.canBuff == true)
+        {
+            switch (buffType)
+            {
                 // detrimental - buffAmount is turn/time count.
-                case "poison" -> {
+                case "poison"
+                        -> {
                     this.buff = "poison";
                     this.buffAmount = buffAmount;
                 }
-                case "burn" -> {
+                case "burn"
+                        -> {
                     this.buff = "burn";
                     this.buffAmount = buffAmount;
                 }
-                case "blind" -> {
+                case "blind"
+                        -> {
                     this.buff = "blind";
                     this.buffAmount = buffAmount;
                 }
-                case "stun" -> {
+                case "stun"
+                        -> {
                     this.buff = "stun";
                     this.buffAmount = buffAmount;
                 }
-                case "berserk" -> {
+                case "berserk"
+                        -> {
                     this.buff = "berserk";
                     this.buffAmount = buffAmount;
                 }
-                case "sleep" -> {
+                case "sleep"
+                        -> {
                     this.buff = "sleep";
                     this.buffAmount = buffAmount;
                 }
 
                 // beneficial - buffAmount is amount to increase or decrease stats
-                case "hp" -> {
+                case "hp"
+                        -> {
                     this.buff = "hp";
                     this.buffAmount = buffAmount;
                 }
-                case "str" -> {
+                case "str"
+                        -> {
                     this.buff = "str";
                     this.buffAmount = buffAmount;
                 }
-                case "def" -> {
+                case "def"
+                        -> {
                     this.buff = "def";
                     this.buffAmount = buffAmount;
                 }
-                case "con" -> {
+                case "con"
+                        -> {
                     this.buff = "con";
                     this.buffAmount = buffAmount;
                 }
-                case "wis" -> {
+                case "wis"
+                        -> {
                     this.buff = "wis";
                     this.buffAmount = buffAmount;
                 }
-                case "spd" -> {
+                case "spd"
+                        -> {
                     this.buff = "spd";
                     this.buffAmount = buffAmount;
                 }
-                case "lck" -> {
+                case "lck"
+
+                        -> {
                     this.buff = "lck";
                     this.buffAmount = buffAmount;
                 }
 
                 // in case an incorrect buff is passed
-                default -> {
+                default
+                        -> {
                     this.buff = "no buff";
                     this.buffAmount = 0;
                 }

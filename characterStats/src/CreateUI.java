@@ -35,24 +35,18 @@ public class CreateUI
         createFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         createFrame.setSize(x, y);
         createFrame.setLocationRelativeTo(null);
-
         createFrame.setLayout(null);
         createFrame.setVisible(true);
 
         name.setBounds(x/2 - 45, (y/2) - (110), 100, 30);
         nameL.setBounds((x/2) - 90, (y/2) - (110), 100, 30);
-
         characterJob.setBounds(x/2 - 45, (y/2) - (75), 100, 30);
         jobL.setBounds((x/2) - 90, (y/2) - (75), 100, 30);
-
         characterEquipment.setBounds(x/2 - 45, (y/2) - (40), 100, 30);
         gearL.setBounds((x/2) - 90, (y/2) - (40), 100, 30);
-
         characterSex.setBounds(x/2 - 45, y/2 - 5, 100, 30);
         sexL.setBounds((x/2) - 90, y/2 - 5, 100, 30);
-
         create.setBounds((x/2) - 110, (y/2) + 30, 100, 30);
-
         cancelCreate.setBounds((x/2), (y/2) + 30, 100, 30);
 
         // add data and labels to the frame

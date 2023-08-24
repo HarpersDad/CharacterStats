@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 
 public class StatUI
 {
+    // ui variables
     static final DecimalFormat df = new DecimalFormat("0");
     static JFrame frame = new JFrame("");
     static int x = 600;
@@ -54,6 +55,7 @@ public class StatUI
     static JLabel xpL = new JLabel("XP:");
     static JLabel xpToNextLevelL = new JLabel("LvlUp:");
 
+    // equipment info array for mouse over data
     static String[] equipmentInformation = new String[44];
 
     // pulled armor
@@ -92,11 +94,10 @@ public class StatUI
         // creates program window
         frame.setTitle("RPG TEST");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(350, y);
+        frame.setSize((x/2) + 50, y);
         frame.setLocationRelativeTo(null);
 
         // sets bound for buttons and combo boxes
-        //characterBox.setBounds((x/4) + 200, (y/4) - (80), 100, 30);
         characterBox.setBounds((x/4) - buttonW/4 - 10, (y/4) - (80), 80, 20);
         levelUpButton.setBounds((x/4) - buttonW/3 - 5, (y/4) - (25), 80,25);
         saveData.setBounds((x/4) - buttonW/3 - 5, (y/4) + 10, 80,25);
@@ -180,40 +181,6 @@ public class StatUI
         back.setFont(new Font("Arial", Font.PLAIN, 12));
         back.setBounds((x/2) - buttonW/4, (y/4) + (215), jLabelW, jLabelH);
 
-        // add data to frame
-        frame.getContentPane().add(createNewCharacter);
-        frame.getContentPane().add(loadData);
-        frame.getContentPane().add(saveData);
-        frame.getContentPane().add(levelUpButton);
-        frame.getContentPane().add(characterBox);
-        //frame.getContentPane().add(name);
-        frame.getContentPane().add(sex);
-        frame.getContentPane().add(job);
-        frame.getContentPane().add(level);
-        frame.getContentPane().add(status);
-        frame.getContentPane().add(hp);
-        frame.getContentPane().add(str);
-        frame.getContentPane().add(def);
-        frame.getContentPane().add(con);
-        frame.getContentPane().add(wis);
-        frame.getContentPane().add(spd);
-        frame.getContentPane().add(lck);
-        frame.getContentPane().add(xp);
-        frame.getContentPane().add(xpToNextLevel);
-
-        // equipment pulled
-        frame.getContentPane().add(mainWeapon);
-        frame.getContentPane().add(offHand);
-        frame.getContentPane().add(head);
-        frame.getContentPane().add(neck);
-        frame.getContentPane().add(chest);
-        frame.getContentPane().add(hands);
-        frame.getContentPane().add(ring);
-        frame.getContentPane().add(belt);
-        frame.getContentPane().add(legs);
-        frame.getContentPane().add(feet);
-        frame.getContentPane().add(back);
-
         // labels
         nameL.setFont(new Font("Arial", Font.PLAIN, 12));
         nameL.setBounds((x/4) - buttonW/3 - 25, (y/4) - (120), buttonW, buttonH);
@@ -291,6 +258,43 @@ public class StatUI
         backL.setFont(new Font("Arial", Font.PLAIN, 12));
         backL.setBounds((x/2) - buttonW/3 - 30, (y/4) + (175), buttonW, buttonH);
 
+        // add data to frame
+        frame.getContentPane().add(createNewCharacter);
+        frame.getContentPane().add(loadData);
+        frame.getContentPane().add(saveData);
+        frame.getContentPane().add(levelUpButton);
+        frame.getContentPane().add(characterBox);
+
+        // removed so that the character combobox could be used instead for the name
+        //frame.getContentPane().add(name);
+
+        frame.getContentPane().add(sex);
+        frame.getContentPane().add(job);
+        frame.getContentPane().add(level);
+        frame.getContentPane().add(status);
+        frame.getContentPane().add(hp);
+        frame.getContentPane().add(str);
+        frame.getContentPane().add(def);
+        frame.getContentPane().add(con);
+        frame.getContentPane().add(wis);
+        frame.getContentPane().add(spd);
+        frame.getContentPane().add(lck);
+        frame.getContentPane().add(xp);
+        frame.getContentPane().add(xpToNextLevel);
+
+        // equipment pulled
+        frame.getContentPane().add(mainWeapon);
+        frame.getContentPane().add(offHand);
+        frame.getContentPane().add(head);
+        frame.getContentPane().add(neck);
+        frame.getContentPane().add(chest);
+        frame.getContentPane().add(hands);
+        frame.getContentPane().add(ring);
+        frame.getContentPane().add(belt);
+        frame.getContentPane().add(legs);
+        frame.getContentPane().add(feet);
+        frame.getContentPane().add(back);
+
         // add data labels to frame
         frame.getContentPane().add(nameL);
         frame.getContentPane().add(sexL);
@@ -307,6 +311,7 @@ public class StatUI
         frame.getContentPane().add(xpL);
         frame.getContentPane().add(xpToNextLevelL);
 
+        // add equipment labels to frame
         frame.getContentPane().add(mainWeaponL);
         frame.getContentPane().add(offHandL);
         frame.getContentPane().add(headL);
@@ -357,12 +362,14 @@ public class StatUI
                 {
                     Save.loadStats(i);
 
+                    // "equips" the gear for characters so that their stats reflect the buff provided
                     if (Main.characters[i] != null)
                     {
                         Main.characters[i].gearEquipped();
                     }
                 }
 
+                // keeps the combobox from adding duplicate entries when pressing load multiple times
                 if (!resetBox)
                 {
                     characterBox.removeAllItems();
@@ -378,31 +385,40 @@ public class StatUI
             }
         });
 
+        // save character data
         saveData.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 System.out.println("saving data");
+
+                // for loop that calls the save stat method for each available character
                 for (int i = 0; i < Main.characters.length; i++)
                 {
                     if (Main.characters[i] != null)
                     {
                         Save.saveStats(Main.characters[i], i);
                     }
+
                     Save.saveAsJson();
                 }
             }
         });
 
+        // give character xp
         levelUpButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                // adds the xp gain to the ui
                 Main.characters[characterBox.getSelectedIndex()].xp += 1;
+
+                // checks if the player has enough xp to level up
                 Main.levelUp(Main.characters[characterBox.getSelectedIndex()]);
 
+                // if the player levels up, this updates the ui to reflect the changes
                 name.setText(Main.characters[characterBox.getSelectedIndex()].name);
                 sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
                 job.setText(Main.characters[characterBox.getSelectedIndex()].job);
@@ -423,11 +439,13 @@ public class StatUI
             }
         });
 
+        // character selection
         characterBox.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                // when a character is selected, this updates the stats and equipment
                 name.setText(Main.characters[characterBox.getSelectedIndex()].name);
                 sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
                 job.setText(Main.characters[characterBox.getSelectedIndex()].job);
@@ -458,14 +476,15 @@ public class StatUI
                 feet.setText(Main.characters[characterBox.getSelectedIndex()].feet.name);
                 back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
 
+                // calls the method
                 getEquipInfo();
             }
         });
     }
 
+    // adds character names to the combobox from the character array in Main
     static void fillComboBox()
     {
-        //if (characterBox.getSelectedItem() == Main.characters[0].name)
         if (Main.characters[0] != null)
         {
             characterBox.addItem(Main.characters[0].name);
@@ -516,8 +535,10 @@ public class StatUI
         }
     }
 
+    // adds the stat and equipment data to the ui from the character array in Main
     static void fillUI()
     {
+        // updates ui data accordingly
         name.setText(Main.characters[characterBox.getSelectedIndex()].name);
         sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
         job.setText(Main.characters[characterBox.getSelectedIndex()].job);
@@ -545,10 +566,9 @@ public class StatUI
         back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
     }
 
+    // gets the equipment information for the currently selected character
     static void getEquipInfo()
     {
-        // get info for equipment
-
         // weapon
         equipmentInformation[0] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].mainWeapon.cost);
         equipmentInformation[1] = Main.characters[characterBox.getSelectedIndex()].mainWeapon.buff;
@@ -615,9 +635,11 @@ public class StatUI
         equipmentInformation[42] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].back.buffAmount);
         equipmentInformation[43] = Main.characters[characterBox.getSelectedIndex()].back.description;
 
+        // calls the method
         setEquipInfo();
     }
 
+    // presents the data from the above method when the cursor is over the name of the piece of equipment
     static void setEquipInfo()
     {
         // main weapon

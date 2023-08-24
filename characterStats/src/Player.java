@@ -57,12 +57,11 @@ public class Player
         this.status = "Normal";
         this.gold = 0;
 
+        // switch case that checks the type of equipment that the player has and sets it
         switch (equip)
         {
             case "Leather"
-                    ->
-            {
-                // starting equipment
+                    -> {
                 this.head = Equipment.leatherHat;
                 this.neck = Equipment.leatherGaiter;
                 this.chest = Equipment.leatherChest;
@@ -75,9 +74,7 @@ public class Player
             }
 
             case "Iron"
-                    ->
-            {
-                // starting equipment
+                    -> {
                 this.head = Equipment.ironHat;
                 this.neck = Equipment.ironGaiter;
                 this.chest = Equipment.ironChest;
@@ -90,9 +87,7 @@ public class Player
             }
 
             case "Steel"
-                    ->
-            {
-                // starting equipment
+                    -> {
                 this.head = Equipment.steelHat;
                 this.neck = Equipment.steelGaiter;
                 this.chest = Equipment.steelChest;
@@ -105,9 +100,7 @@ public class Player
             }
 
             case "Silver"
-                    ->
-            {
-                // starting equipment
+                    -> {
                 this.head = Equipment.silverHat;
                 this.neck = Equipment.silverGaiter;
                 this.chest = Equipment.silverChest;
@@ -120,9 +113,7 @@ public class Player
             }
 
             case "Platinum"
-                    ->
-            {
-                // starting equipment
+                    -> {
                 this.head = Equipment.platinumHat;
                 this.neck = Equipment.platinumGaiter;
                 this.chest = Equipment.platinumChest;
@@ -135,9 +126,7 @@ public class Player
             }
 
             case "Diamond"
-                    ->
-            {
-                // starting equipment
+                    -> {
                 this.head = Equipment.diamondHat;
                 this.neck = Equipment.diamondGaiter;
                 this.chest = Equipment.diamondChest;
@@ -154,8 +143,7 @@ public class Player
         switch (job)
         {
             case "defender"
-                    ->
-            {
+                    -> {
                 // starting stats
                 this.hp = 20;
                 this.str = 2;
@@ -172,52 +160,47 @@ public class Player
                 this.inventory[2] = Items.panacea;
                 this.inventory[3] = Items.revivePowder;
 
+                // if statements that check the type of gear the player has and sets the weapons for the job
                 if (equip.equals("Leather"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.shortSword;
                     this.offHand = Equipment.woodenKite;
                 }
 
                 if (equip.equals("Iron"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.ironSword;
                     this.offHand = Equipment.ironKite;
                 }
 
                 if (equip.equals("Steel"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.steelSword;
                     this.offHand = Equipment.steelKite;
                 }
 
                 if (equip.equals("Silver"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.silverSword;
                     this.offHand = Equipment.silverKite;
                 }
 
                 if (equip.equals("Platinum"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.platinumSword;
                     this.offHand = Equipment.platinumKite;
                 }
 
                 if (equip.equals("Diamond"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.diamondSword;
                     this.offHand = Equipment.diamondKite;
                 }
 
             }
+
             case "ranger"
-                    ->
-            {
+                    -> {
                 this.hp = 10;
                 this.str = 2;
                 this.def = 2;
@@ -233,51 +216,46 @@ public class Player
                 this.inventory[2] = Items.panacea;
                 this.inventory[3] = Items.revivePowder;
 
+                // if statements that check the type of gear the player has and sets the weapons for the job
                 if (equip.equals("Leather"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.shortBow;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Iron"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.ironBow;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Steel"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.steelBow;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Silver"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.silverBow;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Platinum"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.platinumBow;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Diamond"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.diamondBow;
                     this.offHand = Equipment.unEquipped;
                 }
             }
+
             case "fighter"
-                    ->
-            {
+                    -> {
                 this.hp = 13;
                 this.str = 3;
                 this.def = 2;
@@ -293,52 +271,46 @@ public class Player
                 this.inventory[2] = Items.panacea;
                 this.inventory[3] = Items.revivePowder;
 
-                // weapons
+                // if statements that check the type of gear the player has and sets the weapons for the job
                 if (equip.equals("Leather"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.leatherBands;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Iron"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.ironBands;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Steel"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.steelBands;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Silver"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.silverBands;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Platinum"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.platinumBands;
                     this.offHand = Equipment.unEquipped;
                 }
 
                 if (equip.equals("Diamond"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.diamondBands;
                     this.offHand = Equipment.unEquipped;
                 }
             }
+
             case "mage"
-                    ->
-            {
+                    -> {
                 this.hp = 6;
                 this.str = 1;
                 this.def = 2;
@@ -354,52 +326,46 @@ public class Player
                 this.inventory[2] = Items.panacea;
                 this.inventory[3] = Items.revivePowder;
 
-                // weapons
+                // if statements that check the type of gear the player has and sets the weapons for the job
                 if (equip.equals("Leather"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.walkingStaff;
                     this.offHand = Equipment.leatherBuckler;
                 }
 
                 if (equip.equals("Iron"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.ironStaff;
                     this.offHand = Equipment.ironBuckler;
                 }
 
                 if (equip.equals("Steel"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.steelStaff;
                     this.offHand = Equipment.steelBuckler;
                 }
 
                 if (equip.equals("Silver"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.silverStaff;
                     this.offHand = Equipment.silverBuckler;
                 }
 
                 if (equip.equals("Platinum"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.platinumStaff;
                     this.offHand = Equipment.platinumBuckler;
                 }
 
                 if (equip.equals("Diamond"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.diamondStaff;
                     this.offHand = Equipment.diamondBuckler;
                 }
             }
+
             case "thief"
-                    ->
-            {
+                    -> {
                 this.hp = 8;
                 this.str = 1;
                 this.def = 1;
@@ -415,52 +381,46 @@ public class Player
                 this.inventory[2] = Items.panacea;
                 this.inventory[3] = Items.revivePowder;
 
-                // weapons
+                // if statements that check the type of gear the player has and sets the weapons for the job
                 if (equip.equals("Leather"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.dagger;
                     this.offHand = Equipment.leatherBuckler;
                 }
 
                 if (equip.equals("Iron"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.ironDagger;
                     this.offHand = Equipment.ironBuckler;
                 }
 
                 if (equip.equals("Steel"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.steelDagger;
                     this.offHand = Equipment.steelBuckler;
                 }
 
                 if (equip.equals("Silver"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.silverDagger;
                     this.offHand = Equipment.silverBuckler;
                 }
 
                 if (equip.equals("Platinum"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.platinumDagger;
                     this.offHand = Equipment.platinumBuckler;
                 }
 
                 if (equip.equals("Diamond"))
                 {
-                    // starting weapons
                     this.mainWeapon = Equipment.diamondDagger;
                     this.offHand = Equipment.diamondBuckler;
                 }
             }
+
             default
-                    ->
-            {
+                    -> {
                 this.job = "vagrant";
                 this.hp = 10;
                 this.str = 2;
@@ -491,14 +451,14 @@ public class Player
                 this.inventory[3] = Items.revivePowder;
             }
         }
+
         this.MaxHP = this.hp;
 
         // adds stats to the player based on the sex chosen
         switch (sex)
         {
             case "male"
-                    ->
-            {
+                    -> {
                 this.hp += 3;
                 this.str += 2;
                 this.def += 2;
@@ -507,9 +467,9 @@ public class Player
                 this.spd += 1;
                 this.lck += 1;
             }
+
             case "female"
-                    ->
-            {
+                    -> {
                 this.hp += 2;
                 this.str += 1;
                 this.def += 1;
@@ -518,9 +478,9 @@ public class Player
                 this.spd += 3;
                 this.lck += 2;
             }
+
             default
-                    ->
-            {
+                    -> {
                 this.sex = "other";
                 this.hp += 0;
                 this.str += 0;
@@ -549,8 +509,7 @@ public class Player
             switch (this.job)
             {
                 case "defender"
-                        ->
-                {
+                        -> {
                     this.hp += (this.hp % this.level) + 4;
                     this.str += (this.str % this.level) + 2;
                     this.def += (this.def % this.level) + 3;
@@ -559,9 +518,9 @@ public class Player
                     this.spd += (this.spd % this.level) + 1;
                     this.lck += (this.lck % this.level) + 1;
                 }
+
                 case "ranger"
-                        ->
-                {
+                        -> {
                     this.hp += (this.hp % this.level) + 2;
                     this.str += (this.str % this.level) + 2;
                     this.def += (this.def % this.level) + 1;
@@ -615,8 +574,9 @@ public class Player
                     this.lck += (this.lck % this.level) + 2;
                 }
             }
+
             this.MaxHP = this.hp;
-            this.xpToNextLevel = Math.round((Math.pow(xpToLevel, this.level)) / (this.level+1));
+            this.xpToNextLevel = Math.round((Math.pow(xpToLevel, this.level)) / (this.level + 1));
 
             // print message that tells the user that the player has leveled up and the player's current level
             System.out.println("\n" + this.name + " Leveled Up!");

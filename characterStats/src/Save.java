@@ -9,13 +9,16 @@ import java.io.*;
 
 public class Save
 {
+    // variables that create objects, readers, writers, and files for the data
     static JSONObject obj;
     static JSONObject obj2;
     static BufferedWriter writer;
     static File myFile = new File("saveData.json");
 
+    // array of objects that correspond to each character saved
     static JSONObject[] jsonArray = new JSONObject[12];
 
+    // absolutely nothing here
     Save(){}
 
     // saves character data to array
@@ -89,8 +92,10 @@ public class Save
         // try / catch that parses the json data
         try
         {
+            // if this file is real
             if (myFile.exists())
             {
+                // set the object to it's contents
                 ob = new JSONParser().parse(new FileReader(myFile));
             }
         }
@@ -102,8 +107,12 @@ public class Save
         // sets the main json and depending on the position the inner json being read
         JSONObject outerJO = (JSONObject) ob;
 
+        // if there is data at the selected postion
         if ((JSONObject) outerJO.get(Integer.toString(position)) != null)
         {
+            // get the data from the selected position and set it accordingly
+
+            // sets the innerJO object to the selected position so that the character data can be referenced
             JSONObject innerJO = (JSONObject) outerJO.get(Integer.toString(position));
 
             // creates a parser for the inner json so that the data can be referenced
@@ -119,6 +128,7 @@ public class Save
             // will eventually break this into separate gear items as well as creating the same setup for items
             String equip = (String) jo.get("gear").getAsString();
 
+            // set character data accordingly
             int level = Integer.parseInt(jo.get("level").getAsString());
             double xp = (double) jo.get("xp").getAsDouble();
             double xpUp = (double) jo.get("xpToNextLevel").getAsDouble();
@@ -153,11 +163,13 @@ public class Save
             // place the character in the character array using the position that was passed to the method
             Main.characters[position] = player;
 
+            // if the player has not equipped their gear, make them do so
             if (eqp == false)
             {
                 Main.characters[position].gearEquipped();
             }
 
+            // re enable the character combobox
             StatUI.characterBox.setEnabled(true);
         }
     }
