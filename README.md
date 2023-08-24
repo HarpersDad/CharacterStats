@@ -1,12 +1,12 @@
 # Character Stats
 On startup<br>
-![onLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/7300b843-2e78-43a9-bce8-4835ec404055)<br>
+![onLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/9450f1df-c481-407b-8c54-62e73b01e1c3)<br>
 Pressing load if there is saved data present<br>
-![pressLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/10d36244-78b0-4d22-b7ec-101c32405e19)<br>
+![pressLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/92c3db68-057b-4330-9394-35b21be062e6)<br>
 Creating a new character<br>
-![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/4483c8cd-673f-410b-b564-7ba64fd4710e)<br>
+![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/03a47866-cb6e-49ef-bda1-4b92756232b6)<br>
 Equipment Description<br>
-![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/bc86f6d8-a95f-4843-917f-aa371079b8c8)<br>
+![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/7acac0a6-b7c8-4ad5-be4e-cf43097029dc)<br>
 <h2>About</h2>
 
 - A character and enemy stats program I created just to see how this type of system works.<br>
@@ -38,4 +38,5 @@ Equipment Description<br>
 <h2>Issues</h2>
 
 - if you press load multiple times in a row it will load in the save data multiple times, filling blank character slots.<br>
+- if you press load multiple times and then add a new player, it will not recognize the box position of the new player and not load any stats in.<br>
 
