@@ -13,27 +13,28 @@ Equipment Description<br>
 - If someone needs to use this, feel free to do so.<br>
 <h2>Features</h2>
 
-- added character and enemy stats.<br>
-- added inventory.<br>
-- added equippable items.<br>
 - added stat buffs for items and equipment.<br>
-- enchantment system.<br>
-- added status afflictions.<br>
-- added a damage multiplier system.<br>
 - if a player is created with no data, the following will be set: name - Vagabond, job - vagrant, sex - other.<br>
 - current job classes are: defender, ranger, fighter, mage, thief, vagrant.<br>
 - starting equipment.<br>
 - simple UI that allows the user to choose a character and level them up.<br>
-- UI shows character stats and equipment.<br>
 - save feature that allows for multiple character stats and equipment to be saved and recalled.<br>
 - character creation menu.<br>
+<h2>In code but not useable</h2>
+
+- inventory.<br>
+- equippable items.<br>
+- item creation.<br>
+- enemy stats and creation.<br>
+- enchantment system.<br>
+- status afflictions.<br>
+- damage multiplier system.<br>
 <h2>Recently Added</h2>
 
-- added more armor set option when creating a character.<br>
+- added more armor set options when creating a character.<br>
 - reorganized the code so that it is easier/harder to follow.<br>
 - added equipment info when a user hovers over an item's name.<br>
 - fixed an equipment issue that added gear buffs more than once.<br>
-- made UI smaller.<br>
 
 <h2>Issues</h2>
 
