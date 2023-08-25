@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 public class StatUI
@@ -17,7 +15,7 @@ public class StatUI
     static int jLabelH = 20;
 
     // combo box and button(s)
-    static JComboBox characterBox;
+    static JComboBox<String> characterBox;
     static Button levelUpButton = new Button("Add XP");
     static Button saveData = new Button("Save");
     static Button loadData = new Button("Load");
@@ -91,7 +89,7 @@ public class StatUI
     public static void newUI()
     {
         // initialize combo box
-        characterBox = new JComboBox();
+        characterBox = new JComboBox<>();
 
         // creates program window
         frame.setTitle("RPG TEST");
@@ -108,8 +106,6 @@ public class StatUI
         createNewCharacter.setBounds((x/4) - buttonW/3 + 120, (y/4) - (25), 80,25);
 
         // actual attributes
-        //name.setFont(new Font("Arial", Font.PLAIN, 12));
-        //name.setBounds((x/4) - buttonW/4 - 10, (y/4) - (120), buttonW, buttonH);
         sex.setFont(new Font("Arial", Font.PLAIN, 12));
         sex.setBounds((x/4) + 75, (y/4) - (100), buttonW, buttonH);
         sex.setForeground(Color.white);
@@ -324,7 +320,7 @@ public class StatUI
         frame.getContentPane().add(levelUpButton);
         frame.getContentPane().add(characterBox);
 
-        // removed so that the character combobox could be used instead for the name
+        // removed so that the character combo-box could be used instead for the name
         //frame.getContentPane().add(name);
 
         frame.getContentPane().add(sex);
@@ -394,159 +390,139 @@ public class StatUI
         levelUpButton.setEnabled(false);
 
         // create new character
-        createNewCharacter.addActionListener(new ActionListener()
+        createNewCharacter.addActionListener(e ->
         {
-            @Override
-            public void actionPerformed(ActionEvent e)
+            if (Main.characters[Main.characters.length - 1] == null)
             {
-                if (Main.characters[Main.characters.length - 1] == null)
-                {
-                    CreateUI.notAdded = true;
-                    CreateUI.createPlayerUI();
-                    CreateUI.create.setEnabled(true);
-                }
-                else
-                {
-                    createNewCharacter.setEnabled(false);
-                }
+                CreateUI.notAdded = true;
+                CreateUI.createPlayerUI();
+                CreateUI.create.setEnabled(true);
+            }
+            else
+            {
+                createNewCharacter.setEnabled(false);
             }
         });
 
         // load saved character data
-        loadData.addActionListener(new ActionListener()
+        loadData.addActionListener(e ->
         {
-            @Override
-            public void actionPerformed(ActionEvent e)
+            System.out.println("loading data");
+            for (int i = 0; i < Main.characters.length; i++)
             {
-                System.out.println("loading data");
-                for (int i = 0; i < Main.characters.length; i++)
+                Save.loadStats(i);
+
+                // "equips" the gear for characters so that their stats reflect the buff provided
+                if (Main.characters[i] != null)
                 {
-                    Save.loadStats(i);
-
-                    // "equips" the gear for characters so that their stats reflect the buff provided
-                    if (Main.characters[i] != null)
-                    {
-                        Main.characters[i].gearEquipped();
-                    }
+                    Main.characters[i].gearEquipped();
                 }
-
-                // keeps the combobox from adding duplicate entries when pressing load multiple times
-                if (!resetBox)
-                {
-                    characterBox.removeAllItems();
-
-                    fillComboBox();
-                    fillUI();
-                    getEquipInfo();
-
-                    resetBox = true;
-                }
-
-                saveData.setEnabled(true);
-                levelUpButton.setEnabled(true);
             }
+
+            // keeps the combo-box from adding duplicate entries when pressing load multiple times
+            if (!resetBox)
+            {
+                characterBox.removeAllItems();
+
+                fillComboBox();
+                fillUI();
+                getEquipInfo();
+
+                resetBox = true;
+            }
+
+            saveData.setEnabled(true);
+            levelUpButton.setEnabled(true);
         });
 
         // save character data
-        saveData.addActionListener(new ActionListener()
+        saveData.addActionListener(e ->
         {
-            @Override
-            public void actionPerformed(ActionEvent e)
+            System.out.println("saving data");
+
+            // for loop that calls the save stat method for each available character
+            for (int i = 0; i < Main.characters.length; i++)
             {
-                System.out.println("saving data");
-
-                // for loop that calls the save stat method for each available character
-                for (int i = 0; i < Main.characters.length; i++)
+                if (Main.characters[i] != null)
                 {
-                    if (Main.characters[i] != null)
-                    {
-                        Save.saveStats(Main.characters[i], i);
-                    }
-
-                    Save.saveAsJson();
+                    Save.saveStats(Main.characters[i], i);
                 }
+
+                Save.saveAsJson();
             }
         });
 
         // give character xp
-        levelUpButton.addActionListener(new ActionListener()
+        levelUpButton.addActionListener(e ->
         {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                // adds the xp gain to the ui
-                Main.characters[characterBox.getSelectedIndex()].xp += 1;
+            // adds the xp gain to the ui
+            Main.characters[characterBox.getSelectedIndex()].xp += 1;
 
-                // checks if the player has enough xp to level up
-                Main.levelUp(Main.characters[characterBox.getSelectedIndex()]);
+            // checks if the player has enough xp to level up
+            Main.levelUp(Main.characters[characterBox.getSelectedIndex()]);
 
-                // if the player levels up, this updates the ui to reflect the changes
-                name.setText(Main.characters[characterBox.getSelectedIndex()].name);
-                sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
-                job.setText(Main.characters[characterBox.getSelectedIndex()].job);
-                level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
-                gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
-                status.setText(Main.characters[characterBox.getSelectedIndex()].status);
-                hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
-                str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
-                def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
-                con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
-                wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
-                spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
-                lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
-                xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+            // if the player levels up, this updates the ui to reflect the changes
+            name.setText(Main.characters[characterBox.getSelectedIndex()].name);
+            sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
+            job.setText(Main.characters[characterBox.getSelectedIndex()].job);
+            level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
+            gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
+            status.setText(Main.characters[characterBox.getSelectedIndex()].status);
+            hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
+            str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
+            def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
+            con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
+            wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
+            spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
+            lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
+            xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
 
-                xpToNextLevel.setText(String.valueOf(
-                        df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
-                ));
-            }
+            xpToNextLevel.setText(String.valueOf(
+                    df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
+            ));
         });
 
         // character selection
-        characterBox.addActionListener(new ActionListener()
+        characterBox.addActionListener(e ->
         {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                // when a character is selected, this updates the stats and equipment
-                name.setText(Main.characters[characterBox.getSelectedIndex()].name);
-                sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
-                job.setText(Main.characters[characterBox.getSelectedIndex()].job);
-                level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
-                gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
-                status.setText(Main.characters[characterBox.getSelectedIndex()].status);
-                hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
-                str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
-                def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
-                con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
-                wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
-                spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
-                lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
-                xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+            // when a character is selected, this updates the stats and equipment
+            name.setText(Main.characters[characterBox.getSelectedIndex()].name);
+            sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
+            job.setText(Main.characters[characterBox.getSelectedIndex()].job);
+            level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
+            gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
+            status.setText(Main.characters[characterBox.getSelectedIndex()].status);
+            hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
+            str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
+            def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
+            con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
+            wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
+            spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
+            lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
+            xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
 
-                xpToNextLevel.setText(String.valueOf(
-                        df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
-                ));
+            xpToNextLevel.setText(String.valueOf(
+                    df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
+            ));
 
-                mainWeapon.setText(Main.characters[characterBox.getSelectedIndex()].mainWeapon.name);
-                offHand.setText(Main.characters[characterBox.getSelectedIndex()].offHand.name);
-                head.setText(Main.characters[characterBox.getSelectedIndex()].head.name);
-                neck.setText(Main.characters[characterBox.getSelectedIndex()].neck.name);
-                chest.setText(Main.characters[characterBox.getSelectedIndex()].chest.name);
-                hands.setText(Main.characters[characterBox.getSelectedIndex()].hands.name);
-                ring.setText(Main.characters[characterBox.getSelectedIndex()].ring.name);
-                belt.setText(Main.characters[characterBox.getSelectedIndex()].belt.name);
-                legs.setText(Main.characters[characterBox.getSelectedIndex()].legs.name);
-                feet.setText(Main.characters[characterBox.getSelectedIndex()].feet.name);
-                back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
+            mainWeapon.setText(Main.characters[characterBox.getSelectedIndex()].mainWeapon.name);
+            offHand.setText(Main.characters[characterBox.getSelectedIndex()].offHand.name);
+            head.setText(Main.characters[characterBox.getSelectedIndex()].head.name);
+            neck.setText(Main.characters[characterBox.getSelectedIndex()].neck.name);
+            chest.setText(Main.characters[characterBox.getSelectedIndex()].chest.name);
+            hands.setText(Main.characters[characterBox.getSelectedIndex()].hands.name);
+            ring.setText(Main.characters[characterBox.getSelectedIndex()].ring.name);
+            belt.setText(Main.characters[characterBox.getSelectedIndex()].belt.name);
+            legs.setText(Main.characters[characterBox.getSelectedIndex()].legs.name);
+            feet.setText(Main.characters[characterBox.getSelectedIndex()].feet.name);
+            back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
 
-                // calls the method
-                getEquipInfo();
-            }
+            // calls the method
+            getEquipInfo();
         });
     }
 
-    // adds character names to the combobox from the character array in Main
+    // adds character names to the combo-box from the character array in Main
     static void fillComboBox()
     {
         if (Main.characters[0] != null)

@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class CreateUI
 {
@@ -26,9 +25,9 @@ public class CreateUI
     public static void createPlayerUI()
     {
         // job and sex boxes
-        JComboBox characterJob = new JComboBox();
-        JComboBox characterSex = new JComboBox();
-        JComboBox characterEquipment = new JComboBox();
+        JComboBox<String> characterJob = new JComboBox<>();
+        JComboBox<String> characterSex = new JComboBox<>();
+        JComboBox<String> characterEquipment = new JComboBox<>();
 
         // creates program window
         createFrame.setTitle("Create New Character");
@@ -96,39 +95,28 @@ public class CreateUI
         createFrame.setResizable(false);
 
         // create character button
-        create.addActionListener(new ActionListener()
+        create.addActionListener(e ->
         {
-            @Override
-            public void actionPerformed(ActionEvent e)
+            createFrame.revalidate();
+
+            if (notAdded)
             {
-                createFrame.revalidate();
+                notAdded = false;
 
-                if (notAdded)
-                {
-                    notAdded = false;
+                createPlayer(
+                        name.getText(),
+                        Objects.requireNonNull(characterJob.getSelectedItem()).toString(),
+                        Objects.requireNonNull(characterSex.getSelectedItem()).toString(),
+                        Objects.requireNonNull(characterEquipment.getSelectedItem()).toString());
 
-                    createPlayer(
-                            name.getText(),
-                            characterJob.getSelectedItem().toString(),
-                            characterSex.getSelectedItem().toString(),
-                            characterEquipment.getSelectedItem().toString());
-
-                    createFrame.dispose();
-                    create.setEnabled(false);
-                    StatUI.saveData.setEnabled(true);
-                    StatUI.levelUpButton.setEnabled(true);
-                }
-            }
-        });
-
-        cancelCreate.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
                 createFrame.dispose();
+                create.setEnabled(false);
+                StatUI.saveData.setEnabled(true);
+                StatUI.levelUpButton.setEnabled(true);
             }
         });
+
+        cancelCreate.addActionListener(e -> createFrame.dispose());
     }
 
     // creates a new character with the defined attributes

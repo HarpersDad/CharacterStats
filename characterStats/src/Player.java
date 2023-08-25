@@ -20,7 +20,7 @@ public class Player
     double xp;
     int xpToLevel = 2;
     double xpToNextLevel;
-    static String status;
+    String status;
     boolean equipped = false;
 
     // creation arrays

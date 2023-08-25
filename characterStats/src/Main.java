@@ -14,7 +14,7 @@ public class Main
     public static void main(String[] args)
     {
         // uses the Enemy class to create new enemies with the given name and type
-        //Enemy enemy1 = new Enemy("Bird", "flyer");
+        Enemy enemy = new Enemy("Bird", "flyer");
 
         // creates equipment
         Equipment.createEquipment();
