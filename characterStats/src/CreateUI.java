@@ -4,30 +4,13 @@ import java.util.Objects;
 
 public class CreateUI
 {
-    // UI initialization
-    static JFrame createFrame = new JFrame("");
-    static int x = 300;
-    static int y = 225;
-    static Button create = new Button("Create Player");
-    static Button cancelCreate = new Button("Cancel");
-
-    static JTextField name = new JTextField();
-
-    static JLabel nameL = new JLabel("Name:");
-    static JLabel jobL = new JLabel("Job:");
-    static JLabel gearL = new JLabel("Gear:");
-    static JLabel sexL = new JLabel("Sex:");
-
-    // stupid boolean check - so that the create character button does fire multiple times
-    static boolean notAdded = true;
-
     // create player UI
     public static void createPlayerUI()
     {
         // job and sex boxes
-        JComboBox<String> characterJob = new JComboBox<>();
-        JComboBox<String> characterSex = new JComboBox<>();
-        JComboBox<String> characterEquipment = new JComboBox<>();
+        characterJob = new JComboBox<>();
+        characterSex = new JComboBox<>();
+        characterEquipment = new JComboBox<>();
 
         // creates program window
         createFrame.setTitle("Create New Character");
@@ -107,7 +90,8 @@ public class CreateUI
                         name.getText(),
                         Objects.requireNonNull(characterJob.getSelectedItem()).toString(),
                         Objects.requireNonNull(characterSex.getSelectedItem()).toString(),
-                        Objects.requireNonNull(characterEquipment.getSelectedItem()).toString());
+                        Objects.requireNonNull(characterEquipment.getSelectedItem()).toString()
+                );
 
                 createFrame.dispose();
                 create.setEnabled(false);
@@ -133,6 +117,25 @@ public class CreateUI
                 break;
             }
         }
+
         StatUI.characterBox.addItem(name);
     }
+
+    // UI initialization
+    static JFrame createFrame = new JFrame("");
+    static int x = 300;
+    static int y = 225;
+    static Button create = new Button("Create Player");
+    static Button cancelCreate = new Button("Cancel");
+    static JTextField name = new JTextField();
+    static JComboBox<String> characterJob;
+    static JComboBox<String> characterSex;
+    static JComboBox<String> characterEquipment;
+    static JLabel nameL = new JLabel("Name:");
+    static JLabel jobL = new JLabel("Job:");
+    static JLabel gearL = new JLabel("Gear:");
+    static JLabel sexL = new JLabel("Sex:");
+
+    // stupid boolean check - so that the create character button does fire multiple times
+    static boolean notAdded = true;
 }

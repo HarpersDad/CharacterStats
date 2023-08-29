@@ -9,18 +9,6 @@ import java.io.*;
 
 public class Save
 {
-    // variables that create objects, readers, writers, and files for the data
-    static JSONObject obj;
-    static JSONObject obj2;
-    static BufferedWriter writer;
-    static File myFile = new File("saveData.json");
-
-    // array of objects that correspond to each character saved
-    static JSONObject[] jsonArray = new JSONObject[12];
-
-    // absolutely nothing here
-    Save(){}
-
     // saves character data to array
     static void saveStats(Player player, int position)
     {
@@ -216,4 +204,16 @@ public class Save
             throw new RuntimeException(e);
         }
     }
+
+    // variables that create objects, readers, writers, and files for the data
+    static JSONObject obj;
+    static JSONObject obj2;
+    static BufferedWriter writer;
+    static File myFile = new File("saveData.json");
+
+    // array of objects that correspond to each character saved
+    static JSONObject[] jsonArray = new JSONObject[12];
+
+    // absolutely nothing here
+    Save(){}
 }

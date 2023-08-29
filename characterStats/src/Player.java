@@ -3,40 +3,6 @@ import java.util.*;
 // Player Class
 public class Player
 {
-    // sets up the player stats by initializing each field that we want them to have
-    String name;
-    String job;
-    String sex;
-    int gold;
-    int level;
-    int hp;
-    int MaxHP;
-    int str;
-    int def;
-    int con;
-    int wis;
-    int spd;
-    int lck;
-    double xp;
-    int xpToLevel = 2;
-    double xpToNextLevel;
-    String status;
-    boolean equipped = false;
-
-    // creation arrays
-    static String[] jobs = {"defender", "fighter", "ranger", "mage", "thief", "vagrant"};
-    static String[] sexes = {"male", "female", "unknown"};
-    static String[] equipSets = {"Leather", "Iron", "Steel", "Silver", "Platinum", "Diamond"};
-
-    // inventory array
-    Items[] inventory = new Items[25];
-
-    // equipment array
-    Equipment[] equipment = new Equipment[11];
-
-    // equipment slots
-    Equipment mainWeapon, offHand, head, neck, chest, hands, ring, belt, legs, feet, back;
-
     // Player constructor
     Player(String name, String job, String sex, String equip)
     {
@@ -978,4 +944,38 @@ public class Player
             }
         }
     }
+
+    // sets up the player stats by initializing each field that we want them to have
+    String name;
+    String job;
+    String sex;
+    int gold;
+    int level;
+    int hp;
+    int MaxHP;
+    int str;
+    int def;
+    int con;
+    int wis;
+    int spd;
+    int lck;
+    double xp;
+    int xpToLevel = 2;
+    double xpToNextLevel;
+    String status;
+    boolean equipped = false;
+
+    // creation arrays
+    static String[] jobs = {"defender", "fighter", "ranger", "mage", "thief", "vagrant"};
+    static String[] sexes = {"male", "female", "unknown"};
+    static String[] equipSets = {"Leather", "Iron", "Steel", "Silver", "Platinum", "Diamond"};
+
+    // inventory array
+    Items[] inventory = new Items[25];
+
+    // equipment array
+    Equipment[] equipment = new Equipment[11];
+
+    // equipment slots
+    Equipment mainWeapon, offHand, head, neck, chest, hands, ring, belt, legs, feet, back;
 }

@@ -3,7 +3,6 @@ import java.text.DecimalFormat;
 // main class that creates the players and enemy units
 public class Main
 {
-    static final DecimalFormat df = new DecimalFormat("0");
     public static Player[] characters = {null, null, null, null, null, null, null, null, null, null, null, null};
     public static void levelUp(Player player)
     {
@@ -16,8 +15,11 @@ public class Main
         // uses the Enemy class to create new enemies with the given name and type
         Enemy enemy = new Enemy("Bird", "flyer");
 
-        // creates equipment
-        Equipment.createEquipment();
+        // creates and sets equipment
+        Variables.createEquipment();
+
+        // creates and sets items
+        Variables.createItems();
 
         // runs the main ui
         StatUI.newUI();

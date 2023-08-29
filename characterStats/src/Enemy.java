@@ -1,18 +1,6 @@
 // Enemy Class
 public class Enemy
 {
-    // Sets up the enemy stats by initializing the fields we want the enemies to have
-    String name;
-    String type;
-    int hp;
-    int str;
-    int def;
-    int con;
-    int wis;
-    int spd;
-    int lck;
-    int givenXP;
-
     // Enemy constructor
     Enemy(String name, String type)
     {
@@ -58,4 +46,16 @@ public class Enemy
             }
         }
     }
+
+    // Sets up the enemy stats by initializing the fields we want the enemies to have
+    String name;
+    String type;
+    int hp;
+    int str;
+    int def;
+    int con;
+    int wis;
+    int spd;
+    int lck;
+    int givenXP;
 }

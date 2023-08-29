@@ -1,91 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-import java.text.DecimalFormat;
 
 public class StatUI
 {
-    // ui variables
-    static final DecimalFormat df = new DecimalFormat("0");
-    static JFrame frame = new JFrame("");
-    static int x = 600;
-    static int y = 400;
-    static int buttonH = 100;
-    static int buttonW = 300;
-    static int jLabelW = 150;
-    static int jLabelH = 20;
-
-    // combo box and button(s)
-    static JComboBox<String> characterBox;
-    static Button levelUpButton = new Button("Add XP");
-    static Button saveData = new Button("Save");
-    static Button loadData = new Button("Load");
-    static Button createNewCharacter = new Button("New Player");
-
-    // pulled stat
-    static JLabel name = new JLabel("");
-    static JLabel sex = new JLabel("");
-    static JLabel job = new JLabel("");
-    static JLabel level = new JLabel("");
-    static JLabel gold = new JLabel("");
-    static JLabel status = new JLabel("");
-    static JLabel hp = new JLabel("");
-    static JLabel str = new JLabel("");
-    static JLabel def = new JLabel("");
-    static JLabel con = new JLabel("");
-    static JLabel wis = new JLabel("");
-    static JLabel spd = new JLabel("");
-    static JLabel lck = new JLabel("");
-    static JLabel xp = new JLabel("");
-    static JLabel xpToNextLevel = new JLabel("");
-
-    // stat label
-    static JLabel nameL = new JLabel("NAME:");
-    static JLabel sexL = new JLabel("SEX:");
-    static JLabel jobL = new JLabel("JOB:");
-    static JLabel levelL = new JLabel("LEVEL:");
-    static JLabel goldL = new JLabel("GOLD:");
-    static JLabel statusL = new JLabel("STATUS:");
-    static JLabel hpL = new JLabel("HP:");
-    static JLabel strL = new JLabel("STR:");
-    static JLabel defL = new JLabel("DEF:");
-    static JLabel conL = new JLabel("CON:");
-    static JLabel wisL = new JLabel("WIS:");
-    static JLabel spdL = new JLabel("SPD:");
-    static JLabel lckL = new JLabel("LCK:");
-    static JLabel xpL = new JLabel("XP:");
-    static JLabel xpToNextLevelL = new JLabel("LvlUp:");
-
-    // equipment info array for mouse over data
-    static String[] equipmentInformation = new String[44];
-
-    // pulled armor
-    static JLabel mainWeapon = new JLabel("");
-    static JLabel offHand = new JLabel("");
-    static JLabel head = new JLabel("");
-    static JLabel neck = new JLabel("");
-    static JLabel chest = new JLabel("");
-    static JLabel hands = new JLabel("");
-    static JLabel ring = new JLabel("");
-    static JLabel belt = new JLabel("");
-    static JLabel legs = new JLabel("");
-    static JLabel feet = new JLabel("");
-    static JLabel back = new JLabel("");
-
-    // armor slot
-    static JLabel mainWeaponL = new JLabel("Main:");
-    static JLabel offHandL = new JLabel("Off Hand:");
-    static JLabel headL = new JLabel("Head:");
-    static JLabel neckL = new JLabel("Neck:");
-    static JLabel chestL = new JLabel("Chest:");
-    static JLabel handsL = new JLabel("Hands:");
-    static JLabel ringL = new JLabel("Ring:");
-    static JLabel beltL = new JLabel("Belt:");
-    static JLabel legsL = new JLabel("Legs:");
-    static JLabel feetL = new JLabel("Feet:");
-    static JLabel backL = new JLabel("Back:");
-
-    static boolean resetBox = false;
-
     public static void newUI()
     {
         // initialize combo box
@@ -408,16 +325,13 @@ public class StatUI
         loadData.addActionListener(e ->
         {
             System.out.println("loading data");
+
             for (int i = 0; i < Main.characters.length; i++)
             {
                 Save.loadStats(i);
-
-                // "equips" the gear for characters so that their stats reflect the buff provided
-                if (Main.characters[i] != null)
-                {
-                    Main.characters[i].gearEquipped();
-                }
             }
+
+            Equipment.equipGear();
 
             // keeps the combo-box from adding duplicate entries when pressing load multiple times
             if (!resetBox)
@@ -475,10 +389,10 @@ public class StatUI
             wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
             spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
             lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
-            xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+            xp.setText(String.valueOf(Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
 
             xpToNextLevel.setText(String.valueOf(
-                    df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
+                    Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
             ));
         });
 
@@ -499,10 +413,10 @@ public class StatUI
             wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
             spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
             lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
-            xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+            xp.setText(String.valueOf(Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
 
             xpToNextLevel.setText(String.valueOf(
-                    df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
+                    Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
             ));
 
             mainWeapon.setText(Main.characters[characterBox.getSelectedIndex()].mainWeapon.name);
@@ -592,7 +506,7 @@ public class StatUI
         wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
         spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
         lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
-        xp.setText(String.valueOf(df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+        xp.setText(String.valueOf(Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
 
         mainWeapon.setText(Main.characters[characterBox.getSelectedIndex()].mainWeapon.name);
         offHand.setText(Main.characters[characterBox.getSelectedIndex()].offHand.name);
@@ -749,4 +663,85 @@ public class StatUI
                 "<br>\nBuff: " + equipmentInformation[41] + " + " + equipmentInformation[42] +
                 "<br>\n Description: " + equipmentInformation[43] + "</html>");
     }
+
+    // ui variables
+    static JFrame frame = new JFrame("");
+    static int x = 600;
+    static int y = 400;
+    static int buttonH = 100;
+    static int buttonW = 300;
+    static int jLabelW = 150;
+    static int jLabelH = 20;
+
+    // combo box and button(s)
+    static JComboBox<String> characterBox;
+    static Button levelUpButton = new Button("Add XP");
+    static Button saveData = new Button("Save");
+    static Button loadData = new Button("Load");
+    static Button createNewCharacter = new Button("New Player");
+
+    // pulled stat
+    static JLabel name = new JLabel("");
+    static JLabel sex = new JLabel("");
+    static JLabel job = new JLabel("");
+    static JLabel level = new JLabel("");
+    static JLabel gold = new JLabel("");
+    static JLabel status = new JLabel("");
+    static JLabel hp = new JLabel("");
+    static JLabel str = new JLabel("");
+    static JLabel def = new JLabel("");
+    static JLabel con = new JLabel("");
+    static JLabel wis = new JLabel("");
+    static JLabel spd = new JLabel("");
+    static JLabel lck = new JLabel("");
+    static JLabel xp = new JLabel("");
+    static JLabel xpToNextLevel = new JLabel("");
+
+    // stat label
+    static JLabel nameL = new JLabel("NAME:");
+    static JLabel sexL = new JLabel("SEX:");
+    static JLabel jobL = new JLabel("JOB:");
+    static JLabel levelL = new JLabel("LEVEL:");
+    static JLabel goldL = new JLabel("GOLD:");
+    static JLabel statusL = new JLabel("STATUS:");
+    static JLabel hpL = new JLabel("HP:");
+    static JLabel strL = new JLabel("STR:");
+    static JLabel defL = new JLabel("DEF:");
+    static JLabel conL = new JLabel("CON:");
+    static JLabel wisL = new JLabel("WIS:");
+    static JLabel spdL = new JLabel("SPD:");
+    static JLabel lckL = new JLabel("LCK:");
+    static JLabel xpL = new JLabel("XP:");
+    static JLabel xpToNextLevelL = new JLabel("LvlUp:");
+
+    // equipment info array for mouse over data
+    static String[] equipmentInformation = new String[44];
+
+    // pulled armor
+    static JLabel mainWeapon = new JLabel("");
+    static JLabel offHand = new JLabel("");
+    static JLabel head = new JLabel("");
+    static JLabel neck = new JLabel("");
+    static JLabel chest = new JLabel("");
+    static JLabel hands = new JLabel("");
+    static JLabel ring = new JLabel("");
+    static JLabel belt = new JLabel("");
+    static JLabel legs = new JLabel("");
+    static JLabel feet = new JLabel("");
+    static JLabel back = new JLabel("");
+
+    // armor slot
+    static JLabel mainWeaponL = new JLabel("Main:");
+    static JLabel offHandL = new JLabel("Off Hand:");
+    static JLabel headL = new JLabel("Head:");
+    static JLabel neckL = new JLabel("Neck:");
+    static JLabel chestL = new JLabel("Chest:");
+    static JLabel handsL = new JLabel("Hands:");
+    static JLabel ringL = new JLabel("Ring:");
+    static JLabel beltL = new JLabel("Belt:");
+    static JLabel legsL = new JLabel("Legs:");
+    static JLabel feetL = new JLabel("Feet:");
+    static JLabel backL = new JLabel("Back:");
+
+    static boolean resetBox = false;
 }
