@@ -108,12 +108,12 @@ public class CreateUI
     {
         Player player = new Player(name, job, sex, equip);
 
-        for (int i = 0; i < Main.characters.length; i++)
+        for (int i = 0; i < Player.characters.length; i++)
         {
-            if (Main.characters[i] == null)
+            if (Player.characters[i] == null)
             {
-                Main.characters[i] = player;
-                Main.characters[i].gearEquipped();
+                Player.characters[i] = player;
+                Player.characters[i].gearEquipped();
                 break;
             }
         }

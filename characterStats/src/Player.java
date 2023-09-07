@@ -460,6 +460,12 @@ public class Player
     }
 
     // method that levels the player up
+    public static void levelUp(Player player)
+    {
+        player.checkLevelUp();
+    }
+
+    // method that checks if the player can level up
     void checkLevelUp()
     {
         // while loops that checks if the players current xp is enough to level up
@@ -966,6 +972,7 @@ public class Player
     boolean equipped = false;
 
     // creation arrays
+    public static Player[] characters = {null, null, null, null, null, null, null, null, null, null, null, null};
     static String[] jobs = {"defender", "fighter", "ranger", "mage", "thief", "vagrant"};
     static String[] sexes = {"male", "female", "unknown"};
     static String[] equipSets = {"Leather", "Iron", "Steel", "Silver", "Platinum", "Diamond"};

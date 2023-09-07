@@ -309,7 +309,7 @@ public class StatUI
         // create new character
         createNewCharacter.addActionListener(e ->
         {
-            if (Main.characters[Main.characters.length - 1] == null)
+            if (Player.characters[Player.characters.length - 1] == null)
             {
                 CreateUI.notAdded = true;
                 CreateUI.createPlayerUI();
@@ -326,7 +326,7 @@ public class StatUI
         {
             System.out.println("loading data");
 
-            for (int i = 0; i < Main.characters.length; i++)
+            for (int i = 0; i < Player.characters.length; i++)
             {
                 Save.loadStats(i);
             }
@@ -355,11 +355,11 @@ public class StatUI
             System.out.println("saving data");
 
             // for loop that calls the save stat method for each available character
-            for (int i = 0; i < Main.characters.length; i++)
+            for (int i = 0; i < Player.characters.length; i++)
             {
-                if (Main.characters[i] != null)
+                if (Player.characters[i] != null)
                 {
-                    Save.saveStats(Main.characters[i], i);
+                    Save.saveStats(Player.characters[i], i);
                 }
 
                 Save.saveAsJson();
@@ -370,29 +370,29 @@ public class StatUI
         levelUpButton.addActionListener(e ->
         {
             // adds the xp gain to the ui
-            Main.characters[characterBox.getSelectedIndex()].xp += 1;
+            Player.characters[characterBox.getSelectedIndex()].xp += 1;
 
             // checks if the player has enough xp to level up
-            Main.levelUp(Main.characters[characterBox.getSelectedIndex()]);
+            Player.levelUp(Player.characters[characterBox.getSelectedIndex()]);
 
             // if the player levels up, this updates the ui to reflect the changes
-            name.setText(Main.characters[characterBox.getSelectedIndex()].name);
-            sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
-            job.setText(Main.characters[characterBox.getSelectedIndex()].job);
-            level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
-            gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
-            status.setText(Main.characters[characterBox.getSelectedIndex()].status);
-            hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
-            str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
-            def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
-            con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
-            wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
-            spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
-            lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
-            xp.setText(String.valueOf(Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+            name.setText(Player.characters[characterBox.getSelectedIndex()].name);
+            sex.setText(Player.characters[characterBox.getSelectedIndex()].sex);
+            job.setText(Player.characters[characterBox.getSelectedIndex()].job);
+            level.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].level));
+            gold.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].gold));
+            status.setText(Player.characters[characterBox.getSelectedIndex()].status);
+            hp.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].hp));
+            str.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].str));
+            def.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].def));
+            con.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].con));
+            wis.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].wis));
+            spd.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].spd));
+            lck.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].lck));
+            xp.setText(String.valueOf(Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xp)));
 
             xpToNextLevel.setText(String.valueOf(
-                    Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
+                    Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xpToNextLevel)
             ));
         });
 
@@ -400,36 +400,36 @@ public class StatUI
         characterBox.addActionListener(e ->
         {
             // when a character is selected, this updates the stats and equipment
-            name.setText(Main.characters[characterBox.getSelectedIndex()].name);
-            sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
-            job.setText(Main.characters[characterBox.getSelectedIndex()].job);
-            level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
-            gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
-            status.setText(Main.characters[characterBox.getSelectedIndex()].status);
-            hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
-            str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
-            def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
-            con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
-            wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
-            spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
-            lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
-            xp.setText(String.valueOf(Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+            name.setText(Player.characters[characterBox.getSelectedIndex()].name);
+            sex.setText(Player.characters[characterBox.getSelectedIndex()].sex);
+            job.setText(Player.characters[characterBox.getSelectedIndex()].job);
+            level.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].level));
+            gold.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].gold));
+            status.setText(Player.characters[characterBox.getSelectedIndex()].status);
+            hp.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].hp));
+            str.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].str));
+            def.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].def));
+            con.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].con));
+            wis.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].wis));
+            spd.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].spd));
+            lck.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].lck));
+            xp.setText(String.valueOf(Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xp)));
 
             xpToNextLevel.setText(String.valueOf(
-                    Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xpToNextLevel)
+                    Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xpToNextLevel)
             ));
 
-            mainWeapon.setText(Main.characters[characterBox.getSelectedIndex()].mainWeapon.name);
-            offHand.setText(Main.characters[characterBox.getSelectedIndex()].offHand.name);
-            head.setText(Main.characters[characterBox.getSelectedIndex()].head.name);
-            neck.setText(Main.characters[characterBox.getSelectedIndex()].neck.name);
-            chest.setText(Main.characters[characterBox.getSelectedIndex()].chest.name);
-            hands.setText(Main.characters[characterBox.getSelectedIndex()].hands.name);
-            ring.setText(Main.characters[characterBox.getSelectedIndex()].ring.name);
-            belt.setText(Main.characters[characterBox.getSelectedIndex()].belt.name);
-            legs.setText(Main.characters[characterBox.getSelectedIndex()].legs.name);
-            feet.setText(Main.characters[characterBox.getSelectedIndex()].feet.name);
-            back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
+            mainWeapon.setText(Player.characters[characterBox.getSelectedIndex()].mainWeapon.name);
+            offHand.setText(Player.characters[characterBox.getSelectedIndex()].offHand.name);
+            head.setText(Player.characters[characterBox.getSelectedIndex()].head.name);
+            neck.setText(Player.characters[characterBox.getSelectedIndex()].neck.name);
+            chest.setText(Player.characters[characterBox.getSelectedIndex()].chest.name);
+            hands.setText(Player.characters[characterBox.getSelectedIndex()].hands.name);
+            ring.setText(Player.characters[characterBox.getSelectedIndex()].ring.name);
+            belt.setText(Player.characters[characterBox.getSelectedIndex()].belt.name);
+            legs.setText(Player.characters[characterBox.getSelectedIndex()].legs.name);
+            feet.setText(Player.characters[characterBox.getSelectedIndex()].feet.name);
+            back.setText(Player.characters[characterBox.getSelectedIndex()].back.name);
 
             // calls the method
             getEquipInfo();
@@ -439,53 +439,53 @@ public class StatUI
     // adds character names to the combo-box from the character array in Main
     static void fillComboBox()
     {
-        if (Main.characters[0] != null)
+        if (Player.characters[0] != null)
         {
-            characterBox.addItem(Main.characters[0].name);
+            characterBox.addItem(Player.characters[0].name);
         }
-        if (Main.characters[1] != null)
+        if (Player.characters[1] != null)
         {
-            characterBox.addItem(Main.characters[1].name);
+            characterBox.addItem(Player.characters[1].name);
         }
-        if (Main.characters[2] != null)
+        if (Player.characters[2] != null)
         {
-            characterBox.addItem(Main.characters[2].name);
+            characterBox.addItem(Player.characters[2].name);
         }
-        if (Main.characters[3] != null)
+        if (Player.characters[3] != null)
         {
-            characterBox.addItem(Main.characters[3].name);
+            characterBox.addItem(Player.characters[3].name);
         }
-        if (Main.characters[4] != null)
+        if (Player.characters[4] != null)
         {
-            characterBox.addItem(Main.characters[4].name);
+            characterBox.addItem(Player.characters[4].name);
         }
-        if (Main.characters[5] != null)
+        if (Player.characters[5] != null)
         {
-            characterBox.addItem(Main.characters[5].name);
+            characterBox.addItem(Player.characters[5].name);
         }
-        if (Main.characters[6] != null)
+        if (Player.characters[6] != null)
         {
-            characterBox.addItem(Main.characters[6].name);
+            characterBox.addItem(Player.characters[6].name);
         }
-        if (Main.characters[7] != null)
+        if (Player.characters[7] != null)
         {
-            characterBox.addItem(Main.characters[7].name);
+            characterBox.addItem(Player.characters[7].name);
         }
-        if (Main.characters[8] != null)
+        if (Player.characters[8] != null)
         {
-            characterBox.addItem(Main.characters[8].name);
+            characterBox.addItem(Player.characters[8].name);
         }
-        if (Main.characters[9] != null)
+        if (Player.characters[9] != null)
         {
-            characterBox.addItem(Main.characters[9].name);
+            characterBox.addItem(Player.characters[9].name);
         }
-        if (Main.characters[10] != null)
+        if (Player.characters[10] != null)
         {
-            characterBox.addItem(Main.characters[10].name);
+            characterBox.addItem(Player.characters[10].name);
         }
-        if (Main.characters[11] != null)
+        if (Player.characters[11] != null)
         {
-            characterBox.addItem(Main.characters[11].name);
+            characterBox.addItem(Player.characters[11].name);
         }
     }
 
@@ -493,102 +493,102 @@ public class StatUI
     static void fillUI()
     {
         // updates ui data accordingly
-        name.setText(Main.characters[characterBox.getSelectedIndex()].name);
-        sex.setText(Main.characters[characterBox.getSelectedIndex()].sex);
-        job.setText(Main.characters[characterBox.getSelectedIndex()].job);
-        level.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].level));
-        gold.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].gold));
-        status.setText(Main.characters[characterBox.getSelectedIndex()].status);
-        hp.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].hp));
-        str.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].str));
-        def.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].def));
-        con.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].con));
-        wis.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].wis));
-        spd.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].spd));
-        lck.setText(String.valueOf(Main.characters[characterBox.getSelectedIndex()].lck));
-        xp.setText(String.valueOf(Variables.df.format(Main.characters[characterBox.getSelectedIndex()].xp)));
+        name.setText(Player.characters[characterBox.getSelectedIndex()].name);
+        sex.setText(Player.characters[characterBox.getSelectedIndex()].sex);
+        job.setText(Player.characters[characterBox.getSelectedIndex()].job);
+        level.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].level));
+        gold.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].gold));
+        status.setText(Player.characters[characterBox.getSelectedIndex()].status);
+        hp.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].hp));
+        str.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].str));
+        def.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].def));
+        con.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].con));
+        wis.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].wis));
+        spd.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].spd));
+        lck.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].lck));
+        xp.setText(String.valueOf(Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xp)));
 
-        mainWeapon.setText(Main.characters[characterBox.getSelectedIndex()].mainWeapon.name);
-        offHand.setText(Main.characters[characterBox.getSelectedIndex()].offHand.name);
-        head.setText(Main.characters[characterBox.getSelectedIndex()].head.name);
-        neck.setText(Main.characters[characterBox.getSelectedIndex()].neck.name);
-        chest.setText(Main.characters[characterBox.getSelectedIndex()].chest.name);
-        hands.setText(Main.characters[characterBox.getSelectedIndex()].hands.name);
-        ring.setText(Main.characters[characterBox.getSelectedIndex()].ring.name);
-        belt.setText(Main.characters[characterBox.getSelectedIndex()].belt.name);
-        legs.setText(Main.characters[characterBox.getSelectedIndex()].legs.name);
-        feet.setText(Main.characters[characterBox.getSelectedIndex()].feet.name);
-        back.setText(Main.characters[characterBox.getSelectedIndex()].back.name);
+        mainWeapon.setText(Player.characters[characterBox.getSelectedIndex()].mainWeapon.name);
+        offHand.setText(Player.characters[characterBox.getSelectedIndex()].offHand.name);
+        head.setText(Player.characters[characterBox.getSelectedIndex()].head.name);
+        neck.setText(Player.characters[characterBox.getSelectedIndex()].neck.name);
+        chest.setText(Player.characters[characterBox.getSelectedIndex()].chest.name);
+        hands.setText(Player.characters[characterBox.getSelectedIndex()].hands.name);
+        ring.setText(Player.characters[characterBox.getSelectedIndex()].ring.name);
+        belt.setText(Player.characters[characterBox.getSelectedIndex()].belt.name);
+        legs.setText(Player.characters[characterBox.getSelectedIndex()].legs.name);
+        feet.setText(Player.characters[characterBox.getSelectedIndex()].feet.name);
+        back.setText(Player.characters[characterBox.getSelectedIndex()].back.name);
     }
 
     // gets the equipment information for the currently selected character
     static void getEquipInfo()
     {
         // weapon
-        equipmentInformation[0] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].mainWeapon.cost);
-        equipmentInformation[1] = Main.characters[characterBox.getSelectedIndex()].mainWeapon.buff;
-        equipmentInformation[2] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].mainWeapon.buffAmount);
-        equipmentInformation[3] = Main.characters[characterBox.getSelectedIndex()].mainWeapon.description;
+        equipmentInformation[0] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].mainWeapon.cost);
+        equipmentInformation[1] = Player.characters[characterBox.getSelectedIndex()].mainWeapon.buff;
+        equipmentInformation[2] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].mainWeapon.buffAmount);
+        equipmentInformation[3] = Player.characters[characterBox.getSelectedIndex()].mainWeapon.description;
 
         // offhand
-        equipmentInformation[4] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].offHand.cost);
-        equipmentInformation[5] = Main.characters[characterBox.getSelectedIndex()].offHand.buff;
-        equipmentInformation[6] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].offHand.buffAmount);
-        equipmentInformation[7] = Main.characters[characterBox.getSelectedIndex()].offHand.description;
+        equipmentInformation[4] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].offHand.cost);
+        equipmentInformation[5] = Player.characters[characterBox.getSelectedIndex()].offHand.buff;
+        equipmentInformation[6] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].offHand.buffAmount);
+        equipmentInformation[7] = Player.characters[characterBox.getSelectedIndex()].offHand.description;
 
         // head
-        equipmentInformation[8] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].head.cost);
-        equipmentInformation[9] = Main.characters[characterBox.getSelectedIndex()].head.buff;
-        equipmentInformation[10] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].head.buffAmount);
-        equipmentInformation[11] = Main.characters[characterBox.getSelectedIndex()].head.description;
+        equipmentInformation[8] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].head.cost);
+        equipmentInformation[9] = Player.characters[characterBox.getSelectedIndex()].head.buff;
+        equipmentInformation[10] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].head.buffAmount);
+        equipmentInformation[11] = Player.characters[characterBox.getSelectedIndex()].head.description;
 
         // neck
-        equipmentInformation[12] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].neck.cost);
-        equipmentInformation[13] = Main.characters[characterBox.getSelectedIndex()].neck.buff;
-        equipmentInformation[14] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].neck.buffAmount);
-        equipmentInformation[15] = Main.characters[characterBox.getSelectedIndex()].neck.description;
+        equipmentInformation[12] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].neck.cost);
+        equipmentInformation[13] = Player.characters[characterBox.getSelectedIndex()].neck.buff;
+        equipmentInformation[14] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].neck.buffAmount);
+        equipmentInformation[15] = Player.characters[characterBox.getSelectedIndex()].neck.description;
 
         // chest
-        equipmentInformation[16] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].chest.cost);
-        equipmentInformation[17] = Main.characters[characterBox.getSelectedIndex()].chest.buff;
-        equipmentInformation[18] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].chest.buffAmount);
-        equipmentInformation[19] = Main.characters[characterBox.getSelectedIndex()].chest.description;
+        equipmentInformation[16] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].chest.cost);
+        equipmentInformation[17] = Player.characters[characterBox.getSelectedIndex()].chest.buff;
+        equipmentInformation[18] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].chest.buffAmount);
+        equipmentInformation[19] = Player.characters[characterBox.getSelectedIndex()].chest.description;
 
         // hands
-        equipmentInformation[20] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].hands.cost);
-        equipmentInformation[21] = Main.characters[characterBox.getSelectedIndex()].hands.buff;
-        equipmentInformation[22] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].hands.buffAmount);
-        equipmentInformation[23] = Main.characters[characterBox.getSelectedIndex()].hands.description;
+        equipmentInformation[20] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].hands.cost);
+        equipmentInformation[21] = Player.characters[characterBox.getSelectedIndex()].hands.buff;
+        equipmentInformation[22] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].hands.buffAmount);
+        equipmentInformation[23] = Player.characters[characterBox.getSelectedIndex()].hands.description;
 
         // ring
-        equipmentInformation[24] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].ring.cost);
-        equipmentInformation[25] = Main.characters[characterBox.getSelectedIndex()].ring.buff;
-        equipmentInformation[26] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].ring.buffAmount);
-        equipmentInformation[27] = Main.characters[characterBox.getSelectedIndex()].ring.description;
+        equipmentInformation[24] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].ring.cost);
+        equipmentInformation[25] = Player.characters[characterBox.getSelectedIndex()].ring.buff;
+        equipmentInformation[26] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].ring.buffAmount);
+        equipmentInformation[27] = Player.characters[characterBox.getSelectedIndex()].ring.description;
 
         // belt
-        equipmentInformation[28] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].belt.cost);
-        equipmentInformation[29] = Main.characters[characterBox.getSelectedIndex()].belt.buff;
-        equipmentInformation[30] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].belt.buffAmount);
-        equipmentInformation[31] = Main.characters[characterBox.getSelectedIndex()].belt.description;
+        equipmentInformation[28] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].belt.cost);
+        equipmentInformation[29] = Player.characters[characterBox.getSelectedIndex()].belt.buff;
+        equipmentInformation[30] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].belt.buffAmount);
+        equipmentInformation[31] = Player.characters[characterBox.getSelectedIndex()].belt.description;
 
         // legs
-        equipmentInformation[32] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].legs.cost);
-        equipmentInformation[33] = Main.characters[characterBox.getSelectedIndex()].legs.buff;
-        equipmentInformation[34] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].legs.buffAmount);
-        equipmentInformation[35] = Main.characters[characterBox.getSelectedIndex()].legs.description;
+        equipmentInformation[32] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].legs.cost);
+        equipmentInformation[33] = Player.characters[characterBox.getSelectedIndex()].legs.buff;
+        equipmentInformation[34] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].legs.buffAmount);
+        equipmentInformation[35] = Player.characters[characterBox.getSelectedIndex()].legs.description;
 
         // feet
-        equipmentInformation[36] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].feet.cost);
-        equipmentInformation[37] = Main.characters[characterBox.getSelectedIndex()].feet.buff;
-        equipmentInformation[38] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].feet.buffAmount);
-        equipmentInformation[39] = Main.characters[characterBox.getSelectedIndex()].feet.description;
+        equipmentInformation[36] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].feet.cost);
+        equipmentInformation[37] = Player.characters[characterBox.getSelectedIndex()].feet.buff;
+        equipmentInformation[38] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].feet.buffAmount);
+        equipmentInformation[39] = Player.characters[characterBox.getSelectedIndex()].feet.description;
 
         // back
-        equipmentInformation[40] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].back.cost);
-        equipmentInformation[41] = Main.characters[characterBox.getSelectedIndex()].back.buff;
-        equipmentInformation[42] = Integer.toString(Main.characters[characterBox.getSelectedIndex()].back.buffAmount);
-        equipmentInformation[43] = Main.characters[characterBox.getSelectedIndex()].back.description;
+        equipmentInformation[40] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].back.cost);
+        equipmentInformation[41] = Player.characters[characterBox.getSelectedIndex()].back.buff;
+        equipmentInformation[42] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].back.buffAmount);
+        equipmentInformation[43] = Player.characters[characterBox.getSelectedIndex()].back.description;
 
         // calls the method
         setEquipInfo();

@@ -121,15 +121,15 @@ public class Equipment
     // adds gear buffs to characters
     static void equipGear()
     {
-        for (int i = 0; i < Main.characters.length; i++)
+        for (int i = 0; i < Player.characters.length; i++)
         {
             // "equips" the gear for characters so that their stats reflect the buff provided
-            if (Main.characters[i] != null)
+            if (Player.characters[i] != null)
             {
                 // checks if the boolean flag "equipped" is true
-                if (!Main.characters[i].equipped)
+                if (!Player.characters[i].equipped)
                 {
-                    Main.characters[i].gearEquipped();
+                    Player.characters[i].gearEquipped();
                 }
             }
         }

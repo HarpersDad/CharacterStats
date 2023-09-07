@@ -149,12 +149,12 @@ public class Save
             player.equipped = eqp;
 
             // place the character in the character array using the position that was passed to the method
-            Main.characters[position] = player;
+            Player.characters[position] = player;
 
             // if the player has not equipped their gear, make them do so
             if (eqp == false)
             {
-                Main.characters[position].gearEquipped();
+                Player.characters[position].gearEquipped();
             }
 
             // re enable the character combobox
