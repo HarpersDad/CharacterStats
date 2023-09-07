@@ -133,6 +133,10 @@ public class Save
             // re-create the player using the saved data
             Player player = new Player(name, job, sex, equip);
 
+            // sets player job and equipment on load
+            Jobs.assignJob(player);
+            Equipment.setEquipment(player);
+
             // set the player stats using the saved data
             player.MaxHP = MaxHP;
             player.xp = xp;

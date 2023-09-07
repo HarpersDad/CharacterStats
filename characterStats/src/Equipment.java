@@ -30,6 +30,91 @@ public class Equipment
         this.maxItemCount = 99;
     }
 
+    static void setEquipment(Player player)
+    {
+        // switch case that checks the type of equipment that the player has and sets it
+        switch (player.equipmentType)
+        {
+            case "Leather"
+                    -> {
+                player.head = Equipment.leatherHat;
+                player.neck = Equipment.leatherGaiter;
+                player.chest = Equipment.leatherChest;
+                player.hands = Equipment.leatherGloves;
+                player.ring = Equipment.brassRing;
+                player.belt = Equipment.leatherBelt;
+                player.legs = Equipment.leatherPants;
+                player.feet = Equipment.leatherBoots;
+                player.back = Equipment.leatherCape;
+            }
+
+            case "Iron"
+                    -> {
+                player.head = Equipment.ironHat;
+                player.neck = Equipment.ironGaiter;
+                player.chest = Equipment.ironChest;
+                player.hands = Equipment.ironGloves;
+                player.ring = Equipment.ironRing;
+                player.belt = Equipment.ironBelt;
+                player.legs = Equipment.ironPants;
+                player.feet = Equipment.ironBoots;
+                player.back = Equipment.ironCape;
+            }
+
+            case "Steel"
+                    -> {
+                player.head = Equipment.steelHat;
+                player.neck = Equipment.steelGaiter;
+                player.chest = Equipment.steelChest;
+                player.hands = Equipment.steelGloves;
+                player.ring = Equipment.steelRing;
+                player.belt = Equipment.steelBelt;
+                player.legs = Equipment.steelPants;
+                player.feet = Equipment.steelBoots;
+                player.back = Equipment.steelCape;
+            }
+
+            case "Silver"
+                    -> {
+                player.head = Equipment.silverHat;
+                player.neck = Equipment.silverGaiter;
+                player.chest = Equipment.silverChest;
+                player.hands = Equipment.silverGloves;
+                player.ring = Equipment.silverRing;
+                player.belt = Equipment.silverBelt;
+                player.legs = Equipment.silverPants;
+                player.feet = Equipment.silverBoots;
+                player.back = Equipment.silverCape;
+            }
+
+            case "Platinum"
+                    -> {
+                player.head = Equipment.platinumHat;
+                player.neck = Equipment.platinumGaiter;
+                player.chest = Equipment.platinumChest;
+                player.hands = Equipment.platinumGloves;
+                player.ring = Equipment.platinumRing;
+                player.belt = Equipment.platinumBelt;
+                player.legs = Equipment.platinumPants;
+                player.feet = Equipment.platinumBoots;
+                player.back = Equipment.platinumCape;
+            }
+
+            case "Diamond"
+                    -> {
+                player.head = Equipment.diamondHat;
+                player.neck = Equipment.diamondGaiter;
+                player.chest = Equipment.diamondChest;
+                player.hands = Equipment.diamondGloves;
+                player.ring = Equipment.diamondRing;
+                player.belt = Equipment.diamondBelt;
+                player.legs = Equipment.diamondPants;
+                player.feet = Equipment.diamondBoots;
+                player.back = Equipment.diamondCape;
+            }
+        }
+    }
+
     // enchants equipment with beneficial or detrimental effects
     void enchantEquipment(Equipment equip, String buffType, int buffAmount)
     {

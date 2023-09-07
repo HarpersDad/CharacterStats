@@ -419,6 +419,10 @@ public class StatUI
                     Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xpToNextLevel)
             ));
 
+            // sets player job and equipment on creation
+            Jobs.assignJob(Player.characters[characterBox.getSelectedIndex()]);
+            Equipment.setEquipment(Player.characters[characterBox.getSelectedIndex()]);
+
             mainWeapon.setText(Player.characters[characterBox.getSelectedIndex()].mainWeapon.name);
             offHand.setText(Player.characters[characterBox.getSelectedIndex()].offHand.name);
             head.setText(Player.characters[characterBox.getSelectedIndex()].head.name);
