@@ -32,6 +32,7 @@ Equipment Description<br>
 - enchantment system.<br>
 - status afflictions.<br>
 - damage multiplier system.<br>
+- character abilities.<br>
 
 <h2>Recently Added</h2>
 
