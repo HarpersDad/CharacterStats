@@ -10,7 +10,7 @@ Equipment Description<br>
 
 <h2>About</h2>
 
-- A character and enemy stats program I created just to see how this type of system works.<br>
+- A character stats program I created just to see how this type of system works.<br>
 - If someone needs to use this, feel free to do so.<br>
 
 <h2>Features</h2>
