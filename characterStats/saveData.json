@@ -1,1 +1,5 @@
-{"0":{"wis":2,"con":3,"def":3,"eqp":true,"level":1,"MaxHP":20,"spd":1,"sex":"male","hp":20,"xpToNextLevel":0.0,"str":2,"lck":1,"name":"Dude","xp":0.0,"job":"defender","gear":"Leather","status":"Normal"},"1":{"wis":3,"con":3,"def":2,"eqp":true,"level":1,"MaxHP":0,"spd":2,"sex":"female","hp":6,"xpToNextLevel":0.0,"str":1,"lck":1,"name":"b","xp":0.0,"job":"mage","gear":"Diamond","status":"Normal"},"2":{"wis":2,"con":3,"def":1,"eqp":true,"level":1,"MaxHP":0,"spd":3,"sex":"male","hp":8,"xpToNextLevel":0.0,"str":1,"lck":2,"name":"g","xp":0.0,"job":"thief","gear":"Platinum","status":"Normal"},"3":null,"4":null,"5":null,"6":null,"7":null,"8":null,"9":null,"10":null,"11":null}
+{
+  "0":{"wis":2,"con":3,"def":3,"eqp":true,"level":1,"MaxHP":20,"spd":1,"sex":"male","hp":20,"xpToNextLevel":0.0,"str":2,"lck":1,"name":"Dude","xp":0.0,"job":"defender","gear":"Leather","status":"Normal"},
+  "1":{"wis":2,"con":3,"def":1,"eqp":true,"level":1,"MaxHP":0,"spd":3,"sex":"male","hp":8,"xpToNextLevel":0.0,"str":1,"lck":2,"name":"g","xp":0.0,"job":"thief","gear":"Platinum","status":"Normal"},
+  "2":{"wis":1,"con":1,"def":2,"eqp":true,"level":1,"MaxHP":0,"spd":3,"sex":"male","hp":13,"xpToNextLevel":0.0,"str":3,"lck":2,"name":"h","xp":0.0,"job":"fighter","gear":"Steel","status":"Normal"},
+  "3":null,"4":null,"5":null,"6":null,"7":null,"8":null,"9":null,"10":null,"11":null}

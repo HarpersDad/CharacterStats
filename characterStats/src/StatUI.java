@@ -24,7 +24,7 @@ public class StatUI
 
         // set bounds for buttons and combo boxes
         characterBox.setBounds((x/4) - buttonW/4 + 5, (y/4) - (80), 80, 20);
-        levelUpButton.setBounds((x/4) - buttonW/3 + 30, (y/4) + 225, 160,25);
+        levelUpButton.setBounds(x/4 - 80, (y/4) + 225, 160,25);
         saveData.setBounds((x/4) - buttonW/3 + 5, (y/4) - 25, 80,25);
         loadData.setBounds((x/4) - buttonW/3 + 5, (y/4) + 10, 80,25);
         createNewCharacter.setBounds((x/4) - buttonW/3 + 120, (y/4) - (25), 80,25);
@@ -387,6 +387,8 @@ public class StatUI
             saveData.setEnabled(true);
             levelUpButton.setEnabled(true);
             deleteCharacter.setEnabled(true);
+            createNewCharacter.setEnabled(true);
+            loadData.setEnabled(false);
         });
 
         // save character data

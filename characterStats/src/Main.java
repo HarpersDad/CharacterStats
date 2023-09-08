@@ -21,6 +21,7 @@ public class Main
         if(f.exists())
         {
             StatUI.loadData.setEnabled(true);
+            StatUI.createNewCharacter.setEnabled(false);
         }
         else {
             StatUI.loadData.setEnabled(false);
