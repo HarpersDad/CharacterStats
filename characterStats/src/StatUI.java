@@ -386,6 +386,7 @@ public class StatUI
 
             saveData.setEnabled(true);
             levelUpButton.setEnabled(true);
+            deleteCharacter.setEnabled(true);
         });
 
         // save character data

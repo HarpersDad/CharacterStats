@@ -97,6 +97,7 @@ public class CreateUI
                 create.setEnabled(false);
                 StatUI.saveData.setEnabled(true);
                 StatUI.levelUpButton.setEnabled(true);
+                StatUI.deleteCharacter.setEnabled(true);
             }
         });
 

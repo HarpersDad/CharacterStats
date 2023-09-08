@@ -15,6 +15,8 @@ public class Main
         // creates and sets items
         Variables.createItems();
 
+        StatUI.deleteCharacter.setEnabled(false);
+
         File f = new File("saveData.json");
         if(f.exists())
         {
