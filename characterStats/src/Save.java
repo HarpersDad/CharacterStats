@@ -93,7 +93,7 @@ public class Save
         }
 
         // sets the main json and depending on the position the inner json being read
-        JSONObject outerJO = (JSONObject) ob;
+        outerJO = (JSONObject) ob;
 
         // if there is data at the selected postion
         if ((JSONObject) outerJO.get(Integer.toString(position)) != null)
@@ -209,6 +209,11 @@ public class Save
         }
     }
 
+    void saveDeletion()
+    {
+
+    }
+
     // variables that create objects, readers, writers, and files for the data
     static JSONObject obj;
     static JSONObject obj2;
@@ -218,6 +223,6 @@ public class Save
     // array of objects that correspond to each character saved
     static JSONObject[] jsonArray = new JSONObject[12];
 
-    // absolutely nothing here
-    Save(){}
+    // Json Object
+    static JSONObject outerJO;
 }

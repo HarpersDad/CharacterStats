@@ -1,3 +1,5 @@
+import java.io.File;
+
 // main class that creates the players and enemy units
 public class Main
 {
@@ -12,6 +14,15 @@ public class Main
 
         // creates and sets items
         Variables.createItems();
+
+        File f = new File("saveData.json");
+        if(f.exists())
+        {
+            StatUI.loadData.setEnabled(true);
+        }
+        else {
+            StatUI.loadData.setEnabled(false);
+        }
 
         // runs the main ui
         StatUI.newUI();

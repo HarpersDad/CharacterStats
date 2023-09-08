@@ -1,5 +1,12 @@
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class StatUI
 {
@@ -17,12 +24,13 @@ public class StatUI
 
         // set bounds for buttons and combo boxes
         characterBox.setBounds((x/4) - buttonW/4 + 5, (y/4) - (80), 80, 20);
-        levelUpButton.setBounds((x/4) - buttonW/3 + 5, (y/4) - (25), 80,25);
-        saveData.setBounds((x/4) - buttonW/3 + 5, (y/4) + 10, 80,25);
-        loadData.setBounds((x/4) - buttonW/3 + 120, (y/4) + 10, 80,25);
+        levelUpButton.setBounds((x/4) - buttonW/3 + 30, (y/4) + 225, 160,25);
+        saveData.setBounds((x/4) - buttonW/3 + 5, (y/4) - 25, 80,25);
+        loadData.setBounds((x/4) - buttonW/3 + 5, (y/4) + 10, 80,25);
         createNewCharacter.setBounds((x/4) - buttonW/3 + 120, (y/4) - (25), 80,25);
+        deleteCharacter.setBounds((x/4) - buttonW/3 + 120, (y/4) + 10, 80,25);
 
-        // actual attributes
+        // character data block
         sex.setFont(new Font("Arial", Font.PLAIN, 12));
         sex.setBounds((x/4) + 75, (y/4) - (100), buttonW, buttonH);
         sex.setForeground(Color.white);
@@ -35,96 +43,97 @@ public class StatUI
         level.setBounds((x/4) - buttonW/4 + 35, (y/4) - (100), buttonW, buttonH);
         level.setForeground(Color.white);
 
+        // character attributes
         gold.setFont(new Font("Arial", Font.PLAIN, 12));
-        gold.setBounds((x/4) - buttonW/4, (y/4) + (25), buttonW, buttonH);
+        gold.setBounds((x/4) - buttonW/4, (y/4) + (10), buttonW, buttonH);
         gold.setForeground(Color.white);
 
         status.setFont(new Font("Arial", Font.PLAIN, 12));
-        status.setBounds((x/4) - buttonW/4, (y/4) + (40), buttonW, buttonH);
+        status.setBounds((x/4) - buttonW/4, (y/4) + (25), buttonW, buttonH);
         status.setForeground(Color.white);
 
         hp.setFont(new Font("Arial", Font.PLAIN, 12));
-        hp.setBounds((x/4) - buttonW/4, (y/4) + (55), buttonW, buttonH);
+        hp.setBounds((x/4) - buttonW/4, (y/4) + (40), buttonW, buttonH);
         hp.setForeground(Color.white);
 
         str.setFont(new Font("Arial", Font.PLAIN, 12));
-        str.setBounds((x/4) - buttonW/4, (y/4) + (70), buttonW, buttonH);
+        str.setBounds((x/4) - buttonW/4, (y/4) + (55), buttonW, buttonH);
         str.setForeground(Color.white);
 
         def.setFont(new Font("Arial", Font.PLAIN, 12));
-        def.setBounds((x/4) - buttonW/4, (y/4) + (85), buttonW, buttonH);
+        def.setBounds((x/4) - buttonW/4, (y/4) + (70), buttonW, buttonH);
         def.setForeground(Color.white);
 
         con.setFont(new Font("Arial", Font.PLAIN, 12));
-        con.setBounds((x/4) - buttonW/4, (y/4) + (100), buttonW, buttonH);
+        con.setBounds((x/4) - buttonW/4, (y/4) + (85), buttonW, buttonH);
         con.setForeground(Color.white);
 
         wis.setFont(new Font("Arial", Font.PLAIN, 12));
-        wis.setBounds((x/4) - buttonW/4, (y/4) + (115), buttonW, buttonH);
+        wis.setBounds((x/4) - buttonW/4, (y/4) + (100), buttonW, buttonH);
         wis.setForeground(Color.white);
 
         spd.setFont(new Font("Arial", Font.PLAIN, 12));
-        spd.setBounds((x/4) - buttonW/4, (y/4) + (130), buttonW, buttonH);
+        spd.setBounds((x/4) - buttonW/4, (y/4) + (115), buttonW, buttonH);
         spd.setForeground(Color.white);
 
         lck.setFont(new Font("Arial", Font.PLAIN, 12));
-        lck.setBounds((x/4) - buttonW/4, (y/4) + (145), buttonW, buttonH);
+        lck.setBounds((x/4) - buttonW/4, (y/4) + (130), buttonW, buttonH);
         lck.setForeground(Color.white);
 
         xp.setFont(new Font("Arial", Font.PLAIN, 12));
-        xp.setBounds((x/4) - buttonW/4, (y/4) + (160), buttonW, buttonH);
+        xp.setBounds((x/4) - buttonW/4, (y/4) + (145), buttonW, buttonH);
         xp.setForeground(Color.white);
 
         xpToNextLevel.setFont(new Font("Arial", Font.PLAIN, 12));
-        xpToNextLevel.setBounds((x/4) - buttonW/4, (y/4) + (175), buttonW, buttonH);
+        xpToNextLevel.setBounds((x/4) - buttonW/4, (y/4) + (160), buttonW, buttonH);
         xpToNextLevel.setForeground(Color.white);
 
         // equipment
         mainWeapon.setFont(new Font("Arial", Font.PLAIN, 12));
-        mainWeapon.setBounds((x/2) - buttonW/4 - 20, (y/4) + (65), jLabelW, jLabelH);
+        mainWeapon.setBounds((x/2) - buttonW/4 - 20, (y/4) + (50), jLabelW, jLabelH);
         mainWeapon.setForeground(Color.white);
 
         offHand.setFont(new Font("Arial", Font.PLAIN, 12));
-        offHand.setBounds((x/2) - buttonW/4 - 20, (y/4) + (80), jLabelW, jLabelH);
+        offHand.setBounds((x/2) - buttonW/4 - 20, (y/4) + (65), jLabelW, jLabelH);
         offHand.setForeground(Color.white);
 
         head.setFont(new Font("Arial", Font.PLAIN, 12));
-        head.setBounds((x/2) - buttonW/4 - 20, (y/4) + (95), jLabelW, jLabelH);
+        head.setBounds((x/2) - buttonW/4 - 20, (y/4) + (80), jLabelW, jLabelH);
         head.setForeground(Color.white);
 
         neck.setFont(new Font("Arial", Font.PLAIN, 12));
-        neck.setBounds((x/2) - buttonW/4 - 20, (y/4) + (110), jLabelW, jLabelH);
+        neck.setBounds((x/2) - buttonW/4 - 20, (y/4) + (95), jLabelW, jLabelH);
         neck.setForeground(Color.white);
 
         chest.setFont(new Font("Arial", Font.PLAIN, 12));
-        chest.setBounds((x/2) - buttonW/4 - 20, (y/4) + (125), jLabelW, jLabelH);
+        chest.setBounds((x/2) - buttonW/4 - 20, (y/4) + (110), jLabelW, jLabelH);
         chest.setForeground(Color.white);
 
         hands.setFont(new Font("Arial", Font.PLAIN, 12));
-        hands.setBounds((x/2) - buttonW/4 - 20, (y/4) + (140), jLabelW, jLabelH);
+        hands.setBounds((x/2) - buttonW/4 - 20, (y/4) + (125), jLabelW, jLabelH);
         hands.setForeground(Color.white);
 
         ring.setFont(new Font("Arial", Font.PLAIN, 12));
-        ring.setBounds((x/2) - buttonW/4 - 20, (y/4) + (155), jLabelW, jLabelH);
+        ring.setBounds((x/2) - buttonW/4 - 20, (y/4) + (140), jLabelW, jLabelH);
         ring.setForeground(Color.white);
 
         belt.setFont(new Font("Arial", Font.PLAIN, 12));
-        belt.setBounds((x/2) - buttonW/4 - 20, (y/4) + (170), jLabelW, jLabelH);
+        belt.setBounds((x/2) - buttonW/4 - 20, (y/4) + (155), jLabelW, jLabelH);
         belt.setForeground(Color.white);
 
         legs.setFont(new Font("Arial", Font.PLAIN, 12));
-        legs.setBounds((x/2) - buttonW/4 - 20, (y/4) + (185), jLabelW, jLabelH);
+        legs.setBounds((x/2) - buttonW/4 - 20, (y/4) + (170), jLabelW, jLabelH);
         legs.setForeground(Color.white);
 
         feet.setFont(new Font("Arial", Font.PLAIN, 12));
-        feet.setBounds((x/2) - buttonW/4 - 20, (y/4) + (200), jLabelW, jLabelH);
+        feet.setBounds((x/2) - buttonW/4 - 20, (y/4) + (185), jLabelW, jLabelH);
         feet.setForeground(Color.white);
 
         back.setFont(new Font("Arial", Font.PLAIN, 12));
-        back.setBounds((x/2) - buttonW/4 - 20, (y/4) + (215), jLabelW, jLabelH);
+        back.setBounds((x/2) - buttonW/4 - 20, (y/4) + (200), jLabelW, jLabelH);
         back.setForeground(Color.white);
 
-        // labels
+        // top block labels
         nameL.setFont(new Font("Arial", Font.PLAIN, 12));
         nameL.setBounds((x/4) - buttonW/3 - 15, (y/4) - (120), buttonW, buttonH);
         nameL.setForeground(Color.white);
@@ -141,96 +150,98 @@ public class StatUI
         levelL.setBounds((x/4) - buttonW/3 - 15, (y/4) - (100), buttonW, buttonH);
         levelL.setForeground(Color.white);
 
+        // lower block labels
         goldL.setFont(new Font("Arial", Font.PLAIN, 12));
-        goldL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (25), buttonW, buttonH);
+        goldL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (10), buttonW, buttonH);
         goldL.setForeground(Color.white);
 
         statusL.setFont(new Font("Arial", Font.PLAIN, 12));
-        statusL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (40), buttonW, buttonH);
+        statusL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (25), buttonW, buttonH);
         statusL.setForeground(Color.white);
 
         hpL.setFont(new Font("Arial", Font.PLAIN, 12));
-        hpL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (55), buttonW, buttonH);
+        hpL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (40), buttonW, buttonH);
         hpL.setForeground(Color.white);
 
         strL.setFont(new Font("Arial", Font.PLAIN, 12));
-        strL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (70), buttonW, buttonH);
+        strL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (55), buttonW, buttonH);
         strL.setForeground(Color.white);
 
         defL.setFont(new Font("Arial", Font.PLAIN, 12));
-        defL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (85), buttonW, buttonH);
+        defL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (70), buttonW, buttonH);
         defL.setForeground(Color.white);
 
         conL.setFont(new Font("Arial", Font.PLAIN, 12));
-        conL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (100), buttonW, buttonH);
+        conL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (85), buttonW, buttonH);
         conL.setForeground(Color.white);
 
         wisL.setFont(new Font("Arial", Font.PLAIN, 12));
-        wisL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (115), buttonW, buttonH);
+        wisL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (100), buttonW, buttonH);
         wisL.setForeground(Color.white);
 
         spdL.setFont(new Font("Arial", Font.PLAIN, 12));
-        spdL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (130), buttonW, buttonH);
+        spdL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (115), buttonW, buttonH);
         spdL.setForeground(Color.white);
 
         lckL.setFont(new Font("Arial", Font.PLAIN, 12));
-        lckL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (145), buttonW, buttonH);
+        lckL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (130), buttonW, buttonH);
         lckL.setForeground(Color.white);
 
         xpL.setFont(new Font("Arial", Font.PLAIN, 12));
-        xpL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (160), buttonW, buttonH);
+        xpL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (145), buttonW, buttonH);
         xpL.setForeground(Color.white);
 
         xpToNextLevelL.setFont(new Font("Arial", Font.PLAIN, 12));
-        xpToNextLevelL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (175), buttonW, buttonH);
+        xpToNextLevelL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (160), buttonW, buttonH);
         xpToNextLevelL.setForeground(Color.white);
 
         // equipment label
         mainWeaponL.setFont(new Font("Arial", Font.PLAIN, 12));
-        mainWeaponL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (25), buttonW, buttonH);
+        mainWeaponL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (10), buttonW, buttonH);
         mainWeaponL.setForeground(Color.white);
 
         offHandL.setFont(new Font("Arial", Font.PLAIN, 12));
-        offHandL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (40), buttonW, buttonH);
+        offHandL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (25), buttonW, buttonH);
         offHandL.setForeground(Color.white);
 
         headL.setFont(new Font("Arial", Font.PLAIN, 12));
-        headL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (55), buttonW, buttonH);
+        headL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (40), buttonW, buttonH);
         headL.setForeground(Color.white);
 
         neckL.setFont(new Font("Arial", Font.PLAIN, 12));
-        neckL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (70), buttonW, buttonH);
+        neckL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (55), buttonW, buttonH);
         neckL.setForeground(Color.white);
 
         chestL.setFont(new Font("Arial", Font.PLAIN, 12));
-        chestL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (85), buttonW, buttonH);
+        chestL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (70), buttonW, buttonH);
         chestL.setForeground(Color.white);
 
         handsL.setFont(new Font("Arial", Font.PLAIN, 12));
-        handsL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (100), buttonW, buttonH);
+        handsL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (85), buttonW, buttonH);
         handsL.setForeground(Color.white);
 
         ringL.setFont(new Font("Arial", Font.PLAIN, 12));
-        ringL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (115), buttonW, buttonH);
+        ringL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (100), buttonW, buttonH);
         ringL.setForeground(Color.white);
 
         beltL.setFont(new Font("Arial", Font.PLAIN, 12));
-        beltL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (130), buttonW, buttonH);
+        beltL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (115), buttonW, buttonH);
         beltL.setForeground(Color.white);
 
         legsL.setFont(new Font("Arial", Font.PLAIN, 12));
-        legsL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (145), buttonW, buttonH);
+        legsL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (130), buttonW, buttonH);
         legsL.setForeground(Color.white);
 
         feetL.setFont(new Font("Arial", Font.PLAIN, 12));
-        feetL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (160), buttonW, buttonH);
+        feetL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (145), buttonW, buttonH);
         feetL.setForeground(Color.white);
 
         backL.setFont(new Font("Arial", Font.PLAIN, 12));
-        backL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (175), buttonW, buttonH);
+        backL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (160), buttonW, buttonH);
         backL.setForeground(Color.white);
 
         // add data to frame
+        frame.getContentPane().add(deleteCharacter);
         frame.getContentPane().add(createNewCharacter);
         frame.getContentPane().add(loadData);
         frame.getContentPane().add(saveData);
@@ -319,6 +330,34 @@ public class StatUI
             {
                 createNewCharacter.setEnabled(false);
             }
+        });
+
+        // delete character selected
+        deleteCharacter.addActionListener(e ->
+        {
+
+
+            JSONObject ob;
+
+            File dataFile = new File("saveData.json");
+            try {
+                ob = (JSONObject) new JSONParser().parse(new FileReader(dataFile));
+            } catch (IOException | ParseException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            ob.remove(Integer.toString(characterBox.getSelectedIndex()));
+            Player.characters[characterBox.getSelectedIndex()] = (null);
+
+            for(int i = characterBox.getSelectedIndex(); i < Player.characters.length-1; i++)
+            {
+                Player.characters[i] = Player.characters[i+1];
+            }
+            characterBox.removeItemAt(characterBox.getSelectedIndex());
+
+            System.out.println(ob.get("1"));
+
+
         });
 
         // load saved character data
@@ -683,6 +722,7 @@ public class StatUI
     static Button saveData = new Button("Save");
     static Button loadData = new Button("Load");
     static Button createNewCharacter = new Button("New Player");
+    static Button deleteCharacter = new Button("Delete Player");
 
     // pulled stat
     static JLabel name = new JLabel("");
