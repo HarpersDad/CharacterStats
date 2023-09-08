@@ -9,6 +9,25 @@ import java.io.*;
 
 public class Save
 {
+    // checks if there is a save file present
+    static void checkFile()
+    {
+        // sets the delete button to false at start
+        StatUI.deleteCharacter.setEnabled(false);
+
+        // sets file from path
+        File f = new File("saveData.json");
+
+        // checks if the file is present and sets buttons accordingly
+        if(f.exists())
+        {
+            StatUI.loadData.setEnabled(true);
+            StatUI.createNewCharacter.setEnabled(false);
+        }
+        else {
+            StatUI.loadData.setEnabled(false);
+        }
+    }
     // saves character data to array
     static void saveStats(Player player, int position)
     {

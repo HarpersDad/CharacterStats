@@ -1,6 +1,9 @@
 // Enemy Class
 public class Enemy
 {
+    // uses the Enemy class to create new enemies with the given name and type
+    // static Enemy enemy = new Enemy("Bird", "flyer");
+
     // Enemy constructor
     Enemy(String name, String type)
     {
