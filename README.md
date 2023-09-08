@@ -42,6 +42,7 @@ Equipment Description<br>
 - fixed an equipment issue that added gear buffs more than once.<br>
 - ui now shows the amount of gold that the selected player is holding.<br>
 - changed ui background to be blue with white text.<br>
+- character deletion, the delete button deletes the selected character.<br>
 
 <h2>Issues</h2>
 
