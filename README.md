@@ -1,12 +1,12 @@
 # Character Stats
 On startup<br>
-![onLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/9450f1df-c481-407b-8c54-62e73b01e1c3)<br>
+![onStart](https://github.com/HarpersDad/CharacterStats/assets/42348662/ee5e9db4-34c6-4e74-9486-7bd6a3256c35)<br>
 Pressing load if there is saved data present<br>
-![pressLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/92c3db68-057b-4330-9394-35b21be062e6)<br>
+![onLoad](https://github.com/HarpersDad/CharacterStats/assets/42348662/e76ba074-662d-4fd9-b37d-a6d8c2ac724e)<br>
 Creating a new character<br>
-![newChar](https://github.com/HarpersDad/CharacterStats/assets/42348662/03a47866-cb6e-49ef-bda1-4b92756232b6)<br>
+![onCreate](https://github.com/HarpersDad/CharacterStats/assets/42348662/2f6bec41-a3a1-422f-aa55-e377494fc355)<br>
 Equipment Description<br>
-![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/7acac0a6-b7c8-4ad5-be4e-cf43097029dc)<br>
+![equipmentDescription](https://github.com/HarpersDad/CharacterStats/assets/42348662/b06ae2c9-3669-445a-a87b-f4649a75b998)<br>
 
 <h2>About</h2>
 
