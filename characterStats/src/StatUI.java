@@ -23,222 +23,75 @@ public class StatUI
         frame.getContentPane().setBackground(Color.getHSBColor(0.66f,.80f,.80f));
 
         // set bounds for buttons and combo boxes
-        characterBox.setBounds((x/4) - buttonW/4 + 5, (y/4) - (80), 80, 20);
+        characterBox.setBounds((x/4) - 300/4 + 5, (y/4) - (80), 80, 20);
         levelUpButton.setBounds(x/4 - 80, (y/4) + 225, 160,25);
-        saveData.setBounds((x/4) - buttonW/3 + 5, (y/4) - 25, 80,25);
-        loadData.setBounds((x/4) - buttonW/3 + 5, (y/4) + 10, 80,25);
-        createNewCharacter.setBounds((x/4) - buttonW/3 + 120, (y/4) - (25), 80,25);
-        deleteCharacter.setBounds((x/4) - buttonW/3 + 120, (y/4) + 10, 80,25);
+        saveData.setBounds((x/4) - 300/3 + 5, (y/4) - 25, 80,25);
+        loadData.setBounds((x/4) - 300/3 + 5, (y/4) + 10, 80,25);
+        createNewCharacter.setBounds((x/4) - 300/3 + 120, (y/4) - (25), 80,25);
+        deleteCharacter.setBounds((x/4) - 300/3 + 120, (y/4) + 10, 80,25);
 
         // character data block
-        sex.setFont(new Font("Arial", Font.PLAIN, 12));
-        sex.setBounds((x/4) + 75, (y/4) - (100), buttonW, buttonH);
-        sex.setForeground(Color.white);
+        setLabelBounds(sex, (x/4) + 75, (y/4) - (60), jLabelW, jLabelH);
+        setLabelBounds(job, (x/4) + 75, (y/4) - (80), jLabelW, jLabelH);
+        setLabelBounds(level, (x/4) - 300/4 + 35, (y/4) - (60), jLabelW, jLabelH);
 
-        job.setFont(new Font("Arial", Font.PLAIN, 12));
-        job.setBounds((x/4) + 75, (y/4) - 120, buttonW, buttonH);
-        job.setForeground(Color.white);
-
-        level.setFont(new Font("Arial", Font.PLAIN, 12));
-        level.setBounds((x/4) - buttonW/4 + 35, (y/4) - (100), buttonW, buttonH);
-        level.setForeground(Color.white);
-
-        // character attributes
-        gold.setFont(new Font("Arial", Font.PLAIN, 12));
-        gold.setBounds((x/4) - buttonW/4, (y/4) + (10), buttonW, buttonH);
-        gold.setForeground(Color.white);
-
-        status.setFont(new Font("Arial", Font.PLAIN, 12));
-        status.setBounds((x/4) - buttonW/4, (y/4) + (25), buttonW, buttonH);
-        status.setForeground(Color.white);
-
-        hp.setFont(new Font("Arial", Font.PLAIN, 12));
-        hp.setBounds((x/4) - buttonW/4, (y/4) + (40), buttonW, buttonH);
-        hp.setForeground(Color.white);
-
-        str.setFont(new Font("Arial", Font.PLAIN, 12));
-        str.setBounds((x/4) - buttonW/4, (y/4) + (55), buttonW, buttonH);
-        str.setForeground(Color.white);
-
-        def.setFont(new Font("Arial", Font.PLAIN, 12));
-        def.setBounds((x/4) - buttonW/4, (y/4) + (70), buttonW, buttonH);
-        def.setForeground(Color.white);
-
-        con.setFont(new Font("Arial", Font.PLAIN, 12));
-        con.setBounds((x/4) - buttonW/4, (y/4) + (85), buttonW, buttonH);
-        con.setForeground(Color.white);
-
-        wis.setFont(new Font("Arial", Font.PLAIN, 12));
-        wis.setBounds((x/4) - buttonW/4, (y/4) + (100), buttonW, buttonH);
-        wis.setForeground(Color.white);
-
-        spd.setFont(new Font("Arial", Font.PLAIN, 12));
-        spd.setBounds((x/4) - buttonW/4, (y/4) + (115), buttonW, buttonH);
-        spd.setForeground(Color.white);
-
-        lck.setFont(new Font("Arial", Font.PLAIN, 12));
-        lck.setBounds((x/4) - buttonW/4, (y/4) + (130), buttonW, buttonH);
-        lck.setForeground(Color.white);
-
-        xp.setFont(new Font("Arial", Font.PLAIN, 12));
-        xp.setBounds((x/4) - buttonW/4, (y/4) + (145), buttonW, buttonH);
-        xp.setForeground(Color.white);
-
-        xpToNextLevel.setFont(new Font("Arial", Font.PLAIN, 12));
-        xpToNextLevel.setBounds((x/4) - buttonW/4, (y/4) + (160), buttonW, buttonH);
-        xpToNextLevel.setForeground(Color.white);
+        // stat block
+        setLabelBounds(gold, (x/4) - 300/4, (y/4) + (50), jLabelW, jLabelH);
+        setLabelBounds(status, (x/4) - 300/4, (y/4) + (65), jLabelW, jLabelH);
+        setLabelBounds(hp, (x/4) - 300/4, (y/4) + 80, jLabelW, jLabelH);
+        setLabelBounds(str, (x/4) - 300/4, (y/4) + (95), jLabelW, jLabelH);
+        setLabelBounds(def, (x/4) - 300/4, (y/4) + (110), jLabelW, jLabelH);
+        setLabelBounds(con, (x/4) - 300/4, (y/4) + (125), jLabelW, jLabelH);
+        setLabelBounds(wis, (x/4) - 300/4, (y/4) + (140), jLabelW, jLabelH);
+        setLabelBounds(spd, (x/4) - 300/4, (y/4) + (155), jLabelW, jLabelH);
+        setLabelBounds(lck, (x/4) - 300/4, (y/4) + (170), jLabelW, jLabelH);
+        setLabelBounds(xp, (x/4) - 300/4, (y/4) + (185), jLabelW, jLabelH);
+        setLabelBounds(xpToNextLevel, (x/4) - 300/4, (y/4) + (200), jLabelW, jLabelH);
 
         // equipment
-        mainWeapon.setFont(new Font("Arial", Font.PLAIN, 12));
-        mainWeapon.setBounds((x/2) - buttonW/4 - 20, (y/4) + (50), jLabelW, jLabelH);
-        mainWeapon.setForeground(Color.white);
-
-        offHand.setFont(new Font("Arial", Font.PLAIN, 12));
-        offHand.setBounds((x/2) - buttonW/4 - 20, (y/4) + (65), jLabelW, jLabelH);
-        offHand.setForeground(Color.white);
-
-        head.setFont(new Font("Arial", Font.PLAIN, 12));
-        head.setBounds((x/2) - buttonW/4 - 20, (y/4) + (80), jLabelW, jLabelH);
-        head.setForeground(Color.white);
-
-        neck.setFont(new Font("Arial", Font.PLAIN, 12));
-        neck.setBounds((x/2) - buttonW/4 - 20, (y/4) + (95), jLabelW, jLabelH);
-        neck.setForeground(Color.white);
-
-        chest.setFont(new Font("Arial", Font.PLAIN, 12));
-        chest.setBounds((x/2) - buttonW/4 - 20, (y/4) + (110), jLabelW, jLabelH);
-        chest.setForeground(Color.white);
-
-        hands.setFont(new Font("Arial", Font.PLAIN, 12));
-        hands.setBounds((x/2) - buttonW/4 - 20, (y/4) + (125), jLabelW, jLabelH);
-        hands.setForeground(Color.white);
-
-        ring.setFont(new Font("Arial", Font.PLAIN, 12));
-        ring.setBounds((x/2) - buttonW/4 - 20, (y/4) + (140), jLabelW, jLabelH);
-        ring.setForeground(Color.white);
-
-        belt.setFont(new Font("Arial", Font.PLAIN, 12));
-        belt.setBounds((x/2) - buttonW/4 - 20, (y/4) + (155), jLabelW, jLabelH);
-        belt.setForeground(Color.white);
-
-        legs.setFont(new Font("Arial", Font.PLAIN, 12));
-        legs.setBounds((x/2) - buttonW/4 - 20, (y/4) + (170), jLabelW, jLabelH);
-        legs.setForeground(Color.white);
-
-        feet.setFont(new Font("Arial", Font.PLAIN, 12));
-        feet.setBounds((x/2) - buttonW/4 - 20, (y/4) + (185), jLabelW, jLabelH);
-        feet.setForeground(Color.white);
-
-        back.setFont(new Font("Arial", Font.PLAIN, 12));
-        back.setBounds((x/2) - buttonW/4 - 20, (y/4) + (200), jLabelW, jLabelH);
-        back.setForeground(Color.white);
+        setLabelBounds(mainWeapon, (x/2) - 300/4 - 20, (y/4) + (50), jLabelW, jLabelH);
+        setLabelBounds(offHand, (x/2) - 300/4 - 20, (y/4) + (65), jLabelW, jLabelH);
+        setLabelBounds(head, (x/2) - 300/4 - 20, (y/4) + 80, jLabelW, jLabelH);
+        setLabelBounds(neck, (x/2) - 300/4 - 20, (y/4) + (95), jLabelW, jLabelH);
+        setLabelBounds(chest, (x/2) - 300/4 - 20, (y/4) + (110), jLabelW, jLabelH);
+        setLabelBounds(hands, (x/2) - 300/4 - 20, (y/4) + (125), jLabelW, jLabelH);
+        setLabelBounds(ring, (x/2) - 300/4 - 20, (y/4) + (140), jLabelW, jLabelH);
+        setLabelBounds(belt, (x/2) - 300/4 - 20, (y/4) + (155), jLabelW, jLabelH);
+        setLabelBounds(legs, (x/2) - 300/4 - 20, (y/4) + (170), jLabelW, jLabelH);
+        setLabelBounds(feet, (x/2) - 300/4 - 20, (y/4) + (185), jLabelW, jLabelH);
+        setLabelBounds(back, (x/2) - 300/4 - 20, (y/4) + (200), jLabelW, jLabelH);
 
         // top block labels
-        nameL.setFont(new Font("Arial", Font.PLAIN, 12));
-        nameL.setBounds((x/4) - buttonW/3 - 15, (y/4) - (120), buttonW, buttonH);
-        nameL.setForeground(Color.white);
-
-        sexL.setFont(new Font("Arial", Font.PLAIN, 12));
-        sexL.setBounds((x/4) - buttonW/3 + 130, (y/4) - (100), buttonW, buttonH);
-        sexL.setForeground(Color.white);
-
-        jobL.setFont(new Font("Arial", Font.PLAIN, 12));
-        jobL.setBounds((x/4) - buttonW/3 + 130, (y/4) - (120), buttonW, buttonH);
-        jobL.setForeground(Color.white);
-
-        levelL.setFont(new Font("Arial", Font.PLAIN, 12));
-        levelL.setBounds((x/4) - buttonW/3 - 15, (y/4) - (100), buttonW, buttonH);
-        levelL.setForeground(Color.white);
+        setLabelBounds(nameL, (x/4) - 300/3 - 15, (y/4) - (80), jLabelW, jLabelH);
+        setLabelBounds(sexL, (x/4) - 300/3 + 130, (y/4) - (60), jLabelW, jLabelH);
+        setLabelBounds(jobL, (x/4) - 300/3 + 130, (y/4) - (80), jLabelW, jLabelH);
+        setLabelBounds(levelL, (x/4) - 300/3 - 15, (y/4) - (60), jLabelW, jLabelH);
 
         // lower block labels
-        goldL.setFont(new Font("Arial", Font.PLAIN, 12));
-        goldL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (10), buttonW, buttonH);
-        goldL.setForeground(Color.white);
-
-        statusL.setFont(new Font("Arial", Font.PLAIN, 12));
-        statusL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (25), buttonW, buttonH);
-        statusL.setForeground(Color.white);
-
-        hpL.setFont(new Font("Arial", Font.PLAIN, 12));
-        hpL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (40), buttonW, buttonH);
-        hpL.setForeground(Color.white);
-
-        strL.setFont(new Font("Arial", Font.PLAIN, 12));
-        strL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (55), buttonW, buttonH);
-        strL.setForeground(Color.white);
-
-        defL.setFont(new Font("Arial", Font.PLAIN, 12));
-        defL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (70), buttonW, buttonH);
-        defL.setForeground(Color.white);
-
-        conL.setFont(new Font("Arial", Font.PLAIN, 12));
-        conL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (85), buttonW, buttonH);
-        conL.setForeground(Color.white);
-
-        wisL.setFont(new Font("Arial", Font.PLAIN, 12));
-        wisL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (100), buttonW, buttonH);
-        wisL.setForeground(Color.white);
-
-        spdL.setFont(new Font("Arial", Font.PLAIN, 12));
-        spdL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (115), buttonW, buttonH);
-        spdL.setForeground(Color.white);
-
-        lckL.setFont(new Font("Arial", Font.PLAIN, 12));
-        lckL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (130), buttonW, buttonH);
-        lckL.setForeground(Color.white);
-
-        xpL.setFont(new Font("Arial", Font.PLAIN, 12));
-        xpL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (145), buttonW, buttonH);
-        xpL.setForeground(Color.white);
-
-        xpToNextLevelL.setFont(new Font("Arial", Font.PLAIN, 12));
-        xpToNextLevelL.setBounds((x/4) - buttonW/3 - 25, (y/4) + (160), buttonW, buttonH);
-        xpToNextLevelL.setForeground(Color.white);
+        setLabelBounds(goldL, (x/4) - 300/3 - 25, (y/4) + (50), jLabelW, jLabelH);
+        setLabelBounds(statusL, (x/4) - 300/3 - 25, (y/4) + (65), jLabelW, jLabelH);
+        setLabelBounds(hpL, (x/4) - 300/3 - 25, (y/4) + (80), jLabelW, jLabelH);
+        setLabelBounds(strL, (x/4) - 300/3 - 25, (y/4) + (95), jLabelW, jLabelH);
+        setLabelBounds(defL, (x/4) - 300/3 - 25, (y/4) + (110), jLabelW, jLabelH);
+        setLabelBounds(conL, (x/4) - 300/3 - 25, (y/4) + (125), jLabelW, jLabelH);
+        setLabelBounds(wisL, (x/4) - 300/3 - 25, (y/4) + (140), jLabelW, jLabelH);
+        setLabelBounds(spdL, (x/4) - 300/3 - 25, (y/4) + (155), jLabelW, jLabelH);
+        setLabelBounds(lckL, (x/4) - 300/3 - 25, (y/4) + (170), jLabelW, jLabelH);
+        setLabelBounds(xpL, (x/4) - 300/3 - 25, (y/4) + (185), jLabelW, jLabelH);
+        setLabelBounds(xpToNextLevelL, (x/4) - 300/3 - 25, (y/4) + (200), jLabelW, jLabelH);
 
         // equipment label
-        mainWeaponL.setFont(new Font("Arial", Font.PLAIN, 12));
-        mainWeaponL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (10), buttonW, buttonH);
-        mainWeaponL.setForeground(Color.white);
-
-        offHandL.setFont(new Font("Arial", Font.PLAIN, 12));
-        offHandL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (25), buttonW, buttonH);
-        offHandL.setForeground(Color.white);
-
-        headL.setFont(new Font("Arial", Font.PLAIN, 12));
-        headL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (40), buttonW, buttonH);
-        headL.setForeground(Color.white);
-
-        neckL.setFont(new Font("Arial", Font.PLAIN, 12));
-        neckL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (55), buttonW, buttonH);
-        neckL.setForeground(Color.white);
-
-        chestL.setFont(new Font("Arial", Font.PLAIN, 12));
-        chestL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (70), buttonW, buttonH);
-        chestL.setForeground(Color.white);
-
-        handsL.setFont(new Font("Arial", Font.PLAIN, 12));
-        handsL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (85), buttonW, buttonH);
-        handsL.setForeground(Color.white);
-
-        ringL.setFont(new Font("Arial", Font.PLAIN, 12));
-        ringL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (100), buttonW, buttonH);
-        ringL.setForeground(Color.white);
-
-        beltL.setFont(new Font("Arial", Font.PLAIN, 12));
-        beltL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (115), buttonW, buttonH);
-        beltL.setForeground(Color.white);
-
-        legsL.setFont(new Font("Arial", Font.PLAIN, 12));
-        legsL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (130), buttonW, buttonH);
-        legsL.setForeground(Color.white);
-
-        feetL.setFont(new Font("Arial", Font.PLAIN, 12));
-        feetL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (145), buttonW, buttonH);
-        feetL.setForeground(Color.white);
-
-        backL.setFont(new Font("Arial", Font.PLAIN, 12));
-        backL.setBounds((x/2) - buttonW/3 - 55, (y/4) + (160), buttonW, buttonH);
-        backL.setForeground(Color.white);
+        setLabelBounds(mainWeaponL, (x/2) - 300/3 - 55, (y/4) + (50), jLabelW, jLabelH);
+        setLabelBounds(offHandL, (x/2) - 300/3 - 55, (y/4) + (65), jLabelW, jLabelH);
+        setLabelBounds(headL, (x/2) - 300/3 - 55, (y/4) + 80, jLabelW, jLabelH);
+        setLabelBounds(neckL, (x/2) - 300/3 - 55, (y/4) + (95), jLabelW, jLabelH);
+        setLabelBounds(chestL, (x/2) - 300/3 - 55, (y/4) + (110), jLabelW, jLabelH);
+        setLabelBounds(handsL, (x/2) - 300/3 - 55, (y/4) + (125), jLabelW, jLabelH);
+        setLabelBounds(ringL, (x/2) - 300/3 - 55, (y/4) + (140), jLabelW, jLabelH);
+        setLabelBounds(beltL, (x/2) - 300/3 - 55, (y/4) + (155), jLabelW, jLabelH);
+        setLabelBounds(legsL, (x/2) - 300/3 - 55, (y/4) + (170), jLabelW, jLabelH);
+        setLabelBounds(feetL, (x/2) - 300/3 - 55, (y/4) + (185), jLabelW, jLabelH);
+        setLabelBounds(backL, (x/2) - 300/3 - 55, (y/4) + (200), jLabelW, jLabelH);
 
         // add data to frame
         frame.getContentPane().add(deleteCharacter);
@@ -247,67 +100,6 @@ public class StatUI
         frame.getContentPane().add(saveData);
         frame.getContentPane().add(levelUpButton);
         frame.getContentPane().add(characterBox);
-
-        // removed so that the character combo-box could be used instead for the name
-        //frame.getContentPane().add(name);
-
-        frame.getContentPane().add(sex);
-        frame.getContentPane().add(job);
-        frame.getContentPane().add(level);
-        frame.getContentPane().add(gold);
-        frame.getContentPane().add(status);
-        frame.getContentPane().add(hp);
-        frame.getContentPane().add(str);
-        frame.getContentPane().add(def);
-        frame.getContentPane().add(con);
-        frame.getContentPane().add(wis);
-        frame.getContentPane().add(spd);
-        frame.getContentPane().add(lck);
-        frame.getContentPane().add(xp);
-        frame.getContentPane().add(xpToNextLevel);
-
-        // equipment pulled
-        frame.getContentPane().add(mainWeapon);
-        frame.getContentPane().add(offHand);
-        frame.getContentPane().add(head);
-        frame.getContentPane().add(neck);
-        frame.getContentPane().add(chest);
-        frame.getContentPane().add(hands);
-        frame.getContentPane().add(ring);
-        frame.getContentPane().add(belt);
-        frame.getContentPane().add(legs);
-        frame.getContentPane().add(feet);
-        frame.getContentPane().add(back);
-
-        // add data labels to frame
-        frame.getContentPane().add(nameL);
-        frame.getContentPane().add(sexL);
-        frame.getContentPane().add(jobL);
-        frame.getContentPane().add(levelL);
-        frame.getContentPane().add(goldL);
-        frame.getContentPane().add(statusL);
-        frame.getContentPane().add(hpL);
-        frame.getContentPane().add(strL);
-        frame.getContentPane().add(defL);
-        frame.getContentPane().add(conL);
-        frame.getContentPane().add(wisL);
-        frame.getContentPane().add(spdL);
-        frame.getContentPane().add(lckL);
-        frame.getContentPane().add(xpL);
-        frame.getContentPane().add(xpToNextLevelL);
-
-        // add equipment labels to frame
-        frame.getContentPane().add(mainWeaponL);
-        frame.getContentPane().add(offHandL);
-        frame.getContentPane().add(headL);
-        frame.getContentPane().add(neckL);
-        frame.getContentPane().add(chestL);
-        frame.getContentPane().add(handsL);
-        frame.getContentPane().add(ringL);
-        frame.getContentPane().add(beltL);
-        frame.getContentPane().add(legsL);
-        frame.getContentPane().add(feetL);
-        frame.getContentPane().add(backL);
 
         frame.setResizable(false);
 
@@ -480,6 +272,15 @@ public class StatUI
             // calls the method
             getEquipInfo();
         });
+    }
+
+    // create and set character data labels
+    public static void setLabelBounds(JLabel myLabel, int x, int y, int w, int h)
+    {
+        myLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+        myLabel.setBounds(x, y, w, h);
+        myLabel.setForeground(Color.white);
+        frame.getContentPane().add(myLabel);
     }
 
     // adds character names to the combo-box from the character array in Main
@@ -714,8 +515,6 @@ public class StatUI
     static JFrame frame = new JFrame("");
     static int x = 600;
     static int y = 400;
-    static int buttonH = 100;
-    static int buttonW = 300;
     static int jLabelW = 150;
     static int jLabelH = 20;
 
