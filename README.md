@@ -46,5 +46,5 @@ Equipment Description<br>
 
 <h2>Issues</h2>
 
-- none known at the moment
+- new characters do not get the correct gear when created in some instances.<br>
 
