@@ -43,8 +43,9 @@ Equipment Description<br>
 - ui now shows the amount of gold that the selected player is holding.<br>
 - changed ui background to be blue with white text.<br>
 - character deletion, the delete button deletes the selected character.<br>
+- fixed an issue where new characters do not get the correct gear when created in certain instances.<br>
 
 <h2>Issues</h2>
 
-- new characters do not get the correct gear when created in some instances.<br>
+- no known issues at the moment.<br>
 
