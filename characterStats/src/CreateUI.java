@@ -93,6 +93,7 @@ public class CreateUI
                         Objects.requireNonNull(characterEquipment.getSelectedItem()).toString()
                 );
 
+                createFrame.getContentPane().removeAll();
                 createFrame.dispose();
                 create.setEnabled(false);
                 StatUI.saveData.setEnabled(true);
@@ -101,7 +102,12 @@ public class CreateUI
             }
         });
 
-        cancelCreate.addActionListener(e -> createFrame.dispose());
+        // when canceled this closes the create window
+        cancelCreate.addActionListener(e ->
+                {
+                    createFrame.getContentPane().removeAll();
+                    createFrame.dispose();
+                });
     }
 
     // creates a new character with the defined attributes
@@ -128,7 +134,7 @@ public class CreateUI
     static int y = 225;
     static Button create = new Button("Create Player");
     static Button cancelCreate = new Button("Cancel");
-    static JTextField name = new JTextField();
+    static JTextField name = new JTextField("");
     static JComboBox<String> characterJob;
     static JComboBox<String> characterSex;
     static JComboBox<String> characterEquipment;

@@ -1,12 +1,5 @@
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class StatUI
 {
@@ -24,11 +17,22 @@ public class StatUI
 
         // set bounds for buttons and combo boxes
         characterBox.setBounds((x/4) - 300/4 + 5, (y/4) - (80), 80, 20);
+        frame.getContentPane().add(characterBox);
+
         levelUpButton.setBounds(x/4 - 80, (y/4) + 225, 160,25);
+        frame.getContentPane().add(levelUpButton);
+
         saveData.setBounds((x/4) - 300/3 + 5, (y/4) - 25, 80,25);
+        frame.getContentPane().add(saveData);
+
         loadData.setBounds((x/4) - 300/3 + 5, (y/4) + 10, 80,25);
+        frame.getContentPane().add(loadData);
+
         createNewCharacter.setBounds((x/4) - 300/3 + 120, (y/4) - (25), 80,25);
+        frame.getContentPane().add(createNewCharacter);
+
         deleteCharacter.setBounds((x/4) - 300/3 + 120, (y/4) + 10, 80,25);
+        frame.getContentPane().add(deleteCharacter);
 
         // character data block
         setLabelBounds(sex, (x/4) + 75, (y/4) - (60), jLabelW, jLabelH);
@@ -93,16 +97,7 @@ public class StatUI
         setLabelBounds(feetL, (x/2) - 300/3 - 55, (y/4) + (185), jLabelW, jLabelH);
         setLabelBounds(backL, (x/2) - 300/3 - 55, (y/4) + (200), jLabelW, jLabelH);
 
-        // add data to frame
-        frame.getContentPane().add(deleteCharacter);
-        frame.getContentPane().add(createNewCharacter);
-        frame.getContentPane().add(loadData);
-        frame.getContentPane().add(saveData);
-        frame.getContentPane().add(levelUpButton);
-        frame.getContentPane().add(characterBox);
-
         frame.setResizable(false);
-
         frame.setLayout(null);
         frame.setVisible(true);
 
@@ -112,165 +107,37 @@ public class StatUI
         // create new character
         createNewCharacter.addActionListener(e ->
         {
-            if (Player.characters[Player.characters.length - 1] == null)
-            {
-                CreateUI.notAdded = true;
-                CreateUI.createPlayerUI();
-                CreateUI.create.setEnabled(true);
-            }
-            else
-            {
-                createNewCharacter.setEnabled(false);
-            }
+            Buttons.createCharacter();
         });
 
         // delete character selected
         deleteCharacter.addActionListener(e ->
         {
-
-
-            JSONObject ob;
-
-            File dataFile = new File("saveData.json");
-            try {
-                ob = (JSONObject) new JSONParser().parse(new FileReader(dataFile));
-            } catch (IOException | ParseException ex) {
-                throw new RuntimeException(ex);
-            }
-
-            ob.remove(Integer.toString(characterBox.getSelectedIndex()));
-            Player.characters[characterBox.getSelectedIndex()] = (null);
-
-            for(int i = characterBox.getSelectedIndex(); i < Player.characters.length-1; i++)
-            {
-                Player.characters[i] = Player.characters[i+1];
-            }
-            characterBox.removeItemAt(characterBox.getSelectedIndex());
-
-            System.out.println(ob.get("1"));
-
-
+            Buttons.deleteCharacter();
         });
 
         // load saved character data
         loadData.addActionListener(e ->
         {
-            System.out.println("loading data");
-
-            for (int i = 0; i < Player.characters.length; i++)
-            {
-                Save.loadStats(i);
-            }
-
-            Equipment.equipGear();
-
-            // keeps the combo-box from adding duplicate entries when pressing load multiple times
-            if (!resetBox)
-            {
-                characterBox.removeAllItems();
-
-                fillComboBox();
-                fillUI();
-                getEquipInfo();
-
-                resetBox = true;
-            }
-
-            saveData.setEnabled(true);
-            levelUpButton.setEnabled(true);
-            deleteCharacter.setEnabled(true);
-            createNewCharacter.setEnabled(true);
-            loadData.setEnabled(false);
+            Buttons.loadCharacterData();
         });
 
         // save character data
         saveData.addActionListener(e ->
         {
-            System.out.println("saving data");
-
-            // for loop that calls the save stat method for each available character
-            for (int i = 0; i < Player.characters.length; i++)
-            {
-                if (Player.characters[i] != null)
-                {
-                    Save.saveStats(Player.characters[i], i);
-                }
-
-                Save.saveAsJson();
-            }
+            Buttons.saveCharacterData();
         });
 
         // give character xp
         levelUpButton.addActionListener(e ->
         {
-            // adds the xp gain to the ui
-            Player.characters[characterBox.getSelectedIndex()].xp += 1;
-
-            // checks if the player has enough xp to level up
-            Player.levelUp(Player.characters[characterBox.getSelectedIndex()]);
-
-            // if the player levels up, this updates the ui to reflect the changes
-            name.setText(Player.characters[characterBox.getSelectedIndex()].name);
-            sex.setText(Player.characters[characterBox.getSelectedIndex()].sex);
-            job.setText(Player.characters[characterBox.getSelectedIndex()].job);
-            level.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].level));
-            gold.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].gold));
-            status.setText(Player.characters[characterBox.getSelectedIndex()].status);
-            hp.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].hp));
-            str.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].str));
-            def.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].def));
-            con.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].con));
-            wis.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].wis));
-            spd.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].spd));
-            lck.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].lck));
-            xp.setText(String.valueOf(Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xp)));
-
-            xpToNextLevel.setText(String.valueOf(
-                    Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xpToNextLevel)
-            ));
+            Buttons.giveXP();
         });
 
         // character selection
         characterBox.addActionListener(e ->
         {
-            // when a character is selected, this updates the stats and equipment
-            name.setText(Player.characters[characterBox.getSelectedIndex()].name);
-            sex.setText(Player.characters[characterBox.getSelectedIndex()].sex);
-            job.setText(Player.characters[characterBox.getSelectedIndex()].job);
-            level.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].level));
-            gold.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].gold));
-            status.setText(Player.characters[characterBox.getSelectedIndex()].status);
-            hp.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].hp));
-            str.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].str));
-            def.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].def));
-            con.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].con));
-            wis.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].wis));
-            spd.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].spd));
-            lck.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].lck));
-            xp.setText(String.valueOf(Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xp)));
-
-            xpToNextLevel.setText(String.valueOf(
-                    Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xpToNextLevel)
-            ));
-
-            // sets player job and equipment on creation
-            Jobs.assignJob(Player.characters[characterBox.getSelectedIndex()]);
-            Equipment.setEquipment(Player.characters[characterBox.getSelectedIndex()]);
-
-            mainWeapon.setText(Player.characters[characterBox.getSelectedIndex()].mainWeapon.name);
-            offHand.setText(Player.characters[characterBox.getSelectedIndex()].offHand.name);
-            head.setText(Player.characters[characterBox.getSelectedIndex()].head.name);
-            neck.setText(Player.characters[characterBox.getSelectedIndex()].neck.name);
-            chest.setText(Player.characters[characterBox.getSelectedIndex()].chest.name);
-            hands.setText(Player.characters[characterBox.getSelectedIndex()].hands.name);
-            ring.setText(Player.characters[characterBox.getSelectedIndex()].ring.name);
-            belt.setText(Player.characters[characterBox.getSelectedIndex()].belt.name);
-            legs.setText(Player.characters[characterBox.getSelectedIndex()].legs.name);
-            feet.setText(Player.characters[characterBox.getSelectedIndex()].feet.name);
-            back.setText(Player.characters[characterBox.getSelectedIndex()].back.name);
-
-            // calls the method
-            getEquipInfo();
+            Buttons.selectCharacter();
         });
     }
 
@@ -353,7 +220,7 @@ public class StatUI
         wis.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].wis));
         spd.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].spd));
         lck.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].lck));
-        xp.setText(String.valueOf(Variables.df.format(Player.characters[characterBox.getSelectedIndex()].xp)));
+        xp.setText(String.valueOf(Objects.df.format(Player.characters[characterBox.getSelectedIndex()].xp)));
 
         mainWeapon.setText(Player.characters[characterBox.getSelectedIndex()].mainWeapon.name);
         offHand.setText(Player.characters[characterBox.getSelectedIndex()].offHand.name);
