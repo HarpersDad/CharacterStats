@@ -16,86 +16,75 @@ public class StatUI
         frame.getContentPane().setBackground(Color.getHSBColor(0.66f,.80f,.80f));
 
         // set bounds for buttons and combo boxes
-        characterBox.setBounds((x/4) - 300/4 + 5, (y/4) - (80), 80, 20);
-        frame.getContentPane().add(characterBox);
-
-        levelUpButton.setBounds(x/4 - 80, (y/4) + 225, 160,25);
-        frame.getContentPane().add(levelUpButton);
-
-        saveData.setBounds((x/4) - 300/3 + 5, (y/4) - 25, 80,25);
-        frame.getContentPane().add(saveData);
-
-        loadData.setBounds((x/4) - 300/3 + 5, (y/4) + 10, 80,25);
-        frame.getContentPane().add(loadData);
-
-        createNewCharacter.setBounds((x/4) - 300/3 + 120, (y/4) - (25), 80,25);
-        frame.getContentPane().add(createNewCharacter);
-
-        deleteCharacter.setBounds((x/4) - 300/3 + 120, (y/4) + 10, 80,25);
-        frame.getContentPane().add(deleteCharacter);
+        UIMethods.setBoxBounds(frame, characterBox, (x/4) - 300/4 + 5, (y/4) - (80), 80, 20);
+        UIMethods.setButtonBounds(frame, levelUpButton, x/4 - 80, (y/4) + 225, 160, 25);
+        UIMethods.setButtonBounds(frame, saveData, (x/4) - 300/3 + 5, (y/4) - 25, 80, 25);
+        UIMethods.setButtonBounds(frame, loadData, (x/4) - 300/3 + 5, (y/4) + 10, 80, 25);
+        UIMethods.setButtonBounds(frame, createNewCharacter, (x/4) - 300/3 + 120, (y/4) - (25), 80, 25);
+        UIMethods.setButtonBounds(frame, deleteCharacter, (x/4) - 300/3 + 120, (y/4) + 10, 80, 25);
 
         // character data block
-        setLabelBounds(sex, (x/4) + 75, (y/4) - (60), jLabelW, jLabelH);
-        setLabelBounds(job, (x/4) + 75, (y/4) - (80), jLabelW, jLabelH);
-        setLabelBounds(level, (x/4) - 300/4 + 35, (y/4) - (60), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, sex, (x/4) + 75, (y/4) - (60), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, job, (x/4) + 75, (y/4) - (80), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, level, (x/4) - 300/4 + 35, (y/4) - (60), jLabelW, jLabelH);
 
         // stat block
-        setLabelBounds(gold, (x/4) - 300/4, (y/4) + (50), jLabelW, jLabelH);
-        setLabelBounds(status, (x/4) - 300/4, (y/4) + (65), jLabelW, jLabelH);
-        setLabelBounds(hp, (x/4) - 300/4, (y/4) + 80, jLabelW, jLabelH);
-        setLabelBounds(str, (x/4) - 300/4, (y/4) + (95), jLabelW, jLabelH);
-        setLabelBounds(def, (x/4) - 300/4, (y/4) + (110), jLabelW, jLabelH);
-        setLabelBounds(con, (x/4) - 300/4, (y/4) + (125), jLabelW, jLabelH);
-        setLabelBounds(wis, (x/4) - 300/4, (y/4) + (140), jLabelW, jLabelH);
-        setLabelBounds(spd, (x/4) - 300/4, (y/4) + (155), jLabelW, jLabelH);
-        setLabelBounds(lck, (x/4) - 300/4, (y/4) + (170), jLabelW, jLabelH);
-        setLabelBounds(xp, (x/4) - 300/4, (y/4) + (185), jLabelW, jLabelH);
-        setLabelBounds(xpToNextLevel, (x/4) - 300/4, (y/4) + (200), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, gold, (x/4) - 300/4, (y/4) + (50), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, status, (x/4) - 300/4, (y/4) + (65), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, hp, (x/4) - 300/4, (y/4) + 80, jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, str, (x/4) - 300/4, (y/4) + (95), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, def, (x/4) - 300/4, (y/4) + (110), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, con, (x/4) - 300/4, (y/4) + (125), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, wis, (x/4) - 300/4, (y/4) + (140), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, spd, (x/4) - 300/4, (y/4) + (155), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, lck, (x/4) - 300/4, (y/4) + (170), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, xp, (x/4) - 300/4, (y/4) + (185), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, xpToNextLevel, (x/4) - 300/4, (y/4) + (200), jLabelW, jLabelH);
 
         // equipment
-        setLabelBounds(mainWeapon, (x/2) - 300/4 - 20, (y/4) + (50), jLabelW, jLabelH);
-        setLabelBounds(offHand, (x/2) - 300/4 - 20, (y/4) + (65), jLabelW, jLabelH);
-        setLabelBounds(head, (x/2) - 300/4 - 20, (y/4) + 80, jLabelW, jLabelH);
-        setLabelBounds(neck, (x/2) - 300/4 - 20, (y/4) + (95), jLabelW, jLabelH);
-        setLabelBounds(chest, (x/2) - 300/4 - 20, (y/4) + (110), jLabelW, jLabelH);
-        setLabelBounds(hands, (x/2) - 300/4 - 20, (y/4) + (125), jLabelW, jLabelH);
-        setLabelBounds(ring, (x/2) - 300/4 - 20, (y/4) + (140), jLabelW, jLabelH);
-        setLabelBounds(belt, (x/2) - 300/4 - 20, (y/4) + (155), jLabelW, jLabelH);
-        setLabelBounds(legs, (x/2) - 300/4 - 20, (y/4) + (170), jLabelW, jLabelH);
-        setLabelBounds(feet, (x/2) - 300/4 - 20, (y/4) + (185), jLabelW, jLabelH);
-        setLabelBounds(back, (x/2) - 300/4 - 20, (y/4) + (200), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, mainWeapon, (x/2) - 300/4 - 20, (y/4) + (50), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, offHand, (x/2) - 300/4 - 20, (y/4) + (65), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, head, (x/2) - 300/4 - 20, (y/4) + 80, jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, neck, (x/2) - 300/4 - 20, (y/4) + (95), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, chest, (x/2) - 300/4 - 20, (y/4) + (110), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, hands, (x/2) - 300/4 - 20, (y/4) + (125), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, ring, (x/2) - 300/4 - 20, (y/4) + (140), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, belt, (x/2) - 300/4 - 20, (y/4) + (155), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, legs, (x/2) - 300/4 - 20, (y/4) + (170), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, feet, (x/2) - 300/4 - 20, (y/4) + (185), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, back, (x/2) - 300/4 - 20, (y/4) + (200), jLabelW, jLabelH);
 
         // top block labels
-        setLabelBounds(nameL, (x/4) - 300/3 - 15, (y/4) - (80), jLabelW, jLabelH);
-        setLabelBounds(sexL, (x/4) - 300/3 + 130, (y/4) - (60), jLabelW, jLabelH);
-        setLabelBounds(jobL, (x/4) - 300/3 + 130, (y/4) - (80), jLabelW, jLabelH);
-        setLabelBounds(levelL, (x/4) - 300/3 - 15, (y/4) - (60), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, nameL, (x/4) - 300/3 - 15, (y/4) - (80), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, sexL, (x/4) - 300/3 + 130, (y/4) - (60), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, jobL, (x/4) - 300/3 + 130, (y/4) - (80), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, levelL, (x/4) - 300/3 - 15, (y/4) - (60), jLabelW, jLabelH);
 
         // lower block labels
-        setLabelBounds(goldL, (x/4) - 300/3 - 25, (y/4) + (50), jLabelW, jLabelH);
-        setLabelBounds(statusL, (x/4) - 300/3 - 25, (y/4) + (65), jLabelW, jLabelH);
-        setLabelBounds(hpL, (x/4) - 300/3 - 25, (y/4) + (80), jLabelW, jLabelH);
-        setLabelBounds(strL, (x/4) - 300/3 - 25, (y/4) + (95), jLabelW, jLabelH);
-        setLabelBounds(defL, (x/4) - 300/3 - 25, (y/4) + (110), jLabelW, jLabelH);
-        setLabelBounds(conL, (x/4) - 300/3 - 25, (y/4) + (125), jLabelW, jLabelH);
-        setLabelBounds(wisL, (x/4) - 300/3 - 25, (y/4) + (140), jLabelW, jLabelH);
-        setLabelBounds(spdL, (x/4) - 300/3 - 25, (y/4) + (155), jLabelW, jLabelH);
-        setLabelBounds(lckL, (x/4) - 300/3 - 25, (y/4) + (170), jLabelW, jLabelH);
-        setLabelBounds(xpL, (x/4) - 300/3 - 25, (y/4) + (185), jLabelW, jLabelH);
-        setLabelBounds(xpToNextLevelL, (x/4) - 300/3 - 25, (y/4) + (200), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, goldL, (x/4) - 300/3 - 25, (y/4) + (50), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, statusL, (x/4) - 300/3 - 25, (y/4) + (65), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, hpL, (x/4) - 300/3 - 25, (y/4) + (80), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, strL, (x/4) - 300/3 - 25, (y/4) + (95), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, defL, (x/4) - 300/3 - 25, (y/4) + (110), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, conL, (x/4) - 300/3 - 25, (y/4) + (125), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, wisL, (x/4) - 300/3 - 25, (y/4) + (140), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, spdL, (x/4) - 300/3 - 25, (y/4) + (155), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, lckL, (x/4) - 300/3 - 25, (y/4) + (170), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, xpL, (x/4) - 300/3 - 25, (y/4) + (185), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, xpToNextLevelL, (x/4) - 300/3 - 25, (y/4) + (200), jLabelW, jLabelH);
 
         // equipment label
-        setLabelBounds(mainWeaponL, (x/2) - 300/3 - 55, (y/4) + (50), jLabelW, jLabelH);
-        setLabelBounds(offHandL, (x/2) - 300/3 - 55, (y/4) + (65), jLabelW, jLabelH);
-        setLabelBounds(headL, (x/2) - 300/3 - 55, (y/4) + 80, jLabelW, jLabelH);
-        setLabelBounds(neckL, (x/2) - 300/3 - 55, (y/4) + (95), jLabelW, jLabelH);
-        setLabelBounds(chestL, (x/2) - 300/3 - 55, (y/4) + (110), jLabelW, jLabelH);
-        setLabelBounds(handsL, (x/2) - 300/3 - 55, (y/4) + (125), jLabelW, jLabelH);
-        setLabelBounds(ringL, (x/2) - 300/3 - 55, (y/4) + (140), jLabelW, jLabelH);
-        setLabelBounds(beltL, (x/2) - 300/3 - 55, (y/4) + (155), jLabelW, jLabelH);
-        setLabelBounds(legsL, (x/2) - 300/3 - 55, (y/4) + (170), jLabelW, jLabelH);
-        setLabelBounds(feetL, (x/2) - 300/3 - 55, (y/4) + (185), jLabelW, jLabelH);
-        setLabelBounds(backL, (x/2) - 300/3 - 55, (y/4) + (200), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, mainWeaponL, (x/2) - 300/3 - 55, (y/4) + (50), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, offHandL, (x/2) - 300/3 - 55, (y/4) + (65), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, headL, (x/2) - 300/3 - 55, (y/4) + 80, jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, neckL, (x/2) - 300/3 - 55, (y/4) + (95), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, chestL, (x/2) - 300/3 - 55, (y/4) + (110), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, handsL, (x/2) - 300/3 - 55, (y/4) + (125), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, ringL, (x/2) - 300/3 - 55, (y/4) + (140), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, beltL, (x/2) - 300/3 - 55, (y/4) + (155), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, legsL, (x/2) - 300/3 - 55, (y/4) + (170), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, feetL, (x/2) - 300/3 - 55, (y/4) + (185), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(frame, backL, (x/2) - 300/3 - 55, (y/4) + (200), jLabelW, jLabelH);
 
         frame.setResizable(false);
         frame.setLayout(null);
@@ -104,278 +93,13 @@ public class StatUI
         saveData.setEnabled(false);
         levelUpButton.setEnabled(false);
 
-        // create new character
-        createNewCharacter.addActionListener(e ->
-        {
-            Buttons.createCharacter();
-        });
-
-        // delete character selected
-        deleteCharacter.addActionListener(e ->
-        {
-            Buttons.deleteCharacter();
-        });
-
-        // load saved character data
-        loadData.addActionListener(e ->
-        {
-            Buttons.loadCharacterData();
-        });
-
-        // save character data
-        saveData.addActionListener(e ->
-        {
-            Buttons.saveCharacterData();
-        });
-
-        // give character xp
-        levelUpButton.addActionListener(e ->
-        {
-            Buttons.giveXP();
-        });
-
-        // character selection
-        characterBox.addActionListener(e ->
-        {
-            Buttons.selectCharacter();
-        });
-    }
-
-    // create and set character data labels
-    public static void setLabelBounds(JLabel myLabel, int x, int y, int w, int h)
-    {
-        myLabel.setFont(new Font("Arial", Font.PLAIN, 12));
-        myLabel.setBounds(x, y, w, h);
-        myLabel.setForeground(Color.white);
-        frame.getContentPane().add(myLabel);
-    }
-
-    // adds character names to the combo-box from the character array in Main
-    static void fillComboBox()
-    {
-        if (Player.characters[0] != null)
-        {
-            characterBox.addItem(Player.characters[0].name);
-        }
-        if (Player.characters[1] != null)
-        {
-            characterBox.addItem(Player.characters[1].name);
-        }
-        if (Player.characters[2] != null)
-        {
-            characterBox.addItem(Player.characters[2].name);
-        }
-        if (Player.characters[3] != null)
-        {
-            characterBox.addItem(Player.characters[3].name);
-        }
-        if (Player.characters[4] != null)
-        {
-            characterBox.addItem(Player.characters[4].name);
-        }
-        if (Player.characters[5] != null)
-        {
-            characterBox.addItem(Player.characters[5].name);
-        }
-        if (Player.characters[6] != null)
-        {
-            characterBox.addItem(Player.characters[6].name);
-        }
-        if (Player.characters[7] != null)
-        {
-            characterBox.addItem(Player.characters[7].name);
-        }
-        if (Player.characters[8] != null)
-        {
-            characterBox.addItem(Player.characters[8].name);
-        }
-        if (Player.characters[9] != null)
-        {
-            characterBox.addItem(Player.characters[9].name);
-        }
-        if (Player.characters[10] != null)
-        {
-            characterBox.addItem(Player.characters[10].name);
-        }
-        if (Player.characters[11] != null)
-        {
-            characterBox.addItem(Player.characters[11].name);
-        }
-    }
-
-    // adds the stat and equipment data to the ui from the character array in Main
-    static void fillUI()
-    {
-        // updates ui data accordingly
-        name.setText(Player.characters[characterBox.getSelectedIndex()].name);
-        sex.setText(Player.characters[characterBox.getSelectedIndex()].sex);
-        job.setText(Player.characters[characterBox.getSelectedIndex()].job);
-        level.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].level));
-        gold.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].gold));
-        status.setText(Player.characters[characterBox.getSelectedIndex()].status);
-        hp.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].hp));
-        str.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].str));
-        def.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].def));
-        con.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].con));
-        wis.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].wis));
-        spd.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].spd));
-        lck.setText(String.valueOf(Player.characters[characterBox.getSelectedIndex()].lck));
-        xp.setText(String.valueOf(Objects.df.format(Player.characters[characterBox.getSelectedIndex()].xp)));
-
-        mainWeapon.setText(Player.characters[characterBox.getSelectedIndex()].mainWeapon.name);
-        offHand.setText(Player.characters[characterBox.getSelectedIndex()].offHand.name);
-        head.setText(Player.characters[characterBox.getSelectedIndex()].head.name);
-        neck.setText(Player.characters[characterBox.getSelectedIndex()].neck.name);
-        chest.setText(Player.characters[characterBox.getSelectedIndex()].chest.name);
-        hands.setText(Player.characters[characterBox.getSelectedIndex()].hands.name);
-        ring.setText(Player.characters[characterBox.getSelectedIndex()].ring.name);
-        belt.setText(Player.characters[characterBox.getSelectedIndex()].belt.name);
-        legs.setText(Player.characters[characterBox.getSelectedIndex()].legs.name);
-        feet.setText(Player.characters[characterBox.getSelectedIndex()].feet.name);
-        back.setText(Player.characters[characterBox.getSelectedIndex()].back.name);
-    }
-
-    // gets the equipment information for the currently selected character
-    static void getEquipInfo()
-    {
-        // weapon
-        equipmentInformation[0] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].mainWeapon.cost);
-        equipmentInformation[1] = Player.characters[characterBox.getSelectedIndex()].mainWeapon.buff;
-        equipmentInformation[2] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].mainWeapon.buffAmount);
-        equipmentInformation[3] = Player.characters[characterBox.getSelectedIndex()].mainWeapon.description;
-
-        // offhand
-        equipmentInformation[4] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].offHand.cost);
-        equipmentInformation[5] = Player.characters[characterBox.getSelectedIndex()].offHand.buff;
-        equipmentInformation[6] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].offHand.buffAmount);
-        equipmentInformation[7] = Player.characters[characterBox.getSelectedIndex()].offHand.description;
-
-        // head
-        equipmentInformation[8] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].head.cost);
-        equipmentInformation[9] = Player.characters[characterBox.getSelectedIndex()].head.buff;
-        equipmentInformation[10] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].head.buffAmount);
-        equipmentInformation[11] = Player.characters[characterBox.getSelectedIndex()].head.description;
-
-        // neck
-        equipmentInformation[12] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].neck.cost);
-        equipmentInformation[13] = Player.characters[characterBox.getSelectedIndex()].neck.buff;
-        equipmentInformation[14] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].neck.buffAmount);
-        equipmentInformation[15] = Player.characters[characterBox.getSelectedIndex()].neck.description;
-
-        // chest
-        equipmentInformation[16] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].chest.cost);
-        equipmentInformation[17] = Player.characters[characterBox.getSelectedIndex()].chest.buff;
-        equipmentInformation[18] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].chest.buffAmount);
-        equipmentInformation[19] = Player.characters[characterBox.getSelectedIndex()].chest.description;
-
-        // hands
-        equipmentInformation[20] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].hands.cost);
-        equipmentInformation[21] = Player.characters[characterBox.getSelectedIndex()].hands.buff;
-        equipmentInformation[22] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].hands.buffAmount);
-        equipmentInformation[23] = Player.characters[characterBox.getSelectedIndex()].hands.description;
-
-        // ring
-        equipmentInformation[24] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].ring.cost);
-        equipmentInformation[25] = Player.characters[characterBox.getSelectedIndex()].ring.buff;
-        equipmentInformation[26] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].ring.buffAmount);
-        equipmentInformation[27] = Player.characters[characterBox.getSelectedIndex()].ring.description;
-
-        // belt
-        equipmentInformation[28] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].belt.cost);
-        equipmentInformation[29] = Player.characters[characterBox.getSelectedIndex()].belt.buff;
-        equipmentInformation[30] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].belt.buffAmount);
-        equipmentInformation[31] = Player.characters[characterBox.getSelectedIndex()].belt.description;
-
-        // legs
-        equipmentInformation[32] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].legs.cost);
-        equipmentInformation[33] = Player.characters[characterBox.getSelectedIndex()].legs.buff;
-        equipmentInformation[34] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].legs.buffAmount);
-        equipmentInformation[35] = Player.characters[characterBox.getSelectedIndex()].legs.description;
-
-        // feet
-        equipmentInformation[36] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].feet.cost);
-        equipmentInformation[37] = Player.characters[characterBox.getSelectedIndex()].feet.buff;
-        equipmentInformation[38] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].feet.buffAmount);
-        equipmentInformation[39] = Player.characters[characterBox.getSelectedIndex()].feet.description;
-
-        // back
-        equipmentInformation[40] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].back.cost);
-        equipmentInformation[41] = Player.characters[characterBox.getSelectedIndex()].back.buff;
-        equipmentInformation[42] = Integer.toString(Player.characters[characterBox.getSelectedIndex()].back.buffAmount);
-        equipmentInformation[43] = Player.characters[characterBox.getSelectedIndex()].back.description;
-
-        // calls the method
-        setEquipInfo();
-    }
-
-    // presents the data from the above method when the cursor is over the name of the piece of equipment
-    static void setEquipInfo()
-    {
-        // main weapon
-        mainWeapon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        mainWeapon.setToolTipText("<html>Price: " + equipmentInformation[0] +
-                "<br>\nBuff: " + equipmentInformation[1] + " + " + equipmentInformation[2] +
-                "<br>\n Description: " + equipmentInformation[3] + "</html>");
-
-        // offhand
-        offHand.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        offHand.setToolTipText("<html>Price: " + equipmentInformation[4] +
-                "<br>\nBuff: " + equipmentInformation[5] + " + " + equipmentInformation[6] +
-                "<br>\n Description: " + equipmentInformation[7] + "</html>");
-
-        // head
-        head.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        head.setToolTipText("<html>Price: " + equipmentInformation[8] +
-                "<br>\nBuff: " + equipmentInformation[9] + " + " + equipmentInformation[10] +
-                "<br>\n Description: " + equipmentInformation[11] + "</html>");
-
-        // neck
-        neck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        neck.setToolTipText("<html>Price: " + equipmentInformation[12] +
-                "<br>\nBuff: " + equipmentInformation[13] + " + " + equipmentInformation[14] +
-                "<br>\n Description: " + equipmentInformation[15] + "</html>");
-
-        // chest
-        chest.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        chest.setToolTipText("<html>Price: " + equipmentInformation[16] +
-                "<br>\nBuff: " + equipmentInformation[17] + " + " + equipmentInformation[18] +
-                "<br>\n Description: " + equipmentInformation[19] + "</html>");
-
-        // hands
-        hands.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        hands.setToolTipText("<html>Price: " + equipmentInformation[20] +
-                "<br>\nBuff: " + equipmentInformation[21] + " + " + equipmentInformation[22] +
-                "<br>\n Description: " + equipmentInformation[23] + "</html>");
-
-        // ring
-        ring.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        ring.setToolTipText("<html>Price: " + equipmentInformation[24] +
-                "<br>\nBuff: " + equipmentInformation[25] + " + " + equipmentInformation[26] +
-                "<br>\n Description: " + equipmentInformation[27] + "</html>");
-
-        // belt
-        belt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        belt.setToolTipText("<html>Price: " + equipmentInformation[28] +
-                "<br>\nBuff: " + equipmentInformation[29] + " + " + equipmentInformation[30] +
-                "<br>\n Description: " + equipmentInformation[31] + "</html>");
-
-        // legs
-        legs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        legs.setToolTipText("<html>Price: " + equipmentInformation[32] +
-                "<br>\nBuff: " + equipmentInformation[33] + " + " + equipmentInformation[34] +
-                "<br>\n Description: " + equipmentInformation[35] + "</html>");
-
-        // feet
-        feet.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        feet.setToolTipText("<html>Price: " + equipmentInformation[36] +
-                "<br>\nBuff: " + equipmentInformation[37] + " + " + equipmentInformation[38] +
-                "<br>\n Description: " + equipmentInformation[39] + "</html>");
-
-        // back
-        back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        back.setToolTipText("<html>Price: " + equipmentInformation[40] +
-                "<br>\nBuff: " + equipmentInformation[41] + " + " + equipmentInformation[42] +
-                "<br>\n Description: " + equipmentInformation[43] + "</html>");
+        // action listeners for buttons
+        createNewCharacter.addActionListener(e -> Buttons.createCharacter());
+        deleteCharacter.addActionListener(e -> Buttons.deleteCharacter());
+        loadData.addActionListener(e -> Buttons.loadCharacterData());
+        saveData.addActionListener(e -> Buttons.saveCharacterData());
+        levelUpButton.addActionListener(e -> Buttons.giveXP());
+        characterBox.addActionListener(e -> Buttons.selectCharacter());
     }
 
     // ui variables

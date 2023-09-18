@@ -21,35 +21,21 @@ public class CreateUI
         createFrame.setVisible(true);
         createFrame.getContentPane().setBackground(Color.getHSBColor(0.66f,.80f,.80f));
 
-        // positions labels and boxes
-        name.setBounds(x/2 - 45, (y/2) - (110), 100, 30);
-        nameL.setBounds((x/2) - 90, (y/2) - (110), 100, 30);
-        characterJob.setBounds(x/2 - 45, (y/2) - (75), 100, 30);
-        jobL.setBounds((x/2) - 90, (y/2) - (75), 100, 30);
-        characterEquipment.setBounds(x/2 - 45, (y/2) - (40), 100, 30);
-        gearL.setBounds((x/2) - 90, (y/2) - (40), 100, 30);
-        characterSex.setBounds(x/2 - 45, y/2 - 5, 100, 30);
-        sexL.setBounds((x/2) - 90, y/2 - 5, 100, 30);
-        create.setBounds((x/2) - 110, (y/2) + 30, 100, 30);
-        cancelCreate.setBounds((x/2), (y/2) + 30, 100, 30);
+        // labels
+        UIMethods.setLabelBounds(createFrame, nameL, (x/2) - 90, (y/2) - (105), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(createFrame, jobL, (x/2) - 90, (y/2) - (70), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(createFrame, gearL, (x/2) - 90, (y/2) - (35), jLabelW, jLabelH);
+        UIMethods.setLabelBounds(createFrame, sexL, (x/2) - 90, (y/2), jLabelW, jLabelH);
 
-        // colors labels
-        nameL.setForeground(Color.white);
-        jobL.setForeground(Color.white);
-        gearL.setForeground(Color.white);
-        sexL.setForeground(Color.white);
+        // Boxes, Buttons, and Text Fields
+        UIMethods.setTextBounds(createFrame, name, x/2 - 45, (y/2) - (110), 100, 30);
 
-        // add data and labels to the frame
-        createFrame.getContentPane().add(name);
-        createFrame.getContentPane().add(nameL);
-        createFrame.getContentPane().add(characterJob);
-        createFrame.getContentPane().add(jobL);
-        createFrame.getContentPane().add(characterEquipment);
-        createFrame.getContentPane().add(gearL);
-        createFrame.getContentPane().add(characterSex);
-        createFrame.getContentPane().add(sexL);
-        createFrame.getContentPane().add(create);
-        createFrame.getContentPane().add(cancelCreate);
+        UIMethods.setBoxBounds(createFrame, characterJob, x/2 - 45, (y/2) - (75), 100, 30);
+        UIMethods.setBoxBounds(createFrame, characterEquipment, x/2 - 45, (y/2) - (40), 100, 30);
+        UIMethods.setBoxBounds(createFrame, characterSex, x/2 - 45, (y/2) - (5), 100, 30);
+
+        UIMethods.setButtonBounds(createFrame, create, (x/2) - 110, (y/2) + 30, 100, 30);
+        UIMethods.setButtonBounds(createFrame, cancelCreate, (x/2), (y/2) + 30, 100, 30);
 
         // adds data to combo box
         // populate job box
@@ -86,7 +72,7 @@ public class CreateUI
             {
                 notAdded = false;
 
-                createPlayer(
+                UIMethods.createPlayer(
                         name.getText(),
                         Objects.requireNonNull(characterJob.getSelectedItem()).toString(),
                         Objects.requireNonNull(characterSex.getSelectedItem()).toString(),
@@ -110,28 +96,12 @@ public class CreateUI
                 });
     }
 
-    // creates a new character with the defined attributes
-    public static void createPlayer(String name, String job, String sex, String equip)
-    {
-        Player player = new Player(name, job, sex, equip);
-
-        for (int i = 0; i < Player.characters.length; i++)
-        {
-            if (Player.characters[i] == null)
-            {
-                Player.characters[i] = player;
-                Player.characters[i].gearEquipped();
-                break;
-            }
-        }
-
-        StatUI.characterBox.addItem(name);
-    }
-
     // UI initialization
     static JFrame createFrame = new JFrame("");
     static int x = 300;
     static int y = 225;
+    static int jLabelW = 150;
+    static int jLabelH = 20;
     static Button create = new Button("Create Player");
     static Button cancelCreate = new Button("Cancel");
     static JTextField name = new JTextField("");

@@ -79,7 +79,7 @@ public class Buttons
         StatUI.back.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].back.name);
 
         // calls the method
-        StatUI.getEquipInfo();
+        UIMethods.getEquipInfo();
     }
 
     // function for creating a character
@@ -137,9 +137,9 @@ public class Buttons
         {
             StatUI.characterBox.removeAllItems();
 
-            StatUI.fillComboBox();
-            StatUI.fillUI();
-            StatUI.getEquipInfo();
+            UIMethods.fillComboBox();
+            UIMethods.fillUI();
+            UIMethods.getEquipInfo();
 
             StatUI.resetBox = true;
         }

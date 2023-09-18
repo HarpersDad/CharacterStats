@@ -9,7 +9,7 @@ public class Objects
     // sets the equipment values for each equippable object
     static void createEquipment()
     {
-        // cannot be enchanted
+        // cannot be enchanted - just change the false to true for canBuff
         // unequipped ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         Equipment.unEquipped = new Equipment(
                 "", "", true, 0, false, "",
