@@ -24,10 +24,12 @@ public class Save
             StatUI.loadData.setEnabled(true);
             StatUI.createNewCharacter.setEnabled(false);
         }
-        else {
+        else
+        {
             StatUI.loadData.setEnabled(false);
         }
     }
+
     // saves character data to array
     static void saveStats(Player player, int position)
     {
@@ -118,7 +120,6 @@ public class Save
         if ((JSONObject) outerJO.get(Integer.toString(position)) != null)
         {
             // get the data from the selected position and set it accordingly
-
             // sets the innerJO object to the selected position so that the character data can be referenced
             JSONObject innerJO = (JSONObject) outerJO.get(Integer.toString(position));
 
@@ -226,11 +227,6 @@ public class Save
         {
             throw new RuntimeException(e);
         }
-    }
-
-    void saveDeletion()
-    {
-
     }
 
     // variables that create objects, readers, writers, and files for the data

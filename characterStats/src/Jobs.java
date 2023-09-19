@@ -1,5 +1,6 @@
 public class Jobs
 {
+    // assigns the character's job and weapons
     static void assignJob(Player player)
     {
         // adds stats to the player based on the job chosen

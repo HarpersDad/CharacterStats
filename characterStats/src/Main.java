@@ -1,5 +1,6 @@
-// main class that creates the players and enemy units
+// main class
 public class Main
-{   // main function
+{
+    // main function
     public static void main(String[] args){ OnStart.onStart(); }
 }

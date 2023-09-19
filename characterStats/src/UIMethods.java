@@ -5,6 +5,43 @@ public class UIMethods
 {
     // functions
 
+    // get character equipment
+    public static void getEquipment()
+    {
+        StatUI.mainWeapon.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].mainWeapon.name);
+        StatUI.offHand.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].offHand.name);
+        StatUI.head.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].head.name);
+        StatUI.neck.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].neck.name);
+        StatUI.chest.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].chest.name);
+        StatUI.hands.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].hands.name);
+        StatUI.ring.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].ring.name);
+        StatUI.belt.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].belt.name);
+        StatUI.legs.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].legs.name);
+        StatUI.feet.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].feet.name);
+        StatUI.back.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].back.name);
+    }
+
+    // get character stats
+    public static void getStats()
+    {
+        // if the player levels up, this updates the ui to reflect the changes
+        StatUI.name.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].name);
+        StatUI.sex.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].sex);
+        StatUI.job.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].job);
+        StatUI.level.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].level));
+        StatUI.gold.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].gold));
+        StatUI.status.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].status);
+        StatUI.hp.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].hp));
+        StatUI.str.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].str));
+        StatUI.def.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].def));
+        StatUI.con.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].con));
+        StatUI.wis.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].wis));
+        StatUI.spd.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].spd));
+        StatUI.lck.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].lck));
+        StatUI.xp.setText(String.valueOf(Objects.df.format(Player.characters[StatUI.characterBox.getSelectedIndex()].xp)));
+        StatUI.xpToNextLevel.setText(String.valueOf(Objects.df.format(Player.characters[StatUI.characterBox.getSelectedIndex()].xpToNextLevel)));
+    }
+
     // creates a new character with the defined attributes
     public static void createPlayer(String name, String job, String sex, String equip)
     {
@@ -63,32 +100,8 @@ public class UIMethods
     static void fillUI()
     {
         // updates ui data accordingly
-        StatUI.name.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].name);
-        StatUI.sex.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].sex);
-        StatUI.job.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].job);
-        StatUI.level.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].level));
-        StatUI.gold.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].gold));
-        StatUI.status.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].status);
-        StatUI.hp.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].hp));
-        StatUI.str.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].str));
-        StatUI.def.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].def));
-        StatUI.con.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].con));
-        StatUI.wis.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].wis));
-        StatUI.spd.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].spd));
-        StatUI.lck.setText(String.valueOf(Player.characters[StatUI.characterBox.getSelectedIndex()].lck));
-        StatUI.xp.setText(String.valueOf(Objects.df.format(Player.characters[StatUI.characterBox.getSelectedIndex()].xp)));
-
-        StatUI.mainWeapon.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].mainWeapon.name);
-        StatUI.offHand.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].offHand.name);
-        StatUI.head.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].head.name);
-        StatUI.neck.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].neck.name);
-        StatUI.chest.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].chest.name);
-        StatUI.hands.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].hands.name);
-        StatUI.ring.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].ring.name);
-        StatUI.belt.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].belt.name);
-        StatUI.legs.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].legs.name);
-        StatUI.feet.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].feet.name);
-        StatUI.back.setText(Player.characters[StatUI.characterBox.getSelectedIndex()].back.name);
+        getStats();
+        getEquipment();
     }
 
     // gets the equipment information for the currently selected character
@@ -167,53 +180,12 @@ public class UIMethods
     // adds character names to the combo-box from the character array in Main
     static void fillComboBox()
     {
-        if (Player.characters[0] != null)
+        for (int i = 0; i < Player.characters.length; i++)
         {
-            StatUI.characterBox.addItem(Player.characters[0].name);
-        }
-        if (Player.characters[1] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[1].name);
-        }
-        if (Player.characters[2] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[2].name);
-        }
-        if (Player.characters[3] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[3].name);
-        }
-        if (Player.characters[4] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[4].name);
-        }
-        if (Player.characters[5] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[5].name);
-        }
-        if (Player.characters[6] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[6].name);
-        }
-        if (Player.characters[7] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[7].name);
-        }
-        if (Player.characters[8] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[8].name);
-        }
-        if (Player.characters[9] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[9].name);
-        }
-        if (Player.characters[10] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[10].name);
-        }
-        if (Player.characters[11] != null)
-        {
-            StatUI.characterBox.addItem(Player.characters[11].name);
+            if (Player.characters[i] != null)
+            {
+                StatUI.characterBox.addItem(Player.characters[i].name);
+            }
         }
     }
     static void setEquipInfo()
